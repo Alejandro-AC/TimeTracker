@@ -3,6 +3,7 @@
  */
 package projectManagement;
 
+import Interval;
 import java.util.Collection;
 
 /** 
@@ -33,5 +34,11 @@ public class Task extends Component {
 	public void setIntervals(Collection intervals) {
 		this.intervals = intervals;
 	}
+
+		
+		/**
+		 */
+		public void addInterval(Interval interval){
+		}
 
 }

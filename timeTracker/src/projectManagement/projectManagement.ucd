@@ -1,57 +1,72 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<editmodel:ClassDiagramEditModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:editmodel="editmodel.xmi" xmlns:options="options.xmi" size="1092,457" id="projectManagement" metadata="uml2-1.0" initialized="true" tag="1000" key="32303037303533312D313030302074696D65547261636B65722F6D6172636D">
-  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.1/@sourceConnections.0 //@children.2/@sourceConnections.0" name="Component" location="555,120" size="147,96" id="projectManagement/Component" runTimeClassModel="totalTime,name,description">
-    <children xsi:type="editmodel:CompartmentEditModel" size="124,54">
+<editmodel:ClassDiagramEditModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:editmodel="editmodel.xmi" xmlns:options="options.xmi" size="1092,457" id="projectManagement" metadata="uml2-1.0" initialized="true" scrolledX="78" tag="1000" key="32303037303533312D313030302074696D65547261636B65722F6D6172636D">
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.1/@sourceConnections.0 //@children.2/@sourceConnections.0" name="Component" location="505,70" size="161,142" id="projectManagement/Component" runTimeClassModel="totalTime,father,name,calculateTotalTime(),description">
+    <children xsi:type="editmodel:CompartmentEditModel" size="125,72">
       <children xsi:type="editmodel:AttributeEditModel" name="description" id="projectManagement/Component#description"/>
       <children xsi:type="editmodel:AttributeEditModel" name="name" id="projectManagement/Component#name"/>
       <children xsi:type="editmodel:AttributeEditModel" name="totalTime" id="projectManagement/Component#totalTime"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="father" id="projectManagement/Component#father"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="138,18">
+      <children xsi:type="editmodel:MethodEditModel" name="calculateTotalTime" id="projectManagement/Component#calculateTotalTime()"/>
     </children>
     <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
-    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
     <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="projectManagement/Component@components+projectManagement/Project@project" source="//@children.0" target="//@children.2" targetEnd="//@children.0/@sourceConnections.0/@children.1" label="//@children.0/@sourceConnections.0/@children.2" sourceEnd="//@children.0/@sourceConnections.0/@children.0" connectionRouterKind="Manhattan">
-      <children xsi:type="editmodel:AssociationEndEditModel" name="components" location="140,96" id="projectManagement/Component@components+projectManagement/Project@project|projectManagement/Component#components" attachSource="true" multiplicityLabel="//@children.0/@sourceConnections.0/@children.0/@children.1" roleLabel="//@children.0/@sourceConnections.0/@children.0/@children.0" aggregationKind="Aggregration" navigable="true">
-        <children xsi:type="editmodel:LabelEditModel" name=" - components" location="702,223" size="83,16" anchorKind="FirstPart"/>
-        <children xsi:type="editmodel:LabelEditModel" name="*" location="683,223" size="5,16" anchorKind="FirstPart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="components" location="151,142" id="projectManagement/Component@components+projectManagement/Project@project|projectManagement/Component#components" attachSource="true" multiplicityLabel="//@children.0/@sourceConnections.0/@children.0/@children.1" roleLabel="//@children.0/@sourceConnections.0/@children.0/@children.0" aggregationKind="Aggregration" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - components" location="566,219" size="83,16" anchorKind="FirstPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="*" location="663,219" size="5,16" anchorKind="FirstPart"/>
       </children>
-      <children xsi:type="editmodel:AssociationEndEditModel" name="project" location="5,0" id="projectManagement/Component@components+projectManagement/Project@project|projectManagement/Project#project"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="project" location="0,10" id="projectManagement/Component@components+projectManagement/Project@project|projectManagement/Project#project"/>
       <children xsi:type="editmodel:WireLabelEditModel" size="0,16" anchorKind="MiddlePart"/>
     </sourceConnections>
     <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
   </children>
-  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.3/@sourceConnections.0" name="Task" location="450,338" size="78,32" id="projectManagement/Task" runTimeClassModel="">
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.3/@sourceConnections.0" name="Task" location="450,338" size="115,70" id="projectManagement/Task" runTimeClassModel="addInterval(LprojectManagement.Interval;)">
     <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
-    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="92,18">
+      <children xsi:type="editmodel:MethodEditModel" name="addInterval" id="projectManagement/Task#addInterval(LprojectManagement.Interval;)"/>
+    </children>
     <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
     <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="projectManagement/Component&lt;-projectManagement/Task" source="//@children.1" target="//@children.0" targetEnd="//@children.1/@sourceConnections.0/@children.1" sourceEnd="//@children.1/@sourceConnections.0/@children.0" connectionRouterKind="Manual">
-      <children xsi:type="editmodel:AssociationEndEditModel" location="51,0" attachSource="true"/>
-      <children xsi:type="editmodel:AssociationEndEditModel" location="37,96"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="84,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="29,142"/>
     </sourceConnections>
     <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
   </children>
-  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.0/@sourceConnections.0" name="Project" location="690,319" size="141,70" id="projectManagement/Project" runTimeClassModel="addComponent(LprojectManagement.Component;)">
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.0/@sourceConnections.0" name="Project" location="690,319" size="161,124" id="projectManagement/Project" runTimeClassModel="removeChild(Ljava.lang.String;),calculateTotalTime(),addChild(LprojectManagement.Component;),getChild(Ljava.lang.String;)">
     <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
-    <children xsi:type="editmodel:CompartmentEditModel" size="118,18">
-      <children xsi:type="editmodel:MethodEditModel" name="addComponent" id="projectManagement/Project#addComponent(LprojectManagement.Component;)"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="138,72">
+      <children xsi:type="editmodel:MethodEditModel" name="addChild" id="projectManagement/Project#addChild(LprojectManagement.Component;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="removeChild" id="projectManagement/Project#removeChild(Ljava.lang.String;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getChild" id="projectManagement/Project#getChild(Ljava.lang.String;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="calculateTotalTime" id="projectManagement/Project#calculateTotalTime()"/>
     </children>
     <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
     <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="projectManagement/Component&lt;-projectManagement/Project" source="//@children.2" target="//@children.0" targetEnd="//@children.2/@sourceConnections.0/@children.1" sourceEnd="//@children.2/@sourceConnections.0/@children.0" connectionRouterKind="Manual">
-      <children xsi:type="editmodel:AssociationEndEditModel" location="25,0" attachSource="true"/>
-      <children xsi:type="editmodel:AssociationEndEditModel" location="147,81"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="10,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="161,127"/>
     </sourceConnections>
     <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
   </children>
-  <children xsi:type="editmodel:ClassEditModel" name="Interval" location="300,338" size="100,70" id="projectManagement/Interval" runTimeClassModel="update(Ljava.util.Observable;Ljava.lang.Object;)">
-    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
-    <children xsi:type="editmodel:CompartmentEditModel" size="70,18">
+  <children xsi:type="editmodel:ClassEditModel" name="Interval" location="300,338" size="134,178" id="projectManagement/Interval" runTimeClassModel="update(Ljava.util.Observable;Ljava.lang.Object;),endDate,totalTime,stop(),start(),calculateTime(),startDate">
+    <children xsi:type="editmodel:CompartmentEditModel" size="107,54">
+      <children xsi:type="editmodel:AttributeEditModel" name="startDate" id="projectManagement/Interval#startDate"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="endDate" id="projectManagement/Interval#endDate"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="totalTime" id="projectManagement/Interval#totalTime"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="111,72">
       <children xsi:type="editmodel:MethodEditModel" name="update" id="projectManagement/Interval#update(Ljava.util.Observable;Ljava.lang.Object;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="start" id="projectManagement/Interval#start()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="stop" id="projectManagement/Interval#stop()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="calculateTime" id="projectManagement/Interval#calculateTime()"/>
     </children>
     <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
     <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="projectManagement/Interval@intervals+projectManagement/Task@task" source="//@children.3" target="//@children.1" targetEnd="//@children.3/@sourceConnections.0/@children.1" label="//@children.3/@sourceConnections.0/@children.2" sourceEnd="//@children.3/@sourceConnections.0/@children.0" connectionRouterKind="Manhattan">
-      <children xsi:type="editmodel:AssociationEndEditModel" name="intervals" location="100,15" id="projectManagement/Interval@intervals+projectManagement/Task@task|projectManagement/Interval#intervals" attachSource="true" multiplicityLabel="//@children.3/@sourceConnections.0/@children.0/@children.1" roleLabel="//@children.3/@sourceConnections.0/@children.0/@children.0" aggregationKind="Aggregration" navigable="true">
-        <children xsi:type="editmodel:LabelEditModel" name=" - intervals" location="407,330" size="59,16" anchorKind="FirstPart"/>
-        <children xsi:type="editmodel:LabelEditModel" name="*" location="407,360" size="5,16" anchorKind="FirstPart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="intervals" location="134,34" id="projectManagement/Interval@intervals+projectManagement/Task@task|projectManagement/Interval#intervals" attachSource="true" multiplicityLabel="//@children.3/@sourceConnections.0/@children.0/@children.1" roleLabel="//@children.3/@sourceConnections.0/@children.0/@children.0" aggregationKind="Aggregration" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - intervals" location="441,349" size="59,16" anchorKind="FirstPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="*" location="441,379" size="5,16" anchorKind="FirstPart"/>
       </children>
-      <children xsi:type="editmodel:AssociationEndEditModel" name="task" location="0,15" id="projectManagement/Interval@intervals+projectManagement/Task@task|projectManagement/Task#task"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="task" location="0,34" id="projectManagement/Interval@intervals+projectManagement/Task@task|projectManagement/Task#task"/>
       <children xsi:type="editmodel:WireLabelEditModel" size="0,16" anchorKind="MiddlePart"/>
     </sourceConnections>
     <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
@@ -66,7 +81,7 @@
     </sourceConnections>
     <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
   </children>
-  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.4/@sourceConnections.0" name="Observable" location="104,60" size="147,212" id="java.util/Observable">
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.4/@sourceConnections.0" name="Observable" location="104,60" size="147,212" id="java.util/Observable" runTimeClassModel="deleteObserver(Ljava.util.Observer;),deleteObservers(),Observable(),hasChanged(),addObserver(Ljava.util.Observer;),notifyObservers(),notifyObservers(Ljava.lang.Object;),countObservers()">
     <children xsi:type="editmodel:CompartmentEditModel"/>
     <children xsi:type="editmodel:CompartmentEditModel" size="124,144">
       <children xsi:type="editmodel:MethodEditModel" name="Observable" id="java.util/Observable#Observable()"/>

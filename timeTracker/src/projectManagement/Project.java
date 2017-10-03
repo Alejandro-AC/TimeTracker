@@ -3,6 +3,7 @@
  */
 package projectManagement;
 
+import Component;
 import java.util.Collection;
 
 /** 
@@ -37,7 +38,25 @@ public class Project extends Component {
 		
 		/**
 		 */
-		public void addComponent(Component son){
+		public void addChild(Component child){
 		}
 
+			
+			/**
+			 */
+			public void removeChild(String name){
+			}
+
+				
+				/**
+				 */
+				public Component getChild(String name){
+					return null;
+				}
+
+					
+					/**
+					 */
+					public void calculateTotalTime(){
+					}
 }

@@ -79,4 +79,33 @@ public abstract class Component {
 		this.totalTime = totalTime;
 	}
 
+	/**
+	 * @uml.property  name="father"
+	 */
+	private Component father = null;
+
+	/**
+	 * Getter of the property <tt>father</tt>
+	 * @return  Returns the father.
+	 * @uml.property  name="father"
+	 */
+	public Component getFather() {
+		return father;
+	}
+
+	/**
+	 * Setter of the property <tt>father</tt>
+	 * @param father  The father to set.
+	 * @uml.property  name="father"
+	 */
+	public void setFather(Component father) {
+		this.father = father;
+	}
+
+		
+		/**
+		 */
+		public void calculateTotalTime(){
+		}
+
 }
