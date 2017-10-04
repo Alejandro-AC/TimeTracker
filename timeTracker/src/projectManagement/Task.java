@@ -3,7 +3,6 @@
  */
 package projectManagement;
 
-import Interval;
 import java.util.Collection;
 
 /** 
@@ -35,10 +34,27 @@ public class Task extends Component {
 		this.intervals = intervals;
 	}
 
+	public void calculateTotalTime() {
+		// TODO Auto-generated method stub
+		
+	}
+
 		
 		/**
 		 */
 		public void addInterval(Interval interval){
 		}
+
+			
+			/**
+			 */
+			public void removeInterval(int id){
+			}
+
+				
+				/**
+				 */
+				public void getInterval(int id){
+				}
 
 }

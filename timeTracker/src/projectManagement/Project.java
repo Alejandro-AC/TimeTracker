@@ -3,7 +3,6 @@
  */
 package projectManagement;
 
-import Component;
 import java.util.Collection;
 
 /** 
@@ -35,6 +34,11 @@ public class Project extends Component {
 		this.components = components;
 	}
 
+	public void calculateTotalTime() {
+		// TODO Auto-generated method stub
+		
+	}
+
 		
 		/**
 		 */
@@ -53,10 +57,4 @@ public class Project extends Component {
 				public Component getChild(String name){
 					return null;
 				}
-
-					
-					/**
-					 */
-					public void calculateTotalTime(){
-					}
 }
