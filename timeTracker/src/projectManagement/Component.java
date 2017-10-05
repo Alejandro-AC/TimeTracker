@@ -125,16 +125,15 @@ public abstract class Component {
 		this.startDate = startDate;
 	}
 
-		
-		/**
-		 */
-		public abstract void calculateTotalTime();
+	/**
+	 */
+	public abstract void calculateTotalTime();
 
-			
-			/**
-			 */
-			public Component(String name, String description){
-			}
-		
+	/**
+	 */
+	public Component(String name, String description){
+		this.name = name;
+		this.description = description;
+	}		
 
 }

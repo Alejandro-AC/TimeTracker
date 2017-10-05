@@ -5,7 +5,6 @@ package projectManagement;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 import java.util.Scanner;
 
 /** 
@@ -19,8 +18,7 @@ public class Client {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Client c = new Client();
-		Project p = askProjectData();
-		c.addRootProject(p);
+		c.addRootProject();
 	}
 
 	/**
@@ -46,24 +44,19 @@ public class Client {
 	public void setRootProjects(Collection rootProjects) {
 		this.rootProjects = rootProjects;
 	}
-
+	
+	/** 
+	 * Function that adds a root-project to the root-project's list.
+	 */
+	public void addRootProject(){
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Introduce project name: ");
+		String name = sc.nextLine();
+		System.out.print("Introduce a description: ");
+		String description = sc.nextLine();
 		
-		/**
-		 */
-		public void addRootProject(Project rootProject){
-			this.rootProjects.add(rootProject);
-		}
-		
-		public static Project askProjectData(){
-			Scanner sc = new Scanner(System.in);
-			System.out.println("Introduce project name:");
-			String name = sc.nextLine();
-			System.out.println("Introduce a description:");
-			String description = sc.nextLine();
-			
-			Component c = new Project(name, description);
-			c.setFather(null);
-			return (Project) c;
-		}
+		Project p = new Project(name, description);
+		this.rootProjects.add(p);
+	}			 
 
 }

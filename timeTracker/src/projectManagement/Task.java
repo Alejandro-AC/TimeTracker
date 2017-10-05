@@ -4,6 +4,7 @@
 package projectManagement;
 
 import java.util.Collection;
+import java.util.ArrayList;
 
 /** 
  * @author marcm
@@ -14,7 +15,7 @@ public class Task extends Component {
 	 * @uml.property  name="intervals"
 	 * @uml.associationEnd  multiplicity="(0 -1)" aggregation="shared" inverse="task:projectManagement.Interval"
 	 */
-	private Collection intervals;
+	private Collection<Interval> intervals = new ArrayList<Interval>();
 
 	/**
 	 * Getter of the property <tt>intervals</tt>
@@ -39,32 +40,34 @@ public class Task extends Component {
 		
 	}
 
-		
-		/**
-		 */
-		public void addInterval(Interval interval){
+	/**
+	 */
+	public void addInterval(Interval interval){
+	}
+
+	/**
+	 */
+	public void removeInterval(int id){
+	}
+
+	/** 
+	 * Searches for the interval with the id given and returns it if it has been found.
+	 * @param id: id of the interval to be found.
+	 * @return Return the interval with the same id, or null if it has not been found.
+	 */
+	public Interval getInterval(int id){
+		for (Interval interval : intervals) {
+			if (interval.getId() == id) {
+				return interval;
+			}			
 		}
+		return null;
+	}		 
 
-			
-			/**
-			 */
-			public void removeInterval(int id){
-			}
-
-				
-				/**
-				 */
-				public void getInterval(int id){
-				}
-
-					
-					/**
-					 */
-					public Task(String name, String description){
-					
-						super(name, description); 
-					}
-
-				
+	/**
+	 */
+	public Task(String name, String description){
+		super(name, description); 
+	}				
 
 }
