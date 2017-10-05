@@ -10,12 +10,12 @@ import java.util.Date;
  */
 public abstract class Component {
 
-	/**
-	 * @uml.property  name="name"
+	/** 
+	 * @uml.property name="name"
 	 */
-	private String name;
+	protected String name;
 
-	/**
+	/** 
 	 * Getter of the property <tt>name</tt>
 	 * @return  Returns the name.
 	 * @uml.property  name="name"
@@ -24,7 +24,7 @@ public abstract class Component {
 		return name;
 	}
 
-	/**
+	/** 
 	 * Setter of the property <tt>name</tt>
 	 * @param name  The name to set.
 	 * @uml.property  name="name"
@@ -33,12 +33,12 @@ public abstract class Component {
 		this.name = name;
 	}
 
-	/**
-	 * @uml.property  name="description"
+	/** 
+	 * @uml.property name="description"
 	 */
-	private String description;
+	protected String description;
 
-	/**
+	/** 
 	 * Getter of the property <tt>description</tt>
 	 * @return  Returns the description.
 	 * @uml.property  name="description"
@@ -47,7 +47,7 @@ public abstract class Component {
 		return description;
 	}
 
-	/**
+	/** 
 	 * Setter of the property <tt>description</tt>
 	 * @param description  The description to set.
 	 * @uml.property  name="description"
@@ -59,7 +59,7 @@ public abstract class Component {
 	/** 
 	 * @uml.property name="totalTime"
 	 */
-	private Date totalTime;
+	protected Date totalTime;
 
 	/** 
 	 * Getter of the property <tt>totalTime</tt>
@@ -79,12 +79,12 @@ public abstract class Component {
 		this.totalTime = totalTime;
 	}
 
-	/**
-	 * @uml.property  name="father"
+	/** 
+	 * @uml.property name="father"
 	 */
-	private Component father = null;
+	protected Component father = null;
 
-	/**
+	/** 
 	 * Getter of the property <tt>father</tt>
 	 * @return  Returns the father.
 	 * @uml.property  name="father"
@@ -93,7 +93,7 @@ public abstract class Component {
 		return father;
 	}
 
-	/**
+	/** 
 	 * Setter of the property <tt>father</tt>
 	 * @param father  The father to set.
 	 * @uml.property  name="father"
@@ -102,12 +102,12 @@ public abstract class Component {
 		this.father = father;
 	}
 
-	/**
-	 * @uml.property  name="startDate"
+	/** 
+	 * @uml.property name="startDate"
 	 */
-	private Date startDate;
+	protected Date startDate;
 
-	/**
+	/** 
 	 * Getter of the property <tt>startDate</tt>
 	 * @return  Returns the startDate.
 	 * @uml.property  name="startDate"
@@ -116,7 +116,7 @@ public abstract class Component {
 		return startDate;
 	}
 
-	/**
+	/** 
 	 * Setter of the property <tt>startDate</tt>
 	 * @param startDate  The startDate to set.
 	 * @uml.property  name="startDate"
@@ -129,6 +129,12 @@ public abstract class Component {
 		/**
 		 */
 		public abstract void calculateTotalTime();
+
+			
+			/**
+			 */
+			public Component(String name, String description){
+			}
 		
 
 }

@@ -4,6 +4,7 @@
 package projectManagement;
 
 import java.util.Collection;
+import java.util.Scanner;
 
 /** 
  * @author marcm
@@ -43,6 +44,7 @@ public class Project extends Component {
 		/**
 		 */
 		public void addChild(Component child){
+			
 		}
 
 			
@@ -57,4 +59,12 @@ public class Project extends Component {
 				public Component getChild(String name){
 					return null;
 				}
+
+					
+					/**
+					 */
+					
+					public Project(String name, String description) {
+							super(name, description);
+					}
 }

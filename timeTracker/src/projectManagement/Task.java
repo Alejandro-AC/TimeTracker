@@ -57,4 +57,14 @@ public class Task extends Component {
 				public void getInterval(int id){
 				}
 
+					
+					/**
+					 */
+					public Task(String name, String description){
+					
+						super(name, description); 
+					}
+
+				
+
 }
