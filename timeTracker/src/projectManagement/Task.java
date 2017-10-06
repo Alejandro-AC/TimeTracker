@@ -3,6 +3,7 @@
  */
 package projectManagement;
 
+import java.util.AbstractList;
 import java.util.Collection;
 import java.util.ArrayList;
 
@@ -22,7 +23,7 @@ public class Task extends Component {
 	 * @return  Returns the intervals.
 	 * @uml.property  name="intervals"
 	 */
-	public Collection getIntervals() {
+	public Collection<Interval> getIntervals() {
 		return intervals;
 	}
 
@@ -31,7 +32,7 @@ public class Task extends Component {
 	 * @param intervals  The intervals to set.
 	 * @uml.property  name="intervals"
 	 */
-	public void setIntervals(Collection intervals) {
+	public void setIntervals(Collection<Interval> intervals) {
 		this.intervals = intervals;
 	}
 
@@ -40,14 +41,28 @@ public class Task extends Component {
 		
 	}
 
-	/**
+	/** 
+	 * Adds an interval to the intervals list.
 	 */
-	public void addInterval(Interval interval){
-	}
-
+	public void addInterval(){
+		Interval interval = new Interval();
+		intervals.add(interval);
+	}	
+	
 	/**
+	 * Removes the specified interval if it is in the intervals list.
+	 * @param id: id of the interval to be removed.
+	 * @return True if the interval could be removed and false if it couldn't.
 	 */
-	public void removeInterval(int id){
+	public boolean removeInterval(int id){
+		Interval interval = getInterval(id);
+		if (interval != null) {
+			int index = (((AbstractList<Interval>) intervals).indexOf(interval));
+			intervals.remove(index);
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	/** 

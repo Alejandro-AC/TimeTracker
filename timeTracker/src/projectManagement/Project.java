@@ -6,6 +6,7 @@ package projectManagement;
 import java.util.AbstractList;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Scanner;
 
 /** 
  * @author marcm
@@ -44,7 +45,7 @@ public class Project extends Component {
 		
 	}
 	
-	/**
+	/** 
 	 * Adds a child to the components list.
 	 * @param child: child Component to be added.
 	 */
@@ -75,7 +76,7 @@ public class Project extends Component {
 	 */
 	public Component getChild(String name){
 		for (Component child : components) {
-			if (child.getName() == name) {
+			if (child.getName().equals(name)) {
 				return child;
 			}
 		}
@@ -87,6 +88,35 @@ public class Project extends Component {
 	 */	
 	public Project(String name, String description) {
 		super(name, description);
+	}
+
+		
+	/**
+	 * Adds a new project to the components (child) list.
+	 */
+	public void addChildProject(){
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Introduce project name: ");
+		String name = sc.nextLine();
+		System.out.print("Introduce a description: ");
+		String description = sc.nextLine();
+		
+		Project p = new Project(name, description);
+		addChild(p);
+	}
+
+	/**
+	 * Adds a new task to the components (child) list.
+	 */
+	public void addChildTask(){
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Introduce project name: ");
+		String name = sc.nextLine();
+		System.out.print("Introduce a description: ");
+		String description = sc.nextLine();
+		
+		Task t = new Task(name, description);
+		addChild(t);
 	}
 	
 }
