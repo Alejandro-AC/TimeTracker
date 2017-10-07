@@ -1,7 +1,7 @@
 /**
  * 
  */
-package projectManagement;
+package timeTracker;
 
 import java.util.Observable;
 
