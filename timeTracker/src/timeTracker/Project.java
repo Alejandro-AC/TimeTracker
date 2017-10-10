@@ -17,7 +17,7 @@ public class Project extends Component {
 	 * @uml.property  name="children"
 	 * @uml.associationEnd  multiplicity="(0 -1)" aggregation="shared" inverse="father:timeTracker.Component"
 	 */
-	private Collection<Component> children;
+	private Collection<Component> children = new ArrayList<Component>();
 
 	/**
 	 * Getter of the property <tt>children</tt>
@@ -51,7 +51,7 @@ public class Project extends Component {
 		ArrayList<String> properties = new ArrayList<String>();
 		
 		properties = askChildProperties();
-		Project p = new Project(properties.get(1), properties.get(0));
+		Project p = new Project(properties.get(0), properties.get(1));
 		this.children.add(p);
 	}
 
@@ -62,7 +62,7 @@ public class Project extends Component {
 		ArrayList<String> properties = new ArrayList<String>();
 		
 		properties = askChildProperties();
-		Task t = new Task(properties.get(1), properties.get(0));
+		Task t = new Task(properties.get(0), properties.get(1));
 		this.children.add(t);
 	}
 

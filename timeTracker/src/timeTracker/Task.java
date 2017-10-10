@@ -4,6 +4,7 @@
 package timeTracker;
 
 import java.util.AbstractList;
+import java.util.ArrayList;
 import java.util.Collection;
 
 /** 
@@ -15,7 +16,7 @@ public class Task extends Component {
 	 * @uml.property name="intervals"
 	 * @uml.associationEnd multiplicity="(0 -1)" aggregation="shared" inverse="task:timeTracker.Interval"
 	 */
-	private Collection<Interval> intervals;
+	private Collection<Interval> intervals = new ArrayList<Interval>();
 
 	/** 
 	 * Getter of the property <tt>intervals</tt>

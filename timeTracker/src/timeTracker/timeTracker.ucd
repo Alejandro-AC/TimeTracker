@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<editmodel:ClassDiagramEditModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:editmodel="editmodel.xmi" xmlns:options="options.xmi" size="1531,525" id="timeTracker" metadata="uml2-1.0" initialized="true" scrolledY="12" tag="1000" key="32303037303533312D313030302074696D65547261636B65722F6D6172636D">
+<editmodel:ClassDiagramEditModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:editmodel="editmodel.xmi" xmlns:options="options.xmi" size="1552,525" id="timeTracker" metadata="uml2-1.0" initialized="true" scrolledY="137" tag="1000" key="32303037303533312D313030302074696D65547261636B65722F6D6172636D">
   <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.2/@sourceConnections.0 //@children.1/@sourceConnections.0 //@children.1/@sourceConnections.1" name="Component" location="495,60" size="161,178" id="timeTracker/Component" runTimeClassModel="endDate,totalTime,name,calculateTotalTime(),description,Component(Ljava.lang.String;Ljava.lang.String;),startDate">
     <children xsi:type="editmodel:CompartmentEditModel" size="124,90">
       <children xsi:type="editmodel:AttributeEditModel" name="description" location="10,41" id="timeTracker/Component#description"/>
@@ -60,7 +60,7 @@
     </sourceConnections>
     <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
   </children>
-  <children xsi:type="editmodel:ClassEditModel" name="Interval" location="255,291" size="134,214" id="timeTracker/Interval" runTimeClassModel="update(Ljava.util.Observable;Ljava.lang.Object;),endDate,totalTime,stop(),start(),calculateTime(),Interval(I),id,startDate">
+  <children xsi:type="editmodel:ClassEditModel" name="Interval" location="255,291" size="134,214" id="timeTracker/Interval" runTimeClassModel="update(Ljava.util.Observable;Ljava.lang.Object;),endDate,totalTime,stop(),calculateTime(),start(),Interval(I),id,startDate">
     <children xsi:type="editmodel:CompartmentEditModel" size="107,72">
       <children xsi:type="editmodel:AttributeEditModel" name="endDate" id="timeTracker/Interval#endDate"/>
       <children xsi:type="editmodel:AttributeEditModel" name="id" id="timeTracker/Interval#id"/>
@@ -125,16 +125,18 @@
     </sourceConnections>
     <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
   </children>
-  <children xsi:type="editmodel:ClassEditModel" name="Client" location="825,327" size="209,178" id="timeTracker/Client" runTimeClassModel="main([Ljava.lang.String;),Client(),testAddRootProject(),getRootProject(Ljava.lang.String;),askRootProjectProperties(),testAddChildToRootProject(LtimeTracker.Project;),addRootProject()">
+  <children xsi:type="editmodel:ClassEditModel" name="Client" location="825,327" size="250,214" id="timeTracker/Client" runTimeClassModel="main([Ljava.lang.String;),Client(),testAddRootProject(),testAddTaskChildToRootProject(LtimeTracker.Project;),getRootProject(Ljava.lang.String;),askRootProjectProperties(),testMenu(),addRootProject(),testGetMenuOption(),testAddChildProjectToRootProject(LtimeTracker.Project;)">
     <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
-    <children xsi:type="editmodel:CompartmentEditModel" size="186,126">
+    <children xsi:type="editmodel:CompartmentEditModel" size="227,162">
       <children xsi:type="editmodel:MethodEditModel" name="Client" id="timeTracker/Client#Client()"/>
       <children xsi:type="editmodel:MethodEditModel" name="addRootProject" id="timeTracker/Client#addRootProject()"/>
       <children xsi:type="editmodel:MethodEditModel" name="getRootProject" id="timeTracker/Client#getRootProject(Ljava.lang.String;)"/>
-      <children xsi:type="editmodel:MethodEditModel" name="main" id="timeTracker/Client#main([Ljava.lang.String;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="testGetMenuOption" id="timeTracker/Client#testGetMenuOption()"/>
       <children xsi:type="editmodel:MethodEditModel" name="askRootProjectProperties" id="timeTracker/Client#askRootProjectProperties()"/>
-      <children xsi:type="editmodel:MethodEditModel" name="testAddChildToRootProject" id="timeTracker/Client#testAddChildToRootProject(LtimeTracker.Project;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="testAddChildProjectToRootProject" id="timeTracker/Client#testAddChildProjectToRootProject(LtimeTracker.Project;)"/>
       <children xsi:type="editmodel:MethodEditModel" name="testAddRootProject" id="timeTracker/Client#testAddRootProject()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="testMenu" id="timeTracker/Client#testMenu()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="testAddTaskChildToRootProject" id="timeTracker/Client#testAddTaskChildToRootProject(LtimeTracker.Project;)"/>
     </children>
     <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
     <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="timeTracker/Project@rootProjects+timeTracker/Client@client" source="//@children.7" target="//@children.1" targetEnd="//@children.7/@sourceConnections.0/@children.1" label="//@children.7/@sourceConnections.0/@children.2" sourceEnd="//@children.7/@sourceConnections.0/@children.0" connectionRouterKind="Manhattan">
