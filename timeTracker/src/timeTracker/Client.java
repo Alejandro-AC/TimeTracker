@@ -4,8 +4,10 @@
 package timeTracker;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Scanner;
+import java.util.Stack;
 
 /** 
  * @author marcm
@@ -77,7 +79,7 @@ public class Client {
 		ArrayList<String> properties = new ArrayList<String>();
 		Scanner sc = new Scanner(System.in);
 		
-		System.out.print("Introduce a name: ");
+		System.out.print("Introduce a name for the RootProject: ");
 		properties.add(sc.nextLine());
 		System.out.print("Introduce a description: ");
 		properties.add(sc.nextLine());
@@ -89,9 +91,12 @@ public class Client {
 	 * Generates the menu for the test options.
 	 */
 	public void testMenu() {
-		System.out.println("1. Add Root Project");
-		System.out.println("2. Add Child Project to Root Project");
-		System.out.println("3. Add Child Task to Root Project");
+		System.out.println("1. Print Root Projects");
+		System.out.println("2. Open Project");
+		System.out.println("3. Add Root Project");
+		System.out.println("4. Add Child Project to Root Project");
+		System.out.println("5. Add Child Task to Root Project");
+		System.out.println("0. Exit");
 	}
 	
 	/**
@@ -100,81 +105,121 @@ public class Client {
 	public void testGetMenuOption() {
 		Scanner scanner = new Scanner(System.in);
 		int option = -1;
-		Project p;
+		Project father;
+		String fatherName;
 		
 		while(option != 0) {
+				
+			Stack<Component> nonVisited = new Stack<Component>();
+			nonVisited.addAll(rootProjects);
+			System.out.println("");
+			for (int i = 0; i < rootProjects.size(); i++) {
+				printTree(nonVisited.pop(), 0, nonVisited);
+			}
+			
+			System.out.println("");
 			System.out.print("Introduce nueva opcion: ");
-			option = scanner.nextInt();
+			option = Integer.parseInt(scanner.nextLine());
 			
 			switch(option) {
 			case 1:
-				testAddRootProject();
+				testPrintRootProjects();
 				break;
 			case 2:
-				p = ((ArrayList<Project>) rootProjects).get(0);
-				testAddChildProjectToRootProject(p);
+				System.out.print("Project name: ");
+				fatherName = scanner.nextLine();
+				father = getRootProject(fatherName);
+				while (father == null) {
+					System.out.print("That project doesn't exist. Project name: ");
+					fatherName = scanner.nextLine();
+					father = getRootProject(fatherName);
+				}
+				testPrintChildren(father);
 				break;
 			case 3:
-				p = ((ArrayList<Project>) rootProjects).get(0);
-				testAddTaskChildToRootProject(p);
+				addRootProject();
+				break;
+			case 4:
+				System.out.print("Father's name: ");
+				fatherName = scanner.nextLine();
+				father = getRootProject(fatherName);
+				while (father == null) {
+					System.out.print("That rootProject doesn't exist. Father's name: ");
+					fatherName = scanner.nextLine();
+					father = getRootProject(fatherName);
+				}
+				addChildProjectToRootProject(father);
+				break;
+			case 5:
+				System.out.print("Father's name: ");
+				fatherName = scanner.nextLine();
+				father = getRootProject(fatherName);
+				while (father == null) {
+					System.out.print("That rootProject doesn't exist. Father's name: ");
+					fatherName = scanner.nextLine();
+					father = getRootProject(fatherName);
+				}
+				addChildTaskToRootProject(father);
 				break;				
 			case 0:
 				break;
 			}
 		}
+		scanner.close();
 	}
-	
-	/**
-	 * Test 1.
-	*/
-	public void testAddRootProject(){
-		addRootProject();
-		Scanner sc = new Scanner(System.in);
-		System.out.print("Introduce project's name to be found: ");
-		String name = sc.nextLine();
-		Project p = getRootProject(name);
-		if (p != null) {
-			System.out.println(p.getName());
-			System.out.println(p.getDescription());
-		} else {
-			System.out.println("This project is not in the root list.");
-		}
+		
+	/** 
+	 * *******************
+	 * @param rootProject
+	 */
+	public void addChildProjectToRootProject(Project rootProject){
+		rootProject.addChildProject();
 	}
 	
 	/** 
-	 * Test 2.
 	 * @param rootProject
 	 */
-	public void testAddChildProjectToRootProject(Project rootProject){
-		rootProject.addChildProject();
-		Scanner sc = new Scanner(System.in);
-		System.out.print("Introduce child project's name to be found: ");
-		String name = sc.nextLine();
-		Component child = rootProject.getChild(name);
-		if (child != null) {
-			System.out.println(child.getName());
-			System.out.println(child.getDescription());
-		} else {
-			System.out.println("This project is not in the " + rootProject.getName() + " children list.");
+	public void addChildTaskToRootProject(Project rootProject){
+		rootProject.addChildTask();
+	}
+	
+	/**
+	 * ****************
+	 */
+	public void testPrintRootProjects() {
+		for (Project rootProject: rootProjects) {
+			System.out.println(rootProject.getName());
 		}
 	}
 	
 	/**
-	 * Test 3.
-	 * @param rootProject
+	 * **************************
+	 * @param father
 	 */
-	public void testAddTaskChildToRootProject(Project rootProject) {
-		rootProject.addChildTask();
-		Scanner sc = new Scanner(System.in);
-		System.out.print("Introduce child-task's name to be found: ");
-		String name = sc.nextLine();
-		Component child = rootProject.getChild(name);
-		if (child != null) {
+	public void testPrintChildren(Project father) {
+		for (Component child : father.getChildren()) {
 			System.out.println(child.getName());
-			System.out.println(child.getDescription());
-		} else {
-			System.out.println("This task is not in the " + rootProject.getName() + " children list.");
 		}
 	}
+	
+	/**
+	 * 
+	 * @param component
+	 * @param visitedList
+	 */
+	public void printTree(Component component, int level, Stack<Component> nonVisited){		
+		char[] spaces = new char[level];
+		Arrays.fill(spaces, ' ');
+		System.out.println(new String(spaces) + component.getName());
+		
+		Collection<Component> children = component.getChildren();
+		if (children != null) {
+			nonVisited.addAll(children);
+			for (int i = 0; i < children.size(); i++) {
+				printTree(nonVisited.pop(), level + 1, nonVisited);
+			}
+		}
+	}
+
 
 }

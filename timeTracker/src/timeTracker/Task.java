@@ -13,27 +13,23 @@ import java.util.Collection;
 public class Task extends Component {
 
 	/** 
-	 * @uml.property name="intervals"
+	 * @uml.property name="children"
 	 * @uml.associationEnd multiplicity="(0 -1)" aggregation="shared" inverse="task:timeTracker.Interval"
 	 */
-	private Collection<Interval> intervals = new ArrayList<Interval>();
-
-	/** 
-	 * Getter of the property <tt>intervals</tt>
+	private Collection<Interval> children = new ArrayList<Interval>();
+	
+	/**
+	 * Getter of the property <tt>children</tt>
 	 * @return  Returns the intervals.
-	 * @uml.property  name="intervals"
+	 * @uml.property  name="children"
 	 */
-	public Collection<Interval> getIntervals() {
-		return intervals;
-	}
-
-	/** 
-	 * Setter of the property <tt>intervals</tt>
-	 * @param intervals  The intervals to set.
-	 * @uml.property  name="intervals"
-	 */
-	public void setIntervals(Collection<Interval> intervals) {
-		this.intervals = intervals;
+	@SuppressWarnings("unchecked")
+	public Collection<Interval> getChildren() {
+		if (children.isEmpty()) {
+			return null;
+		} else {
+			return children;
+		}
 	}
 
 	/**
@@ -48,7 +44,7 @@ public class Task extends Component {
 	 */
 	public void addInterval(){
 		Interval interval = new Interval(0);
-		intervals.add(interval);
+		children.add(interval);
 	}
 
 	/**
@@ -62,12 +58,20 @@ public class Task extends Component {
 	 * @return Return the interval with the same id, or null if it has not been found.
 	 */
 	public Interval getInterval(int id){
-		for (Interval interval : intervals) {
+		for (Interval interval : children) {
 			if (interval.getId() == id) {
 				return interval;
 			}			
 		}
 		return null;
+	}
+	
+	/**
+	 * Return the list of childs.
+	 * @return intervals: list of intervals.
+	 */
+	public Collection<Interval> getChild(){
+		return children;
 	}
 
 	/**
@@ -78,12 +82,11 @@ public class Task extends Component {
 	public boolean removeInterval(int id){
 		Interval interval = getInterval(id);
 		if (interval != null) {
-			int index = (((AbstractList<Interval>) intervals).indexOf(interval));
-			intervals.remove(index);
+			int index = (((AbstractList<Interval>) children).indexOf(interval));
+			children.remove(index);
 			return true;
 		} else {
 			return false;
 		}
 	}
-
 }

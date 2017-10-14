@@ -14,7 +14,7 @@ public class Interval implements Observer {
 
 	/** 
 	 * @uml.property name="task"
-	 * @uml.associationEnd multiplicity="(1 1)" inverse="intervals:timeTracker.Task"
+	 * @uml.associationEnd multiplicity="(1 1)" inverse="children:timeTracker.Task"
 	 */
 	private Task task = null;
 

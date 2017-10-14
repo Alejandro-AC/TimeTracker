@@ -10,13 +10,13 @@ import java.util.Date;
  */
 public abstract class Component {
 
-	/**
-	 * @uml.property  name="father"
-	 * @uml.associationEnd  multiplicity="(1 1)" inverse="children:timeTracker.Project"
+	/** 
+	 * @uml.property name="father"
+	 * @uml.associationEnd multiplicity="(1 1)" inverse="children:timeTracker.Project"
 	 */
 	private Project father = null;
 
-	/**
+	/** 
 	 * Getter of the property <tt>father</tt>
 	 * @return  Returns the father.
 	 * @uml.property  name="father"
@@ -25,7 +25,7 @@ public abstract class Component {
 		return father;
 	}
 
-	/**
+	/** 
 	 * Setter of the property <tt>father</tt>
 	 * @param father  The father to set.
 	 * @uml.property  name="father"
@@ -157,9 +157,8 @@ public abstract class Component {
 		this.name = name;
 	}
 
-	/**
-	 */
-	public void calculateTotalTime(){
-	}
+	public abstract void calculateTotalTime();
+	
+	public abstract <T> T getChildren();	
 
 }

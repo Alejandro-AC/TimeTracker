@@ -13,28 +13,24 @@ import java.util.Scanner;
  */
 public class Project extends Component {
 
-	/**
-	 * @uml.property  name="children"
-	 * @uml.associationEnd  multiplicity="(0 -1)" aggregation="shared" inverse="father:timeTracker.Component"
+	/** 
+	 * @uml.property name="children"
+	 * @uml.associationEnd multiplicity="(0 -1)" aggregation="shared" inverse="father:timeTracker.Component"
 	 */
 	private Collection<Component> children = new ArrayList<Component>();
 
-	/**
+	/** 
 	 * Getter of the property <tt>children</tt>
 	 * @return  Returns the children.
 	 * @uml.property  name="children"
 	 */
+	@SuppressWarnings("unchecked") 
 	public Collection<Component> getChildren() {
-		return children;
-	}
-
-	/**
-	 * Setter of the property <tt>children</tt>
-	 * @param children  The children to set.
-	 * @uml.property  name="children"
-	 */
-	public void setChildren(Collection<Component> children) {
-		this.children = children;
+		if (children.isEmpty()) {
+			return null;
+		} else {
+			return children;
+		}
 	}
 
 	/**
@@ -117,4 +113,12 @@ public class Project extends Component {
 		}
 	}
 
+	/** 
+	 * Setter of the property <tt>children</tt>
+	 * @param children  The children to set.
+	 * @uml.property  name="children"
+	 */
+	public void setChildren(Collection<Component> children) {
+		this.children = children;
+	}
 }
