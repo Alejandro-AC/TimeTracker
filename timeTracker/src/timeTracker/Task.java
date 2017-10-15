@@ -44,7 +44,7 @@ public class Task extends Component {
 	 * Adds a new interval to the intervals list.
 	 */
 	public void addInterval() {
-		Interval interval = new Interval(0);
+		Interval interval = new Interval(children.size() + 1);
 		children.add(interval);
 	}
 
@@ -74,12 +74,18 @@ public class Task extends Component {
 		return null;
 	}
 	
-	/**
-	 * Return the list of childs.
-	 * @return intervals: list of intervals.
+	/** 
+	 * Searches for the Interval with the given id and returns it if it has been found.
+	 * @param id: id of the Interval to be found.
+	 * @return Returns the child Interval with the same id, or null if it has not been found.
 	 */
-	public Collection<Interval> getChild() {
-		return children;
+	public timeTracker.Interval getChild(int id){
+		for (Interval child : children) {
+			if (child.getId() == id) {
+				return child;
+			}
+		}
+		return null;
 	}
 
 	/**

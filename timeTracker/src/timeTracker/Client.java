@@ -97,6 +97,7 @@ public class Client {
 		System.out.println("1. Add Root Project");
 		System.out.println("2. Add Child Project");
 		System.out.println("3. Add Child Task");
+		System.out.println("4. Add Interval");
 		System.out.println("0. Exit");
 	}
 	
@@ -106,10 +107,12 @@ public class Client {
 	public void getMenuOption() {
 		Scanner scanner = new Scanner(System.in);
 		int option = -1;
-		Project father;
-		String fatherName;
 		
 		while(option != 0) {
+			Project fatherProject;
+			Task fatherTask;
+			String fatherName;
+			
 			Stack<Component> nonVisited = new Stack<Component>();
 			nonVisited.addAll(rootProjects);
 			System.out.println("");
@@ -132,10 +135,10 @@ public class Client {
 				System.out.print("Enter the name of the Father Project: ");
 				fatherName = scanner.nextLine();
 				
-				father = (Project) getComponent(fatherName);
+				fatherProject = (Project) getComponent(fatherName);
 				
-				if (father != null) {
-					addChildProject(father);
+				if (fatherProject != null) {
+					addChildProject(fatherProject);
 				} else {
 					System.out.println("Error. That Father Project does not exits.");
 				}
@@ -144,14 +147,26 @@ public class Client {
 				System.out.print("Enter the name of the Father Project: ");
 				fatherName = scanner.nextLine();
 				
-				father = (Project) getComponent(fatherName);
+				fatherProject = (Project) getComponent(fatherName);
 				
-				if (father != null) {
-					addChildTask(father);
+				if (fatherProject != null) {
+					addChildTask(fatherProject);
 				} else {
 					System.out.println("Error. That Father Project does not exits.");
 				}
-				break;				
+				break;	
+			case 4: 	// Add Interval
+				System.out.print("Enter the name of the Task: ");
+				fatherName = scanner.nextLine();
+				
+				fatherTask = (Task) getComponent(fatherName);
+				
+				if (fatherTask != null) {
+					addInterval(fatherTask);
+				} else {
+					System.out.println("Error. That Task does not exits.");
+				}
+				break;
 			case 0:
 				break;
 			default:
@@ -187,19 +202,32 @@ public class Client {
 	public void printTree(Component component, int level, Stack<Component> nonVisited) {		
 		char[] spaces = new char[level*2];
 		Arrays.fill(spaces, ' ');
+		
 		String type = "";
 		if (component instanceof Project) {
 			type = "P. ";
 		} else if (component instanceof Task) {
 			type = "T. ";
 		}
+		
 		System.out.println(new String(spaces) + type + component.getName());
 		
-		Collection<Component> children = component.getChildren();
-		if (children != null) {
-			nonVisited.addAll(children);
-			for (int i = 0; i < children.size(); i++) {
-				printTree(nonVisited.pop(), level + 1, nonVisited);
+		if (component instanceof Project) {
+			Collection<Component> children = component.getChildren();
+			if (children != null) {
+				nonVisited.addAll(children);
+				for (int i = 0; i < children.size(); i++) {
+					printTree(nonVisited.pop(), level + 1, nonVisited);
+				}
+			}
+		} else if (component instanceof Task) {
+			Collection<Interval> intervals = component.getChildren();
+			if (intervals != null) {
+				spaces = new char[level*2 + 2];
+				Arrays.fill(spaces, ' ');
+				for (Interval interval : intervals) {
+					System.out.println(new String(spaces) + "I. " + interval.getId());
+				}
 			}
 		}
 	}
@@ -217,7 +245,7 @@ public class Client {
 		Component component = null;
 		
 		while(!found && iter.hasNext()) {
-			component = (Project) searchComponent(name, iter.next(), nonVisited);
+			component = searchComponent(name, iter.next(), nonVisited);
 			if (component != null) {
 				found = true;
 			}
@@ -233,16 +261,32 @@ public class Client {
 	 * @return component: the Component that has been searched. It's value is null if it couldn't be found.
 	 */
 	private Component searchComponent(String name, Component component, Queue<Component> nonVisited) {
-		if (name.equals(component.getName())) {
-			return component;
-		} else if (component instanceof Project) {		// keep searching
-			Collection<Component> children = component.getChildren();
-			if (children != null) {
-				nonVisited.addAll(children);
-				return searchComponent(name, nonVisited.poll(), nonVisited);
-			}
-		} 
-		return null;
+		if (!nonVisited.isEmpty()) {		// There's at least one element to visit (the current one)
+			nonVisited.remove();
+			if (name.equals(component.getName())) {
+				return component;
+				
+			} else if (component instanceof Project) {		// keep searching
+				Collection<Component> children = component.getChildren();
+				if (children != null) {
+					nonVisited.addAll(children);
+				}
+				return searchComponent(name, nonVisited.peek(), nonVisited);
+				
+			} 
+			return null;
+			
+		} else {
+			return null;
+		}
+	}
+	
+	/**
+	 * 
+	 * @param father
+	 */
+	public void addInterval(Task father) {
+		father.addInterval();
 	}
 
 
