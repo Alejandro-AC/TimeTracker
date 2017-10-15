@@ -35,10 +35,12 @@ public class Interval implements Observer {
 	public void setTask(Task task) {
 		this.task = task;
 	}
-
+	
+	/**
+	 * ******************************************************
+	 */
 	@Override
 	public void update(Observable o, Object arg) {
-		// TODO Auto-generated method stub
 		Date currentD = new Date();		
 		long seconds = (currentD.getTime()-this.getStartDate().getTime())/1000;
 		this.setTotalTime(seconds);
@@ -154,6 +156,7 @@ public class Interval implements Observer {
 	}
 
 	/**
+	 * Starts the execution of the current Interval.
 	 */
 	public void start(){
 		Date startD = new Date();		
@@ -161,8 +164,10 @@ public class Interval implements Observer {
 	}
 
 	/**
+	 * Stopts the execution of the current Interval.
 	 */
 	public void stop(){
+		/////
 	}
 
 }

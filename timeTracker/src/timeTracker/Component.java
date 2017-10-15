@@ -156,9 +156,16 @@ public abstract class Component {
 		this.description = description;
 		this.name = name;
 	}
-
+	
+	/**
+	 * Calculates the total time of all its children.
+	 */
 	public abstract void calculateTotalTime();
 	
+	/**
+	 * Returns all the children of this Component.
+	 * @return Children of this Component.
+	 */
 	public abstract <T> T getChildren();	
 
 }

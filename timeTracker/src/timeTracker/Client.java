@@ -29,13 +29,16 @@ public class Client {
 	 */
 	public static void main(String[] args) {
 		Client c = new Client();
-		
-		Clock clock = new Clock();
 		clock.schedule(1);
 		
 		c.printMenu();
-		c.getMenuOption(clock);
+		c.getMenuOption();
 	}
+	
+	/** 
+	 * @uml.property name="clock"
+	 */
+	public static timeTracker.Clock clock = new Clock();
 
 	/**
 	 * @uml.property  name="rootProjects"
@@ -108,7 +111,7 @@ public class Client {
 	/** 
 	 * Gets the test option that the user decides to run and executes it.
 	 */
-	public void getMenuOption(Clock clock) {
+	public void getMenuOption() {
 		Scanner scanner = new Scanner(System.in);
 		int option = -1;
 		
@@ -166,7 +169,7 @@ public class Client {
 				fatherTask = (Task) getComponent(fatherName);
 				
 				if (fatherTask != null) {
-					addInterval(fatherTask, clock);
+					addInterval(fatherTask);
 				} else {
 					System.out.println("Error. The specified Task does not exist.");
 				}
@@ -286,12 +289,11 @@ public class Client {
 	}
 	
 	/**
-	 * 
-	 * @param father
-	 * @param clock 
+	 * Adds a new Interval to the specified Task. 
+	 * @param father: Task where the new Interval must be added. 
 	 */
-	public void addInterval(Task father, Clock clock) {
-		father.addInterval(clock);
+	public void addInterval(Task father) {
+		father.addInterval();
 	}
 
 

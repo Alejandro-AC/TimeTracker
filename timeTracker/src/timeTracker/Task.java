@@ -44,10 +44,10 @@ public class Task extends Component {
 	/**
 	 * Adds a new interval to the intervals list.
 	 */
-	public void addInterval(Clock c) {
+	public void addInterval() {
 		Interval interval = new Interval(children.size() + 1);
 		children.add(interval);		
-		c.addObserver(interval);
+		Client.clock.addObserver(interval);
 	}
 
 	/**
