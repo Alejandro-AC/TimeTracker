@@ -6,6 +6,7 @@ package timeTracker;
 import java.util.AbstractList;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Date;
 import java.util.Scanner;
 
 /** 
@@ -36,14 +37,14 @@ public class Project extends Component {
 	/**
 	 * Constructor of the class.
 	 */
-	public Project(String name, String description){
+	public Project(String name, String description) {
 		super(description, name);
 	}
 
 	/**
 	 * Adds a new project to the children list.
 	 */
-	public void addChildProject(){
+	public void addChildProject() {
 		ArrayList<String> properties = new ArrayList<String>();
 		
 		properties = askChildProperties();
@@ -54,7 +55,7 @@ public class Project extends Component {
 	/**
 	 * Adds a new task to the children list.
 	 */
-	public void addChildTask(){
+	public void addChildTask() {
 		ArrayList<String> properties = new ArrayList<String>();
 		
 		properties = askChildProperties();
@@ -66,7 +67,7 @@ public class Project extends Component {
 	 * Asks the user the properties needed to create a new Project.
 	 * @return ArrayList with two strings: the name and the description for the new Component.
 	 */
-	public ArrayList<String> askChildProperties(){
+	public ArrayList<String> askChildProperties() {
 		ArrayList<String> properties = new ArrayList<String>();
 		Scanner sc = new Scanner(System.in);
 		
@@ -79,8 +80,15 @@ public class Project extends Component {
 	}
 
 	/**
+	 * Calculates the total time of all the children of the current Project.
 	 */
-	public void calculateTotalTime(){
+	public void calculateTotalTime() {
+		long sum = 0;
+		for (Component child : children) {
+			sum += child.getTotalTime().getTime();
+		}
+		sum += this.totalTime.getTime();
+		this.totalTime = new Date(sum);	
 	}
 
 	/**
@@ -88,7 +96,7 @@ public class Project extends Component {
 	 * @param name: name of the component to be found.
 	 * @return Returns the child Component with the same name, or null if it has not been found.
 	 */
-	public Component getChild(String name){
+	public Component getChild(String name) {
 		for (Component child : children) {
 			if (child.getName().equals(name)) {
 				return child;

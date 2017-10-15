@@ -20,7 +20,7 @@ public class Client {
 	/**
 	 * Constructor of the class.
 	 */
-	public Client(){
+	public Client() {
 	}
 
 	/**
@@ -51,7 +51,7 @@ public class Client {
 	/**
 	 * Adds a rootProject to the rootProjects list.
 	 */
-	public void addRootProject(){
+	public void addRootProject() {
 		ArrayList<String> properties = new ArrayList<String>();
 		
 		properties = askRootProjectProperties();		
@@ -65,7 +65,7 @@ public class Client {
 	 * @param name: name of the rootProject to be found.
 	 * @return Return the interval with the same name, or null if it has not been found.
 	 */
-	public Project getRootProject(String name){
+	public Project getRootProject(String name) {
 		for (Project rootProject : rootProjects) {
 			if (rootProject.getName().equals(name)) {
 				return rootProject;
@@ -78,7 +78,7 @@ public class Client {
 	 * Asks the user the properties needed to create a new Project.
 	 * @return ArrayList with two strings: the name and the description for the new Component.
 	 */
-	public ArrayList<String> askRootProjectProperties(){
+	public ArrayList<String> askRootProjectProperties() {
 		ArrayList<String> properties = new ArrayList<String>();
 		Scanner sc = new Scanner(System.in);
 		
@@ -93,7 +93,7 @@ public class Client {
 	/** 
 	 * Generates the menu.
 	 */
-	public void printMenu(){
+	public void printMenu() {
 		System.out.println("1. Add Root Project");
 		System.out.println("2. Add Child Project");
 		System.out.println("3. Add Child Task");
@@ -103,7 +103,7 @@ public class Client {
 	/** 
 	 * Gets the test option that the user decides to run and executes it.
 	 */
-	public void getMenuOption(){
+	public void getMenuOption() {
 		Scanner scanner = new Scanner(System.in);
 		int option = -1;
 		Project father;
@@ -113,8 +113,11 @@ public class Client {
 			Stack<Component> nonVisited = new Stack<Component>();
 			nonVisited.addAll(rootProjects);
 			System.out.println("");
+			System.out.println("  - TREE -");
+			System.out.println("");
 			for (int i = 0; i < rootProjects.size(); i++) {
 				printTree(nonVisited.pop(), 0, nonVisited);
+				System.out.println("");
 			}
 			
 			System.out.println("");
@@ -151,6 +154,9 @@ public class Client {
 				break;				
 			case 0:
 				break;
+			default:
+				System.out.println("Error. Invalid option");
+				break;
 			}
 		}
 		scanner.close();
@@ -160,7 +166,7 @@ public class Client {
 	 * Adds a child Project to an existing Project.
 	 * @param father: father of the new child Project.
 	 */
-	public void addChildProject(Project father){
+	public void addChildProject(Project father) {
 		father.addChildProject();
 	}
 	
@@ -168,7 +174,7 @@ public class Client {
 	 * Adds a child Task to an existing Project.
 	 * @param father: father of the new child Task.
 	 */
-	public void addChildTask(Project father){
+	public void addChildTask(Project father) {
 		father.addChildTask();
 	}
 	
@@ -178,7 +184,7 @@ public class Client {
 	 * @param level: level in the hierarchy of the "tree".
 	 * @param nonVisited: stack with the components that haven't been visited yet.
 	 */
-	public void printTree(Component component, int level, Stack<Component> nonVisited){		
+	public void printTree(Component component, int level, Stack<Component> nonVisited) {		
 		char[] spaces = new char[level*2];
 		Arrays.fill(spaces, ' ');
 		String type = "";
@@ -211,7 +217,6 @@ public class Client {
 		Component component = null;
 		
 		while(!found && iter.hasNext()) {
-			System.out.println("one iteration");
 			component = (Project) searchComponent(name, iter.next(), nonVisited);
 			if (component != null) {
 				found = true;
@@ -227,7 +232,7 @@ public class Client {
 	 * @param nonVisited: list of Components that haven't been visited.
 	 * @return component: the Component that has been searched. It's value is null if it couldn't be found.
 	 */
-	private Component searchComponent(String name, Component component, Queue<Component> nonVisited){
+	private Component searchComponent(String name, Component component, Queue<Component> nonVisited) {
 		if (name.equals(component.getName())) {
 			return component;
 		} else if (component instanceof Project) {		// keep searching

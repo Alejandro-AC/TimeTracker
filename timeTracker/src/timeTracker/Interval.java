@@ -43,13 +43,19 @@ public class Interval implements Observer {
 	}
 
 	/**
+	 * Constructor of the class.
+	 * @param id: id of the new Interval.
 	 */
 	public Interval(int id){
+		this.id = id;
 	}
 
 	/**
+	 * Calculates the time between the startDate and the endDate.
 	 */
 	public void calculateTime(){
+		long difference = endDate.getTime() - startDate.getTime();
+		this.totalTime = new Date(difference);
 	}
 	
 	/**
