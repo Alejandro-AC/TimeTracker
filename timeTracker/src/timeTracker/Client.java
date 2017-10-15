@@ -29,8 +29,12 @@ public class Client {
 	 */
 	public static void main(String[] args) {
 		Client c = new Client();
+		
+		Clock clock = new Clock();
+		clock.schedule(1);
+		
 		c.printMenu();
-		c.getMenuOption();
+		c.getMenuOption(clock);
 	}
 
 	/**
@@ -63,7 +67,7 @@ public class Client {
 	/**
 	 * Searches for the rootProject with the name given and returns it if it has been found.
 	 * @param name: name of the rootProject to be found.
-	 * @return Return the interval with the same name, or null if it has not been found.
+	 * @return Return the 1 with the same name, or null if it has not been found.
 	 */
 	public Project getRootProject(String name) {
 		for (Project rootProject : rootProjects) {
@@ -104,7 +108,7 @@ public class Client {
 	/** 
 	 * Gets the test option that the user decides to run and executes it.
 	 */
-	public void getMenuOption() {
+	public void getMenuOption(Clock clock) {
 		Scanner scanner = new Scanner(System.in);
 		int option = -1;
 		
@@ -140,7 +144,7 @@ public class Client {
 				if (fatherProject != null) {
 					addChildProject(fatherProject);
 				} else {
-					System.out.println("Error. That Father Project does not exits.");
+					System.out.println("Error. The specified Father Project does not exist.");
 				}
 				break;
 			case 3:		// Add Child Task
@@ -152,7 +156,7 @@ public class Client {
 				if (fatherProject != null) {
 					addChildTask(fatherProject);
 				} else {
-					System.out.println("Error. That Father Project does not exits.");
+					System.out.println("Error. The specified Father Project does not exist.");
 				}
 				break;	
 			case 4: 	// Add Interval
@@ -162,9 +166,9 @@ public class Client {
 				fatherTask = (Task) getComponent(fatherName);
 				
 				if (fatherTask != null) {
-					addInterval(fatherTask);
+					addInterval(fatherTask, clock);
 				} else {
-					System.out.println("Error. That Task does not exits.");
+					System.out.println("Error. The specified Task does not exist.");
 				}
 				break;
 			case 0:
@@ -226,7 +230,7 @@ public class Client {
 				spaces = new char[level*2 + 2];
 				Arrays.fill(spaces, ' ');
 				for (Interval interval : intervals) {
-					System.out.println(new String(spaces) + "I. " + interval.getId());
+					System.out.println(new String(spaces) + "I. " + interval.getId() + "..TotalTime.." + interval.getTotalTime() + "s " + " ..StartTime.." + interval.getStartDate());
 				}
 			}
 		}
@@ -284,9 +288,10 @@ public class Client {
 	/**
 	 * 
 	 * @param father
+	 * @param clock 
 	 */
-	public void addInterval(Task father) {
-		father.addInterval();
+	public void addInterval(Task father, Clock clock) {
+		father.addInterval(clock);
 	}
 
 

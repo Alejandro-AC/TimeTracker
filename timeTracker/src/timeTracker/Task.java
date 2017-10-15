@@ -38,14 +38,16 @@ public class Task extends Component {
 	 */
 	public Task(String name, String description) {
 		super(description, name);
+		
 	}
 
 	/**
 	 * Adds a new interval to the intervals list.
 	 */
-	public void addInterval() {
+	public void addInterval(Clock c) {
 		Interval interval = new Interval(children.size() + 1);
-		children.add(interval);
+		children.add(interval);		
+		c.addObserver(interval);
 	}
 
 	/**
@@ -54,7 +56,7 @@ public class Task extends Component {
 	public void calculateTotalTime() {
 		long sum = 0;
 		for (Interval child : children) {
-			sum += child.getTotalTime().getTime();
+			sum += child.getTotalTime();
 		}
 		sum += this.totalTime.getTime();
 		this.totalTime = new Date(sum);		
