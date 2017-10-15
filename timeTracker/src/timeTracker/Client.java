@@ -6,6 +6,9 @@ package timeTracker;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Scanner;
 import java.util.Stack;
 
@@ -26,8 +29,8 @@ public class Client {
 	 */
 	public static void main(String[] args) {
 		Client c = new Client();
-		c.testMenu();
-		c.testGetMenuOption();
+		c.printMenu();
+		c.getMenuOption();
 	}
 
 	/**
@@ -87,29 +90,26 @@ public class Client {
 		return properties;
 	}
 	
-	/**
-	 * Generates the menu for the test options.
+	/** 
+	 * Generates the menu.
 	 */
-	public void testMenu() {
-		System.out.println("1. Print Root Projects");
-		System.out.println("2. Open Project");
-		System.out.println("3. Add Root Project");
-		System.out.println("4. Add Child Project to Root Project");
-		System.out.println("5. Add Child Task to Root Project");
+	public void printMenu(){
+		System.out.println("1. Add Root Project");
+		System.out.println("2. Add Child Project");
+		System.out.println("3. Add Child Task");
 		System.out.println("0. Exit");
 	}
 	
-	/**
+	/** 
 	 * Gets the test option that the user decides to run and executes it.
 	 */
-	public void testGetMenuOption() {
+	public void getMenuOption(){
 		Scanner scanner = new Scanner(System.in);
 		int option = -1;
 		Project father;
 		String fatherName;
 		
 		while(option != 0) {
-				
 			Stack<Component> nonVisited = new Stack<Component>();
 			nonVisited.addAll(rootProjects);
 			System.out.println("");
@@ -122,44 +122,32 @@ public class Client {
 			option = Integer.parseInt(scanner.nextLine());
 			
 			switch(option) {
-			case 1:
-				testPrintRootProjects();
-				break;
-			case 2:
-				System.out.print("Project name: ");
-				fatherName = scanner.nextLine();
-				father = getRootProject(fatherName);
-				while (father == null) {
-					System.out.print("That project doesn't exist. Project name: ");
-					fatherName = scanner.nextLine();
-					father = getRootProject(fatherName);
-				}
-				testPrintChildren(father);
-				break;
-			case 3:
+			case 1:		// Add Root Project
 				addRootProject();
 				break;
-			case 4:
-				System.out.print("Father's name: ");
+			case 2:		// Add Child Project
+				System.out.print("Enter the name of the Father Project: ");
 				fatherName = scanner.nextLine();
-				father = getRootProject(fatherName);
-				while (father == null) {
-					System.out.print("That rootProject doesn't exist. Father's name: ");
-					fatherName = scanner.nextLine();
-					father = getRootProject(fatherName);
+				
+				father = (Project) getComponent(fatherName);
+				
+				if (father != null) {
+					addChildProject(father);
+				} else {
+					System.out.println("Error. That Father Project does not exits.");
 				}
-				addChildProjectToRootProject(father);
 				break;
-			case 5:
-				System.out.print("Father's name: ");
+			case 3:		// Add Child Task
+				System.out.print("Enter the name of the Father Project: ");
 				fatherName = scanner.nextLine();
-				father = getRootProject(fatherName);
-				while (father == null) {
-					System.out.print("That rootProject doesn't exist. Father's name: ");
-					fatherName = scanner.nextLine();
-					father = getRootProject(fatherName);
+				
+				father = (Project) getComponent(fatherName);
+				
+				if (father != null) {
+					addChildTask(father);
+				} else {
+					System.out.println("Error. That Father Project does not exits.");
 				}
-				addChildTaskToRootProject(father);
 				break;				
 			case 0:
 				break;
@@ -169,48 +157,37 @@ public class Client {
 	}
 		
 	/** 
-	 * *******************
-	 * @param rootProject
+	 * Adds a child Project to an existing Project.
+	 * @param father: father of the new child Project.
 	 */
-	public void addChildProjectToRootProject(Project rootProject){
-		rootProject.addChildProject();
+	public void addChildProject(Project father){
+		father.addChildProject();
 	}
 	
 	/** 
-	 * @param rootProject
+	 * Adds a child Task to an existing Project.
+	 * @param father: father of the new child Task.
 	 */
-	public void addChildTaskToRootProject(Project rootProject){
-		rootProject.addChildTask();
+	public void addChildTask(Project father){
+		father.addChildTask();
 	}
 	
 	/**
-	 * ****************
-	 */
-	public void testPrintRootProjects() {
-		for (Project rootProject: rootProjects) {
-			System.out.println(rootProject.getName());
-		}
-	}
-	
-	/**
-	 * **************************
-	 * @param father
-	 */
-	public void testPrintChildren(Project father) {
-		for (Component child : father.getChildren()) {
-			System.out.println(child.getName());
-		}
-	}
-	
-	/**
-	 * 
-	 * @param component
-	 * @param visitedList
+	 * Prints all the Projects and Tasks of the system.
+	 * @param component: component to be printed.
+	 * @param level: level in the hierarchy of the "tree".
+	 * @param nonVisited: stack with the components that haven't been visited yet.
 	 */
 	public void printTree(Component component, int level, Stack<Component> nonVisited){		
-		char[] spaces = new char[level];
+		char[] spaces = new char[level*2];
 		Arrays.fill(spaces, ' ');
-		System.out.println(new String(spaces) + component.getName());
+		String type = "";
+		if (component instanceof Project) {
+			type = "P. ";
+		} else if (component instanceof Task) {
+			type = "T. ";
+		}
+		System.out.println(new String(spaces) + type + component.getName());
 		
 		Collection<Component> children = component.getChildren();
 		if (children != null) {
@@ -219,6 +196,48 @@ public class Client {
 				printTree(nonVisited.pop(), level + 1, nonVisited);
 			}
 		}
+	}
+	
+	/**
+	 * Searches for a specific Component in the tree, starting from the rootProjects, using a BFS based algorithm.
+	 * @param name: name of the Component to be found.
+	 * @return component: the Component that has been searched. It's value is null if it couldn't be found.
+	 */
+	public Component getComponent(String name) {
+		boolean found = false;
+		Queue<Component> nonVisited = new LinkedList<Component>();
+		nonVisited.addAll(rootProjects);
+		Iterator<Project> iter = rootProjects.iterator();
+		Component component = null;
+		
+		while(!found && iter.hasNext()) {
+			System.out.println("one iteration");
+			component = (Project) searchComponent(name, iter.next(), nonVisited);
+			if (component != null) {
+				found = true;
+			}
+		}		
+		return component;
+	}
+
+	/**
+	 * Searches for a specific Component in the tree.
+	 * @param name: name of the Component to be found.
+	 * @param component: actual Component that is being checked.
+	 * @param nonVisited: list of Components that haven't been visited.
+	 * @return component: the Component that has been searched. It's value is null if it couldn't be found.
+	 */
+	private Component searchComponent(String name, Component component, Queue<Component> nonVisited){
+		if (name.equals(component.getName())) {
+			return component;
+		} else if (component instanceof Project) {		// keep searching
+			Collection<Component> children = component.getChildren();
+			if (children != null) {
+				nonVisited.addAll(children);
+				return searchComponent(name, nonVisited.poll(), nonVisited);
+			}
+		} 
+		return null;
 	}
 
 
