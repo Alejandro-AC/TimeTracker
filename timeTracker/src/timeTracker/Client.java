@@ -29,10 +29,10 @@ public class Client {
 	 */
 	public static void main(String[] args) {
 		Client c = new Client();
-		clock.schedule(1);
+				
+		clock.schedule(c.refreshTime);
 		
 		c.printMenu();
-		c.getMenuOption();
 	}
 	
 	/** 
@@ -61,7 +61,7 @@ public class Client {
 	public void addRootProject() {
 		ArrayList<String> properties = new ArrayList<String>();
 		
-		properties = askRootProjectProperties();
+		properties = askRootProjectProperties();		
 		
 		Project p = new Project(properties.get(0), properties.get(1));
 		this.rootProjects.add(p);		
@@ -83,7 +83,7 @@ public class Client {
 
 	/** 
 	 * Asks the user the properties needed to create a new Project.
-	 * @return ArrayList with two strings: the name and the description for the new Component.
+	 * @return ArrayList with two strings: the name and the description for the new Activitat.
 	 */
 	public ArrayList<String> askRootProjectProperties() {
 		ArrayList<String> properties = new ArrayList<String>();
@@ -106,26 +106,13 @@ public class Client {
 	 * Generates the menu.
 	 */
 	public void printMenu() {
-		System.out.println("1. Add Root Project");
-		System.out.println("2. Add Child Project");
-		System.out.println("3. Add Child Task");
-		System.out.println("4. Add Interval");
-		System.out.println("0. Exit");
-	}
-	
-	/** 
-	 * Gets the test option that the user decides to run and executes it.
-	 */
-	public void getMenuOption() {
+		
 		Scanner scanner = new Scanner(System.in);
 		int option = -1;
 		
 		while(option != 0) {
-			Project fatherProject;
-			Task fatherTask;
-			String fatherName;
 			
-			Stack<Component> nonVisited = new Stack<Component>();
+			Stack<Activitat> nonVisited = new Stack<Activitat>();
 			nonVisited.addAll(rootProjects);
 			System.out.println("");
 			System.out.println("  - TREE -");
@@ -136,48 +123,12 @@ public class Client {
 			}
 			
 			System.out.println("");
-			System.out.print("Introduce nueva opcion: ");
+			System.out.print("Enter 1 to see the menu or 0 to Exit: ");
 			option = Integer.parseInt(scanner.nextLine());
 			
 			switch(option) {
-			case 1:		// Add Root Project
-				addRootProject();
-				break;
-			case 2:		// Add Child Project
-				System.out.print("Enter the name of the Father Project: ");
-				fatherName = scanner.nextLine();
-				
-				fatherProject = (Project) getComponent(fatherName);
-				
-				if (fatherProject != null) {
-					addChildProject(fatherProject, this);
-				} else {
-					System.out.println("Error. The specified Father Project does not exist.");
-				}
-				break;
-			case 3:		// Add Child Task
-				System.out.print("Enter the name of the Father Project: ");
-				fatherName = scanner.nextLine();
-				
-				fatherProject = (Project) getComponent(fatherName);
-				
-				if (fatherProject != null) {
-					addChildTask(fatherProject, this);
-				} else {
-					System.out.println("Error. The specified Father Project does not exist.");
-				}
-				break;	
-			case 4: 	// Add Interval
-				System.out.print("Enter the name of the Task: ");
-				fatherName = scanner.nextLine();
-				
-				fatherTask = (Task) getComponent(fatherName);
-				
-				if (fatherTask != null) {
-					addInterval(fatherTask);
-				} else {
-					System.out.println("Error. The specified Task does not exist.");
-				}
+			case 1:		
+				printSubMenu();
 				break;
 			case 0:
 				break;
@@ -187,7 +138,8 @@ public class Client {
 			}
 		}
 		scanner.close();
-	}
+		
+	}	
 		
 	/** 
 	 * Adds a child Project to an existing Project.
@@ -199,6 +151,7 @@ public class Client {
 	
 	/** 
 	 * Adds a child Task to an existing Project.
+	 * @param client 
 	 * @param father: father of the new child Task.
 	 */
 	public void addChildTask(Project father, Client client) {
@@ -207,83 +160,83 @@ public class Client {
 	
 	/**
 	 * Prints all the Projects and Tasks of the system.
-	 * @param component: component to be printed.
+	 * @param activitat: activitat to be printed.
 	 * @param level: level in the hierarchy of the "tree".
-	 * @param nonVisited: stack with the components that haven't been visited yet.
+	 * @param nonVisited: stack with the activitats that haven't been visited yet.
 	 */
-	public void printTree(Component component, int level, Stack<Component> nonVisited) {		
+	public void printTree(Activitat activitat, int level, Stack<Activitat> nonVisited) {		
 		char[] spaces = new char[level*2];
 		Arrays.fill(spaces, ' ');
 		
 		String type = "";
-		if (component instanceof Project) {
+		if (activitat instanceof Project) {
 			type = "P. ";
-		} else if (component instanceof Task) {
+		} else if (activitat instanceof Task) {
 			type = "T. ";
 		}
 		
-		System.out.println(new String(spaces) + type + component.getName());
+		System.out.println(new String(spaces) + type + activitat.getName());
 		
-		if (component instanceof Project) {
-			Collection<Component> children = component.getChildren();
+		if (activitat instanceof Project) {
+			Collection<Activitat> children = activitat.getChildren();
 			if (children != null) {
 				nonVisited.addAll(children);
 				for (int i = 0; i < children.size(); i++) {
 					printTree(nonVisited.pop(), level + 1, nonVisited);
 				}
 			}
-		} else if (component instanceof Task) {
-			Collection<Interval> intervals = component.getChildren();
+		} else if (activitat instanceof Task) {
+			Collection<Interval> intervals = activitat.getChildren();
 			if (intervals != null) {
 				spaces = new char[level*2 + 2];
 				Arrays.fill(spaces, ' ');
 				for (Interval interval : intervals) {
-					System.out.println(new String(spaces) + "I. " + interval.getId() + "..TotalTime.." + interval.getTotalTime() + "s " + " ..StartTime.." + interval.getStartDate());
+					System.out.println(new String(spaces) + "I. " + interval.getId() + " ..TotalTime.." + interval.getTotalTime() + "s " + "  ..StartTime.." + interval.getStartDate()+ "  ..EndTime.." + interval.getEndDate());
 				}
 			}
 		}
 	}
 	
 	/**
-	 * Searches for a specific Component in the tree, starting from the rootProjects, using a BFS based algorithm.
-	 * @param name: name of the Component to be found.
-	 * @return component: the Component that has been searched. It's value is null if it couldn't be found.
+	 * Searches for a specific Activitat in the tree, starting from the rootProjects, using a BFS based algorithm.
+	 * @param name: name of the Activitat to be found.
+	 * @return activitat: the Activitat that has been searched. It's value is null if it couldn't be found.
 	 */
-	public Component getComponent(String name) {
+	public Activitat getActivitat(String name) {
 		boolean found = false;
-		Queue<Component> nonVisited = new LinkedList<Component>();
+		Queue<Activitat> nonVisited = new LinkedList<Activitat>();
 		nonVisited.addAll(rootProjects);
 		Iterator<Project> iter = rootProjects.iterator();
-		Component component = null;
+		Activitat activitat = null;
 		
 		while(!found && iter.hasNext()) {
-			component = searchComponent(name, iter.next(), nonVisited);
-			if (component != null) {
+			activitat = searchActivitat(name, iter.next(), nonVisited);
+			if (activitat != null) {
 				found = true;
 			}
 		}		
-		return component;
+		return activitat;
 	}
 
 	/**
-	 * Searches for a specific Component in the tree.
-	 * @param name: name of the Component to be found.
-	 * @param component: actual Component that is being checked.
-	 * @param nonVisited: list of Components that haven't been visited.
-	 * @return component: the Component that has been searched. It's value is null if it couldn't be found.
+	 * Searches for a specific Activitat in the tree.
+	 * @param name: name of the Activitat to be found.
+	 * @param activitat: actual Activitat that is being checked.
+	 * @param nonVisited: list of Activitats that haven't been visited.
+	 * @return activitat: the Activitat that has been searched. It's value is null if it couldn't be found.
 	 */
-	private Component searchComponent(String name, Component component, Queue<Component> nonVisited) {
+	private Activitat searchActivitat(String name, Activitat activitat, Queue<Activitat> nonVisited) {
 		if (!nonVisited.isEmpty()) {		// There's at least one element to visit (the current one)
 			nonVisited.remove();
-			if (name.equals(component.getName())) {
-				return component;
+			if (name.equals(activitat.getName())) {
+				return activitat;
 				
-			} else if (component instanceof Project) {		// keep searching
-				Collection<Component> children = component.getChildren();
+			} else if (activitat instanceof Project) {		// keep searching
+				Collection<Activitat> children = activitat.getChildren();
 				if (children != null) {
 					nonVisited.addAll(children);
 				}
-				return searchComponent(name, nonVisited.peek(), nonVisited);
+				return searchActivitat(name, nonVisited.peek(), nonVisited);
 				
 			} 
 			return null;
@@ -300,6 +253,137 @@ public class Client {
 	public void addInterval(Task father) {
 		father.addInterval();
 	}
+
+	/**
+	 * @uml.property  name="refreshTime"
+	 */
+	private long refreshTime = 1;
+
+	/**
+	 * Getter of the property <tt>refreshTime</tt>
+	 * @return  Returns the refreshTime.
+	 * @uml.property  name="refreshTime"
+	 */
+	public long getRefreshTime() {
+		return refreshTime;
+	}
+
+	/**
+	 * Setter of the property <tt>refreshTime</tt>
+	 * @param refreshTime  The refreshTime to set.
+	 * @uml.property  name="refreshTime"
+	 */
+	public void setRefreshTime(long refreshTime) {
+		this.refreshTime = refreshTime;
+	}
+
+		
+	/**
+	 */
+	public void printSubMenu(){
+		Scanner scanner = new Scanner(System.in);
+		int option = -1;
+		
+		while(option != 0) {
+			Project fatherProject;
+			Task fatherTask;
+			String fatherName;			
+			
+			System.out.println("1. Add Root Project");
+			System.out.println("2. Add Child Project");
+			System.out.println("3. Add Child Task");
+			System.out.println("4. Start Interval");
+			System.out.println("5. Stop Interval");
+			System.out.println("6. Change Refresh Rate/Minimum Interval");
+			System.out.println("0. Return");
+						
+			System.out.println("");
+			System.out.print("Enter an option: ");
+			option = Integer.parseInt(scanner.nextLine());
+			
+			switch(option) {
+			case 1:		// Add Root Project
+				addRootProject();
+				
+				break;
+			case 2:		// Add Child Project
+				System.out.print("Enter the name of the Father Project: ");
+				fatherName = scanner.nextLine();
+				
+				fatherProject = (Project) getActivitat(fatherName);
+				
+				if (fatherProject != null) {
+					addChildProject(fatherProject, this);
+				} else {
+					System.out.println("Error. The specified Father Project does not exist.");
+				}
+				
+				break;
+			case 3:		// Add Child Task
+				System.out.print("Enter the name of the Father Project: ");
+				fatherName = scanner.nextLine();
+				
+				fatherProject = (Project) getActivitat(fatherName);
+				
+				if (fatherProject != null) {
+					addChildTask(fatherProject, this);
+				} else {
+					System.out.println("Error. The specified Father Project does not exist.");
+				}
+				
+				break;	
+			case 4: 	// Start Interval
+				System.out.print("Enter the name of the Task: ");
+				fatherName = scanner.nextLine();
+				
+				fatherTask = (Task) getActivitat(fatherName);
+				
+				if (fatherTask != null) {
+					addInterval(fatherTask);
+				} else {
+					System.out.println("Error. The specified Task does not exist.");
+				}
+				
+				break;
+			case 5: 	// Stop Interval
+				System.out.print("Enter the name of the Task: ");
+				fatherName = scanner.nextLine();
+				
+				fatherTask = (Task) getActivitat(fatherName);
+				
+				if (fatherTask != null) {
+					stopInterval(fatherTask);
+				} else {
+					System.out.println("Error. The specified Task does not exist.");
+				}
+				
+				break;
+			case 6:
+				System.out.print("Enter the new refresh rate in seconds: ");
+				
+				this.setRefreshTime(scanner.nextLong());
+				
+				break;
+			case 0:
+				break;
+			default:
+				System.out.println("Error. Invalid option");
+				break;
+			}
+		}
+				
+	}
+
+		
+	/**
+	 * Stops last Interval of the specified Task. 
+	 * @param father: Task where the last Interval will be stopped. 
+	 */
+	public void stopInterval(Task father) {
+		Interval interval = father.getLastInterval();
+		interval.stop();	
+		clock.deleteObserver(interval);
+	} 
 
 
 }

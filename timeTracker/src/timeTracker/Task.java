@@ -11,7 +11,7 @@ import java.util.Date;
 /** 
  * @author marcm
  */
-public class Task extends Component {
+public class Task extends Activitat {
 
 	/** 
 	 * @uml.property name="children"
@@ -105,4 +105,11 @@ public class Task extends Component {
 			return false;
 		}
 	}
+
+		
+		/**
+		 */
+		public Interval getLastInterval(){
+			return getInterval(children.size());			
+		}
 }

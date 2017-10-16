@@ -164,10 +164,12 @@ public class Interval implements Observer {
 	}
 
 	/**
-	 * Stopts the execution of the current Interval.
+	 * Stops the execution of the current Interval.
 	 */
 	public void stop(){
-		/////
+		Date endD = new Date();		
+		this.setEndDate(endD);
+		
 	}
 
 }

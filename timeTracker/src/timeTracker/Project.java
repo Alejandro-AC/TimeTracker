@@ -12,13 +12,13 @@ import java.util.Scanner;
 /** 
  * @author marcm
  */
-public class Project extends Component {
+public class Project extends Activitat {
 
-	/** 
-	 * @uml.property name="children"
-	 * @uml.associationEnd multiplicity="(0 -1)" aggregation="shared" inverse="father:timeTracker.Component"
+	/**
+	 * @uml.property   name="children"
+	 * @uml.associationEnd   multiplicity="(0 -1)" aggregation="shared" inverse="father:timeTracker.Activitat"
 	 */
-	private Collection<Component> children = new ArrayList<Component>();
+	private Collection<Activitat> children = new ArrayList<Activitat>();
 
 	/** 
 	 * Getter of the property <tt>children</tt>
@@ -26,7 +26,7 @@ public class Project extends Component {
 	 * @uml.property  name="children"
 	 */
 	@SuppressWarnings("unchecked") 
-	public Collection<Component> getChildren() {
+	public Collection<Activitat> getChildren() {
 		if (children.isEmpty()) {
 			return null;
 		} else {
@@ -65,7 +65,7 @@ public class Project extends Component {
 
 	/**
 	 * Asks the user the properties needed to create a new Project.
-	 * @return ArrayList with two strings: the name and the description for the new Component.
+	 * @return ArrayList with two strings: the name and the description for the new Activitat.
 	 */
 	public ArrayList<String> askChildProperties(Client client) {
 		ArrayList<String> properties = new ArrayList<String>();
@@ -73,12 +73,11 @@ public class Project extends Component {
 		
 		System.out.print("Introduce a name: ");
 		properties.add(sc.nextLine());
-		while(client.getComponent(properties.get(0)) != null) {
+		while(client.getActivitat(properties.get(0)) != null) {
 			properties.remove(0);
 			System.out.print("A component with the same name already exists in the system. Introduce a new name: ");
 			properties.add(sc.nextLine());
 		}
-		
 		System.out.print("Introduce a description: ");
 		properties.add(sc.nextLine());
 		
@@ -90,7 +89,7 @@ public class Project extends Component {
 	 */
 	public void calculateTotalTime() {
 		long sum = 0;
-		for (Component child : children) {
+		for (Activitat child : children) {
 			sum += child.getTotalTime().getTime();
 		}
 		sum += this.totalTime.getTime();
@@ -100,10 +99,10 @@ public class Project extends Component {
 	/**
 	 * Searches for the child with the name given and returns it if it has been found.
 	 * @param name: name of the component to be found.
-	 * @return Returns the child Component with the same name, or null if it has not been found.
+	 * @return Returns the child Activitat with the same name, or null if it has not been found.
 	 */
-	public Component getChild(String name) {
-		for (Component child : children) {
+	public Activitat getChild(String name) {
+		for (Activitat child : children) {
 			if (child.getName().equals(name)) {
 				return child;
 			}
@@ -117,9 +116,9 @@ public class Project extends Component {
 	 * @return True if the child could be removed and false if it couldn't.
 	 */
 	public boolean removeChild(String name){
-		Component child = getChild(name);
+		Activitat child = getChild(name);
 		if (child != null) {
-			int index = ((AbstractList<Component>) children).indexOf(child);
+			int index = ((AbstractList<Activitat>) children).indexOf(child);
 			children.remove(index);
 			return true;			
 		} else {
@@ -132,7 +131,7 @@ public class Project extends Component {
 	 * @param children  The children to set.
 	 * @uml.property  name="children"
 	 */
-	public void setChildren(Collection<Component> children) {
+	public void setChildren(Collection<Activitat> children) {
 		this.children = children;
 	}
 }
