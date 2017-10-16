@@ -61,7 +61,7 @@ public class Client {
 	public void addRootProject() {
 		ArrayList<String> properties = new ArrayList<String>();
 		
-		properties = askRootProjectProperties();		
+		properties = askRootProjectProperties();
 		
 		Project p = new Project(properties.get(0), properties.get(1));
 		this.rootProjects.add(p);		
@@ -91,6 +91,11 @@ public class Client {
 		
 		System.out.print("Introduce a name for the RootProject: ");
 		properties.add(sc.nextLine());
+		while (getRootProject(properties.get(0)) != null) {
+			properties.remove(0);
+			System.out.print("A Root Project with the same name already exists in the system. Introduce a new name: ");
+			properties.add(sc.nextLine());
+		}
 		System.out.print("Introduce a description: ");
 		properties.add(sc.nextLine());
 		
@@ -145,7 +150,7 @@ public class Client {
 				fatherProject = (Project) getComponent(fatherName);
 				
 				if (fatherProject != null) {
-					addChildProject(fatherProject);
+					addChildProject(fatherProject, this);
 				} else {
 					System.out.println("Error. The specified Father Project does not exist.");
 				}
@@ -157,7 +162,7 @@ public class Client {
 				fatherProject = (Project) getComponent(fatherName);
 				
 				if (fatherProject != null) {
-					addChildTask(fatherProject);
+					addChildTask(fatherProject, this);
 				} else {
 					System.out.println("Error. The specified Father Project does not exist.");
 				}
@@ -188,16 +193,16 @@ public class Client {
 	 * Adds a child Project to an existing Project.
 	 * @param father: father of the new child Project.
 	 */
-	public void addChildProject(Project father) {
-		father.addChildProject();
+	public void addChildProject(Project father, Client client) {
+		father.addChildProject(client);
 	}
 	
 	/** 
 	 * Adds a child Task to an existing Project.
 	 * @param father: father of the new child Task.
 	 */
-	public void addChildTask(Project father) {
-		father.addChildTask();
+	public void addChildTask(Project father, Client client) {
+		father.addChildTask(client);
 	}
 	
 	/**

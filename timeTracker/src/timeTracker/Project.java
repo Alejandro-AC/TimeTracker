@@ -44,10 +44,10 @@ public class Project extends Component {
 	/**
 	 * Adds a new project to the children list.
 	 */
-	public void addChildProject() {
+	public void addChildProject(Client client) {
 		ArrayList<String> properties = new ArrayList<String>();
 		
-		properties = askChildProperties();
+		properties = askChildProperties(client);
 		Project p = new Project(properties.get(0), properties.get(1));
 		this.children.add(p);
 	}
@@ -55,10 +55,10 @@ public class Project extends Component {
 	/**
 	 * Adds a new task to the children list.
 	 */
-	public void addChildTask() {
+	public void addChildTask(Client client) {
 		ArrayList<String> properties = new ArrayList<String>();
 		
-		properties = askChildProperties();
+		properties = askChildProperties(client);
 		Task t = new Task(properties.get(0), properties.get(1));
 		this.children.add(t);
 	}
@@ -67,12 +67,18 @@ public class Project extends Component {
 	 * Asks the user the properties needed to create a new Project.
 	 * @return ArrayList with two strings: the name and the description for the new Component.
 	 */
-	public ArrayList<String> askChildProperties() {
+	public ArrayList<String> askChildProperties(Client client) {
 		ArrayList<String> properties = new ArrayList<String>();
 		Scanner sc = new Scanner(System.in);
 		
 		System.out.print("Introduce a name: ");
 		properties.add(sc.nextLine());
+		while(client.getComponent(properties.get(0)) != null) {
+			properties.remove(0);
+			System.out.print("A component with the same name already exists in the system. Introduce a new name: ");
+			properties.add(sc.nextLine());
+		}
+		
 		System.out.print("Introduce a description: ");
 		properties.add(sc.nextLine());
 		
