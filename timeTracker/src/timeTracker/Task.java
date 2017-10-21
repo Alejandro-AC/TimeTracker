@@ -13,6 +13,11 @@ import java.util.Date;
  */
 public class Task extends Activitat {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 3L;
+	
 	/** 
 	 * @uml.property name="children"
 	 * @uml.associationEnd multiplicity="(0 -1)" aggregation="shared" inverse="task:timeTracker.Interval"

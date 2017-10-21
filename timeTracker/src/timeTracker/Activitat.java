@@ -4,12 +4,18 @@
 package timeTracker;
 
 import java.util.Date;
+import java.io.Serializable;
 
 /** 
  * @author marcm
  */
-public abstract class Activitat {
+public abstract class Activitat implements Serializable {
 
+	/**
+	 * Version number for this class. 
+	 */
+	private static final long serialVersionUID = 1L;
+	
 	/** 
 	 * @uml.property name="father"
 	 * @uml.associationEnd multiplicity="(1 1)" inverse="children:timeTracker.Project"

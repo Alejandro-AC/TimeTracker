@@ -15,6 +15,11 @@ import java.util.Scanner;
 public class Project extends Activitat {
 
 	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2L;
+	
+	/**
 	 * @uml.property   name="children"
 	 * @uml.associationEnd   multiplicity="(0 -1)" aggregation="shared" inverse="father:timeTracker.Activitat"
 	 */

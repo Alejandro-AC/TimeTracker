@@ -3,6 +3,12 @@
  */
 package timeTracker;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -27,12 +33,40 @@ public class Client {
 	 * Main function of the program.
 	 * @param args
 	 */
+	@SuppressWarnings("unchecked")
 	public static void main(String[] args) {
 		Client c = new Client();
 				
 		clock.schedule(c.refreshTime);
+
+		try {		// Deserialization
+			FileInputStream fileIn = new FileInputStream("data.ser");
+			ObjectInputStream in = new ObjectInputStream(fileIn);
+			c.rootProjects = (Collection<Project>) in.readObject();
+			System.out.println("Desarialized data from data.ser");
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			System.out.println("Employee class not found");
+			e.printStackTrace();
+			return;
+		}
 		
 		c.printMenu();
+		
+		try {		// Serialization
+			FileOutputStream fileOut = new FileOutputStream("data.ser");
+			ObjectOutputStream out = new ObjectOutputStream(fileOut);
+			out.writeObject(c.rootProjects);
+			out.close();
+			fileOut.close();
+			
+			System.out.println("Serialized data is saved in data.ser");
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	/** 
@@ -109,7 +143,7 @@ public class Client {
 		
 		Scanner scanner = new Scanner(System.in);
 		int option = -1;
-		
+	
 		while(option != 0) {
 			
 			Stack<Activitat> nonVisited = new Stack<Activitat>();
@@ -130,7 +164,7 @@ public class Client {
 			case 1:		
 				printSubMenu();
 				break;
-			case 0:
+			case 0:				
 				break;
 			default:
 				System.out.println("Error. Invalid option");
@@ -138,7 +172,6 @@ public class Client {
 			}
 		}
 		scanner.close();
-		
 	}	
 		
 	/** 

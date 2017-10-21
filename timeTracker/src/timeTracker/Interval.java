@@ -6,12 +6,18 @@ package timeTracker;
 import java.util.Observable;
 import java.util.Observer;
 import java.util.Date;
+import java.io.Serializable;
 
 /** 
  * @author marcm
  */
-public class Interval implements Observer {
+public class Interval implements Observer, Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 4L;
+	
 	/** 
 	 * @uml.property name="task"
 	 * @uml.associationEnd multiplicity="(1 1)" inverse="children:timeTracker.Task"
