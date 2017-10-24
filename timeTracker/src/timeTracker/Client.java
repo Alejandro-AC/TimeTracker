@@ -18,11 +18,15 @@ import java.util.Queue;
 import java.util.Scanner;
 import java.util.Stack;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /** 
  * @author marcm
  */
 public class Client {
 	
+	static Logger logger = LoggerFactory.getLogger(Client.class);
 	/**
 	 * Constructor of the class.
 	 */
@@ -94,11 +98,13 @@ public class Client {
 	 */
 	public void addRootProject() {
 		ArrayList<String> properties = new ArrayList<String>();
-		
+		logger.debug("adding root project");
+		logger.debug("asking project properties");
 		properties = askRootProjectProperties();		
 		
 		Project p = new Project(properties.get(0), properties.get(1));
-		this.rootProjects.add(p);		
+		this.rootProjects.add(p);
+		logger.info("root project "+p.getName()+" added");
 	}
 
 	/**
@@ -123,16 +129,20 @@ public class Client {
 		ArrayList<String> properties = new ArrayList<String>();
 		Scanner sc = new Scanner(System.in);
 		
-		System.out.print("Introduce a name for the RootProject: ");
+		logger.debug("introducing root project name");
+		System.out.print("Introduce a name for the RootProject: ");		
 		properties.add(sc.nextLine());
 		while (getRootProject(properties.get(0)) != null) {
+			logger.warn("project name "+properties.get(0)+" already exist");
 			properties.remove(0);
-			System.out.print("A Root Project with the same name already exists in the system. Introduce a new name: ");
+			logger.debug("Introducing new name for the project");
 			properties.add(sc.nextLine());
 		}
+		logger.debug("introducing description");
 		System.out.print("Introduce a description: ");
-		properties.add(sc.nextLine());
 		
+		properties.add(sc.nextLine());
+		logger.debug("all properties has been introduced correctly");
 		return properties;
 	}
 	
@@ -340,27 +350,35 @@ public class Client {
 				
 				break;
 			case 2:		// Add Child Project
+				logger.debug("adding child project");
+				logger.debug("introducing name of father project");
 				System.out.print("Enter the name of the Father Project: ");
 				fatherName = scanner.nextLine();
-				
+				logger.debug("searching father project "+fatherName);
 				fatherProject = (Project) getActivitat(fatherName);
 				
 				if (fatherProject != null) {
+					logger.debug("father "+fatherProject+" has been found");
 					addChildProject(fatherProject, this);
 				} else {
+					logger.info("The specified Father Project does not exist.");
 					System.out.println("Error. The specified Father Project does not exist.");
 				}
 				
 				break;
 			case 3:		// Add Child Task
+				logger.debug("adding task to project");
+				logger.debug("introducing name of father project");
 				System.out.print("Enter the name of the Father Project: ");
 				fatherName = scanner.nextLine();
-				
+				logger.debug("searching father project "+fatherName);
 				fatherProject = (Project) getActivitat(fatherName);
 				
 				if (fatherProject != null) {
+					logger.debug("father "+fatherProject+" has been found");
 					addChildTask(fatherProject, this);
 				} else {
+					logger.info("The specified Father Project does not exist.");
 					System.out.println("Error. The specified Father Project does not exist.");
 				}
 				

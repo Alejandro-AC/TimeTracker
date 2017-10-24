@@ -9,10 +9,14 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.Scanner;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 /** 
  * @author marcm
  */
 public class Project extends Activitat {
+	
+	static Logger logger = LoggerFactory.getLogger(Project.class);
 
 	/**
 	 * 
@@ -50,11 +54,13 @@ public class Project extends Activitat {
 	 * Adds a new project to the children list.
 	 */
 	public void addChildProject(Client client) {
+		
 		ArrayList<String> properties = new ArrayList<String>();
 		
 		properties = askChildProperties(client);
 		Project p = new Project(properties.get(0), properties.get(1));
 		this.children.add(p);
+		logger.info("added child project "+p.getName());
 	}
 
 	/**
@@ -66,6 +72,7 @@ public class Project extends Activitat {
 		properties = askChildProperties(client);
 		Task t = new Task(properties.get(0), properties.get(1));
 		this.children.add(t);
+		logger.info("added child task "+t.getName());
 	}
 
 	/**
@@ -75,17 +82,20 @@ public class Project extends Activitat {
 	public ArrayList<String> askChildProperties(Client client) {
 		ArrayList<String> properties = new ArrayList<String>();
 		Scanner sc = new Scanner(System.in);
-		
+		logger.debug("introducing activity name");
 		System.out.print("Introduce a name: ");
 		properties.add(sc.nextLine());
 		while(client.getActivitat(properties.get(0)) != null) {
+			logger.warn("activity "+properties.get(0)+" already exist");
 			properties.remove(0);
+			logger.debug("introducing new activity name");
 			System.out.print("A component with the same name already exists in the system. Introduce a new name: ");
 			properties.add(sc.nextLine());
 		}
+		logger.debug("introducing activity description");
 		System.out.print("Introduce a description: ");
 		properties.add(sc.nextLine());
-		
+		logger.debug("all properties has been introduced correctly");
 		return properties;
 	}
 

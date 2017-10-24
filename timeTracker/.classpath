@@ -2,5 +2,8 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="C:/Users/alexg/workspaceClase/timeTracker/lib/logback-classic-1.1.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/alexg/workspaceClase/timeTracker/lib/logback-core-1.1.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/alexg/workspaceClase/timeTracker/lib/slf4j-api-1.7.12.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

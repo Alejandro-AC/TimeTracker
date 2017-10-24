@@ -8,10 +8,15 @@ import java.util.Observer;
 import java.util.Date;
 import java.io.Serializable;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /** 
  * @author marcm
  */
 public class Interval implements Observer, Serializable {
+	
+	static Logger logger = LoggerFactory.getLogger(Interval.class);
 
 	/**
 	 * 

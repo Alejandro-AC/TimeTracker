@@ -1,0 +1,9 @@
+2017-10-24 23:05:37 DEBUG t.Client:101 - adding root project
+2017-10-24 23:05:37 DEBUG t.Client:102 - asking project properties
+2017-10-24 23:05:37 DEBUG t.Client:132 - introducing root project name
+2017-10-24 23:05:40 DEBUG t.Client:141 - introducing description
+2017-10-24 23:05:42 DEBUG t.Client:145 - all properties has been introduced correctly
+2017-10-24 23:05:42 INFO  t.Client:107 - root project test added
+2017-10-24 23:07:31 INFO  t.Client:107 - root project test2 added
+2017-10-24 23:08:42 INFO  t.Client:107 - root project fewf added
+2017-10-24 23:08:48 DEBUG t.Project:85 - introducing activity name
