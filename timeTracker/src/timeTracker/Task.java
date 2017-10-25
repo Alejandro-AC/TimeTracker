@@ -57,6 +57,7 @@ public class Task extends Activitat {
 		Interval interval = new Interval(children.size() + 1);
 		children.add(interval);		
 		Client.clock.addObserver(interval);
+		logger.info("interval for task "+this.getName()+" started");
 	}
 
 	/**

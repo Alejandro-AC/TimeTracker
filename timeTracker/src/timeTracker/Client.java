@@ -132,16 +132,19 @@ public class Client {
 		logger.debug("introducing root project name");
 		System.out.print("Introduce a name for the RootProject: ");		
 		properties.add(sc.nextLine());
+		logger.debug("name introduced: "+properties.get(0));
 		while (getRootProject(properties.get(0)) != null) {
 			logger.warn("project name "+properties.get(0)+" already exist");
 			properties.remove(0);
 			logger.debug("Introducing new name for the project");
+			System.out.print("A Root Project with the same name already exists in the system. Introduce a new name: ");
 			properties.add(sc.nextLine());
+			logger.debug("new name introduced: " + properties.get(0));
 		}
 		logger.debug("introducing description");
 		System.out.print("Introduce a description: ");
-		
 		properties.add(sc.nextLine());
+		logger.debug("description introduced:"+properties.get(1));
 		logger.debug("all properties has been introduced correctly");
 		return properties;
 	}
@@ -165,10 +168,22 @@ public class Client {
 				printTree(nonVisited.pop(), 0, nonVisited);
 				System.out.println("");
 			}
-			
+			logger.debug("choosing menu option: ");
 			System.out.println("");
 			System.out.print("Enter 1 to see the menu or 0 to Exit: ");
-			option = Integer.parseInt(scanner.nextLine());
+			
+			boolean correctType = false;
+			while(!correctType){
+				try{
+					option = Integer.parseInt(scanner.nextLine());
+					logger.debug("chosen option: " + option);
+					correctType = true;
+				}catch(Exception e){
+					logger.debug("chosen option: " + option);
+					logger.warn("Introduced value is not a valid value. Introducing new value");
+					System.out.print("Introduced value is not a number. Please enter a number:");
+				}
+			}
 			
 			switch(option) {
 			case 1:		
@@ -329,8 +344,8 @@ public class Client {
 		
 		while(option != 0) {
 			Project fatherProject;
-			Task fatherTask;
-			String fatherName;			
+			Task fatherTask = null;
+			String fatherName = "";			
 			
 			System.out.println("1. Add Root Project");
 			System.out.println("2. Add Child Project");
@@ -339,10 +354,22 @@ public class Client {
 			System.out.println("5. Stop Interval");
 			System.out.println("6. Change Refresh Rate/Minimum Interval");
 			System.out.println("0. Return");
-						
+			logger.debug("choosing submenu option");			
 			System.out.println("");
 			System.out.print("Enter an option: ");
-			option = Integer.parseInt(scanner.nextLine());
+			
+			boolean correctType = false;
+			while(!correctType){
+				try{
+					option = Integer.parseInt(scanner.nextLine());
+					logger.debug("chosen option: " + option);
+					correctType = true;					
+				}catch(Exception e){
+					logger.debug("chosen option: " + option);
+					logger.warn("Introduced value is not a number. Introducing new value");
+					System.out.print("Introduced value is not a number. Please enter a number:");
+				}
+			}
 			
 			switch(option) {
 			case 1:		// Add Root Project
@@ -358,7 +385,7 @@ public class Client {
 				fatherProject = (Project) getActivitat(fatherName);
 				
 				if (fatherProject != null) {
-					logger.debug("father "+fatherProject+" has been found");
+					logger.debug("father "+fatherName+" has been found");
 					addChildProject(fatherProject, this);
 				} else {
 					logger.info("The specified Father Project does not exist.");
@@ -375,7 +402,7 @@ public class Client {
 				fatherProject = (Project) getActivitat(fatherName);
 				
 				if (fatherProject != null) {
-					logger.debug("father "+fatherProject+" has been found");
+					logger.debug("father "+fatherName+" has been found");
 					addChildTask(fatherProject, this);
 				} else {
 					logger.info("The specified Father Project does not exist.");
@@ -384,27 +411,61 @@ public class Client {
 				
 				break;	
 			case 4: 	// Start Interval
+				logger.debug("starting interval");
+				logger.debug("introducing name of the task");
 				System.out.print("Enter the name of the Task: ");
-				fatherName = scanner.nextLine();
 				
-				fatherTask = (Task) getActivitat(fatherName);
+				correctType = false;
+				while(!correctType){
+					try{
+						fatherName = scanner.nextLine();
+						logger.debug("task name introduced: " + fatherName);
+						logger.debug("searching task " + fatherName);				
+						fatherTask = (Task) getActivitat(fatherName);
+						correctType = true;
+					}catch(Exception e){
+						logger.warn(fatherName + " is a project, not a task.");
+						logger.warn("introducing a new task to find.");
+						System.out.print("You need to choose a task, not a project. Please introduce task name: ");
+					}
+				}
 				
 				if (fatherTask != null) {
+					logger.debug("task " + fatherName+ "has been found");
 					addInterval(fatherTask);
 				} else {
+					logger.debug("The specified task does not exist.");
 					System.out.println("Error. The specified Task does not exist.");
 				}
 				
 				break;
 			case 5: 	// Stop Interval
+				logger.debug("stoping interval");
+				logger.debug("introducing name of the task");
 				System.out.print("Enter the name of the Task: ");
-				fatherName = scanner.nextLine();
+				
+				correctType = false;
+				while(!correctType){
+					try{
+						fatherName = scanner.nextLine();
+						logger.debug("task name introduced: " + fatherName);
+						logger.debug("searching task " + fatherName);				
+						fatherTask = (Task) getActivitat(fatherName);
+						correctType = true;
+					}catch(Exception e){
+						logger.warn(fatherName + " is a project, not a task.");
+						logger.warn("introducing a new task to find.");
+						System.out.print("You need to choose a task, not a project. Please introduce task name: ");
+					}
+				}
 				
 				fatherTask = (Task) getActivitat(fatherName);
 				
 				if (fatherTask != null) {
+					logger.debug("task " + fatherName+ "has been found");
 					stopInterval(fatherTask);
 				} else {
+					logger.debug("The specified task does not exist.");
 					System.out.println("Error. The specified Task does not exist.");
 				}
 				
@@ -434,6 +495,7 @@ public class Client {
 		Interval interval = father.getLastInterval();
 		interval.stop();	
 		clock.deleteObserver(interval);
+		logger.info("interval for task " + father.getName() + " started");
 	} 
 
 

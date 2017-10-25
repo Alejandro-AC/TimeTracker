@@ -72,7 +72,7 @@ public class Project extends Activitat {
 		properties = askChildProperties(client);
 		Task t = new Task(properties.get(0), properties.get(1));
 		this.children.add(t);
-		logger.info("added child task "+t.getName());
+		logger.info("added task "+t.getName());
 	}
 
 	/**
@@ -85,16 +85,19 @@ public class Project extends Activitat {
 		logger.debug("introducing activity name");
 		System.out.print("Introduce a name: ");
 		properties.add(sc.nextLine());
+		logger.debug("name introduced: " + properties.get(0));
 		while(client.getActivitat(properties.get(0)) != null) {
 			logger.warn("activity "+properties.get(0)+" already exist");
 			properties.remove(0);
 			logger.debug("introducing new activity name");
 			System.out.print("A component with the same name already exists in the system. Introduce a new name: ");
 			properties.add(sc.nextLine());
+			logger.debug("new name introduced: " + properties.get(0));
 		}
 		logger.debug("introducing activity description");
 		System.out.print("Introduce a description: ");
 		properties.add(sc.nextLine());
+		logger.debug("description introduced: " + properties.get(1));
 		logger.debug("all properties has been introduced correctly");
 		return properties;
 	}
