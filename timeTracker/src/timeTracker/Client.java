@@ -158,6 +158,7 @@ public class Client {
 	
 		while(option != 0) {
 			
+			this.printProjectTrees();	// Temporal ****************
 
 			
 			logger.debug("choosing menu option: ");
@@ -289,10 +290,12 @@ public class Client {
 				}
 				return searchActivity(name, nonVisited.peek(), nonVisited);
 				
-			} 
-			return null;
+			} else {
+				return searchActivity(name, nonVisited.peek(), nonVisited);
+			}
 			
 		} else {
+			logger.debug("nonVisited queue is empty");
 			return null;
 		}
 	}
@@ -490,25 +493,29 @@ public class Client {
 	 * @param father: Task where the last Interval will be stopped. 
 	 */
 	public void stopInterval(Task father) {
-		Interval interval = father.getLastInterval();
-		interval.stop();
-		logger.info("interval for task " + father.getName() + " started");
+		father.stop();
+		logger.info("interval for task " + father.getName() + " stopped");
 	}
 
 		
-		/**
-		 */
-		public void printProjectTrees(){
-			Stack<Activity> nonVisited = new Stack<Activity>();
-			nonVisited.addAll(rootProjects);
+	/**
+	 */
+	public void printProjectTrees(){
+		Stack<Activity> nonVisited = new Stack<Activity>();
+		nonVisited.addAll(rootProjects);
+		System.out.println("");
+		System.out.println("  - TREE -");
+		System.out.println("");
+		for (int i = 0; i < rootProjects.size(); i++) {
+			printTree(nonVisited.pop(), 0, nonVisited);
 			System.out.println("");
-			System.out.println("  - TREE -");
-			System.out.println("");
-			for (int i = 0; i < rootProjects.size(); i++) {
-				printTree(nonVisited.pop(), 0, nonVisited);
-				System.out.println("");
-			}
-		} 
+		}
+	}
 
+
+	/**
+	 * @uml.property  name="minIntervalTime"
+	 */
+	public static long minIntervalTime = 100;
 
 }

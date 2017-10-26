@@ -180,8 +180,7 @@ public class Interval implements Observer, Serializable {
 	public void stop(){
 		Date endD = Clock.getInstance().getCurrentDate();		
 		this.setEndDate(endD);
-		Clock.getInstance().getNotification().deleteObserver(this);
-		
+		Clock.getInstance().getNotification().deleteObserver(this);		
 	}
 
 }

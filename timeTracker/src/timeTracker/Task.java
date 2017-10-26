@@ -97,18 +97,34 @@ public class Task extends Activity {
 	public boolean removeInterval(int id) {
 		Interval interval = getIntervalById(id);
 		if (interval != null) {
-			int index = (((AbstractList<Interval>) children).indexOf(interval));
-			children.remove(index);
+			logger.debug("interval exists");
+			children.remove(interval);
 			return true;
 		} else {
+			logger.debug("interval doesnt exist");
 			return false;
 		}
 	}
 
-		
-		/**
-		 */
-		public Interval getLastInterval(){
-			return getIntervalById(children.size());			
+	/**
+	 */
+	public Interval getLastInterval(){
+		return getIntervalById(children.size());			
+	}
+			
+	/**
+	 */
+	public void stop() {
+		if (!this.children.isEmpty()) {
+			if(this.getLastInterval().getStartDate() != null && this.getLastInterval().getEndDate() == null) {
+				this.getLastInterval().stop();
+				if (this.getLastInterval().getTotalTime() < Client.minIntervalTime) {
+					logger.debug("interval too short");
+					this.removeInterval(this.getLastInterval().getId());					
+				}
+			} else {
+				System.out.println("No se puede parar un intervalo que ya se ha parado.");
+			}
 		}
+	}
 }
