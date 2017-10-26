@@ -172,6 +172,12 @@ public abstract class Activity implements Serializable {
 	 * Returns all the children of this Activitat.
 	 * @return Children of this Activitat.
 	 */
-	public abstract <T> T getChildren();	
+	public abstract <T> T getChildren();
+
+	
+	/**
+	 */
+	public abstract void acceptVisitor(Impresor imp, int level);
+			
 
 }

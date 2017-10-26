@@ -10,14 +10,11 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
-import java.util.Stack;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -40,9 +37,11 @@ public class Client {
 	@SuppressWarnings("unchecked")
 	public static void main(String[] args) {
 		Client c = new Client();
-		Thread one = new Thread(Clock.getInstance());
-		one.start();
-				
+		Thread clockThread = new Thread(Clock.getInstance());
+		clockThread.start();
+		
+		Thread impresorThread = new Thread(Impresor.getInstance());
+		impresorThread.start();				
 
 		try {		// Deserialization
 			FileInputStream fileIn = new FileInputStream("data.ser");
@@ -57,7 +56,8 @@ public class Client {
 			return;
 		}
 		
-		c.printProjectTrees();
+		Impresor.getInstance().setRootProjects(c.rootProjects);		
+		
 		c.printMenu();
 		
 		
@@ -104,6 +104,7 @@ public class Client {
 		Project p = new Project(properties.get(0), properties.get(1));
 		this.rootProjects.add(p);
 		logger.info("root project "+p.getName()+" added");
+		Impresor.getInstance().setRootProjects(this.rootProjects);
 	}
 
 	/**
@@ -156,10 +157,7 @@ public class Client {
 		Scanner scanner = new Scanner(System.in);
 		int option = -1;
 	
-		while(option != 0) {
-			
-			this.printProjectTrees();	// Temporal ****************
-
+		while(option != 0) {			
 			
 			logger.debug("choosing menu option: ");
 			System.out.println("");
@@ -207,46 +205,6 @@ public class Client {
 	 */
 	public void addChildTask(Project father, Client client) {
 		father.addChildTask(client);
-	}
-	
-	/**
-	 * Prints all the Projects and Tasks of the system.
-	 * @param activity: activity to be printed.
-	 * @param level: level in the hierarchy of the "tree".
-	 * @param nonVisited: stack with the activities that haven't been visited yet.
-	 */
-	public void printTree(Activity activity, int level, Stack<Activity> nonVisited) {	
-				
-		char[] spaces = new char[level*2];
-		Arrays.fill(spaces, ' ');
-		
-		String type = "";
-		if (activity instanceof Project) {
-			type = "P. ";
-		} else if (activity instanceof Task) {
-			type = "T. ";
-		}
-		
-		System.out.println(new String(spaces) + type + activity.getName());
-		
-		if (activity instanceof Project) {
-			Collection<Activity> children = activity.getChildren();
-			if (children != null) {
-				nonVisited.addAll(children);
-				for (int i = 0; i < children.size(); i++) {
-					printTree(nonVisited.pop(), level + 1, nonVisited);
-				}
-			}
-		} else if (activity instanceof Task) {
-			Collection<Interval> intervals = activity.getChildren();
-			if (intervals != null) {
-				spaces = new char[level*2 + 2];
-				Arrays.fill(spaces, ' ');
-				for (Interval interval : intervals) {
-					System.out.println(new String(spaces) + "I. " + interval.getId() + " ..TotalTime.." + interval.getTotalTime() + "s " + "  ..StartTime.." + interval.getStartDate()+ "  ..EndTime.." + interval.getEndDate());
-				}
-			}
-		}
 	}
 	
 	/**
@@ -309,30 +267,6 @@ public class Client {
 	}
 
 	/**
-	 * @uml.property  name="refreshTime"
-	 */
-	private long refreshTime = 1;
-
-	/**
-	 * Getter of the property <tt>refreshTime</tt>
-	 * @return  Returns the refreshTime.
-	 * @uml.property  name="refreshTime"
-	 */
-	public long getRefreshTime() {
-		return refreshTime;
-	}
-
-	/**
-	 * Setter of the property <tt>refreshTime</tt>
-	 * @param refreshTime  The refreshTime to set.
-	 * @uml.property  name="refreshTime"
-	 */
-	public void setRefreshTime(long refreshTime) {
-		this.refreshTime = refreshTime;
-	}
-
-		
-	/**
 	 */
 	public void printSubMenu(){
 		Scanner scanner = new Scanner(System.in);
@@ -348,7 +282,8 @@ public class Client {
 			System.out.println("3. Add Child Task");
 			System.out.println("4. Start Interval");
 			System.out.println("5. Stop Interval");
-			System.out.println("6. Change Refresh Rate/Minimum Interval");
+			System.out.println("6. Change Reprint Rate");
+			System.out.println("7. Change minimum Interval Time");
 			System.out.println("0. Return");
 						
 			logger.debug("choosing submenu option");
@@ -473,8 +408,14 @@ public class Client {
 				System.out.print("Enter the new refresh rate in seconds: ");
 				
 				
-				Clock.getInstance().setRefreshTime(Long.parseLong(scanner.nextLine()));
+				Impresor.getInstance().setReprintTime(Long.parseLong(scanner.nextLine()));
 								
+				
+				break;
+			case 7:
+				System.out.print("Enter the new minimum Interval time in seconds: ");				
+				
+				Task.setMinIntervalTime(Long.parseLong(scanner.nextLine()));								
 				
 				break;
 			case 0:
@@ -496,26 +437,5 @@ public class Client {
 		father.stop();
 		logger.info("interval for task " + father.getName() + " stopped");
 	}
-
-		
-	/**
-	 */
-	public void printProjectTrees(){
-		Stack<Activity> nonVisited = new Stack<Activity>();
-		nonVisited.addAll(rootProjects);
-		System.out.println("");
-		System.out.println("  - TREE -");
-		System.out.println("");
-		for (int i = 0; i < rootProjects.size(); i++) {
-			printTree(nonVisited.pop(), 0, nonVisited);
-			System.out.println("");
-		}
-	}
-
-
-	/**
-	 * @uml.property  name="minIntervalTime"
-	 */
-	public static long minIntervalTime = 100;
 
 }

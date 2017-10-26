@@ -152,4 +152,13 @@ public class Project extends Activity {
 	public void setChildren(Collection<Activity> children) {
 		this.children = children;
 	}
+
+	@Override
+	public void acceptVisitor(Impresor imp, int level) {
+		// TODO Auto-generated method stub
+		imp.visitProject(this, level);
+		for (Activity child : children) {
+			child.acceptVisitor(imp, level+1);
+		}
+	}
 }

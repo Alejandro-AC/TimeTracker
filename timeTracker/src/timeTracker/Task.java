@@ -3,7 +3,7 @@
  */
 package timeTracker;
 
-import java.util.AbstractList;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
@@ -118,7 +118,7 @@ public class Task extends Activity {
 		if (!this.children.isEmpty()) {
 			if(this.getLastInterval().getStartDate() != null && this.getLastInterval().getEndDate() == null) {
 				this.getLastInterval().stop();
-				if (this.getLastInterval().getTotalTime() < Client.minIntervalTime) {
+				if (this.getLastInterval().getTotalTime() < minIntervalTime) {
 					logger.debug("interval too short");
 					this.removeInterval(this.getLastInterval().getId());					
 				}
@@ -127,4 +127,29 @@ public class Task extends Activity {
 			}
 		}
 	}
+
+
+	@Override
+	public void acceptVisitor(Impresor imp, int level) {
+		// TODO Auto-generated method stub
+		imp.visitTask(this, level);
+		for (Interval child : children) {
+			child.acceptVisitor(imp, level+1);
+		}	
+	}
+
+
+	/** 
+	 * @uml.property name="minIntervalTime"
+	 */
+	public static long minIntervalTime;
+
+
+	/**
+	 */
+	public static void setMinIntervalTime(long intervalTime){
+		minIntervalTime = intervalTime;
+	}
 }
+
+

@@ -183,4 +183,10 @@ public class Interval implements Observer, Serializable {
 		Clock.getInstance().getNotification().deleteObserver(this);		
 	}
 
+	public void acceptVisitor(Impresor imp, int level) {
+		// TODO Auto-generated method stub
+		imp.visitInterval(this, level+1);
+	}
+
+
 }
