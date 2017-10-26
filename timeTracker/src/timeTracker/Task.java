@@ -8,12 +8,13 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 /** 
  * @author marcm
  */
-public class Task extends Activitat {
+public class Task extends Activity {
 	
 	static Logger logger = LoggerFactory.getLogger(Task.class);
 
@@ -53,11 +54,12 @@ public class Task extends Activitat {
 	/**
 	 * Adds a new interval to the intervals list.
 	 */
-	public void addInterval() {
+	public void addInterval() {		
 		Interval interval = new Interval(children.size() + 1);
 		children.add(interval);		
-		Client.clock.addObserver(interval);
+		Clock.getInstance().getNotification().addObserver(interval);
 		logger.info("interval for task "+this.getName()+" started");
+		
 	}
 
 	/**
@@ -77,7 +79,7 @@ public class Task extends Activitat {
 	 * @param id: id of the interval to be found.
 	 * @return Return the interval with the same id, or null if it has not been found.
 	 */
-	public Interval getInterval(int id) {
+	public Interval getIntervalById(int id) {
 		for (Interval interval : children) {
 			if (interval.getId() == id) {
 				return interval;
@@ -86,19 +88,6 @@ public class Task extends Activitat {
 		return null;
 	}
 	
-	/** 
-	 * Searches for the Interval with the given id and returns it if it has been found.
-	 * @param id: id of the Interval to be found.
-	 * @return Returns the child Interval with the same id, or null if it has not been found.
-	 */
-	public timeTracker.Interval getChild(int id){
-		for (Interval child : children) {
-			if (child.getId() == id) {
-				return child;
-			}
-		}
-		return null;
-	}
 
 	/**
 	 * Removes the specified interval if it is in the intervals list.
@@ -106,7 +95,7 @@ public class Task extends Activitat {
 	 * @return True if the interval could be removed and false if it couldn't.
 	 */
 	public boolean removeInterval(int id) {
-		Interval interval = getInterval(id);
+		Interval interval = getIntervalById(id);
 		if (interval != null) {
 			int index = (((AbstractList<Interval>) children).indexOf(interval));
 			children.remove(index);
@@ -120,6 +109,6 @@ public class Task extends Activitat {
 		/**
 		 */
 		public Interval getLastInterval(){
-			return getInterval(children.size());			
+			return getIntervalById(children.size());			
 		}
 }

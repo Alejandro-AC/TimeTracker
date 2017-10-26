@@ -40,8 +40,9 @@ public class Client {
 	@SuppressWarnings("unchecked")
 	public static void main(String[] args) {
 		Client c = new Client();
+		Thread one = new Thread(Clock.getInstance());
+		one.start();
 				
-		clock.schedule(c.refreshTime);
 
 		try {		// Deserialization
 			FileInputStream fileIn = new FileInputStream("data.ser");
@@ -51,12 +52,14 @@ public class Client {
 		} catch (IOException e) {
 			e.printStackTrace();
 		} catch (ClassNotFoundException e) {
-			System.out.println("Employee class not found");
+			System.out.println("Activity class not found");
 			e.printStackTrace();
 			return;
 		}
 		
+		c.printProjectTrees();
 		c.printMenu();
+		
 		
 		try {		// Serialization
 			FileOutputStream fileOut = new FileOutputStream("data.ser");
@@ -73,11 +76,7 @@ public class Client {
 		}
 	}
 	
-	/** 
-	 * @uml.property name="clock"
-	 */
-	public static timeTracker.Clock clock = new Clock();
-
+	
 	/**
 	 * @uml.property  name="rootProjects"
 	 * @uml.associationEnd  multiplicity="(0 -1)" aggregation="shared" inverse="client:timeTracker.Project"
@@ -123,7 +122,7 @@ public class Client {
 
 	/** 
 	 * Asks the user the properties needed to create a new Project.
-	 * @return ArrayList with two strings: the name and the description for the new Activitat.
+	 * @return ArrayList with two strings: the name and the description for the new Activity.
 	 */
 	public ArrayList<String> askRootProjectProperties() {
 		ArrayList<String> properties = new ArrayList<String>();
@@ -142,7 +141,7 @@ public class Client {
 			logger.debug("new name introduced: " + properties.get(0));
 		}
 		logger.debug("introducing description");
-		System.out.print("Introduce a description: ");
+		System.out.print("Introduce a description: ");		
 		properties.add(sc.nextLine());
 		logger.debug("description introduced:"+properties.get(1));
 		logger.debug("all properties has been introduced correctly");
@@ -159,22 +158,15 @@ public class Client {
 	
 		while(option != 0) {
 			
-			Stack<Activitat> nonVisited = new Stack<Activitat>();
-			nonVisited.addAll(rootProjects);
-			System.out.println("");
-			System.out.println("  - TREE -");
-			System.out.println("");
-			for (int i = 0; i < rootProjects.size(); i++) {
-				printTree(nonVisited.pop(), 0, nonVisited);
-				System.out.println("");
-			}
+
+			
 			logger.debug("choosing menu option: ");
 			System.out.println("");
-			System.out.print("Enter 1 to see the menu or 0 to Exit: ");
-			
+			System.out.print("Enter 1 to see the menu or 0 to Exit: ");				
+						
 			boolean correctType = false;
 			while(!correctType){
-				try{
+				try{			
 					option = Integer.parseInt(scanner.nextLine());
 					logger.debug("chosen option: " + option);
 					correctType = true;
@@ -218,33 +210,34 @@ public class Client {
 	
 	/**
 	 * Prints all the Projects and Tasks of the system.
-	 * @param activitat: activitat to be printed.
+	 * @param activity: activity to be printed.
 	 * @param level: level in the hierarchy of the "tree".
-	 * @param nonVisited: stack with the activitats that haven't been visited yet.
+	 * @param nonVisited: stack with the activities that haven't been visited yet.
 	 */
-	public void printTree(Activitat activitat, int level, Stack<Activitat> nonVisited) {		
+	public void printTree(Activity activity, int level, Stack<Activity> nonVisited) {	
+				
 		char[] spaces = new char[level*2];
 		Arrays.fill(spaces, ' ');
 		
 		String type = "";
-		if (activitat instanceof Project) {
+		if (activity instanceof Project) {
 			type = "P. ";
-		} else if (activitat instanceof Task) {
+		} else if (activity instanceof Task) {
 			type = "T. ";
 		}
 		
-		System.out.println(new String(spaces) + type + activitat.getName());
+		System.out.println(new String(spaces) + type + activity.getName());
 		
-		if (activitat instanceof Project) {
-			Collection<Activitat> children = activitat.getChildren();
+		if (activity instanceof Project) {
+			Collection<Activity> children = activity.getChildren();
 			if (children != null) {
 				nonVisited.addAll(children);
 				for (int i = 0; i < children.size(); i++) {
 					printTree(nonVisited.pop(), level + 1, nonVisited);
 				}
 			}
-		} else if (activitat instanceof Task) {
-			Collection<Interval> intervals = activitat.getChildren();
+		} else if (activity instanceof Task) {
+			Collection<Interval> intervals = activity.getChildren();
 			if (intervals != null) {
 				spaces = new char[level*2 + 2];
 				Arrays.fill(spaces, ' ');
@@ -256,45 +249,45 @@ public class Client {
 	}
 	
 	/**
-	 * Searches for a specific Activitat in the tree, starting from the rootProjects, using a BFS based algorithm.
-	 * @param name: name of the Activitat to be found.
-	 * @return activitat: the Activitat that has been searched. It's value is null if it couldn't be found.
+	 * Searches for a specific Activity in the tree, starting from the rootProjects, using a BFS based algorithm.
+	 * @param name: name of the Activity to be found.
+	 * @return activity: the Activity that has been searched. It's value is null if it couldn't be found.
 	 */
-	public Activitat getActivitat(String name) {
+	public Activity getActivity(String name) {
 		boolean found = false;
-		Queue<Activitat> nonVisited = new LinkedList<Activitat>();
+		Queue<Activity> nonVisited = new LinkedList<Activity>();
 		nonVisited.addAll(rootProjects);
 		Iterator<Project> iter = rootProjects.iterator();
-		Activitat activitat = null;
+		Activity activity = null;
 		
 		while(!found && iter.hasNext()) {
-			activitat = searchActivitat(name, iter.next(), nonVisited);
-			if (activitat != null) {
+			activity = searchActivity(name, iter.next(), nonVisited);
+			if (activity != null) {
 				found = true;
 			}
 		}		
-		return activitat;
+		return activity;
 	}
 
 	/**
-	 * Searches for a specific Activitat in the tree.
-	 * @param name: name of the Activitat to be found.
-	 * @param activitat: actual Activitat that is being checked.
-	 * @param nonVisited: list of Activitats that haven't been visited.
-	 * @return activitat: the Activitat that has been searched. It's value is null if it couldn't be found.
+	 * Searches for a specific Activity in the tree.
+	 * @param name: name of the Activity to be found.
+	 * @param activity: actual Activity that is being checked.
+	 * @param nonVisited: list of Activities that haven't been visited.
+	 * @return activity: the Activity that has been searched. It's value is null if it couldn't be found.
 	 */
-	private Activitat searchActivitat(String name, Activitat activitat, Queue<Activitat> nonVisited) {
+	private Activity searchActivity(String name, Activity activity, Queue<Activity> nonVisited) {
 		if (!nonVisited.isEmpty()) {		// There's at least one element to visit (the current one)
 			nonVisited.remove();
-			if (name.equals(activitat.getName())) {
-				return activitat;
+			if (name.equals(activity.getName())) {
+				return activity;
 				
-			} else if (activitat instanceof Project) {		// keep searching
-				Collection<Activitat> children = activitat.getChildren();
+			} else if (activity instanceof Project) {		// keep searching
+				Collection<Activity> children = activity.getChildren();
 				if (children != null) {
 					nonVisited.addAll(children);
 				}
-				return searchActivitat(name, nonVisited.peek(), nonVisited);
+				return searchActivity(name, nonVisited.peek(), nonVisited);
 				
 			} 
 			return null;
@@ -354,10 +347,12 @@ public class Client {
 			System.out.println("5. Stop Interval");
 			System.out.println("6. Change Refresh Rate/Minimum Interval");
 			System.out.println("0. Return");
-			logger.debug("choosing submenu option");			
-			System.out.println("");
-			System.out.print("Enter an option: ");
+						
+			logger.debug("choosing submenu option");
 			
+			System.out.println("");
+			System.out.print("Enter an option: ");			
+						
 			boolean correctType = false;
 			while(!correctType){
 				try{
@@ -382,7 +377,7 @@ public class Client {
 				System.out.print("Enter the name of the Father Project: ");
 				fatherName = scanner.nextLine();
 				logger.debug("searching father project "+fatherName);
-				fatherProject = (Project) getActivitat(fatherName);
+				fatherProject = (Project) getActivity(fatherName);
 				
 				if (fatherProject != null) {
 					logger.debug("father "+fatherName+" has been found");
@@ -399,7 +394,7 @@ public class Client {
 				System.out.print("Enter the name of the Father Project: ");
 				fatherName = scanner.nextLine();
 				logger.debug("searching father project "+fatherName);
-				fatherProject = (Project) getActivitat(fatherName);
+				fatherProject = (Project) getActivity(fatherName);
 				
 				if (fatherProject != null) {
 					logger.debug("father "+fatherName+" has been found");
@@ -421,7 +416,7 @@ public class Client {
 						fatherName = scanner.nextLine();
 						logger.debug("task name introduced: " + fatherName);
 						logger.debug("searching task " + fatherName);				
-						fatherTask = (Task) getActivitat(fatherName);
+						fatherTask = (Task) getActivity(fatherName);
 						correctType = true;
 					}catch(Exception e){
 						logger.warn(fatherName + " is a project, not a task.");
@@ -429,6 +424,7 @@ public class Client {
 						System.out.print("You need to choose a task, not a project. Please introduce task name: ");
 					}
 				}
+
 				
 				if (fatherTask != null) {
 					logger.debug("task " + fatherName+ "has been found");
@@ -450,7 +446,7 @@ public class Client {
 						fatherName = scanner.nextLine();
 						logger.debug("task name introduced: " + fatherName);
 						logger.debug("searching task " + fatherName);				
-						fatherTask = (Task) getActivitat(fatherName);
+						fatherTask = (Task) getActivity(fatherName);
 						correctType = true;
 					}catch(Exception e){
 						logger.warn(fatherName + " is a project, not a task.");
@@ -459,7 +455,7 @@ public class Client {
 					}
 				}
 				
-				fatherTask = (Task) getActivitat(fatherName);
+				fatherTask = (Task) getActivity(fatherName);
 				
 				if (fatherTask != null) {
 					logger.debug("task " + fatherName+ "has been found");
@@ -473,7 +469,9 @@ public class Client {
 			case 6:
 				System.out.print("Enter the new refresh rate in seconds: ");
 				
-				this.setRefreshTime(scanner.nextLong());
+				
+				Clock.getInstance().setRefreshTime(Long.parseLong(scanner.nextLine()));
+								
 				
 				break;
 			case 0:
@@ -493,10 +491,24 @@ public class Client {
 	 */
 	public void stopInterval(Task father) {
 		Interval interval = father.getLastInterval();
-		interval.stop();	
-		clock.deleteObserver(interval);
+		interval.stop();
 		logger.info("interval for task " + father.getName() + " started");
-	} 
+	}
+
+		
+		/**
+		 */
+		public void printProjectTrees(){
+			Stack<Activity> nonVisited = new Stack<Activity>();
+			nonVisited.addAll(rootProjects);
+			System.out.println("");
+			System.out.println("  - TREE -");
+			System.out.println("");
+			for (int i = 0; i < rootProjects.size(); i++) {
+				printTree(nonVisited.pop(), 0, nonVisited);
+				System.out.println("");
+			}
+		} 
 
 
 }

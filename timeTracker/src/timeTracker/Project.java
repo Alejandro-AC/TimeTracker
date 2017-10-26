@@ -14,7 +14,7 @@ import org.slf4j.LoggerFactory;
 /** 
  * @author marcm
  */
-public class Project extends Activitat {
+public class Project extends Activity {
 	
 	static Logger logger = LoggerFactory.getLogger(Project.class);
 
@@ -25,9 +25,9 @@ public class Project extends Activitat {
 	
 	/**
 	 * @uml.property   name="children"
-	 * @uml.associationEnd   multiplicity="(0 -1)" aggregation="shared" inverse="father:timeTracker.Activitat"
+	 * @uml.associationEnd   multiplicity="(0 -1)" aggregation="shared" inverse="father:timeTracker.Activity"
 	 */
-	private Collection<Activitat> children = new ArrayList<Activitat>();
+	private Collection<Activity> children = new ArrayList<Activity>();
 
 	/** 
 	 * Getter of the property <tt>children</tt>
@@ -35,7 +35,7 @@ public class Project extends Activitat {
 	 * @uml.property  name="children"
 	 */
 	@SuppressWarnings("unchecked") 
-	public Collection<Activitat> getChildren() {
+	public Collection<Activity> getChildren() {
 		if (children.isEmpty()) {
 			return null;
 		} else {
@@ -77,7 +77,7 @@ public class Project extends Activitat {
 
 	/**
 	 * Asks the user the properties needed to create a new Project.
-	 * @return ArrayList with two strings: the name and the description for the new Activitat.
+	 * @return ArrayList with two strings: the name and the description for the new Activity.
 	 */
 	public ArrayList<String> askChildProperties(Client client) {
 		ArrayList<String> properties = new ArrayList<String>();
@@ -86,7 +86,7 @@ public class Project extends Activitat {
 		System.out.print("Introduce a name: ");
 		properties.add(sc.nextLine());
 		logger.debug("name introduced: " + properties.get(0));
-		while(client.getActivitat(properties.get(0)) != null) {
+		while(client.getActivity(properties.get(0)) != null) {
 			logger.warn("activity "+properties.get(0)+" already exist");
 			properties.remove(0);
 			logger.debug("introducing new activity name");
@@ -107,7 +107,7 @@ public class Project extends Activitat {
 	 */
 	public void calculateTotalTime() {
 		long sum = 0;
-		for (Activitat child : children) {
+		for (Activity child : children) {
 			sum += child.getTotalTime().getTime();
 		}
 		sum += this.totalTime.getTime();
@@ -117,10 +117,10 @@ public class Project extends Activitat {
 	/**
 	 * Searches for the child with the name given and returns it if it has been found.
 	 * @param name: name of the component to be found.
-	 * @return Returns the child Activitat with the same name, or null if it has not been found.
+	 * @return Returns the child Activity with the same name, or null if it has not been found.
 	 */
-	public Activitat getChild(String name) {
-		for (Activitat child : children) {
+	public Activity getChild(String name) {
+		for (Activity child : children) {
 			if (child.getName().equals(name)) {
 				return child;
 			}
@@ -134,9 +134,9 @@ public class Project extends Activitat {
 	 * @return True if the child could be removed and false if it couldn't.
 	 */
 	public boolean removeChild(String name){
-		Activitat child = getChild(name);
+		Activity child = getChild(name);
 		if (child != null) {
-			int index = ((AbstractList<Activitat>) children).indexOf(child);
+			int index = ((AbstractList<Activity>) children).indexOf(child);
 			children.remove(index);
 			return true;			
 		} else {
@@ -149,7 +149,7 @@ public class Project extends Activitat {
 	 * @param children  The children to set.
 	 * @uml.property  name="children"
 	 */
-	public void setChildren(Collection<Activitat> children) {
+	public void setChildren(Collection<Activity> children) {
 		this.children = children;
 	}
 }

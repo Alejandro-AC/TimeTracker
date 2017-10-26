@@ -7,161 +7,565 @@
 2017-10-24 23:07:31 INFO  t.Client:107 - root project test2 added
 2017-10-24 23:08:42 INFO  t.Client:107 - root project fewf added
 2017-10-24 23:08:48 DEBUG t.Project:85 - introducing activity name
-2017-10-25 20:50:22 DEBUG t.Client:101 - adding root project
-2017-10-25 20:50:22 DEBUG t.Client:102 - asking project properties
-2017-10-25 20:50:22 DEBUG t.Client:132 - introducing root project name
-2017-10-25 20:50:31 DEBUG t.Client:142 - introducing description
-2017-10-25 20:52:07 DEBUG t.Client:101 - adding root project
-2017-10-25 20:52:07 DEBUG t.Client:102 - asking project properties
-2017-10-25 20:52:07 DEBUG t.Client:132 - introducing root project name
-2017-10-25 20:52:09 DEBUG t.Client:135 - name introduced: name1
-2017-10-25 20:52:09 DEBUG t.Client:142 - introducing description
-2017-10-25 20:52:16 DEBUG t.Client:145 - description introduced:description1
-2017-10-25 20:52:16 DEBUG t.Client:146 - all properties has been introduced correctly
-2017-10-25 20:52:16 INFO  t.Client:107 - root project name1 added
-2017-10-25 20:52:35 DEBUG t.Client:101 - adding root project
-2017-10-25 20:52:35 DEBUG t.Client:102 - asking project properties
-2017-10-25 20:52:35 DEBUG t.Client:132 - introducing root project name
-2017-10-25 20:52:37 DEBUG t.Client:135 - name introduced: name1
-2017-10-25 20:52:37 WARN  t.Client:137 - project name name1 already exist
-2017-10-25 20:52:37 DEBUG t.Client:139 - Introducing new name for the project
-2017-10-25 20:52:51 DEBUG t.Client:142 - introducing description
-2017-10-25 20:57:24 DEBUG t.Client:101 - adding root project
-2017-10-25 20:57:24 DEBUG t.Client:102 - asking project properties
-2017-10-25 20:57:24 DEBUG t.Client:132 - introducing root project name
-2017-10-25 20:57:28 DEBUG t.Client:135 - name introduced: name1
-2017-10-25 20:57:28 DEBUG t.Client:143 - introducing description
-2017-10-25 20:57:32 DEBUG t.Client:146 - description introduced:fwefew
-2017-10-25 20:57:32 DEBUG t.Client:147 - all properties has been introduced correctly
-2017-10-25 20:57:32 INFO  t.Client:107 - root project name1 added
-2017-10-25 20:57:34 DEBUG t.Client:101 - adding root project
-2017-10-25 20:57:34 DEBUG t.Client:102 - asking project properties
-2017-10-25 20:57:34 DEBUG t.Client:132 - introducing root project name
-2017-10-25 20:57:35 DEBUG t.Client:135 - name introduced: name1
-2017-10-25 20:57:35 WARN  t.Client:137 - project name name1 already exist
-2017-10-25 20:57:35 DEBUG t.Client:139 - Introducing new name for the project
-2017-10-25 20:57:54 DEBUG t.Client:143 - introducing description
-2017-10-25 20:57:59 DEBUG t.Client:146 - description introduced:wefewf
-2017-10-25 20:57:59 DEBUG t.Client:147 - all properties has been introduced correctly
-2017-10-25 20:57:59 INFO  t.Client:107 - root project name2 added
-2017-10-25 20:58:04 DEBUG t.Client:355 - adding child project
-2017-10-25 20:58:04 DEBUG t.Client:356 - introducing name of father project
-2017-10-25 20:58:07 DEBUG t.Client:359 - searching father project name1
-2017-10-25 20:58:07 DEBUG t.Client:363 - father timeTracker.Project@30a16748 has been found
-2017-10-25 20:58:07 DEBUG t.Project:85 - introducing activity name
-2017-10-25 20:59:10 DEBUG t.Client:355 - adding child project
-2017-10-25 20:59:10 DEBUG t.Client:356 - introducing name of father project
-2017-10-25 20:59:11 DEBUG t.Client:359 - searching father project p1
-2017-10-25 20:59:11 DEBUG t.Client:363 - father p1 has been found
-2017-10-25 20:59:11 DEBUG t.Project:85 - introducing activity name
-2017-10-25 20:59:19 DEBUG t.Project:95 - introducing activity description
-2017-10-25 20:59:27 DEBUG t.Project:98 - all properties has been introduced correctly
-2017-10-25 20:59:27 INFO  t.Project:63 - added child project act1
-2017-10-25 21:03:01 DEBUG t.Client:101 - adding root project
-2017-10-25 21:03:01 DEBUG t.Client:102 - asking project properties
-2017-10-25 21:03:01 DEBUG t.Client:132 - introducing root project name
-2017-10-25 21:03:09 DEBUG t.Client:135 - name introduced: p3
-2017-10-25 21:03:09 DEBUG t.Client:143 - introducing description
-2017-10-25 21:03:12 DEBUG t.Client:146 - description introduced:fwefe
-2017-10-25 21:03:12 DEBUG t.Client:147 - all properties has been introduced correctly
-2017-10-25 21:03:12 INFO  t.Client:107 - root project p3 added
-2017-10-25 21:03:21 DEBUG t.Client:101 - adding root project
-2017-10-25 21:03:21 DEBUG t.Client:102 - asking project properties
-2017-10-25 21:03:21 DEBUG t.Client:132 - introducing root project name
-2017-10-25 21:03:24 DEBUG t.Client:135 - name introduced: p3
-2017-10-25 21:03:24 WARN  t.Client:137 - project name p3 already exist
-2017-10-25 21:03:24 DEBUG t.Client:139 - Introducing new name for the project
-2017-10-25 21:03:28 WARN  t.Client:137 - project name p3 already exist
-2017-10-25 21:03:28 DEBUG t.Client:139 - Introducing new name for the project
-2017-10-25 21:03:35 DEBUG t.Client:143 - introducing description
-2017-10-25 21:03:43 DEBUG t.Client:146 - description introduced:description
-2017-10-25 21:03:43 DEBUG t.Client:147 - all properties has been introduced correctly
-2017-10-25 21:03:43 INFO  t.Client:107 - root project p4 added
-2017-10-25 21:10:24 DEBUG t.Client:345 - choosing submenu option
-2017-10-25 21:10:29 DEBUG t.Client:101 - adding root project
-2017-10-25 21:10:29 DEBUG t.Client:102 - asking project properties
-2017-10-25 21:10:29 DEBUG t.Client:132 - introducing root project name
-2017-10-25 21:19:34 DEBUG t.Client:171 - choosing menu option: 
-2017-10-25 21:19:40 DEBUG t.Client:182 - chosen option: -1
-2017-10-25 21:19:40 WARN  t.Client:183 - Introduced value -1 is not a number. Introducing new value
-2017-10-25 21:21:25 DEBUG t.Client:171 - choosing menu option: 
-2017-10-25 21:21:28 DEBUG t.Client:182 - chosen option: -1
-2017-10-25 21:21:28 WARN  t.Client:183 - Introduced value is not a valid value. Introducing new value
-2017-10-25 21:21:34 DEBUG t.Client:179 - chosen option: 1
-2017-10-25 21:21:34 DEBUG t.Client:357 - choosing submenu option
-2017-10-25 21:21:37 DEBUG t.Client:365 - chosen option: 1
-2017-10-25 21:21:37 DEBUG t.Client:101 - adding root project
-2017-10-25 21:21:37 DEBUG t.Client:102 - asking project properties
-2017-10-25 21:21:37 DEBUG t.Client:132 - introducing root project name
-2017-10-25 21:21:57 DEBUG t.Client:135 - name introduced: fewfef
-2017-10-25 21:21:57 DEBUG t.Client:144 - introducing description
-2017-10-25 21:21:59 DEBUG t.Client:147 - description introduced:wefwf
-2017-10-25 21:21:59 DEBUG t.Client:148 - all properties has been introduced correctly
-2017-10-25 21:21:59 INFO  t.Client:107 - root project fewfef added
-2017-10-25 21:21:59 DEBUG t.Client:357 - choosing submenu option
-2017-10-25 21:23:22 DEBUG t.Client:365 - chosen option: 22
-2017-10-25 21:23:22 DEBUG t.Client:357 - choosing submenu option
-2017-10-25 21:23:34 DEBUG t.Client:365 - chosen option: 2
-2017-10-25 21:23:34 DEBUG t.Client:380 - adding child project
-2017-10-25 21:23:34 DEBUG t.Client:381 - introducing name of father project
-2017-10-25 21:23:49 DEBUG t.Client:384 - searching father project p1
-2017-10-25 21:23:49 DEBUG t.Client:388 - father p1 has been found
-2017-10-25 21:23:49 DEBUG t.Project:85 - introducing activity name
-2017-10-25 21:23:54 DEBUG t.Project:88 - name introduced: t5
-2017-10-25 21:23:54 DEBUG t.Project:97 - introducing activity description
-2017-10-25 21:23:59 DEBUG t.Project:100 - description introduced: freg
-2017-10-25 21:23:59 DEBUG t.Project:101 - all properties has been introduced correctly
-2017-10-25 21:23:59 INFO  t.Project:63 - added child project t5
-2017-10-25 21:23:59 DEBUG t.Client:357 - choosing submenu option
-2017-10-25 21:24:03 DEBUG t.Client:365 - chosen option: 2
-2017-10-25 21:24:03 DEBUG t.Client:380 - adding child project
-2017-10-25 21:24:03 DEBUG t.Client:381 - introducing name of father project
-2017-10-25 21:24:05 DEBUG t.Client:384 - searching father project t5
-2017-10-25 21:24:05 DEBUG t.Client:388 - father t5 has been found
-2017-10-25 21:24:05 DEBUG t.Project:85 - introducing activity name
-2017-10-25 21:24:11 DEBUG t.Project:88 - name introduced: t6
-2017-10-25 21:24:11 DEBUG t.Project:97 - introducing activity description
-2017-10-25 21:24:12 DEBUG t.Project:100 - description introduced: ewfwef
-2017-10-25 21:24:12 DEBUG t.Project:101 - all properties has been introduced correctly
-2017-10-25 21:24:12 INFO  t.Project:63 - added child project t6
-2017-10-25 21:24:12 DEBUG t.Client:357 - choosing submenu option
-2017-10-25 21:24:20 DEBUG t.Client:365 - chosen option: 2
-2017-10-25 21:24:20 DEBUG t.Client:380 - adding child project
-2017-10-25 21:24:20 DEBUG t.Client:381 - introducing name of father project
-2017-10-25 21:24:23 DEBUG t.Client:384 - searching father project p1
-2017-10-25 21:24:23 DEBUG t.Client:388 - father p1 has been found
-2017-10-25 21:24:23 DEBUG t.Project:85 - introducing activity name
-2017-10-25 21:24:25 DEBUG t.Project:88 - name introduced: t5
-2017-10-25 21:24:25 WARN  t.Project:90 - activity t5 already exist
-2017-10-25 21:24:25 DEBUG t.Project:92 - introducing new activity name
-2017-10-25 21:24:44 DEBUG t.Project:95 - new name introduced: t6
-2017-10-25 21:24:44 WARN  t.Project:90 - activity t6 already exist
-2017-10-25 21:24:44 DEBUG t.Project:92 - introducing new activity name
-2017-10-25 21:24:52 DEBUG t.Project:95 - new name introduced: t7
-2017-10-25 21:24:52 DEBUG t.Project:97 - introducing activity description
-2017-10-25 21:24:56 DEBUG t.Project:100 - description introduced: dec
-2017-10-25 21:24:56 DEBUG t.Project:101 - all properties has been introduced correctly
-2017-10-25 21:24:56 INFO  t.Project:63 - added child project t7
-2017-10-25 21:24:56 DEBUG t.Client:357 - choosing submenu option
-2017-10-25 21:25:01 DEBUG t.Client:365 - chosen option: 3
-2017-10-25 21:25:01 DEBUG t.Client:397 - adding task to project
-2017-10-25 21:25:01 DEBUG t.Client:398 - introducing name of father project
-2017-10-25 21:25:24 DEBUG t.Client:401 - searching father project t5
-2017-10-25 21:25:24 DEBUG t.Client:405 - father timeTracker.Project@4661e987 has been found
-2017-10-25 21:25:24 DEBUG t.Project:85 - introducing activity name
-2017-10-25 21:26:28 DEBUG t.Project:88 - name introduced: tasktask
-2017-10-25 21:26:28 DEBUG t.Project:97 - introducing activity description
-2017-10-25 21:26:30 DEBUG t.Project:100 - description introduced: fwef
-2017-10-25 21:26:30 DEBUG t.Project:101 - all properties has been introduced correctly
-2017-10-25 21:26:30 INFO  t.Project:75 - added child task tasktask
-2017-10-25 21:26:30 DEBUG t.Client:357 - choosing submenu option
-2017-10-25 21:27:05 DEBUG t.Client:365 - chosen option: 4
-2017-10-25 21:27:05 DEBUG t.Client:414 - starting interval
-2017-10-25 21:27:05 DEBUG t.Client:415 - introducing name of the task
-2017-10-25 21:27:11 DEBUG t.Client:418 - task name introduced: p1
-2017-10-25 21:27:11 DEBUG t.Client:419 - searching task p1
-2017-10-25 21:40:54 DEBUG t.Client:171 - choosing menu option: 
-2017-10-25 21:40:56 DEBUG t.Client:182 - chosen option: -1
-2017-10-25 21:40:56 WARN  t.Client:183 - Introduced value is not a valid value. Introducing new value
-2017-10-25 21:41:00 DEBUG t.Client:179 - chosen option: 1
-2017-10-25 21:41:00 DEBUG t.Client:357 - choosing submenu option
+2017-10-25 19:34:09 DEBUG t.Client:96 - adding root project
+2017-10-25 19:34:09 DEBUG t.Client:97 - asking project properties
+2017-10-25 19:34:09 DEBUG t.Client:127 - introducing root project name
+2017-10-25 19:34:13 DEBUG t.Client:136 - introducing description
+2017-10-25 19:34:16 DEBUG t.Client:140 - all properties has been introduced correctly
+2017-10-25 19:34:16 INFO  t.Client:102 - root project Groot added
+2017-10-25 19:35:00 DEBUG t.Client:365 - adding task to project
+2017-10-25 19:35:00 DEBUG t.Client:366 - introducing name of father project
+2017-10-25 19:35:03 DEBUG t.Client:369 - searching father project Groot
+2017-10-25 19:35:03 DEBUG t.Client:373 - father timeTracker.Project@497aa8b7 has been found
+2017-10-25 19:35:03 DEBUG t.Project:85 - introducing activity name
+2017-10-25 19:35:06 DEBUG t.Project:95 - introducing activity description
+2017-10-25 19:35:08 DEBUG t.Project:98 - all properties has been introduced correctly
+2017-10-25 19:35:08 INFO  t.Project:75 - added child task task
+2017-10-25 19:37:30 DEBUG t.Client:96 - adding root project
+2017-10-25 19:37:30 DEBUG t.Client:97 - asking project properties
+2017-10-25 19:37:30 DEBUG t.Client:127 - introducing root project name
+2017-10-25 19:37:31 DEBUG t.Client:136 - introducing description
+2017-10-25 19:37:32 DEBUG t.Client:140 - all properties has been introduced correctly
+2017-10-25 19:37:32 INFO  t.Client:102 - root project Groot added
+2017-10-25 19:37:33 DEBUG t.Client:365 - adding task to project
+2017-10-25 19:37:33 DEBUG t.Client:366 - introducing name of father project
+2017-10-25 19:37:36 DEBUG t.Client:369 - searching father project Groot
+2017-10-25 19:37:36 DEBUG t.Client:373 - father timeTracker.Project@497aa8b7 has been found
+2017-10-25 19:37:36 DEBUG t.Project:85 - introducing activity name
+2017-10-25 19:37:36 DEBUG t.Project:95 - introducing activity description
+2017-10-25 19:37:37 DEBUG t.Project:98 - all properties has been introduced correctly
+2017-10-25 19:37:37 INFO  t.Project:75 - added child task task
+2017-10-25 19:39:11 DEBUG t.Client:96 - adding root project
+2017-10-25 19:39:11 DEBUG t.Client:97 - asking project properties
+2017-10-25 19:39:11 DEBUG t.Client:127 - introducing root project name
+2017-10-25 19:39:14 DEBUG t.Client:136 - introducing description
+2017-10-25 19:39:15 DEBUG t.Client:140 - all properties has been introduced correctly
+2017-10-25 19:39:15 INFO  t.Client:102 - root project Groot added
+2017-10-25 19:39:16 DEBUG t.Client:365 - adding task to project
+2017-10-25 19:39:16 DEBUG t.Client:366 - introducing name of father project
+2017-10-25 19:39:18 DEBUG t.Client:369 - searching father project Groot
+2017-10-25 19:39:18 DEBUG t.Client:373 - father timeTracker.Project@13daac11 has been found
+2017-10-25 19:39:18 DEBUG t.Project:85 - introducing activity name
+2017-10-25 19:39:19 DEBUG t.Project:95 - introducing activity description
+2017-10-25 19:39:19 DEBUG t.Project:98 - all properties has been introduced correctly
+2017-10-25 19:39:19 INFO  t.Project:75 - added child task task
+2017-10-25 19:41:33 DEBUG t.Client:101 - adding root project
+2017-10-25 19:41:33 DEBUG t.Client:102 - asking project properties
+2017-10-25 19:41:33 DEBUG t.Client:132 - introducing root project name
+2017-10-25 19:41:34 DEBUG t.Client:141 - introducing description
+2017-10-25 19:41:34 DEBUG t.Client:145 - all properties has been introduced correctly
+2017-10-25 19:41:34 INFO  t.Client:107 - root project Groot added
+2017-10-25 19:41:35 DEBUG t.Client:370 - adding task to project
+2017-10-25 19:41:35 DEBUG t.Client:371 - introducing name of father project
+2017-10-25 19:41:37 DEBUG t.Client:374 - searching father project Groot
+2017-10-25 19:41:37 DEBUG t.Client:378 - father timeTracker.Project@77f82bf8 has been found
+2017-10-25 19:41:37 DEBUG t.Project:85 - introducing activity name
+2017-10-25 19:41:38 DEBUG t.Project:95 - introducing activity description
+2017-10-25 19:41:38 DEBUG t.Project:98 - all properties has been introduced correctly
+2017-10-25 19:41:38 INFO  t.Project:75 - added child task task
+2017-10-25 19:42:15 DEBUG t.Client:96 - adding root project
+2017-10-25 19:42:15 DEBUG t.Client:97 - asking project properties
+2017-10-25 19:42:15 DEBUG t.Client:127 - introducing root project name
+2017-10-25 19:42:16 DEBUG t.Client:136 - introducing description
+2017-10-25 19:42:17 DEBUG t.Client:140 - all properties has been introduced correctly
+2017-10-25 19:42:17 INFO  t.Client:102 - root project Groot added
+2017-10-25 19:42:28 DEBUG t.Client:365 - adding task to project
+2017-10-25 19:42:28 DEBUG t.Client:366 - introducing name of father project
+2017-10-25 19:42:29 DEBUG t.Client:369 - searching father project Groot
+2017-10-25 19:42:29 DEBUG t.Client:373 - father timeTracker.Project@13daac11 has been found
+2017-10-25 19:42:29 DEBUG t.Project:85 - introducing activity name
+2017-10-25 19:42:30 DEBUG t.Project:95 - introducing activity description
+2017-10-25 19:42:31 DEBUG t.Project:98 - all properties has been introduced correctly
+2017-10-25 19:42:31 INFO  t.Project:75 - added child task task
+2017-10-25 19:44:59 DEBUG t.Client:96 - adding root project
+2017-10-25 19:44:59 DEBUG t.Client:97 - asking project properties
+2017-10-25 19:44:59 DEBUG t.Client:127 - introducing root project name
+2017-10-25 19:45:00 DEBUG t.Client:136 - introducing description
+2017-10-25 19:45:01 DEBUG t.Client:140 - all properties has been introduced correctly
+2017-10-25 19:45:01 INFO  t.Client:102 - root project Groot added
+2017-10-25 19:45:02 DEBUG t.Client:365 - adding task to project
+2017-10-25 19:45:02 DEBUG t.Client:366 - introducing name of father project
+2017-10-25 19:45:03 DEBUG t.Client:369 - searching father project task
+2017-10-25 19:45:03 INFO  t.Client:376 - The specified Father Project does not exist.
+2017-10-25 19:45:04 DEBUG t.Client:365 - adding task to project
+2017-10-25 19:45:04 DEBUG t.Client:366 - introducing name of father project
+2017-10-25 19:45:06 DEBUG t.Client:369 - searching father project Groot
+2017-10-25 19:45:06 DEBUG t.Client:373 - father timeTracker.Project@79569a45 has been found
+2017-10-25 19:45:06 DEBUG t.Project:85 - introducing activity name
+2017-10-25 19:45:06 DEBUG t.Project:95 - introducing activity description
+2017-10-25 19:45:07 DEBUG t.Project:98 - all properties has been introduced correctly
+2017-10-25 19:45:07 INFO  t.Project:75 - added child task task
+2017-10-25 19:47:59 DEBUG t.Client:96 - adding root project
+2017-10-25 19:47:59 DEBUG t.Client:97 - asking project properties
+2017-10-25 19:47:59 DEBUG t.Client:127 - introducing root project name
+2017-10-25 19:48:00 DEBUG t.Client:136 - introducing description
+2017-10-25 19:48:01 DEBUG t.Client:140 - all properties has been introduced correctly
+2017-10-25 19:48:01 INFO  t.Client:102 - root project Groot added
+2017-10-25 19:48:01 DEBUG t.Client:365 - adding task to project
+2017-10-25 19:48:01 DEBUG t.Client:366 - introducing name of father project
+2017-10-25 19:48:03 DEBUG t.Client:369 - searching father project Groot
+2017-10-25 19:48:03 DEBUG t.Client:373 - father timeTracker.Project@79569a45 has been found
+2017-10-25 19:48:03 DEBUG t.Project:85 - introducing activity name
+2017-10-25 19:48:04 DEBUG t.Project:95 - introducing activity description
+2017-10-25 19:48:05 DEBUG t.Project:98 - all properties has been introduced correctly
+2017-10-25 19:48:05 INFO  t.Project:75 - added child task task
+2017-10-25 19:50:13 DEBUG t.Client:96 - adding root project
+2017-10-25 19:50:13 DEBUG t.Client:97 - asking project properties
+2017-10-25 19:50:13 DEBUG t.Client:127 - introducing root project name
+2017-10-25 19:50:14 WARN  t.Client:131 - project name Groot already exist
+2017-10-25 19:50:14 DEBUG t.Client:133 - Introducing new name for the project
+2017-10-25 19:50:15 DEBUG t.Client:136 - introducing description
+2017-10-25 19:50:17 DEBUG t.Client:140 - all properties has been introduced correctly
+2017-10-25 19:50:17 INFO  t.Client:102 - root project  added
+2017-10-25 19:50:44 DEBUG t.Client:96 - adding root project
+2017-10-25 19:50:44 DEBUG t.Client:97 - asking project properties
+2017-10-25 19:50:44 DEBUG t.Client:127 - introducing root project name
+2017-10-25 19:50:45 DEBUG t.Client:136 - introducing description
+2017-10-25 19:50:46 DEBUG t.Client:140 - all properties has been introduced correctly
+2017-10-25 19:50:46 INFO  t.Client:102 - root project Groot added
+2017-10-25 19:50:48 DEBUG t.Client:365 - adding task to project
+2017-10-25 19:50:48 DEBUG t.Client:366 - introducing name of father project
+2017-10-25 19:50:52 DEBUG t.Client:369 - searching father project Groot
+2017-10-25 19:50:52 DEBUG t.Client:373 - father timeTracker.Project@13daac11 has been found
+2017-10-25 19:50:52 DEBUG t.Project:85 - introducing activity name
+2017-10-25 19:50:52 DEBUG t.Project:95 - introducing activity description
+2017-10-25 19:50:55 DEBUG t.Project:98 - all properties has been introduced correctly
+2017-10-25 19:50:55 INFO  t.Project:75 - added child task t
+2017-10-25 19:53:06 DEBUG t.Client:96 - adding root project
+2017-10-25 19:53:06 DEBUG t.Client:97 - asking project properties
+2017-10-25 19:53:06 DEBUG t.Client:127 - introducing root project name
+2017-10-25 19:53:07 DEBUG t.Client:136 - introducing description
+2017-10-25 19:53:08 DEBUG t.Client:140 - all properties has been introduced correctly
+2017-10-25 19:53:08 INFO  t.Client:102 - root project Groot added
+2017-10-25 19:53:09 DEBUG t.Client:365 - adding task to project
+2017-10-25 19:53:09 DEBUG t.Client:366 - introducing name of father project
+2017-10-25 19:53:10 DEBUG t.Client:369 - searching father project Groot
+2017-10-25 19:53:10 DEBUG t.Client:373 - father timeTracker.Project@497aa8b7 has been found
+2017-10-25 19:53:10 DEBUG t.Project:85 - introducing activity name
+2017-10-25 19:53:11 DEBUG t.Project:95 - introducing activity description
+2017-10-25 19:53:11 DEBUG t.Project:98 - all properties has been introduced correctly
+2017-10-25 19:53:11 INFO  t.Project:75 - added child task t
+2017-10-25 19:57:46 DEBUG t.Client:96 - adding root project
+2017-10-25 19:57:46 DEBUG t.Client:97 - asking project properties
+2017-10-25 19:57:46 DEBUG t.Client:127 - introducing root project name
+2017-10-25 19:57:48 DEBUG t.Client:136 - introducing description
+2017-10-25 19:57:49 DEBUG t.Client:140 - all properties has been introduced correctly
+2017-10-25 19:57:49 INFO  t.Client:102 - root project Groot added
+2017-10-25 19:57:50 DEBUG t.Client:365 - adding task to project
+2017-10-25 19:57:50 DEBUG t.Client:366 - introducing name of father project
+2017-10-25 19:57:51 DEBUG t.Client:369 - searching father project Groot
+2017-10-25 19:57:51 DEBUG t.Client:373 - father timeTracker.Project@497aa8b7 has been found
+2017-10-25 19:57:51 DEBUG t.Project:85 - introducing activity name
+2017-10-25 19:57:52 DEBUG t.Project:95 - introducing activity description
+2017-10-25 19:57:53 DEBUG t.Project:98 - all properties has been introduced correctly
+2017-10-25 19:57:53 INFO  t.Project:75 - added child task t
+2017-10-25 19:58:57 DEBUG t.Client:96 - adding root project
+2017-10-25 19:58:57 DEBUG t.Client:97 - asking project properties
+2017-10-25 19:58:57 DEBUG t.Client:127 - introducing root project name
+2017-10-25 19:58:59 DEBUG t.Client:136 - introducing description
+2017-10-25 19:59:00 DEBUG t.Client:140 - all properties has been introduced correctly
+2017-10-25 19:59:00 INFO  t.Client:102 - root project G added
+2017-10-25 19:59:01 DEBUG t.Client:365 - adding task to project
+2017-10-25 19:59:01 DEBUG t.Client:366 - introducing name of father project
+2017-10-25 19:59:02 DEBUG t.Client:369 - searching father project G
+2017-10-25 19:59:02 DEBUG t.Client:373 - father timeTracker.Project@497aa8b7 has been found
+2017-10-25 19:59:02 DEBUG t.Project:85 - introducing activity name
+2017-10-25 19:59:03 DEBUG t.Project:95 - introducing activity description
+2017-10-25 19:59:04 DEBUG t.Project:98 - all properties has been introduced correctly
+2017-10-25 19:59:04 INFO  t.Project:75 - added child task t
+2017-10-25 20:00:22 DEBUG t.Client:96 - adding root project
+2017-10-25 20:00:22 DEBUG t.Client:97 - asking project properties
+2017-10-25 20:00:22 DEBUG t.Client:127 - introducing root project name
+2017-10-25 20:00:23 DEBUG t.Client:136 - introducing description
+2017-10-25 20:00:24 DEBUG t.Client:140 - all properties has been introduced correctly
+2017-10-25 20:00:24 INFO  t.Client:102 - root project G added
+2017-10-25 20:00:26 DEBUG t.Client:365 - adding task to project
+2017-10-25 20:00:26 DEBUG t.Client:366 - introducing name of father project
+2017-10-25 20:00:29 DEBUG t.Client:369 - searching father project G
+2017-10-25 20:00:29 DEBUG t.Client:373 - father timeTracker.Project@13daac11 has been found
+2017-10-25 20:00:29 DEBUG t.Project:85 - introducing activity name
+2017-10-25 20:00:30 DEBUG t.Project:95 - introducing activity description
+2017-10-25 20:00:31 DEBUG t.Project:98 - all properties has been introduced correctly
+2017-10-25 20:00:31 INFO  t.Project:75 - added child task t
+2017-10-25 20:05:44 DEBUG t.Client:97 - adding root project
+2017-10-25 20:05:44 DEBUG t.Client:98 - asking project properties
+2017-10-25 20:05:44 DEBUG t.Client:128 - introducing root project name
+2017-10-25 20:05:45 DEBUG t.Client:137 - introducing description
+2017-10-25 20:05:46 DEBUG t.Client:141 - all properties has been introduced correctly
+2017-10-25 20:05:46 INFO  t.Client:103 - root project G added
+2017-10-25 20:05:47 DEBUG t.Client:366 - adding task to project
+2017-10-25 20:05:47 DEBUG t.Client:367 - introducing name of father project
+2017-10-25 20:05:49 DEBUG t.Client:370 - searching father project G
+2017-10-25 20:05:49 DEBUG t.Client:374 - father timeTracker.Project@1c7b2390 has been found
+2017-10-25 20:05:49 DEBUG t.Project:85 - introducing activity name
+2017-10-25 20:05:49 DEBUG t.Project:95 - introducing activity description
+2017-10-25 20:05:50 DEBUG t.Project:98 - all properties has been introduced correctly
+2017-10-25 20:05:50 INFO  t.Project:75 - added child task t
+2017-10-25 20:07:23 DEBUG t.Client:97 - adding root project
+2017-10-25 20:07:23 DEBUG t.Client:98 - asking project properties
+2017-10-25 20:07:23 DEBUG t.Client:128 - introducing root project name
+2017-10-25 20:07:25 WARN  t.Client:132 - project name G already exist
+2017-10-25 20:07:25 DEBUG t.Client:134 - Introducing new name for the project
+2017-10-25 20:07:26 DEBUG t.Client:137 - introducing description
+2017-10-25 20:07:30 DEBUG t.Client:141 - all properties has been introduced correctly
+2017-10-25 20:07:30 INFO  t.Client:103 - root project  added
+2017-10-25 20:07:46 DEBUG t.Client:97 - adding root project
+2017-10-25 20:07:46 DEBUG t.Client:98 - asking project properties
+2017-10-25 20:07:46 DEBUG t.Client:128 - introducing root project name
+2017-10-25 20:07:48 DEBUG t.Client:137 - introducing description
+2017-10-25 20:07:52 DEBUG t.Client:141 - all properties has been introduced correctly
+2017-10-25 20:07:52 INFO  t.Client:103 - root project Groot added
+2017-10-25 20:07:54 DEBUG t.Client:366 - adding task to project
+2017-10-25 20:07:54 DEBUG t.Client:367 - introducing name of father project
+2017-10-25 20:07:55 DEBUG t.Client:370 - searching father project Groot
+2017-10-25 20:07:55 DEBUG t.Client:374 - father timeTracker.Project@1c7b2390 has been found
+2017-10-25 20:07:55 DEBUG t.Project:85 - introducing activity name
+2017-10-25 20:07:56 WARN  t.Project:89 - activity t already exist
+2017-10-25 20:07:56 DEBUG t.Project:91 - introducing new activity name
+2017-10-25 20:08:01 DEBUG t.Project:95 - introducing activity description
+2017-10-25 20:08:02 DEBUG t.Project:98 - all properties has been introduced correctly
+2017-10-25 20:08:02 INFO  t.Project:75 - added child task Task123
+2017-10-25 20:08:52 DEBUG t.Client:97 - adding root project
+2017-10-25 20:08:52 DEBUG t.Client:98 - asking project properties
+2017-10-25 20:08:52 DEBUG t.Client:128 - introducing root project name
+2017-10-25 20:08:54 DEBUG t.Client:137 - introducing description
+2017-10-25 20:08:55 DEBUG t.Client:141 - all properties has been introduced correctly
+2017-10-25 20:08:55 INFO  t.Client:103 - root project Groot2 added
+2017-10-25 20:08:57 DEBUG t.Client:366 - adding task to project
+2017-10-25 20:08:57 DEBUG t.Client:367 - introducing name of father project
+2017-10-25 20:09:02 DEBUG t.Client:370 - searching father project T12
+2017-10-25 20:09:02 INFO  t.Client:377 - The specified Father Project does not exist.
+2017-10-26 00:46:29 DEBUG t.Client:169 - choosing menu option: 
+2017-10-26 00:46:39 DEBUG t.Client:177 - chosen option: 1
+2017-10-26 00:46:39 DEBUG t.Client:356 - choosing submenu option
+2017-10-26 00:46:51 DEBUG t.Client:365 - chosen option: 1
+2017-10-26 00:46:51 DEBUG t.Client:98 - adding root project
+2017-10-26 00:46:51 DEBUG t.Client:99 - asking project properties
+2017-10-26 00:46:51 DEBUG t.Client:129 - introducing root project name
+2017-10-26 00:47:01 DEBUG t.Client:132 - name introduced: Groot
+2017-10-26 00:47:01 DEBUG t.Client:141 - introducing description
+2017-10-26 00:47:03 DEBUG t.Client:144 - description introduced:
+2017-10-26 00:47:03 DEBUG t.Client:145 - all properties has been introduced correctly
+2017-10-26 00:47:03 INFO  t.Client:104 - root project Groot added
+2017-10-26 00:47:03 DEBUG t.Client:356 - choosing submenu option
+2017-10-26 00:47:11 DEBUG t.Client:365 - chosen option: 3
+2017-10-26 00:47:11 DEBUG t.Client:397 - adding task to project
+2017-10-26 00:47:11 DEBUG t.Client:398 - introducing name of father project
+2017-10-26 00:47:18 DEBUG t.Client:401 - searching father project Groot
+2017-10-26 00:47:18 DEBUG t.Client:405 - father Groot has been found
+2017-10-26 00:47:18 DEBUG t.Project:85 - introducing activity name
+2017-10-26 00:47:21 DEBUG t.Project:88 - name introduced: Tarea23
+2017-10-26 00:47:21 DEBUG t.Project:97 - introducing activity description
+2017-10-26 00:47:24 DEBUG t.Project:100 - description introduced: 
+2017-10-26 00:47:24 DEBUG t.Project:101 - all properties has been introduced correctly
+2017-10-26 00:47:24 INFO  t.Project:75 - added task Tarea23
+2017-10-26 00:47:24 DEBUG t.Client:356 - choosing submenu option
+2017-10-26 00:47:25 DEBUG t.Client:365 - chosen option: 4
+2017-10-26 00:47:25 DEBUG t.Client:414 - starting interval
+2017-10-26 00:47:25 DEBUG t.Client:415 - introducing name of the task
+2017-10-26 00:47:28 DEBUG t.Client:422 - task name introduced: Tarea23
+2017-10-26 00:47:28 DEBUG t.Client:423 - searching task Tarea23
+2017-10-26 00:47:28 DEBUG t.Client:438 - The specified task does not exist.
+2017-10-26 00:47:28 DEBUG t.Client:356 - choosing submenu option
+2017-10-26 00:47:33 DEBUG t.Client:365 - chosen option: 0
+2017-10-26 00:47:33 DEBUG t.Client:169 - choosing menu option: 
+2017-10-26 00:48:02 DEBUG t.Client:177 - chosen option: 1
+2017-10-26 00:48:02 DEBUG t.Client:356 - choosing submenu option
+2017-10-26 00:48:08 DEBUG t.Client:365 - chosen option: 3
+2017-10-26 00:48:08 DEBUG t.Client:397 - adding task to project
+2017-10-26 00:48:08 DEBUG t.Client:398 - introducing name of father project
+2017-10-26 00:48:10 DEBUG t.Client:401 - searching father project Groot
+2017-10-26 00:48:10 DEBUG t.Client:405 - father Groot has been found
+2017-10-26 00:48:10 DEBUG t.Project:85 - introducing activity name
+2017-10-26 00:48:12 DEBUG t.Project:88 - name introduced: t2
+2017-10-26 00:48:12 DEBUG t.Project:97 - introducing activity description
+2017-10-26 00:48:13 DEBUG t.Project:100 - description introduced: 
+2017-10-26 00:48:13 DEBUG t.Project:101 - all properties has been introduced correctly
+2017-10-26 00:48:13 INFO  t.Project:75 - added task t2
+2017-10-26 00:48:13 DEBUG t.Client:356 - choosing submenu option
+2017-10-26 00:48:17 DEBUG t.Client:365 - chosen option: 4
+2017-10-26 00:48:17 DEBUG t.Client:414 - starting interval
+2017-10-26 00:48:17 DEBUG t.Client:415 - introducing name of the task
+2017-10-26 00:48:18 DEBUG t.Client:422 - task name introduced: t2
+2017-10-26 00:48:18 DEBUG t.Client:423 - searching task t2
+2017-10-26 00:48:18 DEBUG t.Client:435 - task t2has been found
+2017-10-26 00:48:18 INFO  t.Task:61 - interval for task t2 started
+2017-10-26 00:48:18 DEBUG t.Client:356 - choosing submenu option
+2017-10-26 00:48:23 DEBUG t.Client:365 - chosen option: 0
+2017-10-26 00:48:23 DEBUG t.Client:169 - choosing menu option: 
+2017-10-26 00:48:35 DEBUG t.Client:177 - chosen option: 1
+2017-10-26 00:48:35 DEBUG t.Client:356 - choosing submenu option
+2017-10-26 00:48:36 DEBUG t.Client:365 - chosen option: 0
+2017-10-26 00:48:36 DEBUG t.Client:169 - choosing menu option: 
+2017-10-26 00:48:56 DEBUG t.Client:177 - chosen option: 1
+2017-10-26 00:48:56 DEBUG t.Client:356 - choosing submenu option
+2017-10-26 00:48:58 DEBUG t.Client:365 - chosen option: 4
+2017-10-26 00:48:58 DEBUG t.Client:414 - starting interval
+2017-10-26 00:48:58 DEBUG t.Client:415 - introducing name of the task
+2017-10-26 00:49:00 DEBUG t.Client:422 - task name introduced: 1
+2017-10-26 00:49:00 DEBUG t.Client:423 - searching task 1
+2017-10-26 00:49:00 DEBUG t.Client:438 - The specified task does not exist.
+2017-10-26 00:49:00 DEBUG t.Client:356 - choosing submenu option
+2017-10-26 00:49:08 DEBUG t.Client:365 - chosen option: 3
+2017-10-26 00:49:08 DEBUG t.Client:397 - adding task to project
+2017-10-26 00:49:08 DEBUG t.Client:398 - introducing name of father project
+2017-10-26 00:49:10 DEBUG t.Client:401 - searching father project t3
+2017-10-26 00:49:10 INFO  t.Client:408 - The specified Father Project does not exist.
+2017-10-26 00:49:10 DEBUG t.Client:356 - choosing submenu option
+2017-10-26 00:49:12 DEBUG t.Client:365 - chosen option: 4
+2017-10-26 00:49:12 DEBUG t.Client:414 - starting interval
+2017-10-26 00:49:12 DEBUG t.Client:415 - introducing name of the task
+2017-10-26 00:49:13 DEBUG t.Client:422 - task name introduced: t3
+2017-10-26 00:49:13 DEBUG t.Client:423 - searching task t3
+2017-10-26 00:49:13 DEBUG t.Client:438 - The specified task does not exist.
+2017-10-26 00:49:13 DEBUG t.Client:356 - choosing submenu option
+2017-10-26 00:49:18 DEBUG t.Client:365 - chosen option: 0
+2017-10-26 00:49:18 DEBUG t.Client:169 - choosing menu option: 
+2017-10-26 00:49:26 DEBUG t.Client:177 - chosen option: 1
+2017-10-26 00:49:26 DEBUG t.Client:356 - choosing submenu option
+2017-10-26 00:49:26 DEBUG t.Client:365 - chosen option: 3
+2017-10-26 00:49:26 DEBUG t.Client:397 - adding task to project
+2017-10-26 00:49:26 DEBUG t.Client:398 - introducing name of father project
+2017-10-26 00:49:28 DEBUG t.Client:401 - searching father project Groot
+2017-10-26 00:49:28 DEBUG t.Client:405 - father Groot has been found
+2017-10-26 00:49:28 DEBUG t.Project:85 - introducing activity name
+2017-10-26 00:49:30 DEBUG t.Project:88 - name introduced: t3
+2017-10-26 00:49:30 DEBUG t.Project:97 - introducing activity description
+2017-10-26 00:49:31 DEBUG t.Project:100 - description introduced: 
+2017-10-26 00:49:31 DEBUG t.Project:101 - all properties has been introduced correctly
+2017-10-26 00:49:31 INFO  t.Project:75 - added task t3
+2017-10-26 00:49:31 DEBUG t.Client:356 - choosing submenu option
+2017-10-26 00:49:33 DEBUG t.Client:365 - chosen option: 4
+2017-10-26 00:49:33 DEBUG t.Client:414 - starting interval
+2017-10-26 00:49:33 DEBUG t.Client:415 - introducing name of the task
+2017-10-26 00:49:35 DEBUG t.Client:422 - task name introduced: t3
+2017-10-26 00:49:35 DEBUG t.Client:423 - searching task t3
+2017-10-26 00:49:35 DEBUG t.Client:438 - The specified task does not exist.
+2017-10-26 00:49:35 DEBUG t.Client:356 - choosing submenu option
+2017-10-26 00:49:37 DEBUG t.Client:365 - chosen option: 0
+2017-10-26 00:49:37 DEBUG t.Client:169 - choosing menu option: 
+2017-10-26 00:50:01 DEBUG t.Client:177 - chosen option: 1
+2017-10-26 00:50:01 DEBUG t.Client:356 - choosing submenu option
+2017-10-26 00:50:03 DEBUG t.Client:365 - chosen option: 3
+2017-10-26 00:50:03 DEBUG t.Client:397 - adding task to project
+2017-10-26 00:50:03 DEBUG t.Client:398 - introducing name of father project
+2017-10-26 00:50:15 DEBUG t.Client:401 - searching father project Root
+2017-10-26 00:50:15 DEBUG t.Client:405 - father Root has been found
+2017-10-26 00:50:15 DEBUG t.Project:85 - introducing activity name
+2017-10-26 00:50:18 DEBUG t.Project:88 - name introduced: t5
+2017-10-26 00:50:18 DEBUG t.Project:97 - introducing activity description
+2017-10-26 00:50:20 DEBUG t.Project:100 - description introduced: 
+2017-10-26 00:50:20 DEBUG t.Project:101 - all properties has been introduced correctly
+2017-10-26 00:50:20 INFO  t.Project:75 - added task t5
+2017-10-26 00:50:20 DEBUG t.Client:356 - choosing submenu option
+2017-10-26 00:50:22 DEBUG t.Client:365 - chosen option: 4
+2017-10-26 00:50:22 DEBUG t.Client:414 - starting interval
+2017-10-26 00:50:22 DEBUG t.Client:415 - introducing name of the task
+2017-10-26 00:50:23 DEBUG t.Client:422 - task name introduced: t5
+2017-10-26 00:50:23 DEBUG t.Client:423 - searching task t5
+2017-10-26 00:50:23 DEBUG t.Client:435 - task t5has been found
+2017-10-26 00:50:23 INFO  t.Task:61 - interval for task t5 started
+2017-10-26 00:50:23 DEBUG t.Client:356 - choosing submenu option
+2017-10-26 00:50:25 DEBUG t.Client:365 - chosen option: 0
+2017-10-26 00:50:25 DEBUG t.Client:169 - choosing menu option: 
+2017-10-26 00:50:38 DEBUG t.Client:177 - chosen option: 1
+2017-10-26 00:50:38 DEBUG t.Client:356 - choosing submenu option
+2017-10-26 00:50:39 DEBUG t.Client:365 - chosen option: 0
+2017-10-26 00:50:39 DEBUG t.Client:169 - choosing menu option: 
+2017-10-26 00:50:43 DEBUG t.Client:177 - chosen option: 1
+2017-10-26 00:50:43 DEBUG t.Client:356 - choosing submenu option
+2017-10-26 00:50:44 DEBUG t.Client:365 - chosen option: 5
+2017-10-26 00:50:44 DEBUG t.Client:444 - stoping interval
+2017-10-26 00:50:44 DEBUG t.Client:445 - introducing name of the task
+2017-10-26 00:50:46 DEBUG t.Client:452 - task name introduced: t5
+2017-10-26 00:50:46 DEBUG t.Client:453 - searching task t5
+2017-10-26 00:50:46 DEBUG t.Client:466 - task t5has been found
+2017-10-26 00:50:46 INFO  t.Client:500 - interval for task t5 started
+2017-10-26 00:50:46 DEBUG t.Client:356 - choosing submenu option
+2017-10-26 00:50:47 DEBUG t.Client:365 - chosen option: 0
+2017-10-26 00:50:47 DEBUG t.Client:169 - choosing menu option: 
+2017-10-26 00:51:05 DEBUG t.Client:177 - chosen option: 1
+2017-10-26 00:51:05 DEBUG t.Client:356 - choosing submenu option
+2017-10-26 00:51:27 DEBUG t.Client:365 - chosen option: 5
+2017-10-26 00:51:27 DEBUG t.Client:444 - stoping interval
+2017-10-26 00:51:27 DEBUG t.Client:445 - introducing name of the task
+2017-10-26 00:51:28 DEBUG t.Client:452 - task name introduced: t2
+2017-10-26 00:51:28 DEBUG t.Client:453 - searching task t2
+2017-10-26 00:51:28 DEBUG t.Client:466 - task t2has been found
+2017-10-26 00:51:28 INFO  t.Client:500 - interval for task t2 started
+2017-10-26 00:51:28 DEBUG t.Client:356 - choosing submenu option
+2017-10-26 00:51:30 DEBUG t.Client:365 - chosen option: 0
+2017-10-26 00:51:30 DEBUG t.Client:169 - choosing menu option: 
+2017-10-26 00:57:12 DEBUG t.Client:169 - choosing menu option: 
+2017-10-26 00:58:07 DEBUG t.Client:169 - choosing menu option: 
+2017-10-26 00:58:47 DEBUG t.Client:169 - choosing menu option: 
+2017-10-26 01:00:27 DEBUG t.Client:169 - choosing menu option: 
+2017-10-26 01:00:29 DEBUG t.Client:177 - chosen option: 1
+2017-10-26 01:00:29 DEBUG t.Client:356 - choosing submenu option
+2017-10-26 01:00:32 DEBUG t.Client:365 - chosen option: 1
+2017-10-26 01:00:32 DEBUG t.Client:98 - adding root project
+2017-10-26 01:00:32 DEBUG t.Client:99 - asking project properties
+2017-10-26 01:00:32 DEBUG t.Client:129 - introducing root project name
+2017-10-26 01:00:35 DEBUG t.Client:132 - name introduced: Groot
+2017-10-26 01:01:47 DEBUG t.Client:169 - choosing menu option: 
+2017-10-26 01:01:54 DEBUG t.Client:177 - chosen option: 1
+2017-10-26 01:01:54 DEBUG t.Client:356 - choosing submenu option
+2017-10-26 01:01:57 DEBUG t.Client:365 - chosen option: 1
+2017-10-26 01:01:57 DEBUG t.Client:98 - adding root project
+2017-10-26 01:01:57 DEBUG t.Client:99 - asking project properties
+2017-10-26 01:01:57 DEBUG t.Client:129 - introducing root project name
+2017-10-26 01:01:58 DEBUG t.Client:132 - name introduced: Gr
+2017-10-26 01:03:12 DEBUG t.Client:169 - choosing menu option: 
+2017-10-26 01:03:20 DEBUG t.Client:177 - chosen option: 1
+2017-10-26 01:03:20 DEBUG t.Client:356 - choosing submenu option
+2017-10-26 01:03:21 DEBUG t.Client:365 - chosen option: 1
+2017-10-26 01:03:21 DEBUG t.Client:98 - adding root project
+2017-10-26 01:03:21 DEBUG t.Client:99 - asking project properties
+2017-10-26 01:03:21 DEBUG t.Client:129 - introducing root project name
+2017-10-26 01:03:23 DEBUG t.Client:132 - name introduced: Gr
+2017-10-26 01:03:23 DEBUG t.Client:141 - introducing description
+2017-10-26 01:03:24 DEBUG t.Client:144 - description introduced:
+2017-10-26 01:03:24 DEBUG t.Client:145 - all properties has been introduced correctly
+2017-10-26 01:03:24 INFO  t.Client:104 - root project Gr added
+2017-10-26 01:03:24 DEBUG t.Client:356 - choosing submenu option
+2017-10-26 01:03:27 DEBUG t.Client:365 - chosen option: 0
+2017-10-26 01:03:27 DEBUG t.Client:169 - choosing menu option: 
+2017-10-26 01:03:30 DEBUG t.Client:177 - chosen option: 1
+2017-10-26 01:03:30 DEBUG t.Client:356 - choosing submenu option
+2017-10-26 01:03:37 DEBUG t.Client:365 - chosen option: 3
+2017-10-26 01:03:37 DEBUG t.Client:397 - adding task to project
+2017-10-26 01:03:37 DEBUG t.Client:398 - introducing name of father project
+2017-10-26 01:03:39 DEBUG t.Client:401 - searching father project Gr
+2017-10-26 01:03:39 DEBUG t.Client:405 - father Gr has been found
+2017-10-26 01:03:39 DEBUG t.Project:85 - introducing activity name
+2017-10-26 01:03:43 DEBUG t.Project:88 - name introduced: t1
+2017-10-26 01:03:43 DEBUG t.Project:97 - introducing activity description
+2017-10-26 01:03:44 DEBUG t.Project:100 - description introduced: 
+2017-10-26 01:03:44 DEBUG t.Project:101 - all properties has been introduced correctly
+2017-10-26 01:03:44 INFO  t.Project:75 - added task t1
+2017-10-26 01:03:44 DEBUG t.Client:356 - choosing submenu option
+2017-10-26 01:03:49 DEBUG t.Client:365 - chosen option: 4
+2017-10-26 01:03:49 DEBUG t.Client:414 - starting interval
+2017-10-26 01:03:49 DEBUG t.Client:415 - introducing name of the task
+2017-10-26 01:03:51 DEBUG t.Client:422 - task name introduced: t1
+2017-10-26 01:03:51 DEBUG t.Client:423 - searching task t1
+2017-10-26 01:03:51 DEBUG t.Client:435 - task t1has been found
+2017-10-26 01:03:51 INFO  t.Task:61 - interval for task t1 started
+2017-10-26 01:03:51 DEBUG t.Client:356 - choosing submenu option
+2017-10-26 01:03:56 DEBUG t.Client:365 - chosen option: 0
+2017-10-26 01:03:56 DEBUG t.Client:169 - choosing menu option: 
+2017-10-26 01:04:04 DEBUG t.Client:177 - chosen option: 1
+2017-10-26 01:04:04 DEBUG t.Client:356 - choosing submenu option
+2017-10-26 01:04:05 DEBUG t.Client:365 - chosen option: 5
+2017-10-26 01:04:05 DEBUG t.Client:444 - stoping interval
+2017-10-26 01:04:05 DEBUG t.Client:445 - introducing name of the task
+2017-10-26 01:04:07 DEBUG t.Client:452 - task name introduced: t1
+2017-10-26 01:04:07 DEBUG t.Client:453 - searching task t1
+2017-10-26 01:04:07 DEBUG t.Client:466 - task t1has been found
+2017-10-26 01:04:07 INFO  t.Client:500 - interval for task t1 started
+2017-10-26 01:04:07 DEBUG t.Client:356 - choosing submenu option
+2017-10-26 01:04:09 DEBUG t.Client:365 - chosen option: 0
+2017-10-26 01:04:09 DEBUG t.Client:169 - choosing menu option: 
+2017-10-26 01:04:14 DEBUG t.Client:177 - chosen option: 0
+2017-10-26 01:04:17 DEBUG t.Client:169 - choosing menu option: 
+2017-10-26 01:24:43 DEBUG t.Client:169 - choosing menu option: 
+2017-10-26 01:26:31 DEBUG t.Client:169 - choosing menu option: 
+2017-10-26 01:26:34 DEBUG t.Client:177 - chosen option: 1
+2017-10-26 01:26:34 DEBUG t.Client:356 - choosing submenu option
+2017-10-26 01:26:36 DEBUG t.Client:365 - chosen option: 1
+2017-10-26 01:26:36 DEBUG t.Client:98 - adding root project
+2017-10-26 01:26:36 DEBUG t.Client:99 - asking project properties
+2017-10-26 01:26:36 DEBUG t.Client:129 - introducing root project name
+2017-10-26 01:26:38 DEBUG t.Client:132 - name introduced: Groot
+2017-10-26 01:26:38 DEBUG t.Client:141 - introducing description
+2017-10-26 01:26:39 DEBUG t.Client:144 - description introduced:
+2017-10-26 01:26:39 DEBUG t.Client:145 - all properties has been introduced correctly
+2017-10-26 01:26:39 INFO  t.Client:104 - root project Groot added
+2017-10-26 01:26:39 DEBUG t.Client:356 - choosing submenu option
+2017-10-26 01:26:42 DEBUG t.Client:365 - chosen option: 3
+2017-10-26 01:26:42 DEBUG t.Client:397 - adding task to project
+2017-10-26 01:26:42 DEBUG t.Client:398 - introducing name of father project
+2017-10-26 01:26:43 DEBUG t.Client:401 - searching father project Groot
+2017-10-26 01:26:43 DEBUG t.Client:405 - father Groot has been found
+2017-10-26 01:26:43 DEBUG t.Project:85 - introducing activity name
+2017-10-26 01:26:46 DEBUG t.Project:88 - name introduced: t5
+2017-10-26 01:26:46 DEBUG t.Project:97 - introducing activity description
+2017-10-26 01:26:47 DEBUG t.Project:100 - description introduced: 
+2017-10-26 01:26:47 DEBUG t.Project:101 - all properties has been introduced correctly
+2017-10-26 01:26:47 INFO  t.Project:75 - added task t5
+2017-10-26 01:26:47 DEBUG t.Client:356 - choosing submenu option
+2017-10-26 01:26:49 DEBUG t.Client:365 - chosen option: 4
+2017-10-26 01:26:49 DEBUG t.Client:414 - starting interval
+2017-10-26 01:26:49 DEBUG t.Client:415 - introducing name of the task
+2017-10-26 01:26:50 DEBUG t.Client:422 - task name introduced: t5
+2017-10-26 01:26:50 DEBUG t.Client:423 - searching task t5
+2017-10-26 01:26:50 DEBUG t.Client:435 - task t5has been found
+2017-10-26 01:26:50 INFO  t.Task:61 - interval for task t5 started
+2017-10-26 01:26:50 DEBUG t.Client:356 - choosing submenu option
+2017-10-26 01:26:54 DEBUG t.Client:365 - chosen option: 0
+2017-10-26 01:26:54 DEBUG t.Client:169 - choosing menu option: 
+2017-10-26 01:27:07 DEBUG t.Client:177 - chosen option: 1
+2017-10-26 01:27:07 DEBUG t.Client:356 - choosing submenu option
+2017-10-26 01:27:08 DEBUG t.Client:365 - chosen option: 5
+2017-10-26 01:27:08 DEBUG t.Client:444 - stoping interval
+2017-10-26 01:27:08 DEBUG t.Client:445 - introducing name of the task
+2017-10-26 01:27:09 DEBUG t.Client:452 - task name introduced: t5
+2017-10-26 01:27:09 DEBUG t.Client:453 - searching task t5
+2017-10-26 01:27:09 DEBUG t.Client:466 - task t5has been found
+2017-10-26 01:27:09 INFO  t.Client:500 - interval for task t5 started
+2017-10-26 01:27:09 DEBUG t.Client:356 - choosing submenu option
+2017-10-26 01:27:12 DEBUG t.Client:365 - chosen option: 0
+2017-10-26 01:27:12 DEBUG t.Client:169 - choosing menu option: 
+2017-10-26 01:27:17 DEBUG t.Client:177 - chosen option: 1
+2017-10-26 01:27:17 DEBUG t.Client:356 - choosing submenu option
+2017-10-26 01:27:20 DEBUG t.Client:365 - chosen option: 4
+2017-10-26 01:27:20 DEBUG t.Client:414 - starting interval
+2017-10-26 01:27:20 DEBUG t.Client:415 - introducing name of the task
+2017-10-26 01:27:22 DEBUG t.Client:422 - task name introduced: t5
+2017-10-26 01:27:22 DEBUG t.Client:423 - searching task t5
+2017-10-26 01:27:22 DEBUG t.Client:435 - task t5has been found
+2017-10-26 01:27:22 INFO  t.Task:61 - interval for task t5 started
+2017-10-26 01:27:22 DEBUG t.Client:356 - choosing submenu option
+2017-10-26 01:27:24 DEBUG t.Client:365 - chosen option: 0
+2017-10-26 01:27:24 DEBUG t.Client:169 - choosing menu option: 
+2017-10-26 01:27:42 DEBUG t.Client:177 - chosen option: 1
+2017-10-26 01:27:42 DEBUG t.Client:356 - choosing submenu option
+2017-10-26 01:27:45 DEBUG t.Client:365 - chosen option: 4
+2017-10-26 01:27:45 DEBUG t.Client:414 - starting interval
+2017-10-26 01:27:45 DEBUG t.Client:415 - introducing name of the task
+2017-10-26 01:27:47 DEBUG t.Client:422 - task name introduced: t5
+2017-10-26 01:27:47 DEBUG t.Client:423 - searching task t5
+2017-10-26 01:27:47 DEBUG t.Client:435 - task t5has been found
+2017-10-26 01:27:47 INFO  t.Task:61 - interval for task t5 started
+2017-10-26 01:27:47 DEBUG t.Client:356 - choosing submenu option
+2017-10-26 01:27:49 DEBUG t.Client:365 - chosen option: 0
+2017-10-26 01:27:49 DEBUG t.Client:169 - choosing menu option: 
+2017-10-26 01:27:54 DEBUG t.Client:177 - chosen option: 1
+2017-10-26 01:27:54 DEBUG t.Client:356 - choosing submenu option
+2017-10-26 01:27:59 DEBUG t.Client:365 - chosen option: 5
+2017-10-26 01:27:59 DEBUG t.Client:444 - stoping interval
+2017-10-26 01:27:59 DEBUG t.Client:445 - introducing name of the task
+2017-10-26 01:28:02 DEBUG t.Client:452 - task name introduced: t5
+2017-10-26 01:28:02 DEBUG t.Client:453 - searching task t5
+2017-10-26 01:28:02 DEBUG t.Client:466 - task t5has been found
+2017-10-26 01:28:02 INFO  t.Client:500 - interval for task t5 started
+2017-10-26 01:28:02 DEBUG t.Client:356 - choosing submenu option
+2017-10-26 01:28:03 DEBUG t.Client:365 - chosen option: 0
+2017-10-26 01:28:03 DEBUG t.Client:169 - choosing menu option: 
+2017-10-26 01:39:09 DEBUG t.Client:163 - choosing menu option: 
+2017-10-26 01:39:14 DEBUG t.Client:171 - chosen option: 1
+2017-10-26 01:39:14 DEBUG t.Client:351 - choosing submenu option
+2017-10-26 01:39:15 DEBUG t.Client:360 - chosen option: 1
+2017-10-26 01:39:15 DEBUG t.Client:100 - adding root project
+2017-10-26 01:39:15 DEBUG t.Client:101 - asking project properties
+2017-10-26 01:39:15 DEBUG t.Client:131 - introducing root project name
+2017-10-26 01:39:17 DEBUG t.Client:134 - name introduced: Groot
+2017-10-26 01:39:17 DEBUG t.Client:143 - introducing description
+2017-10-26 01:39:18 DEBUG t.Client:146 - description introduced:
+2017-10-26 01:39:18 DEBUG t.Client:147 - all properties has been introduced correctly
+2017-10-26 01:39:18 INFO  t.Client:106 - root project Groot added
+2017-10-26 01:39:18 DEBUG t.Client:351 - choosing submenu option
+2017-10-26 01:39:19 DEBUG t.Client:360 - chosen option: 0
+2017-10-26 01:39:19 DEBUG t.Client:163 - choosing menu option: 
+2017-10-26 02:28:36 DEBUG t.Client:163 - choosing menu option: 
+2017-10-26 02:29:23 DEBUG t.Client:174 - chosen option: -1

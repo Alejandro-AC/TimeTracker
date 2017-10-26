@@ -52,7 +52,7 @@ public class Interval implements Observer, Serializable {
 	 */
 	@Override
 	public void update(Observable o, Object arg) {
-		Date currentD = new Date();		
+		Date currentD = Clock.getInstance().getCurrentDate();		
 		long seconds = (currentD.getTime()-this.getStartDate().getTime())/1000;
 		this.setTotalTime(seconds);
 	}
@@ -170,7 +170,7 @@ public class Interval implements Observer, Serializable {
 	 * Starts the execution of the current Interval.
 	 */
 	public void start(){
-		Date startD = new Date();		
+		Date startD = Clock.getInstance().getCurrentDate();		
 		this.setStartDate(startD);		
 	}
 
@@ -178,8 +178,9 @@ public class Interval implements Observer, Serializable {
 	 * Stops the execution of the current Interval.
 	 */
 	public void stop(){
-		Date endD = new Date();		
+		Date endD = Clock.getInstance().getCurrentDate();		
 		this.setEndDate(endD);
+		Clock.getInstance().getNotification().deleteObserver(this);
 		
 	}
 
