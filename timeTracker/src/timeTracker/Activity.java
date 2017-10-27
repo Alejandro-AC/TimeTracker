@@ -84,6 +84,9 @@ public abstract class Activity implements Serializable {
 	 */
 	public void setEndDate(Date endDate) {
 		this.endDate = endDate;
+		if (this.getFather() != null) {
+			this.getFather().setEndDate(endDate);
+		}
 	}
 
 	/** 
@@ -129,20 +132,28 @@ public abstract class Activity implements Serializable {
 	 * @uml.property  name="startDate"
 	 */
 	public void setStartDate(Date startDate) {
-		this.startDate = startDate;
+		System.out.print("stardate: "+startDate);
+		if (this.startDate == null){
+			System.out.print("Dentro primera condicion");
+			if (this.getFather() != null) {
+				System.out.print("Dentro segunda condicion");
+				this.getFather().setStartDate(startDate);
+			}
+			this.startDate = startDate;
+		}
 	}
 
 	/** 
 	 * @uml.property name="totalTime"
 	 */
-	protected Date totalTime;
+	protected long totalTime;
 
 	/** 
 	 * Getter of the property <tt>totalTime</tt>
 	 * @return  Returns the totalTime.
 	 * @uml.property  name="totalTime"
 	 */
-	public Date getTotalTime() {
+	public long getTotalTime() {
 		return totalTime;
 	}
 
@@ -151,16 +162,17 @@ public abstract class Activity implements Serializable {
 	 * @param totalTime  The totalTime to set.
 	 * @uml.property  name="totalTime"
 	 */
-	public void setTotalTime(Date totalTime) {
+	public void setTotalTime(long totalTime) {
 		this.totalTime = totalTime;
 	}
 
 	/**
 	 * Constructor of the class.
 	 */
-	public Activity(String description, String name) {
+	public Activity(String description, String name, Project father) {
 		this.description = description;
 		this.name = name;
+		this.father = father;
 	}
 	
 	/**

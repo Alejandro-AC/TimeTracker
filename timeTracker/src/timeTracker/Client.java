@@ -99,9 +99,9 @@ public class Client {
 		ArrayList<String> properties = new ArrayList<String>();
 		logger.debug("adding root project");
 		logger.debug("asking project properties");
-		properties = askRootProjectProperties();		
+		properties = askRootProjectProperties();			
 		
-		Project p = new Project(properties.get(0), properties.get(1));
+		Project p = new Project(properties.get(0), properties.get(1), null);
 		this.rootProjects.add(p);
 		logger.info("root project "+p.getName()+" added");
 		Impresor.getInstance().setRootProjects(this.rootProjects);

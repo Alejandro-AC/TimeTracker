@@ -6,7 +6,6 @@ package timeTracker;
 import java.util.AbstractList;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Date;
 import java.util.Scanner;
 
 import org.slf4j.Logger;
@@ -46,8 +45,8 @@ public class Project extends Activity {
 	/**
 	 * Constructor of the class.
 	 */
-	public Project(String name, String description) {
-		super(description, name);
+	public Project(String name, String description, Project father) {
+		super(description, name, father);
 	}
 
 	/**
@@ -58,7 +57,7 @@ public class Project extends Activity {
 		ArrayList<String> properties = new ArrayList<String>();
 		
 		properties = askChildProperties(client);
-		Project p = new Project(properties.get(0), properties.get(1));
+		Project p = new Project(properties.get(0), properties.get(1), this);
 		this.children.add(p);
 		logger.info("added child project "+p.getName());
 	}
@@ -70,7 +69,7 @@ public class Project extends Activity {
 		ArrayList<String> properties = new ArrayList<String>();
 		
 		properties = askChildProperties(client);
-		Task t = new Task(properties.get(0), properties.get(1));
+		Task t = new Task(properties.get(0), properties.get(1), this);
 		this.children.add(t);
 		logger.info("added task "+t.getName());
 	}
@@ -108,10 +107,13 @@ public class Project extends Activity {
 	public void calculateTotalTime() {
 		long sum = 0;
 		for (Activity child : children) {
-			sum += child.getTotalTime().getTime();
+			sum += child.getTotalTime();
 		}
-		sum += this.totalTime.getTime();
-		this.totalTime = new Date(sum);	
+		this.totalTime = sum;
+		
+		if(this.father != null){
+			father.calculateTotalTime();
+		}
 	}
 
 	/**

@@ -55,14 +55,18 @@ public class Interval implements Observer, Serializable {
 		Date currentD = Clock.getInstance().getCurrentDate();		
 		long seconds = (currentD.getTime()-this.getStartDate().getTime())/1000;
 		this.setTotalTime(seconds);
+		this.setEndDate(currentD);
+		this.getTask().setEndDate(currentD);
+		this.task.calculateTotalTime();
 	}
 
 	/**
 	 * Constructor of the class.
 	 * @param id: id of the new Interval.
 	 */
-	public Interval(int id){
+	public Interval(int id, Task father){
 		this.id = id;
+		this.task = father;
 		this.start();
 	}
 
@@ -171,7 +175,11 @@ public class Interval implements Observer, Serializable {
 	 */
 	public void start(){
 		Date startD = Clock.getInstance().getCurrentDate();		
-		this.setStartDate(startD);		
+		this.setStartDate(startD);
+		if (this.getId() == 1) {
+			this.getTask().setStartDate(startD);
+		}
+		this.setRunning(true);
 	}
 
 	/**
@@ -181,11 +189,35 @@ public class Interval implements Observer, Serializable {
 		Date endD = Clock.getInstance().getCurrentDate();		
 		this.setEndDate(endD);
 		Clock.getInstance().getNotification().deleteObserver(this);		
+		this.setRunning(false);
 	}
 
 	public void acceptVisitor(Impresor imp, int level) {
 		// TODO Auto-generated method stub
 		imp.visitInterval(this, level+1);
+	}
+
+	/**
+	 * @uml.property  name="running"
+	 */
+	private boolean running = false;
+
+	/**
+	 * Getter of the property <tt>running</tt>
+	 * @return  Returns the running.
+	 * @uml.property  name="running"
+	 */
+	public boolean isRunning() {
+		return running;
+	}
+
+	/**
+	 * Setter of the property <tt>running</tt>
+	 * @param running  The running to set.
+	 * @uml.property  name="running"
+	 */
+	public void setRunning(boolean running) {
+		this.running = running;
 	}
 
 

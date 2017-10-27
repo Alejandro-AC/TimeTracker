@@ -6,7 +6,6 @@ package timeTracker;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Date;
 
 
 import org.slf4j.Logger;
@@ -46,19 +45,24 @@ public class Task extends Activity {
 	/**
 	 * Constructor of the class.
 	 */
-	public Task(String name, String description) {
-		super(description, name);
+	public Task(String name, String description, Project father) {
+		super(description, name, father);
 		
 	}
 
 	/**
 	 * Adds a new interval to the intervals list.
 	 */
-	public void addInterval() {		
-		Interval interval = new Interval(children.size() + 1);
-		children.add(interval);		
-		Clock.getInstance().getNotification().addObserver(interval);
-		logger.info("interval for task "+this.getName()+" started");
+	public void addInterval() {	
+		if (!this.children.isEmpty() && this.getLastInterval().isRunning() == true){
+			logger.warn("Can't start the task, it is already running");
+			System.out.println("Can't start the task, it is already running");
+		}else{
+			Interval interval = new Interval(children.size() + 1, this);
+			children.add(interval);		
+			Clock.getInstance().getNotification().addObserver(interval);
+			logger.info("interval for task "+this.getName()+" started");
+		}
 		
 	}
 
@@ -70,8 +74,11 @@ public class Task extends Activity {
 		for (Interval child : children) {
 			sum += child.getTotalTime();
 		}
-		sum += this.totalTime.getTime();
-		this.totalTime = new Date(sum);		
+		this.totalTime = sum;
+		
+		if(this.father != null){
+			father.calculateTotalTime();
+		}
 	}
 
 	/** 

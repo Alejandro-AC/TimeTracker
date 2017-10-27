@@ -24,23 +24,29 @@ public class Impresor implements Visitor, Runnable{
 		Arrays.fill(spaces, ' ');
 		String type = "I. ";
 		System.out.println(new String(spaces) + type + interval.getId() +
-				" ..TotalTime.." + interval.getTotalTime() + "s " +
-				"  ..StartTime.." + interval.getStartDate()+
-				"  ..EndTime.." + interval.getEndDate());		
+				"  ..StartTime.." + interval.getStartDate() +
+				"  ..EndTime.." + interval.getEndDate() +
+				" ..TotalTime.." + interval.getTotalTime() + "s " );		
 	}
 	
 	public void visitTask(Task task, int level){
 		char[] spaces = new char[level*2];
 		Arrays.fill(spaces, ' ');
 		String type = "T. ";
-		System.out.println(new String(spaces) + type + task.getName());
+		System.out.println(new String(spaces) + type + task.getName() +				
+				"  ..StartTime.." + task.getStartDate() +
+				"  ..EndTime.." + task.getEndDate() +
+				" ..TotalTime.." + task.getTotalTime() + "s " );
 	}
 	
 	public void visitProject(Project project, int level){		
 		char[] spaces = new char[level*2];
 		Arrays.fill(spaces, ' ');
 		String type = "P. ";
-		System.out.println(new String(spaces) + type + project.getName());		
+		System.out.println(new String(spaces) + type + project.getName() +
+				"  ..StartTime.." + project.getStartDate() +
+				"  ..EndTime.." + project.getEndDate() +
+				" ..TotalTime.." + project.getTotalTime() + "s " );		
 	}	
 	
 	public void imprimeix(){
