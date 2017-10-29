@@ -53,7 +53,7 @@ public class Task extends Activity {
 	/**
 	 * Adds a new interval to the intervals list.
 	 */
-	public void addInterval() {	
+	public void start() {	
 		if (!this.children.isEmpty() && this.getLastInterval().isRunning() == true){
 			logger.warn("Can't start the task, it is already running");
 			System.out.println("Can't start the task, it is already running");

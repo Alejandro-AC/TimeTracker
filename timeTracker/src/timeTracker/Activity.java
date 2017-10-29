@@ -134,9 +134,7 @@ public abstract class Activity implements Serializable {
 	public void setStartDate(Date startDate) {
 		System.out.print("stardate: "+startDate);
 		if (this.startDate == null){
-			System.out.print("Dentro primera condicion");
 			if (this.getFather() != null) {
-				System.out.print("Dentro segunda condicion");
 				this.getFather().setStartDate(startDate);
 			}
 			this.startDate = startDate;
