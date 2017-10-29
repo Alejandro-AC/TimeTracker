@@ -3,13 +3,13 @@ package timeTracker;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.Stack;
 
 public class Impresor implements Visitor, Runnable{
-
+	
 	private static Impresor uniqueInstance = new Impresor();
+	private volatile boolean running = true;
 	
 	public Impresor(){
 		
@@ -18,6 +18,14 @@ public class Impresor implements Visitor, Runnable{
 	public static Impresor getInstance() {
 		return uniqueInstance;
 	}
+	
+    public void terminate() {
+        running = false;
+    }
+    
+    public void reanudate() {
+        running = true;
+    }
 	
 	private Collection<Project> rootProjects = new ArrayList<Project>();
 	
@@ -82,21 +90,26 @@ public class Impresor implements Visitor, Runnable{
 			root.acceptVisitor(uniqueInstance, 0);
 			System.out.println("");
 		}
+		
+		System.out.println("");
+		System.out.print("Enter 1 to see the menu or 0 to Exit: ");		
+		System.out.println("");
+		System.out.println("");
 	}
 	
 
 	@Override
-	public void run() {
-		// TODO Auto-generated method stub
-	  while(true) {			   
+	public void run() {		
+	  while(running) {			   
 		   try {
+			
 			Thread.sleep(this.reprintTime*1000);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		   this.imprimeix();
-	  }
+	  }	
 	}
 
 

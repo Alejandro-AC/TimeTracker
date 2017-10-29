@@ -3376,3 +3376,77 @@
 2017-10-29 17:55:10 DEBUG t.Client:298 - chosen option: 0
 2017-10-29 17:55:10 DEBUG t.Client:162 - choosing menu option: 
 2017-10-29 17:55:11 DEBUG t.Client:170 - chosen option: 0
+2017-10-29 19:51:48 DEBUG t.Client:163 - choosing menu option: 
+2017-10-29 19:51:54 DEBUG t.Client:171 - chosen option: 0
+2017-10-29 19:54:38 DEBUG t.Client:176 - choosing menu option: 
+2017-10-29 19:54:42 DEBUG t.Client:184 - chosen option: 0
+2017-10-29 19:54:55 DEBUG t.Client:176 - choosing menu option: 
+2017-10-29 19:54:59 DEBUG t.Client:184 - chosen option: 0
+2017-10-29 19:56:27 DEBUG t.Client:178 - choosing menu option: 
+2017-10-29 19:56:29 DEBUG t.Client:186 - chosen option: 0
+2017-10-29 19:57:09 DEBUG t.Client:178 - choosing menu option: 
+2017-10-29 19:57:11 DEBUG t.Client:186 - chosen option: 1
+2017-10-29 19:57:11 DEBUG t.Client:305 - choosing submenu option
+2017-10-29 19:57:16 DEBUG t.Client:314 - chosen option: 0
+2017-10-29 19:57:16 DEBUG t.Client:178 - choosing menu option: 
+2017-10-29 19:57:18 DEBUG t.Client:186 - chosen option: 0
+2017-10-29 19:58:12 DEBUG t.Client:178 - choosing menu option: 
+2017-10-29 19:58:14 DEBUG t.Client:186 - chosen option: 0
+2017-10-29 19:58:14 DEBUG t.Client:200 - Exit requested
+2017-10-29 19:58:46 DEBUG t.Client:178 - choosing menu option: 
+2017-10-29 19:58:48 DEBUG t.Client:186 - chosen option: 0
+2017-10-29 19:58:48 DEBUG t.Client:200 - Exit requested
+2017-10-29 19:58:48 DEBUG t.Client:207 - Closing Scanner
+2017-10-29 19:59:16 DEBUG t.Client:180 - choosing menu option: 
+2017-10-29 19:59:18 DEBUG t.Client:188 - chosen option: 0
+2017-10-29 19:59:18 DEBUG t.Client:202 - Exit requested
+2017-10-29 19:59:18 DEBUG t.Client:209 - Closing Scanner
+2017-10-29 19:59:18 DEBUG t.Client:64 - Back to main()
+2017-10-29 20:06:03 DEBUG t.Client:176 - choosing menu option: 
+2017-10-29 20:06:08 DEBUG t.Client:184 - chosen option: 1
+2017-10-29 20:06:08 DEBUG t.Client:312 - choosing submenu option
+2017-10-29 20:06:15 DEBUG t.Client:321 - chosen option: 1
+2017-10-29 20:06:15 DEBUG t.Client:111 - adding root project
+2017-10-29 20:06:15 DEBUG t.Client:112 - asking project properties
+2017-10-29 20:06:15 DEBUG t.Client:143 - introducing root project name
+2017-10-29 20:06:19 DEBUG t.Client:146 - name introduced: Root23
+2017-10-29 20:06:19 DEBUG t.Client:155 - introducing description
+2017-10-29 20:06:20 DEBUG t.Client:158 - description introduced:
+2017-10-29 20:06:20 DEBUG t.Client:159 - all properties has been introduced correctly
+2017-10-29 20:06:20 INFO  t.Client:117 - root project Root23 added
+2017-10-29 20:06:20 DEBUG t.Client:312 - choosing submenu option
+2017-10-29 20:06:25 DEBUG t.Client:321 - chosen option: 0
+2017-10-29 20:06:25 DEBUG t.Client:176 - choosing menu option: 
+2017-10-29 20:08:48 DEBUG t.Client:177 - choosing menu option: 
+2017-10-29 20:08:52 DEBUG t.Client:185 - chosen option: 1
+2017-10-29 20:08:52 DEBUG t.Client:313 - choosing submenu option
+2017-10-29 20:08:55 DEBUG t.Client:322 - chosen option: 0
+2017-10-29 20:08:55 DEBUG t.Client:177 - choosing menu option: 
+2017-10-29 20:09:08 DEBUG t.Client:185 - chosen option: 0
+2017-10-29 20:09:08 DEBUG t.Client:206 - Exit requested
+2017-10-29 20:09:08 DEBUG t.Client:213 - Closing Scanner
+2017-10-29 20:09:08 DEBUG t.Client:63 - Back to main()
+2017-10-29 20:09:29 DEBUG t.Client:177 - choosing menu option: 
+2017-10-29 20:09:32 DEBUG t.Client:185 - chosen option: 1
+2017-10-29 20:09:32 DEBUG t.Client:307 - choosing submenu option
+2017-10-29 20:09:48 DEBUG t.Client:316 - chosen option: 0
+2017-10-29 20:09:48 DEBUG t.Client:177 - choosing menu option: 
+2017-10-29 20:10:58 DEBUG t.Client:183 - chosen option: 1
+2017-10-29 20:10:58 DEBUG t.Client:305 - choosing submenu option
+2017-10-29 20:11:17 DEBUG t.Client:183 - chosen option: 1
+2017-10-29 20:11:17 DEBUG t.Client:305 - choosing submenu option
+2017-10-29 20:14:12 DEBUG t.Client:180 - chosen option: 1
+2017-10-29 20:14:12 DEBUG t.Client:309 - choosing submenu option
+2017-10-29 20:14:30 DEBUG t.Client:318 - chosen option: 0
+2017-10-29 20:14:34 DEBUG t.Client:180 - chosen option: 0
+2017-10-29 20:14:34 DEBUG t.Client:195 - Exit requested
+2017-10-29 20:14:34 DEBUG t.Client:209 - Closing Scanner
+2017-10-29 20:14:34 DEBUG t.Client:61 - Back to main()
+2017-10-29 20:15:41 DEBUG t.Client:188 - chosen option: 1
+2017-10-29 20:15:41 DEBUG t.Client:317 - choosing submenu option
+2017-10-29 20:16:16 DEBUG t.Client:183 - chosen option: 1
+2017-10-29 20:16:17 DEBUG t.Client:319 - choosing submenu option
+2017-10-29 20:17:22 DEBUG t.Client:183 - chosen option: 1
+2017-10-29 20:17:23 DEBUG t.Client:321 - choosing submenu option
+2017-10-29 20:18:19 DEBUG t.Client:183 - chosen option: 1
+2017-10-29 20:18:20 DEBUG t.Client:321 - choosing submenu option

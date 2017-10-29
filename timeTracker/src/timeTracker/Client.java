@@ -15,6 +15,8 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -35,13 +37,11 @@ public class Client {
 	 * @param args
 	 */
 	@SuppressWarnings("unchecked")
-	public static void main(String[] args) {
+	public static void main(String[] args) {		
+		
 		Client c = new Client();
 		Thread clockThread = new Thread(Clock.getInstance());
-		clockThread.start();
-		
-		Thread impresorThread = new Thread(Impresor.getInstance());
-		impresorThread.start();				
+		clockThread.start();					
 
 		try {		// Deserialization
 			FileInputStream fileIn = new FileInputStream("data.ser");
@@ -60,6 +60,17 @@ public class Client {
 		
 		c.printMenu();
 		
+		logger.debug("Back to main()");
+		
+		try {
+			clockThread.join();
+			System.out.println("Exiting clock thread");
+		} catch (InterruptedException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
+
 		
 		try {		// Serialization
 			FileOutputStream fileOut = new FileOutputStream("data.ser");
@@ -157,11 +168,13 @@ public class Client {
 		Scanner scanner = new Scanner(System.in);
 		int option = -1;
 	
-		while(option != 0) {			
+		while(option != 0) {
 			
-			logger.debug("choosing menu option: ");
-			System.out.println("");
-			System.out.print("Enter 1 to see the menu or 0 to Exit: ");				
+			Impresor.getInstance().reanudate();
+			Thread impresorThread = new Thread(Impresor.getInstance());
+			impresorThread.start();	
+			
+
 						
 			boolean correctType = false;
 			while(!correctType){
@@ -178,15 +191,32 @@ public class Client {
 			
 			switch(option) {
 			case 1:		
+				
+				try {
+					Impresor.getInstance().terminate();
+					TimeUnit.SECONDS.sleep(1);
+				} catch (InterruptedException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 				printSubMenu();
 				break;
-			case 0:				
+			case 0:		
+				logger.debug("Exit requested");
+				Impresor.getInstance().terminate();
+				try {
+					impresorThread.join();
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 				break;
 			default:
 				System.out.println("Error. Invalid option");
 				break;
 			}
 		}
+		logger.debug("Closing Scanner");
 		scanner.close();
 	}	
 		
@@ -276,7 +306,9 @@ public class Client {
 			Project fatherProject;
 			Task fatherTask = null;
 			String fatherName = "";			
-			
+			System.out.println("");
+			System.out.println(" - CONFIG MENU - ");
+			System.out.println("");
 			System.out.println("1. Add Root Project");
 			System.out.println("2. Add Child Project");
 			System.out.println("3. Add Child Task");

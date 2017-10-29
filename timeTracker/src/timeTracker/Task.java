@@ -71,9 +71,11 @@ public class Task extends Activity {
 	 */
 	public void calculateTotalTime() {
 		long sum = 0;
+		
 		for (Interval child : children) {
 			sum += child.getTotalTime();
 		}
+		
 		this.totalTime = sum;
 		
 		if(this.father != null){
@@ -124,7 +126,9 @@ public class Task extends Activity {
 	public void stop() {
 		if (!this.children.isEmpty()) {
 			if(this.getLastInterval().getStartDate() != null && this.getLastInterval().getEndDate() == Clock.getInstance().getCurrentDate()) {
+				
 				this.getLastInterval().stop();
+				
 				if (this.getLastInterval().getTotalTime() < minIntervalTime) {
 					logger.debug("interval too short");
 					this.removeInterval(this.getLastInterval().getId());					
@@ -137,8 +141,7 @@ public class Task extends Activity {
 
 
 	@Override
-	public void acceptVisitor(Impresor imp, int level) {
-		// TODO Auto-generated method stub
+	public void acceptVisitor(Impresor imp, int level) {		
 		imp.visitTask(this, level);
 		for (Interval child : children) {
 			child.acceptVisitor(imp, level+1);
