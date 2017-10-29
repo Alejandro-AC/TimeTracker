@@ -22,39 +22,44 @@ public class Impresor implements Visitor, Runnable{
 	public void visitInterval(Interval interval, int level){		
 		char[] spaces = new char[level*2];
 		Arrays.fill(spaces, ' ');
-		String type = "I. ";
-		System.out.println(new String(spaces) + type + interval.getId() +
-				"  ..StartTime.." + interval.getStartDate() +
-				"  ..EndTime.." + interval.getEndDate() +
-				" ..TotalTime.." + interval.getTotalTime() + "s " );		
+		String type = "I.";
+		String format = "  %" + ((level*2)+2) + "s%-" + (25-(level*2)) + "s%" + (30) + "s%" + (30) + "s%" + (15) + "ss%n";	
+		System.out.printf(format, type, interval.getId(), interval.getStartDate(), interval.getEndDate(), interval.getTotalTime());	
 	}
 	
 	public void visitTask(Task task, int level){
 		char[] spaces = new char[level*2];
 		Arrays.fill(spaces, ' ');
-		String type = "T. ";
-		System.out.println(new String(spaces) + type + task.getName() +				
-				"  ..StartTime.." + task.getStartDate() +
-				"  ..EndTime.." + task.getEndDate() +
-				" ..TotalTime.." + task.getTotalTime() + "s " );
+		String type = "T.";
+		String format = "  %" + ((level*2)+2) + "s%-" + (25-(level*2)) + "s%" + (30) + "s%" + (30) + "s%" + (15) + "ss%n";	
+		System.out.printf(format, type, task.getName(), task.getStartDate(), task.getEndDate(), task.getTotalTime());
+		//System.out.println(new String(spaces) + type + task.getName() +				
+		//		"  ..StartTime.." + task.getStartDate() +
+		//		"  ..EndTime.." + task.getEndDate() +
+		//		" ..TotalTime.." + task.getTotalTime() + "s " );
 	}
 	
 	public void visitProject(Project project, int level){		
 		char[] spaces = new char[level*2];
 		Arrays.fill(spaces, ' ');
-		String type = "P. ";
-		System.out.println(new String(spaces) + type + project.getName() +
-				"  ..StartTime.." + project.getStartDate() +
-				"  ..EndTime.." + project.getEndDate() +
-				" ..TotalTime.." + project.getTotalTime() + "s " );		
+		String type = "P.";
+		String format = "  %" + ((level*2)+2) + "s%-" + (25-(level*2)) + "s%" + (30) + "s%" + (30) + "s%" + (15) + "ss%n";	
+		System.out.printf(format, type, project.getName(), project.getStartDate(), project.getEndDate(), project.getTotalTime());
 	}	
 	
 	public void imprimeix(){
 		Stack<Activity> nonVisited = new Stack<Activity>();
 		nonVisited.addAll(rootProjects);
+		String title = "- ACTIVITIES TREE -";
+		String activityName = "Activity Name";
+		String startDate = "Start Date";
+		String endTime = "End Time";
+		String totalTime = "Total Time";
 		System.out.println("");
-		System.out.println("  - TREE -");
+		System.out.println(title);
 		System.out.println("");
+		String format = "%10s%" + (5) + "s%" + (30) + "s%" + (30) + "s%" + (20) + "s%n";		
+		System.out.printf(format, " ", activityName, startDate, endTime, totalTime);	
 		for (Project root : rootProjects) {
 			root.acceptVisitor(uniqueInstance, 0);
 			System.out.println("");
