@@ -3254,3 +3254,125 @@
 2017-10-29 14:06:26 DEBUG t.Client:162 - choosing menu option: 
 2017-10-29 16:52:12 DEBUG t.Client:162 - choosing menu option: 
 2017-10-29 17:20:41 DEBUG t.Client:162 - choosing menu option: 
+2017-10-29 17:35:51 DEBUG t.Client:162 - choosing menu option: 
+2017-10-29 17:36:49 DEBUG t.Client:162 - choosing menu option: 
+2017-10-29 17:44:55 DEBUG t.Client:162 - choosing menu option: 
+2017-10-29 17:45:04 DEBUG t.Client:170 - chosen option: 4
+2017-10-29 17:45:04 DEBUG t.Client:162 - choosing menu option: 
+2017-10-29 17:45:07 DEBUG t.Client:170 - chosen option: 1
+2017-10-29 17:45:07 DEBUG t.Client:289 - choosing submenu option
+2017-10-29 17:45:08 DEBUG t.Client:298 - chosen option: 4
+2017-10-29 17:45:08 DEBUG t.Client:347 - starting interval
+2017-10-29 17:45:08 DEBUG t.Client:348 - introducing name of the task
+2017-10-29 17:45:11 DEBUG t.Client:355 - task name introduced: Task21
+2017-10-29 17:45:11 DEBUG t.Client:356 - searching task Task21
+2017-10-29 17:45:11 DEBUG t.Client:368 - task Task21has been found
+2017-10-29 17:45:11 INFO  t.Task:64 - interval for task Task21 started
+2017-10-29 17:45:11 DEBUG t.Client:289 - choosing submenu option
+2017-10-29 17:45:36 DEBUG t.Client:298 - chosen option: 1
+2017-10-29 17:45:36 DEBUG t.Client:100 - adding root project
+2017-10-29 17:45:36 DEBUG t.Client:101 - asking project properties
+2017-10-29 17:45:36 DEBUG t.Client:132 - introducing root project name
+2017-10-29 17:45:59 DEBUG t.Client:135 - name introduced: ---
+2017-10-29 17:45:59 DEBUG t.Client:144 - introducing description
+2017-10-29 17:46:01 DEBUG t.Client:147 - description introduced:
+2017-10-29 17:46:01 DEBUG t.Client:148 - all properties has been introduced correctly
+2017-10-29 17:46:01 INFO  t.Client:106 - root project --- added
+2017-10-29 17:46:01 DEBUG t.Client:289 - choosing submenu option
+2017-10-29 17:46:05 DEBUG t.Client:298 - chosen option: 5
+2017-10-29 17:46:05 DEBUG t.Client:377 - stoping interval
+2017-10-29 17:46:05 DEBUG t.Client:378 - introducing name of the task
+2017-10-29 17:46:08 DEBUG t.Client:385 - task name introduced: Task21
+2017-10-29 17:46:08 DEBUG t.Client:386 - searching task Task21
+2017-10-29 17:46:08 DEBUG t.Client:399 - task Task21has been found
+2017-10-29 17:46:08 INFO  t.Client:438 - interval for task Task21 stopped
+2017-10-29 17:46:08 DEBUG t.Client:289 - choosing submenu option
+2017-10-29 17:46:19 DEBUG t.Client:162 - choosing menu option: 
+2017-10-29 17:46:22 DEBUG t.Client:170 - chosen option: 1
+2017-10-29 17:46:22 DEBUG t.Client:289 - choosing submenu option
+2017-10-29 17:46:25 DEBUG t.Client:298 - chosen option: 4
+2017-10-29 17:46:25 DEBUG t.Client:347 - starting interval
+2017-10-29 17:46:25 DEBUG t.Client:348 - introducing name of the task
+2017-10-29 17:46:26 DEBUG t.Client:355 - task name introduced: Task21
+2017-10-29 17:46:26 DEBUG t.Client:356 - searching task Task21
+2017-10-29 17:46:26 DEBUG t.Client:368 - task Task21has been found
+2017-10-29 17:46:26 INFO  t.Task:64 - interval for task Task21 started
+2017-10-29 17:46:26 DEBUG t.Client:289 - choosing submenu option
+2017-10-29 17:46:30 DEBUG t.Client:298 - chosen option: 5
+2017-10-29 17:46:30 DEBUG t.Client:377 - stoping interval
+2017-10-29 17:46:30 DEBUG t.Client:378 - introducing name of the task
+2017-10-29 17:46:32 DEBUG t.Client:385 - task name introduced: Task21
+2017-10-29 17:46:32 DEBUG t.Client:386 - searching task Task21
+2017-10-29 17:46:32 DEBUG t.Client:399 - task Task21has been found
+2017-10-29 17:46:32 INFO  t.Client:438 - interval for task Task21 stopped
+2017-10-29 17:46:32 DEBUG t.Client:289 - choosing submenu option
+2017-10-29 17:53:19 DEBUG t.Client:162 - choosing menu option: 
+2017-10-29 17:53:22 DEBUG t.Client:170 - chosen option: 1
+2017-10-29 17:53:22 DEBUG t.Client:289 - choosing submenu option
+2017-10-29 17:53:23 DEBUG t.Client:298 - chosen option: 4
+2017-10-29 17:53:23 DEBUG t.Client:347 - starting interval
+2017-10-29 17:53:23 DEBUG t.Client:348 - introducing name of the task
+2017-10-29 17:53:27 DEBUG t.Client:355 - task name introduced: Taslk
+2017-10-29 17:53:27 DEBUG t.Client:356 - searching task Taslk
+2017-10-29 17:53:27 DEBUG t.Client:256 - nonVisited queue is empty
+2017-10-29 17:53:27 DEBUG t.Client:371 - The specified task does not exist.
+2017-10-29 17:53:27 DEBUG t.Client:289 - choosing submenu option
+2017-10-29 17:53:32 DEBUG t.Client:298 - chosen option: 4
+2017-10-29 17:53:32 DEBUG t.Client:347 - starting interval
+2017-10-29 17:53:32 DEBUG t.Client:348 - introducing name of the task
+2017-10-29 17:53:34 DEBUG t.Client:355 - task name introduced: Task21
+2017-10-29 17:53:34 DEBUG t.Client:356 - searching task Task21
+2017-10-29 17:53:34 DEBUG t.Client:368 - task Task21has been found
+2017-10-29 17:53:34 INFO  t.Task:64 - interval for task Task21 started
+2017-10-29 17:53:34 DEBUG t.Client:289 - choosing submenu option
+2017-10-29 17:53:43 DEBUG t.Client:298 - chosen option: 5
+2017-10-29 17:53:43 DEBUG t.Client:377 - stoping interval
+2017-10-29 17:53:43 DEBUG t.Client:378 - introducing name of the task
+2017-10-29 17:53:46 DEBUG t.Client:385 - task name introduced: Task21
+2017-10-29 17:53:46 DEBUG t.Client:386 - searching task Task21
+2017-10-29 17:53:46 DEBUG t.Client:399 - task Task21has been found
+2017-10-29 17:53:46 INFO  t.Client:438 - interval for task Task21 stopped
+2017-10-29 17:53:46 DEBUG t.Client:289 - choosing submenu option
+2017-10-29 17:54:19 DEBUG t.Client:298 - chosen option: 4
+2017-10-29 17:54:19 DEBUG t.Client:347 - starting interval
+2017-10-29 17:54:19 DEBUG t.Client:348 - introducing name of the task
+2017-10-29 17:54:20 DEBUG t.Client:355 - task name introduced: Tasl
+2017-10-29 17:54:20 DEBUG t.Client:356 - searching task Tasl
+2017-10-29 17:54:20 DEBUG t.Client:256 - nonVisited queue is empty
+2017-10-29 17:54:20 DEBUG t.Client:371 - The specified task does not exist.
+2017-10-29 17:54:20 DEBUG t.Client:289 - choosing submenu option
+2017-10-29 17:54:22 DEBUG t.Client:298 - chosen option: 4
+2017-10-29 17:54:22 DEBUG t.Client:347 - starting interval
+2017-10-29 17:54:22 DEBUG t.Client:348 - introducing name of the task
+2017-10-29 17:54:23 DEBUG t.Client:355 - task name introduced: Task
+2017-10-29 17:54:23 DEBUG t.Client:356 - searching task Task
+2017-10-29 17:54:23 DEBUG t.Client:368 - task Taskhas been found
+2017-10-29 17:54:23 INFO  t.Task:64 - interval for task Task started
+2017-10-29 17:54:23 DEBUG t.Client:289 - choosing submenu option
+2017-10-29 17:54:29 DEBUG t.Client:298 - chosen option: 4
+2017-10-29 17:54:29 DEBUG t.Client:347 - starting interval
+2017-10-29 17:54:29 DEBUG t.Client:348 - introducing name of the task
+2017-10-29 17:54:30 DEBUG t.Client:355 - task name introduced: Task21
+2017-10-29 17:54:30 DEBUG t.Client:356 - searching task Task21
+2017-10-29 17:54:30 DEBUG t.Client:368 - task Task21has been found
+2017-10-29 17:54:30 INFO  t.Task:64 - interval for task Task21 started
+2017-10-29 17:54:30 DEBUG t.Client:289 - choosing submenu option
+2017-10-29 17:54:50 DEBUG t.Client:298 - chosen option: 5
+2017-10-29 17:54:50 DEBUG t.Client:377 - stoping interval
+2017-10-29 17:54:50 DEBUG t.Client:378 - introducing name of the task
+2017-10-29 17:54:52 DEBUG t.Client:385 - task name introduced: Task
+2017-10-29 17:54:52 DEBUG t.Client:386 - searching task Task
+2017-10-29 17:54:52 DEBUG t.Client:399 - task Taskhas been found
+2017-10-29 17:54:52 INFO  t.Client:438 - interval for task Task stopped
+2017-10-29 17:54:52 DEBUG t.Client:289 - choosing submenu option
+2017-10-29 17:54:56 DEBUG t.Client:298 - chosen option: 5
+2017-10-29 17:54:56 DEBUG t.Client:377 - stoping interval
+2017-10-29 17:54:56 DEBUG t.Client:378 - introducing name of the task
+2017-10-29 17:54:58 DEBUG t.Client:385 - task name introduced: Task21
+2017-10-29 17:54:58 DEBUG t.Client:386 - searching task Task21
+2017-10-29 17:54:58 DEBUG t.Client:399 - task Task21has been found
+2017-10-29 17:54:58 INFO  t.Client:438 - interval for task Task21 stopped
+2017-10-29 17:54:58 DEBUG t.Client:289 - choosing submenu option
+2017-10-29 17:55:10 DEBUG t.Client:298 - chosen option: 0
+2017-10-29 17:55:10 DEBUG t.Client:162 - choosing menu option: 
+2017-10-29 17:55:11 DEBUG t.Client:170 - chosen option: 0

@@ -1,5 +1,7 @@
 package timeTracker;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -20,31 +22,47 @@ public class Impresor implements Visitor, Runnable{
 	private Collection<Project> rootProjects = new ArrayList<Project>();
 	
 	public void visitInterval(Interval interval, int level){		
-		char[] spaces = new char[level*2];
-		Arrays.fill(spaces, ' ');
+		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 		String type = "I.";
 		String format = "  %" + ((level*2)+2) + "s%-" + (25-(level*2)) + "s%" + (30) + "s%" + (30) + "s%" + (15) + "ss%n";	
-		System.out.printf(format, type, interval.getId(), interval.getStartDate(), interval.getEndDate(), interval.getTotalTime());	
+		
+		if (interval.getStartDate() == null || interval.getEndDate() == null)
+		{
+			System.out.printf(format, type, interval.getId(), " ", " ", interval.getTotalTime());
+		}else{
+			System.out.printf(format, type, interval.getId(), dateFormat.format(interval.getStartDate()), dateFormat.format(interval.getEndDate()), interval.getTotalTime());
+		}
+			
 	}
 	
 	public void visitTask(Task task, int level){
-		char[] spaces = new char[level*2];
-		Arrays.fill(spaces, ' ');
+		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 		String type = "T.";
-		String format = "  %" + ((level*2)+2) + "s%-" + (25-(level*2)) + "s%" + (30) + "s%" + (30) + "s%" + (15) + "ss%n";	
-		System.out.printf(format, type, task.getName(), task.getStartDate(), task.getEndDate(), task.getTotalTime());
-		//System.out.println(new String(spaces) + type + task.getName() +				
-		//		"  ..StartTime.." + task.getStartDate() +
-		//		"  ..EndTime.." + task.getEndDate() +
-		//		" ..TotalTime.." + task.getTotalTime() + "s " );
+		String format = "  %" + ((level*2)+2) + "s%-" + (25-(level*2)) + "s%" + (30) + "s%" + (30) + "s%" + (15) + "ss%n";
+		
+		if (task.getStartDate() == null || task.getEndDate() == null)
+		{
+			System.out.printf(format, type, task.getName(), " ", " ", task.getTotalTime());
+		}else{
+			System.out.printf(format, type, task.getName(), dateFormat.format(task.getStartDate()), dateFormat.format(task.getEndDate()), task.getTotalTime());
+		}
+			
+		
 	}
 	
-	public void visitProject(Project project, int level){		
-		char[] spaces = new char[level*2];
-		Arrays.fill(spaces, ' ');
+	public void visitProject(Project project, int level){	
+		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 		String type = "P.";
 		String format = "  %" + ((level*2)+2) + "s%-" + (25-(level*2)) + "s%" + (30) + "s%" + (30) + "s%" + (15) + "ss%n";	
-		System.out.printf(format, type, project.getName(), project.getStartDate(), project.getEndDate(), project.getTotalTime());
+		
+		if (project.getStartDate() == null || project.getEndDate() == null)
+		{
+			System.out.printf(format, type, project.getName(), " ", " ", project.getTotalTime());
+		}else{
+			System.out.printf(format, type, project.getName(), dateFormat.format(project.getStartDate()), dateFormat.format(project.getEndDate()), project.getTotalTime());
+		}
+		
+		
 	}	
 	
 	public void imprimeix(){

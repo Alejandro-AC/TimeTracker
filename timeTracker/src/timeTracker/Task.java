@@ -123,7 +123,7 @@ public class Task extends Activity {
 	 */
 	public void stop() {
 		if (!this.children.isEmpty()) {
-			if(this.getLastInterval().getStartDate() != null && this.getLastInterval().getEndDate() == null) {
+			if(this.getLastInterval().getStartDate() != null && this.getLastInterval().getEndDate() == Clock.getInstance().getCurrentDate()) {
 				this.getLastInterval().stop();
 				if (this.getLastInterval().getTotalTime() < minIntervalTime) {
 					logger.debug("interval too short");
