@@ -250,9 +250,9 @@ public class Client {
 	}
 	
 	/** 
-	 * Adds a child Task to an existing Project.
+	 * Adds a child SimpleTask to an existing Project.
 	 * @param client 
-	 * @param father: father of the new child Task.
+	 * @param father: father of the new child SimpleTask.
 	 */
 	public void addChildTask() {
 		
@@ -270,7 +270,7 @@ public class Client {
 		
 		if (fatherProject != null) {
 			logger.debug("father "+fatherName+" has been found");
-			logger.debug("Adding child Task to " + fatherName);
+			logger.debug("Adding child SimpleTask to " + fatherName);
 			fatherProject.addChildTask(this);
 		} else {
 			logger.info("The specified Father Project does not exist.");
@@ -330,17 +330,17 @@ public class Client {
 	}
 	
 	/**
-	 * Starts a Task adding a new Interval 
-	 * @param father: Task where the new Interval must be added. 
+	 * Starts a SimpleTask adding a new Interval 
+	 * @param father: SimpleTask where the new Interval must be added. 
 	 */
 	public void startTask() {
 		Scanner scanner = new Scanner(System.in);
 		logger.debug("Option start task");
 		logger.debug("introducing name of the task");
-		System.out.print("Enter the name of the Task: ");
+		System.out.print("Enter the name of the SimpleTask: ");
 		
 		String fatherName = "";
-		Task task = null;
+		SimpleTask simpleTask = null;
 		
 		boolean correctType = false;
 		while(!correctType){
@@ -348,7 +348,7 @@ public class Client {
 				fatherName = scanner.nextLine();
 				logger.debug("task name introduced: " + fatherName);
 				logger.debug("searching task " + fatherName);				
-				task = (Task) getActivity(fatherName);
+				simpleTask = (SimpleTask) getActivity(fatherName);
 				correctType = true;
 			}catch(Exception e){
 				logger.warn(fatherName + " is a project, not a task.");
@@ -358,13 +358,13 @@ public class Client {
 		}
 
 		
-		if (task != null) {
+		if (simpleTask != null) {
 			logger.debug("task " + fatherName+ "has been found");
-			logger.debug("Starting Task" + fatherName+ "by adding new Interval");
-			task.start();
+			logger.debug("Starting SimpleTask" + fatherName+ "by adding new Interval");
+			simpleTask.start();
 		} else {
 			logger.debug("The specified task does not exist.");
-			System.out.println("Error. The specified Task does not exist.");
+			System.out.println("Error. The specified SimpleTask does not exist.");
 		}
 		//scanner.close();
 	}
@@ -381,9 +381,9 @@ public class Client {
 			System.out.println("");
 			System.out.println("1. Add Root Project");
 			System.out.println("2. Add Child Project");
-			System.out.println("3. Add Child Task");
-			System.out.println("4. Start Task");
-			System.out.println("5. Stop Task");
+			System.out.println("3. Add Child SimpleTask");
+			System.out.println("4. Start SimpleTask");
+			System.out.println("5. Stop SimpleTask");
 			System.out.println("6. Change Reprint Rate");
 			System.out.println("7. Change minimum Interval Time");
 			System.out.println("0. Return");
@@ -415,7 +415,7 @@ public class Client {
 				addChildProject();
 				
 				break;
-			case 3:		// Add Child Task
+			case 3:		// Add Child SimpleTask
 				addChildTask();
 				
 				break;	
@@ -438,7 +438,7 @@ public class Client {
 			case 7:
 				System.out.print("Enter the new minimum Interval time in seconds: ");				
 				
-				Task.setMinIntervalTime(Long.parseLong(scanner.nextLine()));								
+				SimpleTask.setMinIntervalTime(Long.parseLong(scanner.nextLine()));								
 				
 				break;
 			case 0:
@@ -453,17 +453,17 @@ public class Client {
 
 		
 	/**
-	 * Stops last Interval of the specified Task. 
-	 * @param father: Task where the last Interval will be stopped. 
+	 * Stops last Interval of the specified SimpleTask. 
+	 * @param father: SimpleTask where the last Interval will be stopped. 
 	 */
 	public void stopTask() {
 		Scanner scanner = new Scanner(System.in);
 		String fatherName = "";
-		Task task = null;
+		SimpleTask simpleTask = null;
 		
 		logger.debug("stoping interval");
 		logger.debug("introducing name of the task");
-		System.out.print("Enter the name of the Task: ");
+		System.out.print("Enter the name of the SimpleTask: ");
 		
 		boolean correctType = false;
 		while(!correctType){
@@ -471,7 +471,7 @@ public class Client {
 				fatherName = scanner.nextLine();
 				logger.debug("task name introduced: " + fatherName);
 				logger.debug("searching task " + fatherName);				
-				task = (Task) getActivity(fatherName);
+				simpleTask = (SimpleTask) getActivity(fatherName);
 				correctType = true;
 			}catch(Exception e){
 				logger.warn(fatherName + " is a project, not a task.");
@@ -480,15 +480,15 @@ public class Client {
 			}
 		}
 		
-		task = (Task) getActivity(fatherName);
+		simpleTask = (SimpleTask) getActivity(fatherName);
 		
-		if (task != null) {
+		if (simpleTask != null) {
 			logger.debug("task " + fatherName+ "has been found");
-			logger.info("Task " + task.getName() + " stopped");
-			task.stop();
+			logger.info("SimpleTask " + simpleTask.getName() + " stopped");
+			simpleTask.stop();
 		} else {
 			logger.debug("The specified task does not exist.");
-			System.out.println("Error. The specified Task does not exist.");
+			System.out.println("Error. The specified SimpleTask does not exist.");
 		}		
 	}
 

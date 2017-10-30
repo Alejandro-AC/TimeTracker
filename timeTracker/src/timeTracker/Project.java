@@ -69,7 +69,8 @@ public class Project extends Activity {
 		ArrayList<String> properties = new ArrayList<String>();
 		
 		properties = askChildProperties(client);
-		Task t = new Task(properties.get(0), properties.get(1), this);
+		SimpleTask t = new SimpleTask(properties.get(0), properties.get(1), this);
+		Clock.getInstance().getNotification().addObserver(t);
 		this.children.add(t);
 		logger.info("added task "+t.getName());
 	}

@@ -43,16 +43,16 @@ public class Impresor implements Visitor, Runnable{
 			
 	}
 	
-	public void visitTask(Task task, int level){
+	public void visitTask(SimpleTask simpleTask, int level){
 		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 		String type = "T.";
 		String format = "  %" + ((level*2)+2) + "s%-" + (25-(level*2)) + "s%" + (30) + "s%" + (30) + "s%" + (15) + "ss%n";
 		
-		if (task.getStartDate() == null || task.getEndDate() == null)
+		if (simpleTask.getStartDate() == null || simpleTask.getEndDate() == null)
 		{
-			System.out.printf(format, type, task.getName(), " ", " ", task.getTotalTime());
+			System.out.printf(format, type, simpleTask.getName(), " ", " ", simpleTask.getTotalTime());
 		}else{
-			System.out.printf(format, type, task.getName(), dateFormat.format(task.getStartDate()), dateFormat.format(task.getEndDate()), task.getTotalTime());
+			System.out.printf(format, type, simpleTask.getName(), dateFormat.format(simpleTask.getStartDate()), dateFormat.format(simpleTask.getEndDate()), simpleTask.getTotalTime());
 		}
 			
 		

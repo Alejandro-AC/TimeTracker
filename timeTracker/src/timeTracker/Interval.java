@@ -3,9 +3,8 @@
  */
 package timeTracker;
 
-import java.util.Observable;
-import java.util.Observer;
 import java.util.Date;
+import java.util.concurrent.TimeUnit;
 import java.io.Serializable;
 
 import org.slf4j.Logger;
@@ -14,7 +13,7 @@ import org.slf4j.LoggerFactory;
 /** 
  * @author marcm
  */
-public class Interval implements Observer, Serializable {
+public class Interval implements Serializable {
 	
 	static Logger logger = LoggerFactory.getLogger(Interval.class);
 
@@ -23,50 +22,37 @@ public class Interval implements Observer, Serializable {
 	 */
 	private static final long serialVersionUID = 4L;
 	
-	/** 
-	 * @uml.property name="task"
-	 * @uml.associationEnd multiplicity="(1 1)" inverse="children:timeTracker.Task"
-	 */
-	private Task task = null;
-
-	/** 
-	 * Getter of the property <tt>task</tt>
-	 * @return  Returns the task.
-	 * @uml.property  name="task"
-	 */
-	public Task getTask() {
-		return task;
-	}
-
-	/** 
-	 * Setter of the property <tt>task</tt>
-	 * @param task  The task to set.
-	 * @uml.property  name="task"
-	 */
-	public void setTask(Task task) {
-		this.task = task;
-	}
-	
 	/**
-	 * ******************************************************
+	 * @uml.property   name="simpleTask"
+	 * @uml.associationEnd   multiplicity="(1 1)" inverse="children:timeTracker.SimpleTask"
 	 */
-	@Override
-	public void update(Observable o, Object arg) {
-		Date currentD = Clock.getInstance().getCurrentDate();		
-		long seconds = (currentD.getTime()-this.getStartDate().getTime())/1000;
-		this.setTotalTime(seconds);
-		this.setEndDate(currentD);
-		this.getTask().setEndDate(currentD);
-		this.task.calculateTotalTime();
+	private SimpleTask simpleTask = null;
+
+	/** 
+	 * Getter of the property <tt>simpleTask</tt>
+	 * @return  Returns the simpleTask.
+	 * @uml.property  name="simpleTask"
+	 */
+	public SimpleTask getTask() {
+		return simpleTask;
+	}
+
+	/** 
+	 * Setter of the property <tt>simpleTask</tt>
+	 * @param simpleTask  The simpleTask to set.
+	 * @uml.property  name="simpleTask"
+	 */
+	public void setTask(SimpleTask simpleTask) {
+		this.simpleTask = simpleTask;
 	}
 
 	/**
 	 * Constructor of the class.
 	 * @param id: id of the new Interval.
 	 */
-	public Interval(int id, Task father){
+	public Interval(int id, SimpleTask father){
 		this.id = id;
-		this.task = father;
+		this.simpleTask = father;
 		this.start();
 	}
 
@@ -75,7 +61,8 @@ public class Interval implements Observer, Serializable {
 	 */
 	public void calculateTime(){
 		long difference = endDate.getTime() - startDate.getTime();
-		this.totalTime = difference;
+		long seconds = TimeUnit.MILLISECONDS.toSeconds(difference);
+		this.totalTime = seconds;
 	}
 	
 	/**
@@ -188,12 +175,10 @@ public class Interval implements Observer, Serializable {
 	public void stop(){
 		Date endD = Clock.getInstance().getCurrentDate();		
 		this.setEndDate(endD);
-		Clock.getInstance().getNotification().deleteObserver(this);		
 		this.setRunning(false);
 	}
 
 	public void acceptVisitor(Impresor imp, int level) {
-		// TODO Auto-generated method stub
 		imp.visitInterval(this, level+1);
 	}
 
