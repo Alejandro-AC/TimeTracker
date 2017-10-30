@@ -33,7 +33,7 @@ public class Clock implements Runnable {
 	@Override
 	public void run() {
 		// TODO Auto-generated method stub
-		  while(true) {			   
+		  while(running) {			   
 			   try {
 				Thread.sleep(this.refreshTime*1000);
 			} catch (InterruptedException e) {
@@ -77,6 +77,18 @@ public class Clock implements Runnable {
 	 */
 	public Notification getNotification() {
 		return notification;
+	}
+
+
+	/**
+	 * @uml.property  name="running"
+	 */
+	private boolean running = true;
+
+	/**
+	 */
+	public void terminate(){
+		this.running = false;
 	}
 
 		

@@ -63,14 +63,14 @@ public class Client {
 		logger.debug("Back to main()");
 		
 		try {
+			logger.debug("trying to stop the clock");
+			Clock.getInstance().terminate();
 			clockThread.join();
 			System.out.println("Exiting clock thread");
 		} catch (InterruptedException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
+			logger.error("Cannot stop clock");
 		}
-		
-
 		
 		try {		// Serialization
 			FileOutputStream fileOut = new FileOutputStream("data.ser");
@@ -206,9 +206,10 @@ public class Client {
 				Impresor.getInstance().terminate();
 				try {
 					impresorThread.join();
+					logger.debug("impresorThread join executed");
 				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
+					logger.error("error trying to join the impresorThread");
 				}
 				break;
 			default:
