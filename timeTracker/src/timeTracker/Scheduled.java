@@ -19,14 +19,20 @@ public class Scheduled extends TaskDecorator {
 
 	
 	@Override
-	public void update(Observable arg0, Object arg1) {
-		
-		 Date nearestSecond = new Date( ((Clock.getInstance().getCurrentDate().getTime() + 500) / 1000) * 1000 );
-		
+	public void start() {
+		Date nearestSecond = new Date( ((Clock.getInstance().getCurrentDate().getTime() + 500) / 1000) * 1000 );
 		if(!nearestSecond.before(this.scheduledDate) &&
 				!nearestSecond.after(this.scheduledDate)) {
 			this.task.start();
 		}
+	}
+	
+	@Override
+	public void update(Observable arg0, Object arg1) {
+		
+		this.start();
+		
+
 		this.task.update(arg0, arg1);	
 
 		
