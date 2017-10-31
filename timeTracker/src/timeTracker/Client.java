@@ -385,8 +385,9 @@ public class Client {
 			System.out.println("3. Add Child Task");
 			System.out.println("4. Start Task");
 			System.out.println("5. Stop Task");
-			System.out.println("6. Change Reprint Rate");
-			System.out.println("7. Change minimum Interval Time");
+			System.out.println("6. Remove Activity");
+			System.out.println("7. Change Reprint Rate");
+			System.out.println("8. Change minimum Interval Time");
 			System.out.println("0. Return");
 						
 			logger.debug("choosing submenu option");
@@ -410,40 +411,54 @@ public class Client {
 			switch(option) {
 			case 1:		// Add Root Project
 				addRootProject();
-				
 				break;
+				
 			case 2:		// Add Child Project
 				addChildProject();
-				
 				break;
+				
 			case 3:		// Add Child Task
 				addChildTask();
-				
 				break;	
+				
 			case 4: 	// Start Interval
 				startTask();
-				
 				break;
+				
 			case 5: 	// Stop Interval
-				stopTask();
-				
+				stopTask();				
 				break;
-			case 6:
+				
+			case 6:		// Remove Activity
+				System.out.print("Enter name of the element to eliminate: ");
+				String name = scanner.nextLine();
+				Activity activity = getActivity(name);
+				if (activity != null) {
+					if (activity.getFather() == null) {
+						this.rootProjects.remove(activity);
+						logger.debug("Removed the root project " + activity.getName());
+					} else {
+						activity.getFather().removeChild(activity);
+						logger.debug("Removed the activity " + activity.getName());
+					}
+				} else {
+					System.out.println("This activity does not exist in the system");
+				}
+				break;
+				
+			case 7:		// Change Reprint Rate
 				System.out.print("Enter the new refresh rate in seconds: ");
-				
-				
 				Impresor.getInstance().setReprintTime(Long.parseLong(scanner.nextLine()));
-								
-				
 				break;
-			case 7:
+				
+			case 8:		// Change minimum Interval Time
 				System.out.print("Enter the new minimum Interval time in seconds: ");				
-				
 				SimpleTask.setMinIntervalTime(Long.parseLong(scanner.nextLine()));								
-				
 				break;
+				
 			case 0:
 				break;
+				
 			default:
 				System.out.println("Error. Invalid option");
 				break;

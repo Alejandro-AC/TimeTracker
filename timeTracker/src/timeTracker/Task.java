@@ -1,5 +1,6 @@
 package timeTracker;
 
+import java.io.IOException;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -13,6 +14,16 @@ public abstract class Task extends Activity implements Observer {
 	 * 
 	 */
 	private static final long serialVersionUID = 10L;
+	
+	/*
+	 * While doing the deserialization, this function adds every Task to
+	 * the Observer list.
+	 */
+	private void readObject(java.io.ObjectInputStream stream)
+         throws IOException, ClassNotFoundException {
+         stream.defaultReadObject();
+         Clock.getInstance().getNotification().addObserver(this);
+	}
 
 	public Task(String description, String name, Project father) {
 		super(description, name, father);

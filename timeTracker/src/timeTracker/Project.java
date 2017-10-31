@@ -169,15 +169,8 @@ public class Project extends Activity {
 	 * @param name: name of the child to be removed.
 	 * @return True if the child could be removed and false if it couldn't.
 	 */
-	public boolean removeChild(String name){
-		Activity child = getChild(name);
-		if (child != null) {
-			int index = ((AbstractList<Activity>) children).indexOf(child);
-			children.remove(index);
-			return true;			
-		} else {
-			return false;
-		}
+	public void removeChild(Activity activity) {
+		this.children.remove(activity);
 	}
 
 	/** 
