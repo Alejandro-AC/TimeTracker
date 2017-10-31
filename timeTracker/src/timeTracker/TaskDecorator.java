@@ -82,4 +82,8 @@ public abstract class TaskDecorator extends Task {
 	public void update(Observable arg0, Object arg1) {
 		this.task.update(arg0, arg1);
 	}
+	
+	public String getName() {
+		return this.task.getName();
+	}
 }

@@ -1197,3 +1197,142 @@
 2017-10-31 13:52:23 DEBUG t.Client:334 - nonVisited queue is empty
 2017-10-31 13:52:23 DEBUG t.Client:373 - The specified task does not exist.
 2017-10-31 13:52:23 DEBUG t.Client:398 - choosing submenu option
+2017-10-31 15:55:03 DEBUG t.Client:183 - chosen option: 1
+2017-10-31 15:55:04 DEBUG t.Client:398 - choosing submenu option
+2017-10-31 15:55:05 DEBUG t.Client:407 - chosen option: 1
+2017-10-31 15:55:05 DEBUG t.Client:111 - adding root project
+2017-10-31 15:55:05 DEBUG t.Client:112 - asking project properties
+2017-10-31 15:55:05 DEBUG t.Client:143 - introducing root project name
+2017-10-31 15:55:06 DEBUG t.Client:146 - name introduced: Root
+2017-10-31 15:55:06 DEBUG t.Client:155 - introducing description
+2017-10-31 15:55:06 DEBUG t.Client:158 - description introduced:
+2017-10-31 15:55:06 DEBUG t.Client:159 - all properties has been introduced correctly
+2017-10-31 15:55:06 INFO  t.Client:117 - root project Root added
+2017-10-31 15:55:06 DEBUG t.Client:398 - choosing submenu option
+2017-10-31 15:55:09 DEBUG t.Client:407 - chosen option: 3
+2017-10-31 15:55:09 DEBUG t.Client:264 - adding task to project
+2017-10-31 15:55:09 DEBUG t.Client:265 - introducing name of father project
+2017-10-31 15:55:11 DEBUG t.Client:268 - searching father project Root
+2017-10-31 15:55:11 DEBUG t.Client:272 - father Root has been found
+2017-10-31 15:55:11 DEBUG t.Client:273 - Adding child Task to Root
+2017-10-31 15:55:11 DEBUG t.Project:119 - introducing activity name
+2017-10-31 15:55:13 DEBUG t.Project:122 - name introduced: task
+2017-10-31 15:55:13 DEBUG t.Client:334 - nonVisited queue is empty
+2017-10-31 15:55:13 DEBUG t.Project:131 - introducing activity description
+2017-10-31 15:55:14 DEBUG t.Project:134 - description introduced: 
+2017-10-31 15:55:14 DEBUG t.Project:135 - all properties has been introduced correctly
+2017-10-31 15:55:19 INFO  t.Project:109 - added task 
+2017-10-31 15:55:19 DEBUG t.Client:398 - choosing submenu option
+2017-10-31 15:55:52 DEBUG t.Client:407 - chosen option: 0
+2017-10-31 15:56:20 DEBUG t.Client:183 - chosen option: 1
+2017-10-31 15:56:21 DEBUG t.Client:398 - choosing submenu option
+2017-10-31 15:56:23 DEBUG t.Client:407 - chosen option: 1
+2017-10-31 15:56:23 DEBUG t.Client:111 - adding root project
+2017-10-31 15:56:23 DEBUG t.Client:112 - asking project properties
+2017-10-31 15:56:23 DEBUG t.Client:143 - introducing root project name
+2017-10-31 15:56:23 DEBUG t.Client:146 - name introduced: Root
+2017-10-31 15:56:23 DEBUG t.Client:155 - introducing description
+2017-10-31 15:56:24 DEBUG t.Client:158 - description introduced:
+2017-10-31 15:56:24 DEBUG t.Client:159 - all properties has been introduced correctly
+2017-10-31 15:56:24 INFO  t.Client:117 - root project Root added
+2017-10-31 15:56:24 DEBUG t.Client:398 - choosing submenu option
+2017-10-31 15:56:25 DEBUG t.Client:407 - chosen option: 3
+2017-10-31 15:56:25 DEBUG t.Client:264 - adding task to project
+2017-10-31 15:56:25 DEBUG t.Client:265 - introducing name of father project
+2017-10-31 15:56:26 DEBUG t.Client:268 - searching father project Root
+2017-10-31 15:56:26 DEBUG t.Client:272 - father Root has been found
+2017-10-31 15:56:26 DEBUG t.Client:273 - Adding child Task to Root
+2017-10-31 15:56:26 DEBUG t.Project:119 - introducing activity name
+2017-10-31 15:56:28 DEBUG t.Project:122 - name introduced: Task
+2017-10-31 15:56:28 DEBUG t.Client:334 - nonVisited queue is empty
+2017-10-31 15:56:28 DEBUG t.Project:131 - introducing activity description
+2017-10-31 15:56:39 DEBUG t.Project:134 - description introduced: 
+2017-10-31 15:56:39 DEBUG t.Project:135 - all properties has been introduced correctly
+2017-10-31 15:56:43 INFO  t.Project:109 - added task 
+2017-10-31 15:56:43 DEBUG t.Client:398 - choosing submenu option
+2017-10-31 15:58:10 DEBUG t.Client:183 - chosen option: 1
+2017-10-31 15:58:11 DEBUG t.Client:398 - choosing submenu option
+2017-10-31 15:58:11 DEBUG t.Client:407 - chosen option: 1
+2017-10-31 15:58:11 DEBUG t.Client:111 - adding root project
+2017-10-31 15:58:11 DEBUG t.Client:112 - asking project properties
+2017-10-31 15:58:11 DEBUG t.Client:143 - introducing root project name
+2017-10-31 15:58:12 DEBUG t.Client:146 - name introduced: Root
+2017-10-31 15:58:12 DEBUG t.Client:155 - introducing description
+2017-10-31 15:58:13 DEBUG t.Client:158 - description introduced:
+2017-10-31 15:58:13 DEBUG t.Client:159 - all properties has been introduced correctly
+2017-10-31 15:58:13 INFO  t.Client:117 - root project Root added
+2017-10-31 15:58:13 DEBUG t.Client:398 - choosing submenu option
+2017-10-31 15:58:14 DEBUG t.Client:407 - chosen option: 3
+2017-10-31 15:58:14 DEBUG t.Client:264 - adding task to project
+2017-10-31 15:58:14 DEBUG t.Client:265 - introducing name of father project
+2017-10-31 15:58:15 DEBUG t.Client:268 - searching father project Root
+2017-10-31 15:58:15 DEBUG t.Client:272 - father Root has been found
+2017-10-31 15:58:15 DEBUG t.Client:273 - Adding child Task to Root
+2017-10-31 15:58:15 DEBUG t.Project:119 - introducing activity name
+2017-10-31 15:58:16 DEBUG t.Project:122 - name introduced: task
+2017-10-31 15:58:16 DEBUG t.Client:334 - nonVisited queue is empty
+2017-10-31 15:58:16 DEBUG t.Project:131 - introducing activity description
+2017-10-31 15:58:17 DEBUG t.Project:134 - description introduced: 
+2017-10-31 15:58:17 DEBUG t.Project:135 - all properties has been introduced correctly
+2017-10-31 15:58:19 INFO  t.Project:109 - added task task
+2017-10-31 15:58:19 DEBUG t.Client:398 - choosing submenu option
+2017-10-31 15:58:30 DEBUG t.Client:407 - chosen option: 4
+2017-10-31 15:58:30 DEBUG t.Client:345 - Option start task
+2017-10-31 15:58:30 DEBUG t.Client:346 - introducing name of the task
+2017-10-31 15:58:32 DEBUG t.Client:356 - task name introduced: task
+2017-10-31 15:58:32 DEBUG t.Client:357 - searching task task
+2017-10-31 15:58:32 DEBUG t.Client:369 - task taskhas been found
+2017-10-31 15:58:32 DEBUG t.Client:370 - Starting Tasktaskby adding new Interval
+2017-10-31 15:58:32 INFO  t.SimpleTask:94 - interval for task task started
+2017-10-31 15:58:32 DEBUG t.Client:398 - choosing submenu option
+2017-10-31 15:58:34 DEBUG t.Client:407 - chosen option: 0
+2017-10-31 16:01:46 DEBUG t.Client:183 - chosen option: 1
+2017-10-31 16:01:47 DEBUG t.Client:392 - choosing submenu option
+2017-10-31 16:01:51 DEBUG t.Client:401 - chosen option: 1
+2017-10-31 16:01:51 DEBUG t.Client:111 - adding root project
+2017-10-31 16:01:51 DEBUG t.Client:112 - asking project properties
+2017-10-31 16:01:51 DEBUG t.Client:143 - introducing root project name
+2017-10-31 16:01:52 DEBUG t.Client:146 - name introduced: Root
+2017-10-31 16:01:52 DEBUG t.Client:155 - introducing description
+2017-10-31 16:01:53 DEBUG t.Client:158 - description introduced:
+2017-10-31 16:01:53 DEBUG t.Client:159 - all properties has been introduced correctly
+2017-10-31 16:01:53 INFO  t.Client:117 - root project Root added
+2017-10-31 16:01:53 DEBUG t.Client:392 - choosing submenu option
+2017-10-31 16:01:54 DEBUG t.Client:401 - chosen option: 3
+2017-10-31 16:01:54 DEBUG t.Client:264 - adding task to project
+2017-10-31 16:01:54 DEBUG t.Client:265 - introducing name of father project
+2017-10-31 16:01:57 DEBUG t.Client:268 - searching father project Root
+2017-10-31 16:01:57 DEBUG t.Client:272 - father Root has been found
+2017-10-31 16:01:57 DEBUG t.Client:273 - Adding child Task to Root
+2017-10-31 16:01:57 DEBUG t.Project:118 - introducing activity name
+2017-10-31 16:02:27 DEBUG t.Project:121 - name introduced: Task
+2017-10-31 16:02:27 DEBUG t.Client:328 - nonVisited queue is empty
+2017-10-31 16:02:27 DEBUG t.Project:130 - introducing activity description
+2017-10-31 16:02:29 DEBUG t.Project:133 - description introduced: 
+2017-10-31 16:02:29 DEBUG t.Project:134 - all properties has been introduced correctly
+2017-10-31 16:02:33 INFO  t.Project:108 - added task Task
+2017-10-31 16:02:33 DEBUG t.Client:392 - choosing submenu option
+2017-10-31 16:02:35 DEBUG t.Client:401 - chosen option: 0
+2017-10-31 16:02:41 DEBUG t.Client:183 - chosen option: 1
+2017-10-31 16:02:42 DEBUG t.Client:392 - choosing submenu option
+2017-10-31 16:02:44 DEBUG t.Client:401 - chosen option: 4
+2017-10-31 16:02:44 DEBUG t.Client:339 - Option start task
+2017-10-31 16:02:44 DEBUG t.Client:340 - introducing name of the task
+2017-10-31 16:02:45 DEBUG t.Client:350 - task name introduced: task
+2017-10-31 16:02:45 DEBUG t.Client:351 - searching task task
+2017-10-31 16:02:45 DEBUG t.Client:328 - nonVisited queue is empty
+2017-10-31 16:02:45 DEBUG t.Client:367 - The specified task does not exist.
+2017-10-31 16:02:45 DEBUG t.Client:392 - choosing submenu option
+2017-10-31 16:02:46 DEBUG t.Client:401 - chosen option: 0
+2017-10-31 16:02:49 DEBUG t.Client:183 - chosen option: 1
+2017-10-31 16:02:50 DEBUG t.Client:392 - choosing submenu option
+2017-10-31 16:02:52 DEBUG t.Client:401 - chosen option: 4
+2017-10-31 16:02:52 DEBUG t.Client:339 - Option start task
+2017-10-31 16:02:52 DEBUG t.Client:340 - introducing name of the task
+2017-10-31 16:02:53 DEBUG t.Client:350 - task name introduced: Task
+2017-10-31 16:02:53 DEBUG t.Client:351 - searching task Task
+2017-10-31 16:02:53 DEBUG t.Client:363 - task Taskhas been found
+2017-10-31 16:02:53 DEBUG t.Client:364 - Starting TaskTaskby adding new Interval
+2017-10-31 16:02:53 INFO  t.SimpleTask:94 - interval for task Task started
+2017-10-31 16:02:53 DEBUG t.Client:392 - choosing submenu option
+2017-10-31 16:02:54 DEBUG t.Client:401 - chosen option: 0

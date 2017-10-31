@@ -308,9 +308,6 @@ public class Client {
 	 */
 	private Activity searchActivity(String name, Activity activity, Queue<Activity> nonVisited) {
 		if (!nonVisited.isEmpty()) {		// There's at least one element to visit (the current one)
-			for(Activity element : nonVisited){
-				System.out.println(element.getName());
-			}
 			nonVisited.remove();
 			if (name.equals(activity.getName())) {
 				return activity;
@@ -318,9 +315,6 @@ public class Client {
 			} else if (activity instanceof Project) {		// keep searching
 				Collection<Activity> children = activity.getChildren();				
 				if (children != null) {
-					for(Activity element : children){
-						System.out.println(element.getName());
-					}
 					nonVisited.addAll(children);
 				}
 				

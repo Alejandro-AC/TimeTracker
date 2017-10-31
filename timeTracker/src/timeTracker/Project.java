@@ -103,7 +103,6 @@ public class Project extends Activity {
 			
 			t = new Scheduled(properties.get(0), properties.get(1), this, t, scheduledDate);
 		}
-		
 		Clock.getInstance().getNotification().addObserver(t);
 		this.children.add(t);
 		logger.info("added task " + t.getName());
