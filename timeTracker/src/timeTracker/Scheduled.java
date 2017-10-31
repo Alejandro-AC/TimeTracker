@@ -1,6 +1,7 @@
 package timeTracker;
 
 import java.util.Date;
+import java.util.Observable;
 
 
 public class Scheduled extends TaskDecorator {
@@ -21,9 +22,14 @@ public class Scheduled extends TaskDecorator {
 		}
 	}
 	
-	public void stop() {
-		
+	@Override
+	public void update(Observable arg0, Object arg1) {
+		this.task.update(arg0, arg1);	
+
+		this.start();
 	}
+	
+	
 
 	/**
 	 * @uml.property  name="scheduledDate"

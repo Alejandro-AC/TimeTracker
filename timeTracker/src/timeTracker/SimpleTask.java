@@ -177,7 +177,7 @@ public class SimpleTask extends Task {
 	}
 	
 	public boolean childrenIsEmpty() {
-		return this.childrenIsEmpty();
+		return this.children.isEmpty();
 	}
 }
 
