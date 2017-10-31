@@ -109,6 +109,7 @@ public class Interval implements Serializable {
 	 */
 	public void setId(int id) {
 		this.id = id;
+		logger.debug("set id: " + id);
 	}
 
 	/**
@@ -131,6 +132,7 @@ public class Interval implements Serializable {
 	 * @uml.property  name="startDate"
 	 */
 	public void setStartDate(Date startDate) {
+		logger.debug("set start date: " + startDate);
 		this.startDate = startDate;
 	}
 
@@ -154,6 +156,7 @@ public class Interval implements Serializable {
 	 * @uml.property  name="totalTime"
 	 */
 	public void setTotalTime(long seconds) {
+		logger.debug("set total time: " + seconds);
 		this.totalTime = seconds;
 	}
 
@@ -161,6 +164,7 @@ public class Interval implements Serializable {
 	 * Starts the execution of the current Interval.
 	 */
 	public void start(){
+		logger.debug("interval started");
 		Date startD = Clock.getInstance().getCurrentDate();		
 		this.setStartDate(startD);
 		if (this.getId() == 1) {
@@ -173,6 +177,7 @@ public class Interval implements Serializable {
 	 * Stops the execution of the current Interval.
 	 */
 	public void stop(){
+		logger.debug("interval stopped");
 		Date endD = Clock.getInstance().getCurrentDate();		
 		this.setEndDate(endD);
 		this.setRunning(false);

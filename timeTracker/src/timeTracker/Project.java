@@ -70,6 +70,8 @@ public class Project extends Activity {
 	public void addChildTask(Client client) {
 		ArrayList<String> properties = new ArrayList<String>();
 		Scanner scanner = new Scanner(System.in);
+		boolean correctType = false;
+		boolean correctOption = false;
 		
 		properties = askChildProperties(client);	
 		
@@ -78,27 +80,95 @@ public class Project extends Activity {
 		
 		////
 		
-		System.out.print("Limited Interval Time (0/1): ");
-		int limitedIntervalTime = Integer.parseInt(scanner.nextLine());
 		
-		if (limitedIntervalTime == 1) {
-			System.out.print("Interval time (seconds): ");
-			long limitedTime = Long.parseLong(scanner.nextLine());
-			t = new LimitedIntervalTime(properties.get(0), properties.get(1), this, t, limitedTime);
+		int limitedIntervalTime = 0;
+		
+		while(!correctType){
+			try{
+				logger.debug("Introducing interval time option");
+				System.out.print("Limited Interval Time (0/1): ");
+				limitedIntervalTime = Integer.parseInt(scanner.nextLine());
+				logger.debug("interval time option introduced have correct type");
+				correctType = true;
+			}catch(Exception e){
+				logger.warn("introduced value in interval time option is not a number. Must be 0 or 1.");
+				System.out.println("Scheduled option must be 0 or 1. Introduce option again.");
+			}
 		}
 		
-		System.out.print("Scheduled (0/1): ");
-		int scheduled = Integer.parseInt(scanner.nextLine());
+		while(!correctOption){
+			if(limitedIntervalTime != 0 && limitedIntervalTime != 1){
+				logger.debug("introduced value in limitedIntervalTime option is not 0 or 1.");
+				System.out.println("Interval time option must be 0 or 1");
+				System.out.print("Limited Interval Time (0/1): ");
+				limitedIntervalTime = Integer.parseInt(scanner.nextLine());
+			}else{
+				logger.debug("interval time option introduced correctly");
+				correctOption = true;
+			}
+		}
+		
+		if (limitedIntervalTime == 1) {
+			correctType = false;
+			while(!correctType){
+				try{
+					logger.debug("Introducing interval time");
+					System.out.print("Interval time (seconds): ");
+					long limitedTime = Long.parseLong(scanner.nextLine());
+					t = new LimitedIntervalTime(properties.get(0), properties.get(1), this, t, limitedTime);
+					logger.debug("limited time "+limitedTime+" introduced correctly");
+					correctType = true;
+				}catch(Exception e){
+					System.out.println("Limited interval time must be a number.");
+					logger.warn("Introduced value in limited interval time is not a number.");
+				}
+			}
+		}
+		
+		int scheduled = 0;
+		correctType = false;
+		while(!correctType){
+			try{
+				logger.debug("introducing scheduled option");
+				System.out.print("Scheduled (0/1): ");
+				scheduled = Integer.parseInt(scanner.nextLine());
+				logger.debug("scheduled option introduced have correct type");
+				correctType = true;
+			}catch(Exception e){
+				logger.warn("introduced value in scheduled option is not a number. Must be 0 or 1.");
+				System.out.println("Scheduled option must be 0 or 1. Introduce an option again.");
+			}
+		}
+		
+		correctOption = false;
+		while(!correctOption){
+			if(scheduled != 0 && scheduled != 1){
+				logger.debug("introduced value in scheduled option is not 0 or 1.");
+				System.out.println("Scheduled option must be 0 or 1");
+				System.out.print("Scheduled (0/1): ");
+				scheduled = Integer.parseInt(scanner.nextLine());
+			}else{
+				logger.debug("introducing scheduled option introduced correctly");
+				correctOption = true;
+			}
+		}
 		
 		if (scheduled == 1) {
-			System.out.print("Starting date (yyyy-MM-dd HH:mm:ss): ");
-			String dateString = scanner.nextLine();
-			SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 			Date scheduledDate = null;
-			try{
-				scheduledDate = dateFormat.parse(dateString);
-			}catch(Exception e){
-				System.out.println("Date format incorrect.");
+			correctType = false;
+			while(!correctType){
+				try{
+					logger.debug("introducing starting date for schedule task");
+					System.out.print("Starting date (yyyy-MM-dd HH:mm:ss): ");
+					String dateString = scanner.nextLine();
+					SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");					
+					scheduledDate = dateFormat.parse(dateString);
+					logger.debug("introduced date " + scheduledDate + " correctly");
+					correctType = true;
+				}catch(Exception e){
+					logger.debug("Date format incorrect");
+					System.out.println("Date format incorrect. Introduce date again.");
+				}
 			}
 			
 			t = new Scheduled(properties.get(0), properties.get(1), this, t, scheduledDate);
@@ -171,6 +241,7 @@ public class Project extends Activity {
 	 */
 	public void removeChild(Activity activity) {
 		this.children.remove(activity);
+		logger.info("Removed the activity " + activity.getName());
 	}
 
 	/** 

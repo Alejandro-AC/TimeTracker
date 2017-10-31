@@ -1,12 +1,13 @@
 package timeTracker;
 
 import java.util.Date;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class Clock implements Runnable {	
 	
 	private static Clock uniqueInstance = new Clock();
-	
+	static Logger logger = LoggerFactory.getLogger(Client.class);
 	/**
 	 */
 	private Clock(){	
@@ -32,6 +33,7 @@ public class Clock implements Runnable {
 	
 	@Override
 	public void run() {
+		logger.debug("Clock started running");
 		// TODO Auto-generated method stub
 		  while(running) {			   
 			   try {
@@ -57,6 +59,7 @@ public class Clock implements Runnable {
 	 * @uml.property  name="refreshTime"
 	 */
 	public void setRefreshTime(long refreshTime) {
+		logger.debug("set refresh time: "+refreshTime);
 		this.refreshTime = refreshTime;
 	}
 
@@ -88,6 +91,7 @@ public class Clock implements Runnable {
 	/**
 	 */
 	public void terminate(){
+		logger.debug("clock running off");
 		this.running = false;
 	}
 

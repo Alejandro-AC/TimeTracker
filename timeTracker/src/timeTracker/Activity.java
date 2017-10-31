@@ -132,7 +132,7 @@ public abstract class Activity implements Serializable {
 	 * @uml.property  name="startDate"
 	 */
 	public void setStartDate(Date startDate) {
-		System.out.print("stardate: "+startDate);
+		//System.out.println("stardate: "+startDate);
 		if (this.startDate == null){
 			if (this.getFather() != null) {
 				this.getFather().setStartDate(startDate);

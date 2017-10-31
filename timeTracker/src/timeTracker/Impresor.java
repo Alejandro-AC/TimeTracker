@@ -5,11 +5,14 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Stack;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class Impresor implements Visitor, Runnable{
 	
 	private static Impresor uniqueInstance = new Impresor();
 	private volatile boolean running = true;
+	static Logger logger = LoggerFactory.getLogger(Client.class);
 	
 	public Impresor(){
 		
@@ -20,10 +23,12 @@ public class Impresor implements Visitor, Runnable{
 	}
 	
     public void terminate() {
+		logger.debug("impresor runing off");
         running = false;
     }
     
     public void reanudate() {
+		logger.debug("set impresor running ON");
         running = true;
     }
 	
@@ -100,6 +105,7 @@ public class Impresor implements Visitor, Runnable{
 
 	@Override
 	public void run() {		
+	logger.debug("impresor running");
 	  while(running) {			   
 		   try {
 			
@@ -125,11 +131,13 @@ public class Impresor implements Visitor, Runnable{
 	 * @uml.property  name="reprintTime"
 	 */
 	public void setReprintTime(long reprintTime) {
+		logger.debug("set reprint time: "+reprintTime);
 		this.reprintTime = reprintTime;
 	}
 
 
 	public void setRootProjects(Collection<Project> rootProjects) {
+		logger.debug("set root projects in impresor");
 		this.rootProjects = rootProjects;
 	}
 

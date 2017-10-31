@@ -47,12 +47,12 @@ public class Client {
 			FileInputStream fileIn = new FileInputStream("data.ser");
 			ObjectInputStream in = new ObjectInputStream(fileIn);
 			c.rootProjects = (Collection<Project>) in.readObject();
+			logger.info("Desarialized data from data.ser");
 			System.out.println("Desarialized data from data.ser");
 		} catch (IOException e) {
-			e.printStackTrace();
+			logger.warn("There is not data.ser file created.");
 		} catch (ClassNotFoundException e) {
-			System.out.println("Activity class not found");
-			e.printStackTrace();
+			logger.warn("Activity class not found.");
 			return;
 		}
 		
@@ -78,12 +78,13 @@ public class Client {
 			out.writeObject(c.rootProjects);
 			out.close();
 			fileOut.close();
-			
+			logger.info("Serialized data is saved in data.ser");
 			System.out.println("Serialized data is saved in data.ser");
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
+			logger.warn("There is not data.ser file created.");
 		} catch (IOException e) {
-			e.printStackTrace();
+			logger.warn("An error has ocurred when we tried to serialize.");
 		}
 	}
 	
@@ -228,15 +229,26 @@ public class Client {
 	public void addChildProject() {
 		Scanner scanner = new Scanner(System.in);
 		
-		Project fatherProject;
+		Project fatherProject = null;
 		String fatherName = "";
 		
 		logger.debug("Option add child project selected");
 		logger.debug("introducing name of father project");
 		System.out.print("Enter the name of the Father Project: ");
-		fatherName = scanner.nextLine();
-		logger.debug("searching father project "+fatherName);
-		fatherProject = (Project) getActivity(fatherName);
+				
+		boolean correctType = false;
+		while(!correctType){
+			try{
+				fatherName = scanner.nextLine();
+				logger.debug("searching father project "+fatherName);
+				fatherProject = (Project) getActivity(fatherName);
+				correctType = true;
+			}catch(Exception e){
+				logger.warn("Trying to add project into task.");
+				logger.debug("Introducing new name of Father Project.");
+				System.out.println("You can't add project into task. Please introduce a project name:");
+			}
+		}
 		
 		if (fatherProject != null) {
 			logger.debug("father "+fatherName+" has been found");
@@ -258,15 +270,26 @@ public class Client {
 		
 		Scanner scanner = new Scanner(System.in);
 		
-		Project fatherProject;
+		Project fatherProject = null;
 		String fatherName = "";
 		
 		logger.debug("adding task to project");
 		logger.debug("introducing name of father project");
-		System.out.print("Enter the name of the Father Project: ");
-		fatherName = scanner.nextLine();
-		logger.debug("searching father project "+fatherName);
-		fatherProject = (Project) getActivity(fatherName);
+		
+		boolean correctType = false;
+		while(!correctType){
+			try{
+				System.out.print("Enter the name of the Father Project: ");
+				fatherName = scanner.nextLine();
+				logger.debug("searching father project "+fatherName);
+				fatherProject = (Project) getActivity(fatherName);
+				correctType = true;
+			}catch(Exception e){
+				logger.warn("Trying to add project into task.");
+				logger.debug("Introducing new name of Father Project.");
+				System.out.println("You can't add task into task. Please introduce a project name:");
+			}
+		}
 		
 		if (fatherProject != null) {
 			logger.debug("father "+fatherName+" has been found");
@@ -430,30 +453,60 @@ public class Client {
 				break;
 				
 			case 6:		// Remove Activity
+				logger.debug("removing activity");
+				logger.debug("introducing name of element to eliminate");
 				System.out.print("Enter name of the element to eliminate: ");
 				String name = scanner.nextLine();
 				Activity activity = getActivity(name);
 				if (activity != null) {
 					if (activity.getFather() == null) {
+						logger.debug(activity.getName()+" is a root project");
 						this.rootProjects.remove(activity);
 						logger.debug("Removed the root project " + activity.getName());
 					} else {
+						logger.debug(activity.getName()+" is a child project");
 						activity.getFather().removeChild(activity);
-						logger.debug("Removed the activity " + activity.getName());
 					}
 				} else {
+					logger.debug("activity introduced does not exist");
 					System.out.println("This activity does not exist in the system");
 				}
 				break;
 				
 			case 7:		// Change Reprint Rate
-				System.out.print("Enter the new refresh rate in seconds: ");
-				Impresor.getInstance().setReprintTime(Long.parseLong(scanner.nextLine()));
+				logger.debug("Changing refresh rate");
+				
+				correctType = false;
+				while(!correctType){
+					try{
+						logger.debug("Introducing refresh rate in seconds");
+						System.out.print("Enter the new refresh rate in seconds: ");
+						Impresor.getInstance().setReprintTime(Long.parseLong(scanner.nextLine()));
+						logger.info("Introduced new refresh rate");
+						correctType = true;
+					}catch(Exception e){
+						logger.warn("string has been introduced as refresh rate");
+						System.out.println("Refresh rate must be a number.");
+					}
+				}				
 				break;
 				
 			case 8:		// Change minimum Interval Time
-				System.out.print("Enter the new minimum Interval time in seconds: ");				
-				SimpleTask.setMinIntervalTime(Long.parseLong(scanner.nextLine()));								
+				logger.debug("Changing minimum Interval Time");
+				
+				correctType = false;
+				while(!correctType){
+					try{
+						logger.debug("Introducing minimum interval time in seconds");
+						System.out.print("Enter the new minimum Interval time in seconds: ");				
+						SimpleTask.setMinIntervalTime(Long.parseLong(scanner.nextLine()));
+						logger.info("Introduced new minimum interval time");
+						correctType = true;
+					}catch(Exception e){
+						logger.warn("string has been introduced as minimum interval time");
+						System.out.println("Minimum interval time must be a number.");
+					}
+				}
 				break;
 				
 			case 0:
