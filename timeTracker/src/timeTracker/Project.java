@@ -3,9 +3,11 @@
  */
 package timeTracker;
 
+import java.text.SimpleDateFormat;
 import java.util.AbstractList;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Date;
 import java.util.Scanner;
 
 import org.slf4j.Logger;
@@ -67,12 +69,44 @@ public class Project extends Activity {
 	 */
 	public void addChildTask(Client client) {
 		ArrayList<String> properties = new ArrayList<String>();
+		Scanner scanner = new Scanner(System.in);
 		
-		properties = askChildProperties(client);
-		SimpleTask t = new SimpleTask(properties.get(0), properties.get(1), this);
+		properties = askChildProperties(client);	
+		
+		Task t = new SimpleTask(properties.get(0), properties.get(1), this);
+		
+		
+		////
+		
+		System.out.print("Limited Interval Time (0/1): ");
+		int limitedIntervalTime = Integer.parseInt(scanner.nextLine());
+		
+		if (limitedIntervalTime == 1) {
+			System.out.print("Interval time (seconds): ");
+			long limitedTime = Long.parseLong(scanner.nextLine());
+			t = new LimitedIntervalTime(properties.get(0), properties.get(1), this, t, limitedTime);
+		}
+		
+		System.out.print("Scheduled (0/1): ");
+		int scheduled = Integer.parseInt(scanner.nextLine());
+		
+		if (scheduled == 1) {
+			System.out.print("Starting date (yyyy-MM-dd HH:mm:ss): ");
+			String dateString = scanner.nextLine();
+			SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+			Date scheduledDate = null;
+			try{
+				scheduledDate = dateFormat.parse(dateString);
+			}catch(Exception e){
+				System.out.println("Date format incorrect.");
+			}
+			
+			t = new Scheduled(properties.get(0), properties.get(1), this, t, scheduledDate);
+		}
+		
 		Clock.getInstance().getNotification().addObserver(t);
 		this.children.add(t);
-		logger.info("added task "+t.getName());
+		logger.info("added task " + t.getName());
 	}
 
 	/**
@@ -157,11 +191,10 @@ public class Project extends Activity {
 	}
 
 	@Override
-	public void acceptVisitor(Impresor imp, int level) {
-		// TODO Auto-generated method stub
-		imp.visitProject(this, level);
+	public void acceptVisitor(Visitor visitor, int level) {
+		visitor.visitProject(this, level);
 		for (Activity child : children) {
-			child.acceptVisitor(imp, level+1);
+			child.acceptVisitor(visitor, level+1);
 		}
 	}
 }

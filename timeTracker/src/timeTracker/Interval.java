@@ -178,8 +178,8 @@ public class Interval implements Serializable {
 		this.setRunning(false);
 	}
 
-	public void acceptVisitor(Impresor imp, int level) {
-		imp.visitInterval(this, level+1);
+	public void acceptVisitor(Visitor visitor, int level) {
+		visitor.visitInterval(this, level+1);
 	}
 
 	/**

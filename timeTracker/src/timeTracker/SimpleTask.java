@@ -8,13 +8,14 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 import java.util.Observable;
-import java.util.Observer;
 
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-/** 
- * @author marcm
+/**
+ * @author     marcm
+ * @uml.dependency   supplier="java.util.Observer"
+ * @uml.dependency   supplier="timeTracker.Interval"
  */
 public class SimpleTask extends Task {
 	
@@ -25,12 +26,47 @@ public class SimpleTask extends Task {
 	 */
 	private static final long serialVersionUID = 3L;
 	
-	/** 
-	 * @uml.property name="children"
-	 * @uml.associationEnd multiplicity="(0 -1)" aggregation="shared" inverse="task:timeTracker.Interval"
+	/**
+	 * @uml.property   name="children"
+	 * @uml.associationEnd   multiplicity="(0 -1)" aggregation="shared" inverse="task:timeTracker.Interval"
 	 */
 	private Collection<Interval> children = new ArrayList<Interval>();
-	
+
+	/**
+	 * @uml.property   name="minIntervalTime"
+	 */
+	public static long minIntervalTime;
+
+	/**
+	 * Constructor of the class.
+	 */
+	public SimpleTask(String name, String description, Project father) {
+		super(description, name, father);
+		
+	}
+
+	@Override
+	public void update(Observable arg0, Object arg1) {
+		Date currentD = Clock.getInstance().getCurrentDate();		
+		
+		if (!this.children.isEmpty()) {
+			if (this.getLastInterval().isRunning()) {
+				this.getLastInterval().setEndDate(currentD);
+				this.getLastInterval().calculateTime();
+				this.setEndDate(currentD);
+			}
+		}		
+		this.calculateTotalTime();		
+	}
+
+	@Override
+	public void acceptVisitor(Visitor visitor, int level) {		
+		visitor.visitTask(this, level);
+		for (Interval child : children) {
+			child.acceptVisitor(visitor, level+1);
+		}	
+	}
+
 	/**
 	 * Getter of the property <tt>children</tt>
 	 * @return  Returns the intervals.
@@ -43,14 +79,6 @@ public class SimpleTask extends Task {
 		} else {
 			return children;
 		}
-	}
-
-	/**
-	 * Constructor of the class.
-	 */
-	public SimpleTask(String name, String description, Project father) {
-		super(description, name, father);
-		
 	}
 
 	/**
@@ -101,6 +129,12 @@ public class SimpleTask extends Task {
 	
 
 	/**
+	 */
+	public Interval getLastInterval(){
+		return getIntervalById(children.size());			
+	}
+
+	/**
 	 * Removes the specified interval if it is in the intervals list.
 	 * @param id: id of the interval to be removed.
 	 * @return True if the interval could be removed and false if it couldn't.
@@ -117,12 +151,6 @@ public class SimpleTask extends Task {
 		}
 	}
 
-	/**
-	 */
-	public Interval getLastInterval(){
-		return getIntervalById(children.size());			
-	}
-			
 	/**
 	 */
 	public void stop() {
@@ -142,40 +170,14 @@ public class SimpleTask extends Task {
 	}
 
 
-	@Override
-	public void acceptVisitor(Impresor imp, int level) {		
-		imp.visitTask(this, level);
-		for (Interval child : children) {
-			child.acceptVisitor(imp, level+1);
-		}	
-	}
-
-
-	/** 
-	 * @uml.property name="minIntervalTime"
-	 */
-	public static long minIntervalTime;
-
-
 	/**
 	 */
 	public static void setMinIntervalTime(long intervalTime){
 		minIntervalTime = intervalTime;
 	}
-
-	@Override
-	public void update(Observable arg0, Object arg1) {
-		Date currentD = Clock.getInstance().getCurrentDate();		
-		
-		if (!this.children.isEmpty()) {
-			if (this.getLastInterval().isRunning()) {
-				this.getLastInterval().setEndDate(currentD);
-				this.getLastInterval().calculateTime();
-			}
-		}
-		
-		this.setEndDate(currentD);
-		this.calculateTotalTime();		
+	
+	public boolean childrenIsEmpty() {
+		return this.childrenIsEmpty();
 	}
 }
 

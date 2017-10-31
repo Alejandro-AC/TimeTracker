@@ -1,9 +1,12 @@
 package timeTracker;
 
+import java.util.Observable;
 import java.util.Observer;
 
 
-
+/**
+ * @uml.dependency   supplier="java.util.Observer"
+ */
 public abstract class Task extends Activity implements Observer {
 	
 	/**
@@ -14,18 +17,30 @@ public abstract class Task extends Activity implements Observer {
 	public Task(String description, String name, Project father) {
 		super(description, name, father);
 	}
+	
+	
+	public abstract void acceptVisitor(Visitor visitor, int level);	
+	
+	public abstract void calculateTotalTime();	
 
-	@Override
-	public void acceptVisitor(Impresor imp, int level) {
-	}
+	public abstract void start();	
 
-	@Override
-	public void calculateTotalTime() {
-	}
+	public abstract Interval getIntervalById(int id);
+	
+	public abstract Interval getLastInterval();
+	
+	public abstract boolean removeInterval(int id);
 
-	@Override
-	public <T> T getChildren() {
-		return null;
-	}
+	public abstract void stop();
+	
+	public abstract void update(Observable arg0, Object arg1);
+
+
+		
+		/**
+		 */
+		public abstract boolean childrenIsEmpty();
+		
+
 
 }

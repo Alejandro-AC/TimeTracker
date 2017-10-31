@@ -187,7 +187,7 @@ public abstract class Activity implements Serializable {
 	
 	/**
 	 */
-	public abstract void acceptVisitor(Impresor imp, int level);
+	public abstract void acceptVisitor(Visitor visitor, int level);
 			
 
 }
