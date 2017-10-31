@@ -86,4 +86,8 @@ public abstract class TaskDecorator extends Task {
 	public String getName() {
 		return this.task.getName();
 	}
+	
+	public long getTotalTime() {
+		return this.task.totalTime;
+	}
 }
