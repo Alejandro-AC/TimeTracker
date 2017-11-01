@@ -1,10 +1,6 @@
-/**
- * 
- */
 package timeTracker;
 
 import java.text.SimpleDateFormat;
-import java.util.AbstractList;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
@@ -12,15 +8,19 @@ import java.util.Scanner;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-/** 
- * @author marcm
+
+/**
+ * 
  */
 public class Project extends Activity {
 	
+	/**
+	 * Logger for the class.
+	 */
 	static Logger logger = LoggerFactory.getLogger(Project.class);
 
 	/**
-	 * 
+	 * Used for serialization.
 	 */
 	private static final long serialVersionUID = 2L;
 	
@@ -30,19 +30,42 @@ public class Project extends Activity {
 	 */
 	private Collection<Activity> children = new ArrayList<Activity>();
 
-	/** 
-	 * Getter of the property <tt>children</tt>
-	 * @return  Returns the children.
-	 * @uml.property  name="children"
-	 */
-	@SuppressWarnings("unchecked") 
-	public Collection<Activity> getChildren() {
-		if (children.isEmpty()) {
-			return null;
-		} else {
-			return children;
+		/** 
+		 * Getter of the property <tt>children</tt>
+		 * @return  Returns the children.
+		 * @uml.property  name="children"
+		 */
+		@SuppressWarnings("unchecked") 
+		public Collection<Activity> getChildren() {
+			if (children.isEmpty()) {
+				return null;
+			} else {
+				return children;
+			}
 		}
-	}
+		
+		/** 
+		 * Setter of the property <tt>children</tt>
+		 * @param children  The children to set.
+		 * @uml.property  name="children"
+		 */
+		public void setChildren(Collection<Activity> children) {
+			this.children = children;
+		}
+		
+		/**
+		 * Searches for the child with the name given and returns it if it has been found.
+		 * @param name: name of the component to be found.
+		 * @return Returns the child Activity with the same name, or null if it has not been found.
+		 */
+		public Activity getChild(String name) {
+			for (Activity child : children) {
+				if (child.getName().equals(name)) {
+					return child;
+				}
+			}
+			return null;
+		}
 
 	/**
 	 * Constructor of the class.
@@ -76,11 +99,7 @@ public class Project extends Activity {
 		properties = askChildProperties(client);	
 		
 		Task t = new SimpleTask(properties.get(0), properties.get(1), this);
-		
-		
-		////
-		
-		
+
 		int limitedIntervalTime = 0;
 		
 		while(!correctType){
@@ -221,20 +240,6 @@ public class Project extends Activity {
 	}
 
 	/**
-	 * Searches for the child with the name given and returns it if it has been found.
-	 * @param name: name of the component to be found.
-	 * @return Returns the child Activity with the same name, or null if it has not been found.
-	 */
-	public Activity getChild(String name) {
-		for (Activity child : children) {
-			if (child.getName().equals(name)) {
-				return child;
-			}
-		}
-		return null;
-	}
-
-	/**
 	 * Removes the specified child if it is in the children list.
 	 * @param name: name of the child to be removed.
 	 * @return True if the child could be removed and false if it couldn't.
@@ -243,16 +248,12 @@ public class Project extends Activity {
 		this.children.remove(activity);
 		logger.info("Removed the activity " + activity.getName());
 	}
-
-	/** 
-	 * Setter of the property <tt>children</tt>
-	 * @param children  The children to set.
-	 * @uml.property  name="children"
+	
+	/**
+	 * Accepts a Visitor (in this case, the Impresor to print this Acitivity's information).
+	 * @param visitor: visitor that is being accepted.
+	 * @level: current level of the Project in the Activities Tree.
 	 */
-	public void setChildren(Collection<Activity> children) {
-		this.children = children;
-	}
-
 	@Override
 	public void acceptVisitor(Visitor visitor, int level) {
 		visitor.visitProject(this, level);

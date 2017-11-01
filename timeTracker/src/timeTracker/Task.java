@@ -6,16 +6,17 @@ import java.util.Observer;
 
 
 /**
+ * This abstract class is used for the Decorator of any SimpleTask.
  * @uml.dependency   supplier="java.util.Observer"
  */
 public abstract class Task extends Activity implements Observer {
 	
 	/**
-	 * 
+	 * Used for serialization.
 	 */
 	private static final long serialVersionUID = 10L;
 	
-	/*
+	/**
 	 * While doing the deserialization, this function adds every Task to
 	 * the Observer list.
 	 */
@@ -24,17 +25,25 @@ public abstract class Task extends Activity implements Observer {
          stream.defaultReadObject();
          Clock.getInstance().getNotification().addObserver(this);
 	}
-
+	
+	/**
+	 * Constructor of the class.
+	 */
 	public Task(String description, String name, Project father) {
 		super(description, name, father);
 	}
 	
+	// Abstract methods that will be implemented in the sub-classes that need them.
 	
 	public abstract void acceptVisitor(Visitor visitor, int level);	
 	
 	public abstract void calculateTotalTime();	
 
 	public abstract void start();	
+	
+	public abstract void update(Observable arg0, Object arg1);
+	
+	public abstract void stop();
 
 	public abstract Interval getIntervalById(int id);
 	
@@ -42,15 +51,7 @@ public abstract class Task extends Activity implements Observer {
 	
 	public abstract boolean removeInterval(int id);
 
-	public abstract void stop();
-	
-	public abstract void update(Observable arg0, Object arg1);
-
-
-		
-		/**
-		 */
-		public abstract boolean childrenIsEmpty();
+	public abstract boolean childrenIsEmpty();
 		
 
 

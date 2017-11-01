@@ -12,35 +12,42 @@ public abstract class TaskDecorator extends Task {
 	 * 
 	 */
 	private static final long serialVersionUID = 11L;
-
-	public TaskDecorator(String description, String name, Project father, Task task) {
-		super(description, name, father);
-		this.task = task;
-	}    
-
+	
 	/** 
 	 * @uml.property name="task"
 	 * @uml.associationEnd multiplicity="(1 1)" aggregation="shared" inverse="taskDecorator:timeTracker.Task"
 	 */
 	protected Task task = null;
 
-	/** 
-	 * Getter of the property <tt>task</tt>
-	 * @return  Returns the task.
-	 * @uml.property  name="task"
+		/** 
+		 * Getter of the property <tt>task</tt>
+		 * @return  Returns the task.
+		 * @uml.property  name="task"
+		 */
+		public Task getTask() {
+			return task;
+		}
+	
+		/** 
+		 * Setter of the property <tt>task</tt>
+		 * @param task  The task to set.
+		 * @uml.property  name="task"
+		 */
+		public void setTask(Task task) {
+			this.task = task;
+		}
+	
+	/**
+	 * Constructor of the class.
 	 */
-	public Task getTask() {
-		return task;
-	}
-
-	/** 
-	 * Setter of the property <tt>task</tt>
-	 * @param task  The task to set.
-	 * @uml.property  name="task"
-	 */
-	public void setTask(Task task) {
+	public TaskDecorator(String description, String name, Project father, Task task) {
+		super(description, name, father);
 		this.task = task;
-	}
+	}    
+	
+	// The following methods are the implementation of the Task.java abstract methods.
+	// Every methods calls its father's method, so when it reaches a SimpleTask this is executed.
+	// In the case of the getters, we want to reach the SimpleTask so it will return it's variable. 
 	
 	public void acceptVisitor(Visitor visitor, int level) {
 		this.task.acceptVisitor(visitor, level);
