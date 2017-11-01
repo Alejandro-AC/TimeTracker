@@ -20,7 +20,7 @@ public class Interval implements Serializable {
 	/**
 	 * Used for serialization.
 	 */
-	private static final long serialVersionUID = 4L;
+	private static final long serialVersionUID = 8L;
 	
 	/**
 	 * @uml.property   name="simpleTask"

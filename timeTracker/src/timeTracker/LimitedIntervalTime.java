@@ -11,7 +11,7 @@ public class LimitedIntervalTime extends TaskDecorator {
 	/**
 	 * Used for serialization.
 	 */
-	private static final long serialVersionUID = 12L;
+	private static final long serialVersionUID = 7L;
 	
 	/**
 	 * @uml.property  name="maxIntervalTime"

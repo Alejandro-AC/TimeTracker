@@ -11,7 +11,7 @@ public abstract class TaskDecorator extends Task {
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 11L;
+	private static final long serialVersionUID = 5L;
 	
 	/** 
 	 * @uml.property name="task"

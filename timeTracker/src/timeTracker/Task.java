@@ -14,7 +14,7 @@ public abstract class Task extends Activity implements Observer {
 	/**
 	 * Used for serialization.
 	 */
-	private static final long serialVersionUID = 10L;
+	private static final long serialVersionUID = 3L;
 	
 	/**
 	 * While doing the deserialization, this function adds every Task to

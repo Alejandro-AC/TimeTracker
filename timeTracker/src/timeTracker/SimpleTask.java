@@ -25,7 +25,7 @@ public class SimpleTask extends Task {
 	/**
 	 * Used for serialization.
 	 */
-	private static final long serialVersionUID = 3L;
+	private static final long serialVersionUID = 4L;
 	
 	/**
 	 * @uml.property   name="children"

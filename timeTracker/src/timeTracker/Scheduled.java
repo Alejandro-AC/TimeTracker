@@ -12,7 +12,7 @@ public class Scheduled extends TaskDecorator {
 	/**
 	 * Used for serialization.
 	 */
-	private static final long serialVersionUID = 13L;
+	private static final long serialVersionUID = 6L;
 	
 	/**
 	 * @uml.property  name="scheduledDate"
