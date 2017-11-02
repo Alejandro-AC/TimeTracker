@@ -1,13 +1,19 @@
 package timeTracker;
 
 import java.util.Observable;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 /**
  * This class is used as a Decorator for a Task.
  * A LimitedIntervalTime Task will stop by itself when an interval reaches the established maximum time. 
  */
 public class LimitedIntervalTime extends TaskDecorator {
 
+	/**
+	 * Logger for the class.
+	 */
+	static Logger logger = LoggerFactory.getLogger(LimitedIntervalTime.class);
+	
 	/**
 	 * Used for serialization.
 	 */
@@ -24,6 +30,7 @@ public class LimitedIntervalTime extends TaskDecorator {
 		 * @uml.property  name="maxIntervalTime"
 		 */
 		public long getMaxIntervalTime() {
+			logger.debug("getting max interval time: " + maxIntervalTime);
 			return maxIntervalTime;
 		}
 		
@@ -33,6 +40,7 @@ public class LimitedIntervalTime extends TaskDecorator {
 		 * @uml.property  name="maxIntervalTime"
 		 */
 		public void setMaxIntervalTime(long maxIntervalTime) {
+			logger.debug("setting max interval time: " + maxIntervalTime);
 			this.maxIntervalTime = maxIntervalTime;
 		}
 	

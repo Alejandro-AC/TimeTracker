@@ -2,6 +2,8 @@ package timeTracker;
 
 import java.util.Date;
 import java.util.Observable;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * This class is used as a Decorator for a Task.
@@ -9,6 +11,11 @@ import java.util.Observable;
  */
 public class Scheduled extends TaskDecorator {
 
+	/**
+	 * Logger for the class.
+	 */
+	static Logger logger = LoggerFactory.getLogger(Scheduled.class);
+	
 	/**
 	 * Used for serialization.
 	 */
@@ -25,6 +32,7 @@ public class Scheduled extends TaskDecorator {
 		 * @uml.property  name="scheduledDate"
 		 */
 		public Date getScheduledDate() {
+			//logger.debug("getting scheduled date " + this.getName());
 			return scheduledDate;
 		}
 	
@@ -34,6 +42,7 @@ public class Scheduled extends TaskDecorator {
 		 * @uml.property  name="scheduledDate"
 		 */
 		public void setScheduledDate(Date scheduledDate) {
+			//logger.debug("setting scheduled date: " + this.scheduledDate);
 			this.scheduledDate = scheduledDate;
 		}
 	
@@ -56,6 +65,7 @@ public class Scheduled extends TaskDecorator {
 	 */
 	@Override
 	public void start() {
+		//logger.debug("scheduled task start");
 		Date nearestSecond = new Date( ((Clock.getInstance().getCurrentDate().getTime() + 500) / 1000) * 1000 );
 		if(!nearestSecond.before(this.scheduledDate) && !nearestSecond.after(this.scheduledDate)) {
 			this.task.start();

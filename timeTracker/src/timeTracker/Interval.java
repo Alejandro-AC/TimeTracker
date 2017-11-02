@@ -34,6 +34,7 @@ public class Interval implements Serializable {
 		 * @uml.property  name="simpleTask"
 		 */
 		public SimpleTask getTask() {
+			logger.debug("getting Task: " + simpleTask.getName());
 			return simpleTask;
 		}
 	
@@ -43,6 +44,7 @@ public class Interval implements Serializable {
 		 * @uml.property  name="simpleTask"
 		 */
 		public void setTask(SimpleTask simpleTask) {
+			logger.debug("setting task: " + simpleTask.getName());
 			this.simpleTask = simpleTask;
 		}
 	
@@ -57,6 +59,7 @@ public class Interval implements Serializable {
 		 * @uml.property  name="endDate"
 		 */
 		public Date getEndDate() {
+			logger.debug("getting end date: " + endDate);
 			return endDate;
 		}
 
@@ -66,6 +69,7 @@ public class Interval implements Serializable {
 		 * @uml.property  name="endDate"
 		 */
 		public void setEndDate(Date endDate) {
+			//logger.debug("setting end date: " + endDate);
 			this.endDate = endDate;
 		}
 	
@@ -80,6 +84,7 @@ public class Interval implements Serializable {
 		 * @uml.property  name="id"
 		 */
 		public int getId() {
+			//logger.debug("getting id" + id);
 			return id;
 		}
 
@@ -104,6 +109,7 @@ public class Interval implements Serializable {
 		 * @uml.property  name="startDate"
 		 */
 		public Date getStartDate() {
+			logger.debug("getting start date: " + startDate);
 			return startDate;
 		}
 		
@@ -128,6 +134,7 @@ public class Interval implements Serializable {
 		 * @uml.property  name="totalTime"
 		 */
 		public long getTotalTime() {
+			//logger.debug("getting total time: " + totalTime);
 			return totalTime;
 		}
 
@@ -152,6 +159,7 @@ public class Interval implements Serializable {
 		 * @uml.property  name="running"
 		 */
 		public boolean isRunning() {
+			//logger.debug("interval running: " + running);
 			return running;
 		}
 
@@ -161,6 +169,7 @@ public class Interval implements Serializable {
 		 * @uml.property  name="running"
 		 */
 		public void setRunning(boolean running) {
+			logger.debug("setting interval running: " + running);
 			this.running = running;
 		}
 	
@@ -180,6 +189,7 @@ public class Interval implements Serializable {
 		long difference = endDate.getTime() - startDate.getTime();
 		long seconds = TimeUnit.MILLISECONDS.toSeconds(difference);
 		this.totalTime = seconds;
+		//logger.debug("calculated time: " + this.totalTime);
 	}
 
 	/**
@@ -216,6 +226,7 @@ public class Interval implements Serializable {
 	 * @level: current level of the Interval in the Activities Tree.
 	 */
 	public void acceptVisitor(Visitor visitor, int level) {
+		logger.debug("Interval with ID " + this.getId() + "accepting visitor");
 		visitor.visitInterval(this, level+1);
 	}
 

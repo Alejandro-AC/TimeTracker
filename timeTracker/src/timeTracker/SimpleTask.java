@@ -40,6 +40,7 @@ public class SimpleTask extends Task {
 		 */
 		@SuppressWarnings("unchecked")
 		public Collection<Interval> getChildren() {
+			logger.debug("getting childrens from simple task: " + this.getName());
 			if (children.isEmpty()) {
 				return null;
 			} else {
@@ -48,6 +49,7 @@ public class SimpleTask extends Task {
 		}
 		
 		public boolean childrenIsEmpty() {
+			//logger.debug("checking if children is empty");
 			return this.children.isEmpty();
 		}
 
@@ -62,6 +64,7 @@ public class SimpleTask extends Task {
 		 * @uml.property  name="minIntervalTime"
 		 */
 		public static void setMinIntervalTime(long intervalTime){
+			logger.debug("setting min interval time: " + intervalTime);
 			minIntervalTime = intervalTime;
 		}
 
@@ -79,6 +82,7 @@ public class SimpleTask extends Task {
 	 * @return Return the interval with the same id, or null if it has not been found.
 	 */
 	public Interval getIntervalById(int id) {
+		//logger.debug("searching interval with id: " + id + "in task " + this.getName());
 		for (Interval interval : children) {
 			if (interval.getId() == id) {
 				return interval;
@@ -104,6 +108,7 @@ public class SimpleTask extends Task {
 		if (interval != null) {
 			logger.debug("interval exists");
 			children.remove(interval);
+			logger.info("interval with id "+ id +" has been removed from simple task " + this.getName());
 			return true;
 		} else {
 			logger.debug("interval doesnt exist");
@@ -119,6 +124,7 @@ public class SimpleTask extends Task {
 	 */
 	@Override
 	public void acceptVisitor(Visitor visitor, int level) {		
+		logger.debug("simple task " + this.getName() + "is accepting visitor");
 		visitor.visitTask(this, level);
 		for (Interval child : children) {
 			child.acceptVisitor(visitor, level+1);
@@ -169,10 +175,11 @@ public class SimpleTask extends Task {
 				
 				if (this.getLastInterval().getTotalTime() < minIntervalTime) {
 					logger.debug("interval too short");
-					this.removeInterval(this.getLastInterval().getId());					
+					this.removeInterval(this.getLastInterval().getId());
 				}
 			} else {
-				System.out.println("No se puede parar un intervalo que ya se ha parado.");
+				logger.warn("trying to stop an interval already stopped");
+				System.out.println("You can not stop an interval that has already been stopped.");
 			}
 		}
 	}
@@ -188,7 +195,9 @@ public class SimpleTask extends Task {
 		}
 		
 		this.totalTime = sum;
-				
+		
+		//logger.debug("calculating total time from simple task " + this.getName() + " = " + sum);
+		
 		if(this.father != null){
 			this.father.calculateTotalTime();
 		}

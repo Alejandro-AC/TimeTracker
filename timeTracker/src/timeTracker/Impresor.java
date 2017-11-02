@@ -104,7 +104,8 @@ public class Impresor implements Visitor, Runnable{
      * @param interval: Interval to print.
      * @param level: level of the current Interval in the tree (used for printing).
      */
-	public void visitInterval(Interval interval, int level){		
+	public void visitInterval(Interval interval, int level){
+		logger.debug("visiting interval: " + interval.getId());
 		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 		String type = "I.";
 		String format = "  %" + ((level*2)+2) + "s%-" + (25-(level*2)) + "s%" + (30) + "s%" + (30) + "s%" + (15) + "ss%n";	
@@ -123,6 +124,7 @@ public class Impresor implements Visitor, Runnable{
      * @param level: level of the current Task in the tree (used for printing).
      */
 	public void visitTask(Task task, int level){
+		logger.debug("visiting interval: " + task.getName());
 		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 		String type = "T.";
 		String format = "  %" + ((level*2)+2) + "s%-" + (25-(level*2)) + "s%" + (30) + "s%" + (30) + "s%" + (15) + "ss%n";
@@ -141,6 +143,7 @@ public class Impresor implements Visitor, Runnable{
      * @param level: level of the current Project in the tree (used for printing).
      */
 	public void visitProject(Project project, int level){	
+		logger.debug("visiting interval: " + project.getName());
 		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 		String type = "P.";
 		String format = "  %" + ((level*2)+2) + "s%-" + (25-(level*2)) + "s%" + (30) + "s%" + (30) + "s%" + (15) + "ss%n";	
@@ -157,6 +160,7 @@ public class Impresor implements Visitor, Runnable{
 	 * Main method for printing.
 	 */
 	public void imprimeix(){
+		logger.debug("printing activities tree");
 		Stack<Activity> nonVisited = new Stack<Activity>();
 		nonVisited.addAll(rootProjects);
 		String title = "- ACTIVITIES TREE -";

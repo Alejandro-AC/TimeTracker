@@ -25,6 +25,7 @@ public class Clock implements Runnable {
 		 * @return uniqueInstance of the Clock.
 		 */
 		public static Clock getInstance() {
+			//logger.debug("getting clock instance");
 			return uniqueInstance;
 		}
 	
@@ -39,6 +40,7 @@ public class Clock implements Runnable {
 		 * @uml.property  name="Notification"
 		 */
 		public Notification getNotification() {
+			logger.debug("getting clock notification");
 			return notification;
 		}
 	
@@ -58,6 +60,7 @@ public class Clock implements Runnable {
 		 * @uml.property  name="currentDate"
 		 */
 		public Date getCurrentDate() {
+			//logger.debug("getting current date: " + currentDate);
 			return currentDate;
 		}
 	

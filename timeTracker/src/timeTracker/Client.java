@@ -36,6 +36,7 @@ public class Client {
 		 * @uml.property  name="rootProjects"
 		 */
 		public Collection<Project> getRootProjects() {
+			logger.debug("getting root projects");
 			return rootProjects;
 		}
 		
@@ -45,6 +46,7 @@ public class Client {
 		 * @return Return the 1 with the same name, or null if it has not been found.
 		 */
 		public Project getRootProject(String name) {
+			logger.debug("getting root project: " + name);
 			for (Project rootProject : rootProjects) {
 				if (rootProject.getName().equals(name)) {
 					return rootProject;
@@ -148,6 +150,7 @@ public class Client {
 	 * @return the Activity that has been searched. It's value is null if it couldn't be found.
 	 */
 	public Activity getActivity(String name) {
+		logger.debug("Getting activity: "+name);
 		boolean found = false;
 		Queue<Activity> nonVisited = new LinkedList<Activity>();
 		nonVisited.addAll(rootProjects);
@@ -577,8 +580,8 @@ public class Client {
 
 		
 		if (task != null) {
-			logger.debug("task " + fatherName+ "has been found");
-			logger.debug("Starting Task" + fatherName+ "by adding new Interval");
+			logger.debug("task " + fatherName+ " has been found");
+			logger.debug("Starting Task " + fatherName+ " by adding new Interval");
 			task.start();
 		} else {
 			logger.debug("The specified task does not exist.");
@@ -699,7 +702,7 @@ public class Client {
 						this.rootProjects.remove(activity);
 						logger.debug("Removed the root project " + activity.getName());
 					} else {
-						logger.debug(activity.getName()+" is a child project");
+						logger.debug(activity.getName()+" is a child activity");
 						activity.getFather().removeChild(activity);
 					}
 				} else {

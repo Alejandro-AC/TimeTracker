@@ -37,6 +37,7 @@ public class Project extends Activity {
 		 */
 		@SuppressWarnings("unchecked") 
 		public Collection<Activity> getChildren() {
+			logger.debug("getting childrens: " + children + "from project " + this.getName());
 			if (children.isEmpty()) {
 				return null;
 			} else {
@@ -50,6 +51,7 @@ public class Project extends Activity {
 		 * @uml.property  name="children"
 		 */
 		public void setChildren(Collection<Activity> children) {
+			logger.debug("setting childrens to project " + this.getName());
 			this.children = children;
 		}
 		
@@ -59,6 +61,7 @@ public class Project extends Activity {
 		 * @return Returns the child Activity with the same name, or null if it has not been found.
 		 */
 		public Activity getChild(String name) {
+			logger.debug("searching child " + name + " in project " + this.getName());
 			for (Activity child : children) {
 				if (child.getName().equals(name)) {
 					return child;
@@ -237,6 +240,7 @@ public class Project extends Activity {
 		if(this.father != null){
 			this.father.calculateTotalTime();
 		}
+		//logger.debug("calculating total time project " + this.getName() + " = " + this.totalTime);
 	}
 
 	/**
@@ -256,6 +260,7 @@ public class Project extends Activity {
 	 */
 	@Override
 	public void acceptVisitor(Visitor visitor, int level) {
+		logger.debug("Project " + this.getName() + " is accepting visitor");
 		visitor.visitProject(this, level);
 		for (Activity child : children) {
 			child.acceptVisitor(visitor, level+1);

@@ -4237,3 +4237,1010 @@
 2017-11-02 10:48:51 DEBUG t.Impresor:41 - set root projects in impresor
 2017-11-02 10:48:51 DEBUG t.Impresor:98 - set impresor running ON
 2017-11-02 10:48:51 DEBUG t.Impresor:74 - impresor running
+2017-11-02 16:14:29 DEBUG t.Clock:28 - getting clock instance
+2017-11-02 16:14:29 DEBUG t.Clock:96 - Clock started running
+2017-11-02 16:14:29 WARN  t.Client:81 - There is not data.ser file created.
+2017-11-02 16:14:30 DEBUG t.Impresor:41 - set root projects in impresor
+2017-11-02 16:14:30 DEBUG t.Impresor:98 - set impresor running ON
+2017-11-02 16:14:30 DEBUG t.Impresor:74 - impresor running
+2017-11-02 16:14:31 DEBUG t.Impresor:163 - printing activities tree
+2017-11-02 16:14:32 DEBUG t.Impresor:163 - printing activities tree
+2017-11-02 16:14:33 DEBUG t.Impresor:163 - printing activities tree
+2017-11-02 16:14:34 DEBUG t.Impresor:163 - printing activities tree
+2017-11-02 16:14:35 DEBUG t.Impresor:163 - printing activities tree
+2017-11-02 16:14:36 DEBUG t.Impresor:163 - printing activities tree
+2017-11-02 16:14:37 DEBUG t.Impresor:163 - printing activities tree
+2017-11-02 16:14:38 DEBUG t.Impresor:163 - printing activities tree
+2017-11-02 16:14:39 DEBUG t.Impresor:163 - printing activities tree
+2017-11-02 16:14:40 DEBUG t.Impresor:163 - printing activities tree
+2017-11-02 16:14:41 DEBUG t.Impresor:163 - printing activities tree
+2017-11-02 16:14:42 DEBUG t.Impresor:163 - printing activities tree
+2017-11-02 16:14:43 DEBUG t.Impresor:163 - printing activities tree
+2017-11-02 16:14:44 DEBUG t.Impresor:163 - printing activities tree
+2017-11-02 16:14:45 DEBUG t.Impresor:163 - printing activities tree
+2017-11-02 16:14:46 DEBUG t.Impresor:163 - printing activities tree
+2017-11-02 16:14:47 DEBUG t.Impresor:163 - printing activities tree
+2017-11-02 16:14:48 DEBUG t.Impresor:163 - printing activities tree
+2017-11-02 16:14:49 DEBUG t.Impresor:163 - printing activities tree
+2017-11-02 16:14:50 DEBUG t.Impresor:163 - printing activities tree
+2017-11-02 16:14:51 DEBUG t.Impresor:163 - printing activities tree
+2017-11-02 16:14:52 DEBUG t.Impresor:163 - printing activities tree
+2017-11-02 16:14:53 DEBUG t.Impresor:163 - printing activities tree
+2017-11-02 16:14:54 DEBUG t.Impresor:163 - printing activities tree
+2017-11-02 16:14:55 DEBUG t.Impresor:163 - printing activities tree
+2017-11-02 16:14:56 DEBUG t.Impresor:163 - printing activities tree
+2017-11-02 16:14:57 DEBUG t.Impresor:163 - printing activities tree
+2017-11-02 16:14:58 DEBUG t.Impresor:163 - printing activities tree
+2017-11-02 16:14:59 DEBUG t.Impresor:163 - printing activities tree
+2017-11-02 16:15:00 DEBUG t.Impresor:163 - printing activities tree
+2017-11-02 16:15:01 DEBUG t.Impresor:163 - printing activities tree
+2017-11-02 16:15:02 DEBUG t.Impresor:163 - printing activities tree
+2017-11-02 16:15:03 DEBUG t.Impresor:163 - printing activities tree
+2017-11-02 16:15:04 DEBUG t.Impresor:163 - printing activities tree
+2017-11-02 16:15:05 DEBUG t.Impresor:163 - printing activities tree
+2017-11-02 16:15:06 DEBUG t.Impresor:163 - printing activities tree
+2017-11-02 16:15:07 DEBUG t.Impresor:163 - printing activities tree
+2017-11-02 16:15:08 DEBUG t.Impresor:163 - printing activities tree
+2017-11-02 16:15:09 DEBUG t.Impresor:163 - printing activities tree
+2017-11-02 16:15:10 DEBUG t.Impresor:163 - printing activities tree
+2017-11-02 16:15:10 DEBUG t.Client:218 - chosen option: 1
+2017-11-02 16:15:10 DEBUG t.Impresor:90 - impresor runing off
+2017-11-02 16:15:11 DEBUG t.Impresor:163 - printing activities tree
+2017-11-02 16:15:11 DEBUG t.Client:654 - choosing submenu option
+2017-11-02 16:15:30 DEBUG t.Client:663 - chosen option: 1
+2017-11-02 16:15:30 DEBUG t.Client:464 - adding root project
+2017-11-02 16:15:30 DEBUG t.Client:465 - asking project properties
+2017-11-02 16:15:30 DEBUG t.Client:127 - introducing root project name
+2017-11-02 16:15:41 DEBUG t.Client:130 - name introduced: root1
+2017-11-02 16:15:41 DEBUG t.Client:49 - getting root project: root1
+2017-11-02 16:15:41 DEBUG t.Client:139 - introducing description
+2017-11-02 16:15:44 DEBUG t.Client:142 - description introduced:frg
+2017-11-02 16:15:44 DEBUG t.Client:143 - all properties has been introduced correctly
+2017-11-02 16:15:44 INFO  t.Client:470 - root project root1 added
+2017-11-02 16:15:44 DEBUG t.Impresor:41 - set root projects in impresor
+2017-11-02 16:15:44 DEBUG t.Client:654 - choosing submenu option
+2017-11-02 16:16:11 DEBUG t.Client:663 - chosen option: 2
+2017-11-02 16:16:11 DEBUG t.Client:484 - Option add child project selected
+2017-11-02 16:16:11 DEBUG t.Client:485 - introducing name of father project
+2017-11-02 16:16:20 DEBUG t.Client:492 - searching father project root1
+2017-11-02 16:16:20 DEBUG t.Client:153 - Getting activity: root1
+2017-11-02 16:16:20 DEBUG t.Client:503 - father root1 has been found
+2017-11-02 16:16:20 DEBUG t.Client:504 - Adding child Project to root1
+2017-11-02 16:16:20 DEBUG t.Project:210 - introducing activity name
+2017-11-02 16:17:05 DEBUG t.Project:213 - name introduced: childp1
+2017-11-02 16:17:05 DEBUG t.Client:153 - Getting activity: childp1
+2017-11-02 16:17:05 DEBUG t.Project:40 - getting childrens: []from project root1
+2017-11-02 16:17:05 DEBUG t.Client:195 - nonVisited queue is empty
+2017-11-02 16:17:05 DEBUG t.Project:222 - introducing activity description
+2017-11-02 16:17:33 DEBUG t.Project:225 - description introduced: fdgg
+2017-11-02 16:17:33 DEBUG t.Project:226 - all properties has been introduced correctly
+2017-11-02 16:17:33 INFO  t.Project:90 - added child project childp1
+2017-11-02 16:17:33 DEBUG t.Client:654 - choosing submenu option
+2017-11-02 16:17:40 DEBUG t.Client:663 - chosen option: 2
+2017-11-02 16:17:40 DEBUG t.Client:484 - Option add child project selected
+2017-11-02 16:17:40 DEBUG t.Client:485 - introducing name of father project
+2017-11-02 16:17:43 DEBUG t.Client:492 - searching father project root1
+2017-11-02 16:17:43 DEBUG t.Client:153 - Getting activity: root1
+2017-11-02 16:17:43 DEBUG t.Client:503 - father root1 has been found
+2017-11-02 16:17:43 DEBUG t.Client:504 - Adding child Project to root1
+2017-11-02 16:17:43 DEBUG t.Project:210 - introducing activity name
+2017-11-02 16:17:48 DEBUG t.Project:213 - name introduced: childp2
+2017-11-02 16:17:48 DEBUG t.Client:153 - Getting activity: childp2
+2017-11-02 16:17:48 DEBUG t.Project:40 - getting childrens: [timeTracker.Project@7eba168e]from project root1
+2017-11-02 16:17:48 DEBUG t.Project:40 - getting childrens: []from project childp1
+2017-11-02 16:17:48 DEBUG t.Client:195 - nonVisited queue is empty
+2017-11-02 16:17:48 DEBUG t.Project:222 - introducing activity description
+2017-11-02 16:18:20 DEBUG t.Project:225 - description introduced: rrt
+2017-11-02 16:18:20 DEBUG t.Project:226 - all properties has been introduced correctly
+2017-11-02 16:18:20 INFO  t.Project:90 - added child project childp2
+2017-11-02 16:18:20 DEBUG t.Client:654 - choosing submenu option
+2017-11-02 16:18:25 DEBUG t.Client:663 - chosen option: 3
+2017-11-02 16:18:25 DEBUG t.Client:525 - adding task to project
+2017-11-02 16:18:25 DEBUG t.Client:526 - introducing name of father project
+2017-11-02 16:18:31 DEBUG t.Client:533 - searching father project root1
+2017-11-02 16:18:31 DEBUG t.Client:153 - Getting activity: root1
+2017-11-02 16:18:31 DEBUG t.Client:544 - father root1 has been found
+2017-11-02 16:18:31 DEBUG t.Client:545 - Adding child Task to root1
+2017-11-02 16:18:31 DEBUG t.Project:210 - introducing activity name
+2017-11-02 16:18:53 DEBUG t.Project:213 - name introduced: task1
+2017-11-02 16:18:53 DEBUG t.Client:153 - Getting activity: task1
+2017-11-02 16:18:53 DEBUG t.Project:40 - getting childrens: [timeTracker.Project@7eba168e, timeTracker.Project@6b1f05a1]from project root1
+2017-11-02 16:18:53 DEBUG t.Project:40 - getting childrens: []from project childp1
+2017-11-02 16:18:53 DEBUG t.Project:40 - getting childrens: []from project childp2
+2017-11-02 16:18:53 DEBUG t.Client:195 - nonVisited queue is empty
+2017-11-02 16:18:53 DEBUG t.Project:222 - introducing activity description
+2017-11-02 16:19:28 DEBUG t.Project:225 - description introduced: reg
+2017-11-02 16:19:28 DEBUG t.Project:226 - all properties has been introduced correctly
+2017-11-02 16:19:28 DEBUG t.Project:110 - Introducing interval time option
+2017-11-02 16:19:39 DEBUG t.Project:113 - interval time option introduced have correct type
+2017-11-02 16:19:39 DEBUG t.Project:128 - interval time option introduced correctly
+2017-11-02 16:19:39 DEBUG t.Project:154 - introducing scheduled option
+2017-11-02 16:19:48 DEBUG t.Project:157 - scheduled option introduced have correct type
+2017-11-02 16:19:48 DEBUG t.Project:173 - introducing scheduled option introduced correctly
+2017-11-02 16:19:48 DEBUG t.Clock:28 - getting clock instance
+2017-11-02 16:19:48 DEBUG t.Clock:43 - getting clock notification
+2017-11-02 16:19:48 INFO  t.Project:200 - added task task1
+2017-11-02 16:19:48 DEBUG t.Client:654 - choosing submenu option
+2017-11-02 16:19:49 DEBUG t.Clock:28 - getting clock instance
+2017-11-02 16:19:49 DEBUG t.Clock:63 - getting current date: Thu Nov 02 16:19:49 CET 2017
+2017-11-02 16:19:49 DEBUG t.SimpleTask:199 - calculating total time from simple task task1 = 0
+2017-11-02 16:19:49 DEBUG t.Project:243 - calculating total time project root1 = 0
+2017-11-02 16:19:50 DEBUG t.Clock:28 - getting clock instance
+2017-11-02 16:19:50 DEBUG t.Clock:63 - getting current date: Thu Nov 02 16:19:50 CET 2017
+2017-11-02 16:19:50 DEBUG t.SimpleTask:199 - calculating total time from simple task task1 = 0
+2017-11-02 16:19:50 DEBUG t.Project:243 - calculating total time project root1 = 0
+2017-11-02 16:19:51 DEBUG t.Clock:28 - getting clock instance
+2017-11-02 16:19:51 DEBUG t.Clock:63 - getting current date: Thu Nov 02 16:19:51 CET 2017
+2017-11-02 16:19:51 DEBUG t.SimpleTask:199 - calculating total time from simple task task1 = 0
+2017-11-02 16:19:51 DEBUG t.Project:243 - calculating total time project root1 = 0
+2017-11-02 16:19:52 DEBUG t.Clock:28 - getting clock instance
+2017-11-02 16:19:52 DEBUG t.Clock:63 - getting current date: Thu Nov 02 16:19:52 CET 2017
+2017-11-02 16:19:52 DEBUG t.SimpleTask:199 - calculating total time from simple task task1 = 0
+2017-11-02 16:19:52 DEBUG t.Project:243 - calculating total time project root1 = 0
+2017-11-02 16:19:53 DEBUG t.Clock:28 - getting clock instance
+2017-11-02 16:19:53 DEBUG t.Clock:63 - getting current date: Thu Nov 02 16:19:53 CET 2017
+2017-11-02 16:19:53 DEBUG t.SimpleTask:199 - calculating total time from simple task task1 = 0
+2017-11-02 16:19:53 DEBUG t.Project:243 - calculating total time project root1 = 0
+2017-11-02 16:19:54 DEBUG t.Clock:28 - getting clock instance
+2017-11-02 16:19:54 DEBUG t.Clock:63 - getting current date: Thu Nov 02 16:19:54 CET 2017
+2017-11-02 16:19:54 DEBUG t.SimpleTask:199 - calculating total time from simple task task1 = 0
+2017-11-02 16:19:54 DEBUG t.Project:243 - calculating total time project root1 = 0
+2017-11-02 16:19:55 DEBUG t.Clock:28 - getting clock instance
+2017-11-02 16:19:55 DEBUG t.Clock:63 - getting current date: Thu Nov 02 16:19:55 CET 2017
+2017-11-02 16:19:55 DEBUG t.SimpleTask:199 - calculating total time from simple task task1 = 0
+2017-11-02 16:19:55 DEBUG t.Project:243 - calculating total time project root1 = 0
+2017-11-02 16:19:56 DEBUG t.Clock:28 - getting clock instance
+2017-11-02 16:19:56 DEBUG t.Clock:63 - getting current date: Thu Nov 02 16:19:56 CET 2017
+2017-11-02 16:19:56 DEBUG t.SimpleTask:199 - calculating total time from simple task task1 = 0
+2017-11-02 16:19:56 DEBUG t.Project:243 - calculating total time project root1 = 0
+2017-11-02 16:19:57 DEBUG t.Clock:28 - getting clock instance
+2017-11-02 16:19:57 DEBUG t.Clock:63 - getting current date: Thu Nov 02 16:19:57 CET 2017
+2017-11-02 16:19:57 DEBUG t.SimpleTask:199 - calculating total time from simple task task1 = 0
+2017-11-02 16:19:57 DEBUG t.Project:243 - calculating total time project root1 = 0
+2017-11-02 16:19:58 DEBUG t.Clock:28 - getting clock instance
+2017-11-02 16:19:58 DEBUG t.Clock:63 - getting current date: Thu Nov 02 16:19:58 CET 2017
+2017-11-02 16:19:58 DEBUG t.SimpleTask:199 - calculating total time from simple task task1 = 0
+2017-11-02 16:19:58 DEBUG t.Project:243 - calculating total time project root1 = 0
+2017-11-02 16:19:59 DEBUG t.Clock:28 - getting clock instance
+2017-11-02 16:19:59 DEBUG t.Clock:63 - getting current date: Thu Nov 02 16:19:59 CET 2017
+2017-11-02 16:19:59 DEBUG t.SimpleTask:199 - calculating total time from simple task task1 = 0
+2017-11-02 16:19:59 DEBUG t.Project:243 - calculating total time project root1 = 0
+2017-11-02 16:20:00 DEBUG t.Clock:28 - getting clock instance
+2017-11-02 16:20:00 DEBUG t.Clock:63 - getting current date: Thu Nov 02 16:20:00 CET 2017
+2017-11-02 16:20:00 DEBUG t.SimpleTask:199 - calculating total time from simple task task1 = 0
+2017-11-02 16:20:00 DEBUG t.Project:243 - calculating total time project root1 = 0
+2017-11-02 16:21:57 WARN  t.Client:81 - There is not data.ser file created.
+2017-11-02 16:21:57 DEBUG t.Clock:96 - Clock started running
+2017-11-02 16:21:57 DEBUG t.Impresor:41 - set root projects in impresor
+2017-11-02 16:21:57 DEBUG t.Impresor:98 - set impresor running ON
+2017-11-02 16:21:57 DEBUG t.Impresor:74 - impresor running
+2017-11-02 16:21:58 DEBUG t.Impresor:163 - printing activities tree
+2017-11-02 16:21:59 DEBUG t.Impresor:163 - printing activities tree
+2017-11-02 16:22:00 DEBUG t.Impresor:163 - printing activities tree
+2017-11-02 16:22:01 DEBUG t.Impresor:163 - printing activities tree
+2017-11-02 16:22:02 DEBUG t.Impresor:163 - printing activities tree
+2017-11-02 16:22:03 DEBUG t.Impresor:163 - printing activities tree
+2017-11-02 16:22:04 DEBUG t.Impresor:163 - printing activities tree
+2017-11-02 16:22:05 DEBUG t.Impresor:163 - printing activities tree
+2017-11-02 16:22:06 DEBUG t.Impresor:163 - printing activities tree
+2017-11-02 16:22:07 DEBUG t.Impresor:163 - printing activities tree
+2017-11-02 16:22:08 DEBUG t.Impresor:163 - printing activities tree
+2017-11-02 16:22:09 DEBUG t.Impresor:163 - printing activities tree
+2017-11-02 16:22:10 DEBUG t.Impresor:163 - printing activities tree
+2017-11-02 16:22:11 DEBUG t.Impresor:163 - printing activities tree
+2017-11-02 16:22:12 DEBUG t.Impresor:163 - printing activities tree
+2017-11-02 16:22:13 DEBUG t.Impresor:163 - printing activities tree
+2017-11-02 16:22:14 DEBUG t.Client:218 - chosen option: 1
+2017-11-02 16:22:14 DEBUG t.Impresor:90 - impresor runing off
+2017-11-02 16:22:14 DEBUG t.Impresor:163 - printing activities tree
+2017-11-02 16:22:15 DEBUG t.Client:654 - choosing submenu option
+2017-11-02 16:22:21 DEBUG t.Client:663 - chosen option: 1
+2017-11-02 16:22:21 DEBUG t.Client:464 - adding root project
+2017-11-02 16:22:21 DEBUG t.Client:465 - asking project properties
+2017-11-02 16:22:21 DEBUG t.Client:127 - introducing root project name
+2017-11-02 16:22:23 DEBUG t.Client:130 - name introduced: root1
+2017-11-02 16:22:23 DEBUG t.Client:49 - getting root project: root1
+2017-11-02 16:22:23 DEBUG t.Client:139 - introducing description
+2017-11-02 16:22:25 DEBUG t.Client:142 - description introduced:frg
+2017-11-02 16:22:25 DEBUG t.Client:143 - all properties has been introduced correctly
+2017-11-02 16:22:25 INFO  t.Client:470 - root project root1 added
+2017-11-02 16:22:25 DEBUG t.Impresor:41 - set root projects in impresor
+2017-11-02 16:22:25 DEBUG t.Client:654 - choosing submenu option
+2017-11-02 16:22:28 DEBUG t.Client:663 - chosen option: 3
+2017-11-02 16:22:28 DEBUG t.Client:525 - adding task to project
+2017-11-02 16:22:28 DEBUG t.Client:526 - introducing name of father project
+2017-11-02 16:22:31 DEBUG t.Client:533 - searching father project root1
+2017-11-02 16:22:31 DEBUG t.Client:153 - Getting activity: root1
+2017-11-02 16:22:31 DEBUG t.Client:544 - father root1 has been found
+2017-11-02 16:22:31 DEBUG t.Client:545 - Adding child Task to root1
+2017-11-02 16:22:31 DEBUG t.Project:210 - introducing activity name
+2017-11-02 16:22:34 DEBUG t.Project:213 - name introduced: task1
+2017-11-02 16:22:34 DEBUG t.Client:153 - Getting activity: task1
+2017-11-02 16:22:34 DEBUG t.Project:40 - getting childrens: []from project root1
+2017-11-02 16:22:34 DEBUG t.Client:195 - nonVisited queue is empty
+2017-11-02 16:22:34 DEBUG t.Project:222 - introducing activity description
+2017-11-02 16:22:35 DEBUG t.Project:225 - description introduced: fw
+2017-11-02 16:22:35 DEBUG t.Project:226 - all properties has been introduced correctly
+2017-11-02 16:22:35 DEBUG t.Project:110 - Introducing interval time option
+2017-11-02 16:22:36 DEBUG t.Project:113 - interval time option introduced have correct type
+2017-11-02 16:22:36 DEBUG t.Project:128 - interval time option introduced correctly
+2017-11-02 16:22:36 DEBUG t.Project:154 - introducing scheduled option
+2017-11-02 16:22:37 DEBUG t.Project:157 - scheduled option introduced have correct type
+2017-11-02 16:22:37 DEBUG t.Project:173 - introducing scheduled option introduced correctly
+2017-11-02 16:22:37 DEBUG t.Clock:43 - getting clock notification
+2017-11-02 16:22:37 INFO  t.Project:200 - added task task1
+2017-11-02 16:22:37 DEBUG t.Client:654 - choosing submenu option
+2017-11-02 16:22:38 DEBUG t.Project:243 - calculating total time project root1 = 0
+2017-11-02 16:22:39 DEBUG t.Project:243 - calculating total time project root1 = 0
+2017-11-02 16:22:40 DEBUG t.Project:243 - calculating total time project root1 = 0
+2017-11-02 16:22:41 DEBUG t.Project:243 - calculating total time project root1 = 0
+2017-11-02 16:22:42 DEBUG t.Project:243 - calculating total time project root1 = 0
+2017-11-02 16:22:43 DEBUG t.Project:243 - calculating total time project root1 = 0
+2017-11-02 16:22:44 DEBUG t.Project:243 - calculating total time project root1 = 0
+2017-11-02 16:22:45 DEBUG t.Project:243 - calculating total time project root1 = 0
+2017-11-02 16:22:46 DEBUG t.Project:243 - calculating total time project root1 = 0
+2017-11-02 16:22:47 DEBUG t.Project:243 - calculating total time project root1 = 0
+2017-11-02 16:22:48 DEBUG t.Project:243 - calculating total time project root1 = 0
+2017-11-02 16:22:49 DEBUG t.Project:243 - calculating total time project root1 = 0
+2017-11-02 16:23:42 WARN  t.Client:81 - There is not data.ser file created.
+2017-11-02 16:23:42 DEBUG t.Clock:96 - Clock started running
+2017-11-02 16:23:42 DEBUG t.Impresor:41 - set root projects in impresor
+2017-11-02 16:23:42 DEBUG t.Impresor:98 - set impresor running ON
+2017-11-02 16:23:42 DEBUG t.Impresor:74 - impresor running
+2017-11-02 16:23:43 DEBUG t.Impresor:163 - printing activities tree
+2017-11-02 16:23:44 DEBUG t.Impresor:163 - printing activities tree
+2017-11-02 16:23:45 DEBUG t.Impresor:163 - printing activities tree
+2017-11-02 16:23:46 DEBUG t.Impresor:163 - printing activities tree
+2017-11-02 16:23:46 DEBUG t.Client:218 - chosen option: 1
+2017-11-02 16:23:46 DEBUG t.Impresor:90 - impresor runing off
+2017-11-02 16:23:47 DEBUG t.Impresor:163 - printing activities tree
+2017-11-02 16:23:47 DEBUG t.Client:654 - choosing submenu option
+2017-11-02 16:23:49 DEBUG t.Client:663 - chosen option: 1
+2017-11-02 16:23:49 DEBUG t.Client:464 - adding root project
+2017-11-02 16:23:49 DEBUG t.Client:465 - asking project properties
+2017-11-02 16:23:49 DEBUG t.Client:127 - introducing root project name
+2017-11-02 16:23:51 DEBUG t.Client:130 - name introduced: root1
+2017-11-02 16:23:51 DEBUG t.Client:49 - getting root project: root1
+2017-11-02 16:23:51 DEBUG t.Client:139 - introducing description
+2017-11-02 16:23:54 DEBUG t.Client:142 - description introduced:fwfwf
+2017-11-02 16:23:54 DEBUG t.Client:143 - all properties has been introduced correctly
+2017-11-02 16:23:54 INFO  t.Client:470 - root project root1 added
+2017-11-02 16:23:54 DEBUG t.Impresor:41 - set root projects in impresor
+2017-11-02 16:23:54 DEBUG t.Client:654 - choosing submenu option
+2017-11-02 16:24:01 DEBUG t.Client:663 - chosen option: 3
+2017-11-02 16:24:01 DEBUG t.Client:525 - adding task to project
+2017-11-02 16:24:01 DEBUG t.Client:526 - introducing name of father project
+2017-11-02 16:24:02 DEBUG t.Client:533 - searching father project root1
+2017-11-02 16:24:02 DEBUG t.Client:153 - Getting activity: root1
+2017-11-02 16:24:02 DEBUG t.Client:544 - father root1 has been found
+2017-11-02 16:24:02 DEBUG t.Client:545 - Adding child Task to root1
+2017-11-02 16:24:02 DEBUG t.Project:210 - introducing activity name
+2017-11-02 16:24:04 DEBUG t.Project:213 - name introduced: task1
+2017-11-02 16:24:04 DEBUG t.Client:153 - Getting activity: task1
+2017-11-02 16:24:04 DEBUG t.Project:40 - getting childrens: []from project root1
+2017-11-02 16:24:04 DEBUG t.Client:195 - nonVisited queue is empty
+2017-11-02 16:24:04 DEBUG t.Project:222 - introducing activity description
+2017-11-02 16:24:06 DEBUG t.Project:225 - description introduced: frgerg
+2017-11-02 16:24:06 DEBUG t.Project:226 - all properties has been introduced correctly
+2017-11-02 16:24:06 DEBUG t.Project:110 - Introducing interval time option
+2017-11-02 16:24:09 DEBUG t.Project:113 - interval time option introduced have correct type
+2017-11-02 16:24:09 DEBUG t.Project:128 - interval time option introduced correctly
+2017-11-02 16:24:09 DEBUG t.Project:154 - introducing scheduled option
+2017-11-02 16:24:10 DEBUG t.Project:157 - scheduled option introduced have correct type
+2017-11-02 16:24:10 DEBUG t.Project:173 - introducing scheduled option introduced correctly
+2017-11-02 16:24:10 DEBUG t.Clock:43 - getting clock notification
+2017-11-02 16:24:10 INFO  t.Project:200 - added task task1
+2017-11-02 16:24:10 DEBUG t.Client:654 - choosing submenu option
+2017-11-02 16:24:16 DEBUG t.Client:663 - chosen option: 3
+2017-11-02 16:24:16 DEBUG t.Client:525 - adding task to project
+2017-11-02 16:24:16 DEBUG t.Client:526 - introducing name of father project
+2017-11-02 16:24:18 DEBUG t.Client:533 - searching father project root1
+2017-11-02 16:24:18 DEBUG t.Client:153 - Getting activity: root1
+2017-11-02 16:24:18 DEBUG t.Client:544 - father root1 has been found
+2017-11-02 16:24:18 DEBUG t.Client:545 - Adding child Task to root1
+2017-11-02 16:24:18 DEBUG t.Project:210 - introducing activity name
+2017-11-02 16:24:20 DEBUG t.Project:213 - name introduced: task2
+2017-11-02 16:24:20 DEBUG t.Client:153 - Getting activity: task2
+2017-11-02 16:24:20 DEBUG t.Project:40 - getting childrens: [timeTracker.SimpleTask@1723a349]from project root1
+2017-11-02 16:24:20 DEBUG t.Client:195 - nonVisited queue is empty
+2017-11-02 16:24:20 DEBUG t.Project:222 - introducing activity description
+2017-11-02 16:24:22 DEBUG t.Project:225 - description introduced: fwf
+2017-11-02 16:24:22 DEBUG t.Project:226 - all properties has been introduced correctly
+2017-11-02 16:24:22 DEBUG t.Project:110 - Introducing interval time option
+2017-11-02 16:24:24 DEBUG t.Project:113 - interval time option introduced have correct type
+2017-11-02 16:24:24 DEBUG t.Project:128 - interval time option introduced correctly
+2017-11-02 16:24:24 DEBUG t.Project:137 - Introducing interval time
+2017-11-02 16:24:25 DEBUG t.Project:141 - limited time 10 introduced correctly
+2017-11-02 16:24:25 DEBUG t.Project:154 - introducing scheduled option
+2017-11-02 16:24:26 DEBUG t.Project:157 - scheduled option introduced have correct type
+2017-11-02 16:24:26 DEBUG t.Project:173 - introducing scheduled option introduced correctly
+2017-11-02 16:24:26 DEBUG t.Clock:43 - getting clock notification
+2017-11-02 16:24:26 INFO  t.Project:200 - added task task2
+2017-11-02 16:24:26 DEBUG t.Client:654 - choosing submenu option
+2017-11-02 16:24:27 DEBUG t.SimpleTask:52 - checking if children is empty
+2017-11-02 16:24:28 DEBUG t.SimpleTask:52 - checking if children is empty
+2017-11-02 16:24:29 DEBUG t.SimpleTask:52 - checking if children is empty
+2017-11-02 16:24:30 DEBUG t.SimpleTask:52 - checking if children is empty
+2017-11-02 16:24:31 DEBUG t.SimpleTask:52 - checking if children is empty
+2017-11-02 16:24:32 DEBUG t.SimpleTask:52 - checking if children is empty
+2017-11-02 16:24:33 DEBUG t.SimpleTask:52 - checking if children is empty
+2017-11-02 16:24:34 DEBUG t.SimpleTask:52 - checking if children is empty
+2017-11-02 16:24:35 DEBUG t.SimpleTask:52 - checking if children is empty
+2017-11-02 16:25:20 DEBUG t.Clock:96 - Clock started running
+2017-11-02 16:25:20 WARN  t.Client:81 - There is not data.ser file created.
+2017-11-02 16:25:20 DEBUG t.Impresor:41 - set root projects in impresor
+2017-11-02 16:25:20 DEBUG t.Impresor:98 - set impresor running ON
+2017-11-02 16:25:20 DEBUG t.Impresor:74 - impresor running
+2017-11-02 16:25:21 DEBUG t.Impresor:163 - printing activities tree
+2017-11-02 16:25:22 DEBUG t.Impresor:163 - printing activities tree
+2017-11-02 16:25:23 DEBUG t.Impresor:163 - printing activities tree
+2017-11-02 16:25:24 DEBUG t.Client:218 - chosen option: 1
+2017-11-02 16:25:24 DEBUG t.Impresor:90 - impresor runing off
+2017-11-02 16:25:24 DEBUG t.Impresor:163 - printing activities tree
+2017-11-02 16:25:25 DEBUG t.Client:654 - choosing submenu option
+2017-11-02 16:25:37 DEBUG t.Client:663 - chosen option: 1
+2017-11-02 16:25:37 DEBUG t.Client:464 - adding root project
+2017-11-02 16:25:37 DEBUG t.Client:465 - asking project properties
+2017-11-02 16:25:37 DEBUG t.Client:127 - introducing root project name
+2017-11-02 16:25:38 DEBUG t.Client:130 - name introduced: root1
+2017-11-02 16:25:38 DEBUG t.Client:49 - getting root project: root1
+2017-11-02 16:25:38 DEBUG t.Client:139 - introducing description
+2017-11-02 16:25:39 DEBUG t.Client:142 - description introduced:frwg
+2017-11-02 16:25:39 DEBUG t.Client:143 - all properties has been introduced correctly
+2017-11-02 16:25:39 INFO  t.Client:470 - root project root1 added
+2017-11-02 16:25:39 DEBUG t.Impresor:41 - set root projects in impresor
+2017-11-02 16:25:39 DEBUG t.Client:654 - choosing submenu option
+2017-11-02 16:25:42 DEBUG t.Client:663 - chosen option: 3
+2017-11-02 16:25:42 DEBUG t.Client:525 - adding task to project
+2017-11-02 16:25:42 DEBUG t.Client:526 - introducing name of father project
+2017-11-02 16:25:44 DEBUG t.Client:533 - searching father project root1
+2017-11-02 16:25:44 DEBUG t.Client:153 - Getting activity: root1
+2017-11-02 16:25:44 DEBUG t.Client:544 - father root1 has been found
+2017-11-02 16:25:44 DEBUG t.Client:545 - Adding child Task to root1
+2017-11-02 16:25:44 DEBUG t.Project:210 - introducing activity name
+2017-11-02 16:25:47 DEBUG t.Project:213 - name introduced: task2
+2017-11-02 16:25:47 DEBUG t.Client:153 - Getting activity: task2
+2017-11-02 16:25:47 DEBUG t.Project:40 - getting childrens: []from project root1
+2017-11-02 16:25:47 DEBUG t.Client:195 - nonVisited queue is empty
+2017-11-02 16:25:47 DEBUG t.Project:222 - introducing activity description
+2017-11-02 16:25:49 DEBUG t.Project:225 - description introduced: fre
+2017-11-02 16:25:49 DEBUG t.Project:226 - all properties has been introduced correctly
+2017-11-02 16:25:49 DEBUG t.Project:110 - Introducing interval time option
+2017-11-02 16:25:51 DEBUG t.Project:113 - interval time option introduced have correct type
+2017-11-02 16:25:51 DEBUG t.Project:128 - interval time option introduced correctly
+2017-11-02 16:25:51 DEBUG t.Project:137 - Introducing interval time
+2017-11-02 16:25:52 DEBUG t.Project:141 - limited time 10 introduced correctly
+2017-11-02 16:25:52 DEBUG t.Project:154 - introducing scheduled option
+2017-11-02 16:25:53 DEBUG t.Project:157 - scheduled option introduced have correct type
+2017-11-02 16:25:53 DEBUG t.Project:173 - introducing scheduled option introduced correctly
+2017-11-02 16:25:53 DEBUG t.Clock:43 - getting clock notification
+2017-11-02 16:25:53 INFO  t.Project:200 - added task task2
+2017-11-02 16:25:53 DEBUG t.Client:654 - choosing submenu option
+2017-11-02 16:25:56 DEBUG t.Client:663 - chosen option: 3
+2017-11-02 16:25:56 DEBUG t.Client:525 - adding task to project
+2017-11-02 16:25:56 DEBUG t.Client:526 - introducing name of father project
+2017-11-02 16:25:58 DEBUG t.Client:533 - searching father project root1
+2017-11-02 16:25:58 DEBUG t.Client:153 - Getting activity: root1
+2017-11-02 16:25:58 DEBUG t.Client:544 - father root1 has been found
+2017-11-02 16:25:58 DEBUG t.Client:545 - Adding child Task to root1
+2017-11-02 16:25:58 DEBUG t.Project:210 - introducing activity name
+2017-11-02 16:26:00 DEBUG t.Project:213 - name introduced: task4
+2017-11-02 16:26:00 DEBUG t.Client:153 - Getting activity: task4
+2017-11-02 16:26:00 DEBUG t.Project:40 - getting childrens: [timeTracker.LimitedIntervalTime@71c66162]from project root1
+2017-11-02 16:26:00 DEBUG t.Client:195 - nonVisited queue is empty
+2017-11-02 16:26:00 DEBUG t.Project:222 - introducing activity description
+2017-11-02 16:26:02 DEBUG t.Project:225 - description introduced: ferg
+2017-11-02 16:26:02 DEBUG t.Project:226 - all properties has been introduced correctly
+2017-11-02 16:26:02 DEBUG t.Project:110 - Introducing interval time option
+2017-11-02 16:26:04 DEBUG t.Project:113 - interval time option introduced have correct type
+2017-11-02 16:26:04 DEBUG t.Project:128 - interval time option introduced correctly
+2017-11-02 16:26:04 DEBUG t.Project:154 - introducing scheduled option
+2017-11-02 16:26:04 DEBUG t.Project:157 - scheduled option introduced have correct type
+2017-11-02 16:26:04 DEBUG t.Project:173 - introducing scheduled option introduced correctly
+2017-11-02 16:26:04 DEBUG t.Project:183 - introducing starting date for schedule task
+2017-11-02 16:26:27 DEBUG t.Project:188 - introduced date Thu Nov 02 16:26:40 CET 2017 correctly
+2017-11-02 16:26:27 DEBUG t.Clock:43 - getting clock notification
+2017-11-02 16:26:27 INFO  t.Project:200 - added task task4
+2017-11-02 16:26:27 DEBUG t.Client:654 - choosing submenu option
+2017-11-02 16:26:27 DEBUG t.Scheduled:68 - scheduled task start
+2017-11-02 16:26:28 DEBUG t.Scheduled:68 - scheduled task start
+2017-11-02 16:26:29 DEBUG t.Scheduled:68 - scheduled task start
+2017-11-02 16:26:30 DEBUG t.Scheduled:68 - scheduled task start
+2017-11-02 16:26:31 DEBUG t.Scheduled:68 - scheduled task start
+2017-11-02 16:26:32 DEBUG t.Scheduled:68 - scheduled task start
+2017-11-02 16:26:33 DEBUG t.Scheduled:68 - scheduled task start
+2017-11-02 16:26:34 DEBUG t.Scheduled:68 - scheduled task start
+2017-11-02 16:26:35 DEBUG t.Scheduled:68 - scheduled task start
+2017-11-02 16:26:36 DEBUG t.Scheduled:68 - scheduled task start
+2017-11-02 16:26:37 DEBUG t.Scheduled:68 - scheduled task start
+2017-11-02 16:26:38 DEBUG t.Scheduled:68 - scheduled task start
+2017-11-02 16:26:39 DEBUG t.Scheduled:68 - scheduled task start
+2017-11-02 16:26:40 DEBUG t.Scheduled:68 - scheduled task start
+2017-11-02 16:26:40 DEBUG t.Interval:199 - interval started
+2017-11-02 16:26:40 DEBUG t.Interval:122 - set start date: Thu Nov 02 16:26:40 CET 2017
+2017-11-02 16:26:40 DEBUG t.Interval:87 - getting id1
+2017-11-02 16:26:40 DEBUG t.Interval:37 - getting Task: task4
+2017-11-02 16:26:40 DEBUG t.Interval:172 - setting interval running: true
+2017-11-02 16:26:40 INFO  t.SimpleTask:144 - interval for task task4 started
+2017-11-02 16:26:40 DEBUG t.SimpleTask:85 - searching interval with id: 1in task task4
+2017-11-02 16:26:40 DEBUG t.Interval:87 - getting id1
+2017-11-02 16:26:40 DEBUG t.Interval:162 - interval running: true
+2017-11-02 16:26:40 DEBUG t.SimpleTask:85 - searching interval with id: 1in task task4
+2017-11-02 16:26:40 DEBUG t.Interval:87 - getting id1
+2017-11-02 16:26:40 DEBUG t.Interval:72 - setting end date: Thu Nov 02 16:26:40 CET 2017
+2017-11-02 16:26:40 DEBUG t.SimpleTask:85 - searching interval with id: 1in task task4
+2017-11-02 16:26:40 DEBUG t.Interval:87 - getting id1
+2017-11-02 16:26:40 DEBUG t.Interval:192 - calculated time: 0
+2017-11-02 16:26:40 DEBUG t.Interval:137 - getting total time: 0
+2017-11-02 16:26:41 DEBUG t.Scheduled:68 - scheduled task start
+2017-11-02 16:26:41 DEBUG t.SimpleTask:85 - searching interval with id: 1in task task4
+2017-11-02 16:26:41 DEBUG t.Interval:87 - getting id1
+2017-11-02 16:26:41 DEBUG t.Interval:162 - interval running: true
+2017-11-02 16:26:41 DEBUG t.SimpleTask:85 - searching interval with id: 1in task task4
+2017-11-02 16:26:41 DEBUG t.Interval:87 - getting id1
+2017-11-02 16:26:41 DEBUG t.Interval:72 - setting end date: Thu Nov 02 16:26:41 CET 2017
+2017-11-02 16:26:41 DEBUG t.SimpleTask:85 - searching interval with id: 1in task task4
+2017-11-02 16:26:41 DEBUG t.Interval:87 - getting id1
+2017-11-02 16:26:41 DEBUG t.Interval:192 - calculated time: 1
+2017-11-02 16:26:41 DEBUG t.Interval:137 - getting total time: 1
+2017-11-02 16:26:42 DEBUG t.Scheduled:68 - scheduled task start
+2017-11-02 16:26:42 DEBUG t.SimpleTask:85 - searching interval with id: 1in task task4
+2017-11-02 16:26:42 DEBUG t.Interval:87 - getting id1
+2017-11-02 16:26:42 DEBUG t.Interval:162 - interval running: true
+2017-11-02 16:26:42 DEBUG t.SimpleTask:85 - searching interval with id: 1in task task4
+2017-11-02 16:26:42 DEBUG t.Interval:87 - getting id1
+2017-11-02 16:26:42 DEBUG t.Interval:72 - setting end date: Thu Nov 02 16:26:42 CET 2017
+2017-11-02 16:26:42 DEBUG t.SimpleTask:85 - searching interval with id: 1in task task4
+2017-11-02 16:26:42 DEBUG t.Interval:87 - getting id1
+2017-11-02 16:26:42 DEBUG t.Interval:192 - calculated time: 2
+2017-11-02 16:26:42 DEBUG t.Interval:137 - getting total time: 2
+2017-11-02 16:26:43 DEBUG t.Scheduled:68 - scheduled task start
+2017-11-02 16:26:43 DEBUG t.SimpleTask:85 - searching interval with id: 1in task task4
+2017-11-02 16:26:43 DEBUG t.Interval:87 - getting id1
+2017-11-02 16:26:43 DEBUG t.Interval:162 - interval running: true
+2017-11-02 16:26:43 DEBUG t.SimpleTask:85 - searching interval with id: 1in task task4
+2017-11-02 16:26:43 DEBUG t.Interval:87 - getting id1
+2017-11-02 16:26:43 DEBUG t.Interval:72 - setting end date: Thu Nov 02 16:26:43 CET 2017
+2017-11-02 16:26:43 DEBUG t.SimpleTask:85 - searching interval with id: 1in task task4
+2017-11-02 16:26:43 DEBUG t.Interval:87 - getting id1
+2017-11-02 16:26:43 DEBUG t.Interval:192 - calculated time: 3
+2017-11-02 16:26:43 DEBUG t.Interval:137 - getting total time: 3
+2017-11-02 16:26:44 DEBUG t.Scheduled:68 - scheduled task start
+2017-11-02 16:26:44 DEBUG t.SimpleTask:85 - searching interval with id: 1in task task4
+2017-11-02 16:26:44 DEBUG t.Interval:87 - getting id1
+2017-11-02 16:26:44 DEBUG t.Interval:162 - interval running: true
+2017-11-02 16:26:44 DEBUG t.SimpleTask:85 - searching interval with id: 1in task task4
+2017-11-02 16:26:44 DEBUG t.Interval:87 - getting id1
+2017-11-02 16:26:44 DEBUG t.Interval:72 - setting end date: Thu Nov 02 16:26:44 CET 2017
+2017-11-02 16:26:44 DEBUG t.SimpleTask:85 - searching interval with id: 1in task task4
+2017-11-02 16:26:44 DEBUG t.Interval:87 - getting id1
+2017-11-02 16:26:44 DEBUG t.Interval:192 - calculated time: 4
+2017-11-02 16:26:44 DEBUG t.Interval:137 - getting total time: 4
+2017-11-02 16:26:45 DEBUG t.Scheduled:68 - scheduled task start
+2017-11-02 16:26:45 DEBUG t.SimpleTask:85 - searching interval with id: 1in task task4
+2017-11-02 16:26:45 DEBUG t.Interval:87 - getting id1
+2017-11-02 16:26:45 DEBUG t.Interval:162 - interval running: true
+2017-11-02 16:26:45 DEBUG t.SimpleTask:85 - searching interval with id: 1in task task4
+2017-11-02 16:26:45 DEBUG t.Interval:87 - getting id1
+2017-11-02 16:26:45 DEBUG t.Interval:72 - setting end date: Thu Nov 02 16:26:45 CET 2017
+2017-11-02 16:26:45 DEBUG t.SimpleTask:85 - searching interval with id: 1in task task4
+2017-11-02 16:26:45 DEBUG t.Interval:87 - getting id1
+2017-11-02 16:26:45 DEBUG t.Interval:192 - calculated time: 5
+2017-11-02 16:26:45 DEBUG t.Interval:137 - getting total time: 5
+2017-11-02 16:26:46 DEBUG t.Scheduled:68 - scheduled task start
+2017-11-02 16:26:46 DEBUG t.SimpleTask:85 - searching interval with id: 1in task task4
+2017-11-02 16:26:46 DEBUG t.Interval:87 - getting id1
+2017-11-02 16:26:46 DEBUG t.Interval:162 - interval running: true
+2017-11-02 16:26:46 DEBUG t.SimpleTask:85 - searching interval with id: 1in task task4
+2017-11-02 16:26:46 DEBUG t.Interval:87 - getting id1
+2017-11-02 16:26:46 DEBUG t.Interval:72 - setting end date: Thu Nov 02 16:26:46 CET 2017
+2017-11-02 16:26:46 DEBUG t.SimpleTask:85 - searching interval with id: 1in task task4
+2017-11-02 16:26:46 DEBUG t.Interval:87 - getting id1
+2017-11-02 16:26:46 DEBUG t.Interval:192 - calculated time: 6
+2017-11-02 16:26:46 DEBUG t.Interval:137 - getting total time: 6
+2017-11-02 16:26:47 DEBUG t.Scheduled:68 - scheduled task start
+2017-11-02 16:26:47 DEBUG t.SimpleTask:85 - searching interval with id: 1in task task4
+2017-11-02 16:26:47 DEBUG t.Interval:87 - getting id1
+2017-11-02 16:26:47 DEBUG t.Interval:162 - interval running: true
+2017-11-02 16:26:47 DEBUG t.SimpleTask:85 - searching interval with id: 1in task task4
+2017-11-02 16:26:47 DEBUG t.Interval:87 - getting id1
+2017-11-02 16:26:47 DEBUG t.Interval:72 - setting end date: Thu Nov 02 16:26:47 CET 2017
+2017-11-02 16:26:47 DEBUG t.SimpleTask:85 - searching interval with id: 1in task task4
+2017-11-02 16:26:47 DEBUG t.Interval:87 - getting id1
+2017-11-02 16:26:47 DEBUG t.Interval:192 - calculated time: 7
+2017-11-02 16:26:47 DEBUG t.Interval:137 - getting total time: 7
+2017-11-02 16:26:48 DEBUG t.Scheduled:68 - scheduled task start
+2017-11-02 16:26:48 DEBUG t.SimpleTask:85 - searching interval with id: 1in task task4
+2017-11-02 16:26:48 DEBUG t.Interval:87 - getting id1
+2017-11-02 16:26:48 DEBUG t.Interval:162 - interval running: true
+2017-11-02 16:26:48 DEBUG t.SimpleTask:85 - searching interval with id: 1in task task4
+2017-11-02 16:26:48 DEBUG t.Interval:87 - getting id1
+2017-11-02 16:26:48 DEBUG t.Interval:72 - setting end date: Thu Nov 02 16:26:48 CET 2017
+2017-11-02 16:26:48 DEBUG t.SimpleTask:85 - searching interval with id: 1in task task4
+2017-11-02 16:26:48 DEBUG t.Interval:87 - getting id1
+2017-11-02 16:26:48 DEBUG t.Interval:192 - calculated time: 8
+2017-11-02 16:26:48 DEBUG t.Interval:137 - getting total time: 8
+2017-11-02 16:26:49 DEBUG t.Scheduled:68 - scheduled task start
+2017-11-02 16:26:49 DEBUG t.SimpleTask:85 - searching interval with id: 1in task task4
+2017-11-02 16:26:49 DEBUG t.Interval:87 - getting id1
+2017-11-02 16:26:49 DEBUG t.Interval:162 - interval running: true
+2017-11-02 16:26:49 DEBUG t.SimpleTask:85 - searching interval with id: 1in task task4
+2017-11-02 16:26:49 DEBUG t.Interval:87 - getting id1
+2017-11-02 16:26:49 DEBUG t.Interval:72 - setting end date: Thu Nov 02 16:26:49 CET 2017
+2017-11-02 16:26:49 DEBUG t.SimpleTask:85 - searching interval with id: 1in task task4
+2017-11-02 16:26:49 DEBUG t.Interval:87 - getting id1
+2017-11-02 16:26:49 DEBUG t.Interval:192 - calculated time: 9
+2017-11-02 16:26:49 DEBUG t.Interval:137 - getting total time: 9
+2017-11-02 16:26:50 DEBUG t.Scheduled:68 - scheduled task start
+2017-11-02 16:26:50 DEBUG t.SimpleTask:85 - searching interval with id: 1in task task4
+2017-11-02 16:26:50 DEBUG t.Interval:87 - getting id1
+2017-11-02 16:26:50 DEBUG t.Interval:162 - interval running: true
+2017-11-02 16:26:50 DEBUG t.SimpleTask:85 - searching interval with id: 1in task task4
+2017-11-02 16:26:50 DEBUG t.Interval:87 - getting id1
+2017-11-02 16:26:50 DEBUG t.Interval:72 - setting end date: Thu Nov 02 16:26:50 CET 2017
+2017-11-02 16:26:50 DEBUG t.SimpleTask:85 - searching interval with id: 1in task task4
+2017-11-02 16:26:50 DEBUG t.Interval:87 - getting id1
+2017-11-02 16:26:50 DEBUG t.Interval:192 - calculated time: 10
+2017-11-02 16:26:50 DEBUG t.Interval:137 - getting total time: 10
+2017-11-02 16:26:51 DEBUG t.Scheduled:68 - scheduled task start
+2017-11-02 16:26:51 DEBUG t.SimpleTask:85 - searching interval with id: 1in task task4
+2017-11-02 16:26:51 DEBUG t.Interval:87 - getting id1
+2017-11-02 16:26:51 DEBUG t.Interval:162 - interval running: true
+2017-11-02 16:26:51 DEBUG t.SimpleTask:85 - searching interval with id: 1in task task4
+2017-11-02 16:26:51 DEBUG t.Interval:87 - getting id1
+2017-11-02 16:26:51 DEBUG t.Interval:72 - setting end date: Thu Nov 02 16:26:51 CET 2017
+2017-11-02 16:26:51 DEBUG t.SimpleTask:85 - searching interval with id: 1in task task4
+2017-11-02 16:26:51 DEBUG t.Interval:87 - getting id1
+2017-11-02 16:26:51 DEBUG t.Interval:192 - calculated time: 11
+2017-11-02 16:26:51 DEBUG t.Interval:137 - getting total time: 11
+2017-11-02 16:26:52 DEBUG t.Scheduled:68 - scheduled task start
+2017-11-02 16:26:52 DEBUG t.SimpleTask:85 - searching interval with id: 1in task task4
+2017-11-02 16:26:52 DEBUG t.Interval:87 - getting id1
+2017-11-02 16:26:52 DEBUG t.Interval:162 - interval running: true
+2017-11-02 16:26:52 DEBUG t.SimpleTask:85 - searching interval with id: 1in task task4
+2017-11-02 16:26:52 DEBUG t.Interval:87 - getting id1
+2017-11-02 16:26:52 DEBUG t.Interval:72 - setting end date: Thu Nov 02 16:26:52 CET 2017
+2017-11-02 16:26:52 DEBUG t.SimpleTask:85 - searching interval with id: 1in task task4
+2017-11-02 16:26:52 DEBUG t.Interval:87 - getting id1
+2017-11-02 16:26:52 DEBUG t.Interval:192 - calculated time: 12
+2017-11-02 16:26:52 DEBUG t.Interval:137 - getting total time: 12
+2017-11-02 16:29:33 WARN  t.Client:81 - There is not data.ser file created.
+2017-11-02 16:29:33 DEBUG t.Clock:96 - Clock started running
+2017-11-02 16:29:33 DEBUG t.Impresor:41 - set root projects in impresor
+2017-11-02 16:29:33 DEBUG t.Impresor:98 - set impresor running ON
+2017-11-02 16:29:33 DEBUG t.Impresor:74 - impresor running
+2017-11-02 16:29:34 DEBUG t.Impresor:163 - printing activities tree
+2017-11-02 16:29:35 DEBUG t.Impresor:163 - printing activities tree
+2017-11-02 16:29:35 DEBUG t.Client:218 - chosen option: 1
+2017-11-02 16:29:35 DEBUG t.Impresor:90 - impresor runing off
+2017-11-02 16:29:36 DEBUG t.Impresor:163 - printing activities tree
+2017-11-02 16:29:36 DEBUG t.Client:654 - choosing submenu option
+2017-11-02 16:29:46 DEBUG t.Client:663 - chosen option: 1
+2017-11-02 16:29:46 DEBUG t.Client:464 - adding root project
+2017-11-02 16:29:46 DEBUG t.Client:465 - asking project properties
+2017-11-02 16:29:46 DEBUG t.Client:127 - introducing root project name
+2017-11-02 16:29:48 DEBUG t.Client:130 - name introduced: root1
+2017-11-02 16:29:48 DEBUG t.Client:49 - getting root project: root1
+2017-11-02 16:29:48 DEBUG t.Client:139 - introducing description
+2017-11-02 16:29:49 DEBUG t.Client:142 - description introduced:frw
+2017-11-02 16:29:49 DEBUG t.Client:143 - all properties has been introduced correctly
+2017-11-02 16:29:49 INFO  t.Client:470 - root project root1 added
+2017-11-02 16:29:49 DEBUG t.Impresor:41 - set root projects in impresor
+2017-11-02 16:29:49 DEBUG t.Client:654 - choosing submenu option
+2017-11-02 16:29:50 DEBUG t.Client:663 - chosen option: 3
+2017-11-02 16:29:50 DEBUG t.Client:525 - adding task to project
+2017-11-02 16:29:50 DEBUG t.Client:526 - introducing name of father project
+2017-11-02 16:30:00 DEBUG t.Client:533 - searching father project root1
+2017-11-02 16:30:00 DEBUG t.Client:153 - Getting activity: root1
+2017-11-02 16:30:00 DEBUG t.Client:544 - father root1 has been found
+2017-11-02 16:30:00 DEBUG t.Client:545 - Adding child Task to root1
+2017-11-02 16:30:00 DEBUG t.Project:210 - introducing activity name
+2017-11-02 16:30:03 DEBUG t.Project:213 - name introduced: task1
+2017-11-02 16:30:03 DEBUG t.Client:153 - Getting activity: task1
+2017-11-02 16:30:03 DEBUG t.Project:40 - getting childrens: []from project root1
+2017-11-02 16:30:03 DEBUG t.Client:195 - nonVisited queue is empty
+2017-11-02 16:30:03 DEBUG t.Project:222 - introducing activity description
+2017-11-02 16:30:04 DEBUG t.Project:225 - description introduced: fwf
+2017-11-02 16:30:04 DEBUG t.Project:226 - all properties has been introduced correctly
+2017-11-02 16:30:04 DEBUG t.Project:110 - Introducing interval time option
+2017-11-02 16:30:05 DEBUG t.Project:113 - interval time option introduced have correct type
+2017-11-02 16:30:05 DEBUG t.Project:128 - interval time option introduced correctly
+2017-11-02 16:30:05 DEBUG t.Project:154 - introducing scheduled option
+2017-11-02 16:30:07 DEBUG t.Project:157 - scheduled option introduced have correct type
+2017-11-02 16:30:07 DEBUG t.Project:173 - introducing scheduled option introduced correctly
+2017-11-02 16:30:07 DEBUG t.Project:183 - introducing starting date for schedule task
+2017-11-02 16:30:31 DEBUG t.Project:188 - introduced date Thu Nov 02 16:30:50 CET 2017 correctly
+2017-11-02 16:30:31 DEBUG t.Clock:43 - getting clock notification
+2017-11-02 16:30:31 INFO  t.Project:200 - added task task1
+2017-11-02 16:30:31 DEBUG t.Client:654 - choosing submenu option
+2017-11-02 16:30:49 DEBUG t.Interval:199 - interval started
+2017-11-02 16:30:49 DEBUG t.Interval:122 - set start date: Thu Nov 02 16:30:49 CET 2017
+2017-11-02 16:30:49 DEBUG t.Interval:87 - getting id1
+2017-11-02 16:30:49 DEBUG t.Interval:37 - getting Task: task1
+2017-11-02 16:30:49 DEBUG t.Interval:172 - setting interval running: true
+2017-11-02 16:30:49 INFO  t.SimpleTask:144 - interval for task task1 started
+2017-11-02 16:30:49 DEBUG t.SimpleTask:85 - searching interval with id: 1in task task1
+2017-11-02 16:30:49 DEBUG t.Interval:87 - getting id1
+2017-11-02 16:30:49 DEBUG t.Interval:162 - interval running: true
+2017-11-02 16:30:49 DEBUG t.SimpleTask:85 - searching interval with id: 1in task task1
+2017-11-02 16:30:49 DEBUG t.Interval:87 - getting id1
+2017-11-02 16:30:49 DEBUG t.Interval:72 - setting end date: Thu Nov 02 16:30:49 CET 2017
+2017-11-02 16:30:49 DEBUG t.SimpleTask:85 - searching interval with id: 1in task task1
+2017-11-02 16:30:49 DEBUG t.Interval:87 - getting id1
+2017-11-02 16:30:49 DEBUG t.Interval:192 - calculated time: 0
+2017-11-02 16:30:49 DEBUG t.Interval:137 - getting total time: 0
+2017-11-02 16:30:50 DEBUG t.SimpleTask:85 - searching interval with id: 1in task task1
+2017-11-02 16:30:50 DEBUG t.Interval:87 - getting id1
+2017-11-02 16:30:50 DEBUG t.Interval:162 - interval running: true
+2017-11-02 16:30:50 DEBUG t.SimpleTask:85 - searching interval with id: 1in task task1
+2017-11-02 16:30:50 DEBUG t.Interval:87 - getting id1
+2017-11-02 16:30:50 DEBUG t.Interval:72 - setting end date: Thu Nov 02 16:30:50 CET 2017
+2017-11-02 16:30:50 DEBUG t.SimpleTask:85 - searching interval with id: 1in task task1
+2017-11-02 16:30:50 DEBUG t.Interval:87 - getting id1
+2017-11-02 16:30:50 DEBUG t.Interval:192 - calculated time: 1
+2017-11-02 16:30:50 DEBUG t.Interval:137 - getting total time: 1
+2017-11-02 16:30:51 DEBUG t.SimpleTask:85 - searching interval with id: 1in task task1
+2017-11-02 16:30:51 DEBUG t.Interval:87 - getting id1
+2017-11-02 16:30:51 DEBUG t.Interval:162 - interval running: true
+2017-11-02 16:30:51 DEBUG t.SimpleTask:85 - searching interval with id: 1in task task1
+2017-11-02 16:30:51 DEBUG t.Interval:87 - getting id1
+2017-11-02 16:30:51 DEBUG t.Interval:72 - setting end date: Thu Nov 02 16:30:51 CET 2017
+2017-11-02 16:30:51 DEBUG t.SimpleTask:85 - searching interval with id: 1in task task1
+2017-11-02 16:30:51 DEBUG t.Interval:87 - getting id1
+2017-11-02 16:30:51 DEBUG t.Interval:192 - calculated time: 2
+2017-11-02 16:30:51 DEBUG t.Interval:137 - getting total time: 2
+2017-11-02 16:30:52 DEBUG t.SimpleTask:85 - searching interval with id: 1in task task1
+2017-11-02 16:30:52 DEBUG t.Interval:87 - getting id1
+2017-11-02 16:30:52 DEBUG t.Interval:162 - interval running: true
+2017-11-02 16:30:52 DEBUG t.SimpleTask:85 - searching interval with id: 1in task task1
+2017-11-02 16:30:52 DEBUG t.Interval:87 - getting id1
+2017-11-02 16:30:52 DEBUG t.Interval:72 - setting end date: Thu Nov 02 16:30:52 CET 2017
+2017-11-02 16:30:52 DEBUG t.SimpleTask:85 - searching interval with id: 1in task task1
+2017-11-02 16:30:52 DEBUG t.Interval:87 - getting id1
+2017-11-02 16:30:52 DEBUG t.Interval:192 - calculated time: 3
+2017-11-02 16:30:52 DEBUG t.Interval:137 - getting total time: 3
+2017-11-02 16:30:53 DEBUG t.SimpleTask:85 - searching interval with id: 1in task task1
+2017-11-02 16:30:53 DEBUG t.Interval:87 - getting id1
+2017-11-02 16:30:53 DEBUG t.Interval:162 - interval running: true
+2017-11-02 16:30:53 DEBUG t.SimpleTask:85 - searching interval with id: 1in task task1
+2017-11-02 16:30:53 DEBUG t.Interval:87 - getting id1
+2017-11-02 16:30:53 DEBUG t.Interval:72 - setting end date: Thu Nov 02 16:30:53 CET 2017
+2017-11-02 16:30:53 DEBUG t.SimpleTask:85 - searching interval with id: 1in task task1
+2017-11-02 16:30:53 DEBUG t.Interval:87 - getting id1
+2017-11-02 16:30:53 DEBUG t.Interval:192 - calculated time: 4
+2017-11-02 16:30:53 DEBUG t.Interval:137 - getting total time: 4
+2017-11-02 16:30:54 DEBUG t.SimpleTask:85 - searching interval with id: 1in task task1
+2017-11-02 16:30:54 DEBUG t.Interval:87 - getting id1
+2017-11-02 16:30:54 DEBUG t.Interval:162 - interval running: true
+2017-11-02 16:30:54 DEBUG t.SimpleTask:85 - searching interval with id: 1in task task1
+2017-11-02 16:30:54 DEBUG t.Interval:87 - getting id1
+2017-11-02 16:30:54 DEBUG t.Interval:72 - setting end date: Thu Nov 02 16:30:54 CET 2017
+2017-11-02 16:30:54 DEBUG t.SimpleTask:85 - searching interval with id: 1in task task1
+2017-11-02 16:30:54 DEBUG t.Interval:87 - getting id1
+2017-11-02 16:30:54 DEBUG t.Interval:192 - calculated time: 5
+2017-11-02 16:30:54 DEBUG t.Interval:137 - getting total time: 5
+2017-11-02 16:30:55 DEBUG t.SimpleTask:85 - searching interval with id: 1in task task1
+2017-11-02 16:30:55 DEBUG t.Interval:87 - getting id1
+2017-11-02 16:30:55 DEBUG t.Interval:162 - interval running: true
+2017-11-02 16:30:55 DEBUG t.SimpleTask:85 - searching interval with id: 1in task task1
+2017-11-02 16:30:55 DEBUG t.Interval:87 - getting id1
+2017-11-02 16:30:55 DEBUG t.Interval:72 - setting end date: Thu Nov 02 16:30:55 CET 2017
+2017-11-02 16:30:55 DEBUG t.SimpleTask:85 - searching interval with id: 1in task task1
+2017-11-02 16:30:55 DEBUG t.Interval:87 - getting id1
+2017-11-02 16:30:55 DEBUG t.Interval:192 - calculated time: 6
+2017-11-02 16:30:55 DEBUG t.Interval:137 - getting total time: 6
+2017-11-02 16:30:56 DEBUG t.SimpleTask:85 - searching interval with id: 1in task task1
+2017-11-02 16:30:56 DEBUG t.Interval:87 - getting id1
+2017-11-02 16:30:56 DEBUG t.Interval:162 - interval running: true
+2017-11-02 16:30:56 DEBUG t.SimpleTask:85 - searching interval with id: 1in task task1
+2017-11-02 16:30:56 DEBUG t.Interval:87 - getting id1
+2017-11-02 16:30:56 DEBUG t.Interval:72 - setting end date: Thu Nov 02 16:30:56 CET 2017
+2017-11-02 16:30:56 DEBUG t.SimpleTask:85 - searching interval with id: 1in task task1
+2017-11-02 16:30:56 DEBUG t.Interval:87 - getting id1
+2017-11-02 16:30:56 DEBUG t.Interval:192 - calculated time: 7
+2017-11-02 16:30:56 DEBUG t.Interval:137 - getting total time: 7
+2017-11-02 16:30:57 DEBUG t.SimpleTask:85 - searching interval with id: 1in task task1
+2017-11-02 16:30:57 DEBUG t.Interval:87 - getting id1
+2017-11-02 16:30:57 DEBUG t.Interval:162 - interval running: true
+2017-11-02 16:30:57 DEBUG t.SimpleTask:85 - searching interval with id: 1in task task1
+2017-11-02 16:30:57 DEBUG t.Interval:87 - getting id1
+2017-11-02 16:30:57 DEBUG t.Interval:72 - setting end date: Thu Nov 02 16:30:57 CET 2017
+2017-11-02 16:30:57 DEBUG t.SimpleTask:85 - searching interval with id: 1in task task1
+2017-11-02 16:30:57 DEBUG t.Interval:87 - getting id1
+2017-11-02 16:30:57 DEBUG t.Interval:192 - calculated time: 8
+2017-11-02 16:30:57 DEBUG t.Interval:137 - getting total time: 8
+2017-11-02 16:30:58 DEBUG t.SimpleTask:85 - searching interval with id: 1in task task1
+2017-11-02 16:30:58 DEBUG t.Interval:87 - getting id1
+2017-11-02 16:30:58 DEBUG t.Interval:162 - interval running: true
+2017-11-02 16:30:58 DEBUG t.SimpleTask:85 - searching interval with id: 1in task task1
+2017-11-02 16:30:58 DEBUG t.Interval:87 - getting id1
+2017-11-02 16:30:58 DEBUG t.Interval:72 - setting end date: Thu Nov 02 16:30:58 CET 2017
+2017-11-02 16:30:58 DEBUG t.SimpleTask:85 - searching interval with id: 1in task task1
+2017-11-02 16:30:58 DEBUG t.Interval:87 - getting id1
+2017-11-02 16:30:58 DEBUG t.Interval:192 - calculated time: 9
+2017-11-02 16:30:58 DEBUG t.Interval:137 - getting total time: 9
+2017-11-02 16:30:59 DEBUG t.SimpleTask:85 - searching interval with id: 1in task task1
+2017-11-02 16:30:59 DEBUG t.Interval:87 - getting id1
+2017-11-02 16:30:59 DEBUG t.Interval:162 - interval running: true
+2017-11-02 16:30:59 DEBUG t.SimpleTask:85 - searching interval with id: 1in task task1
+2017-11-02 16:30:59 DEBUG t.Interval:87 - getting id1
+2017-11-02 16:30:59 DEBUG t.Interval:72 - setting end date: Thu Nov 02 16:30:59 CET 2017
+2017-11-02 16:30:59 DEBUG t.SimpleTask:85 - searching interval with id: 1in task task1
+2017-11-02 16:30:59 DEBUG t.Interval:87 - getting id1
+2017-11-02 16:30:59 DEBUG t.Interval:192 - calculated time: 10
+2017-11-02 16:30:59 DEBUG t.Interval:137 - getting total time: 10
+2017-11-02 16:31:00 DEBUG t.SimpleTask:85 - searching interval with id: 1in task task1
+2017-11-02 16:31:00 DEBUG t.Interval:87 - getting id1
+2017-11-02 16:31:00 DEBUG t.Interval:162 - interval running: true
+2017-11-02 16:31:00 DEBUG t.SimpleTask:85 - searching interval with id: 1in task task1
+2017-11-02 16:31:00 DEBUG t.Interval:87 - getting id1
+2017-11-02 16:31:00 DEBUG t.Interval:72 - setting end date: Thu Nov 02 16:31:00 CET 2017
+2017-11-02 16:31:00 DEBUG t.SimpleTask:85 - searching interval with id: 1in task task1
+2017-11-02 16:31:00 DEBUG t.Interval:87 - getting id1
+2017-11-02 16:31:00 DEBUG t.Interval:192 - calculated time: 11
+2017-11-02 16:31:00 DEBUG t.Interval:137 - getting total time: 11
+2017-11-02 16:31:01 DEBUG t.SimpleTask:85 - searching interval with id: 1in task task1
+2017-11-02 16:31:01 DEBUG t.Interval:87 - getting id1
+2017-11-02 16:31:01 DEBUG t.Interval:162 - interval running: true
+2017-11-02 16:31:01 DEBUG t.SimpleTask:85 - searching interval with id: 1in task task1
+2017-11-02 16:31:01 DEBUG t.Interval:87 - getting id1
+2017-11-02 16:31:01 DEBUG t.Interval:72 - setting end date: Thu Nov 02 16:31:01 CET 2017
+2017-11-02 16:31:01 DEBUG t.SimpleTask:85 - searching interval with id: 1in task task1
+2017-11-02 16:31:01 DEBUG t.Interval:87 - getting id1
+2017-11-02 16:31:01 DEBUG t.Interval:192 - calculated time: 12
+2017-11-02 16:31:01 DEBUG t.Interval:137 - getting total time: 12
+2017-11-02 16:31:02 DEBUG t.SimpleTask:85 - searching interval with id: 1in task task1
+2017-11-02 16:31:02 DEBUG t.Interval:87 - getting id1
+2017-11-02 16:31:02 DEBUG t.Interval:162 - interval running: true
+2017-11-02 16:31:02 DEBUG t.SimpleTask:85 - searching interval with id: 1in task task1
+2017-11-02 16:31:02 DEBUG t.Interval:87 - getting id1
+2017-11-02 16:31:02 DEBUG t.Interval:72 - setting end date: Thu Nov 02 16:31:02 CET 2017
+2017-11-02 16:31:02 DEBUG t.SimpleTask:85 - searching interval with id: 1in task task1
+2017-11-02 16:31:02 DEBUG t.Interval:87 - getting id1
+2017-11-02 16:31:02 DEBUG t.Interval:192 - calculated time: 13
+2017-11-02 16:31:02 DEBUG t.Interval:137 - getting total time: 13
+2017-11-02 16:31:03 DEBUG t.SimpleTask:85 - searching interval with id: 1in task task1
+2017-11-02 16:31:03 DEBUG t.Interval:87 - getting id1
+2017-11-02 16:31:03 DEBUG t.Interval:162 - interval running: true
+2017-11-02 16:31:03 DEBUG t.SimpleTask:85 - searching interval with id: 1in task task1
+2017-11-02 16:31:03 DEBUG t.Interval:87 - getting id1
+2017-11-02 16:31:03 DEBUG t.Interval:72 - setting end date: Thu Nov 02 16:31:03 CET 2017
+2017-11-02 16:31:03 DEBUG t.SimpleTask:85 - searching interval with id: 1in task task1
+2017-11-02 16:31:03 DEBUG t.Interval:87 - getting id1
+2017-11-02 16:31:03 DEBUG t.Interval:192 - calculated time: 14
+2017-11-02 16:31:03 DEBUG t.Interval:137 - getting total time: 14
+2017-11-02 16:31:04 DEBUG t.SimpleTask:85 - searching interval with id: 1in task task1
+2017-11-02 16:31:04 DEBUG t.Interval:87 - getting id1
+2017-11-02 16:31:04 DEBUG t.Interval:162 - interval running: true
+2017-11-02 16:31:04 DEBUG t.SimpleTask:85 - searching interval with id: 1in task task1
+2017-11-02 16:31:04 DEBUG t.Interval:87 - getting id1
+2017-11-02 16:31:04 DEBUG t.Interval:72 - setting end date: Thu Nov 02 16:31:04 CET 2017
+2017-11-02 16:31:04 DEBUG t.SimpleTask:85 - searching interval with id: 1in task task1
+2017-11-02 16:31:04 DEBUG t.Interval:87 - getting id1
+2017-11-02 16:31:04 DEBUG t.Interval:192 - calculated time: 15
+2017-11-02 16:31:04 DEBUG t.Interval:137 - getting total time: 15
+2017-11-02 16:31:05 DEBUG t.SimpleTask:85 - searching interval with id: 1in task task1
+2017-11-02 16:31:05 DEBUG t.Interval:87 - getting id1
+2017-11-02 16:31:05 DEBUG t.Interval:162 - interval running: true
+2017-11-02 16:31:05 DEBUG t.SimpleTask:85 - searching interval with id: 1in task task1
+2017-11-02 16:31:05 DEBUG t.Interval:87 - getting id1
+2017-11-02 16:31:05 DEBUG t.Interval:72 - setting end date: Thu Nov 02 16:31:05 CET 2017
+2017-11-02 16:31:05 DEBUG t.SimpleTask:85 - searching interval with id: 1in task task1
+2017-11-02 16:31:05 DEBUG t.Interval:87 - getting id1
+2017-11-02 16:31:05 DEBUG t.Interval:192 - calculated time: 16
+2017-11-02 16:31:05 DEBUG t.Interval:137 - getting total time: 16
+2017-11-02 16:32:45 DEBUG t.Clock:96 - Clock started running
+2017-11-02 16:32:45 WARN  t.Client:81 - There is not data.ser file created.
+2017-11-02 16:32:45 DEBUG t.Impresor:41 - set root projects in impresor
+2017-11-02 16:32:45 DEBUG t.Impresor:98 - set impresor running ON
+2017-11-02 16:32:45 DEBUG t.Impresor:74 - impresor running
+2017-11-02 16:32:46 DEBUG t.Impresor:163 - printing activities tree
+2017-11-02 16:32:47 DEBUG t.Impresor:163 - printing activities tree
+2017-11-02 16:32:47 DEBUG t.Client:218 - chosen option: 1
+2017-11-02 16:32:47 DEBUG t.Impresor:90 - impresor runing off
+2017-11-02 16:32:48 DEBUG t.Impresor:163 - printing activities tree
+2017-11-02 16:32:48 DEBUG t.Client:654 - choosing submenu option
+2017-11-02 16:32:51 DEBUG t.Client:663 - chosen option: 1
+2017-11-02 16:32:51 DEBUG t.Client:464 - adding root project
+2017-11-02 16:32:51 DEBUG t.Client:465 - asking project properties
+2017-11-02 16:32:51 DEBUG t.Client:127 - introducing root project name
+2017-11-02 16:32:52 DEBUG t.Client:130 - name introduced: root1
+2017-11-02 16:32:52 DEBUG t.Client:49 - getting root project: root1
+2017-11-02 16:32:52 DEBUG t.Client:139 - introducing description
+2017-11-02 16:32:53 DEBUG t.Client:142 - description introduced:frew
+2017-11-02 16:32:53 DEBUG t.Client:143 - all properties has been introduced correctly
+2017-11-02 16:32:53 INFO  t.Client:470 - root project root1 added
+2017-11-02 16:32:53 DEBUG t.Impresor:41 - set root projects in impresor
+2017-11-02 16:32:53 DEBUG t.Client:654 - choosing submenu option
+2017-11-02 16:33:01 DEBUG t.Client:663 - chosen option: 3
+2017-11-02 16:33:01 DEBUG t.Client:525 - adding task to project
+2017-11-02 16:33:01 DEBUG t.Client:526 - introducing name of father project
+2017-11-02 16:33:03 DEBUG t.Client:533 - searching father project root1
+2017-11-02 16:33:03 DEBUG t.Client:153 - Getting activity: root1
+2017-11-02 16:33:03 DEBUG t.Client:544 - father root1 has been found
+2017-11-02 16:33:03 DEBUG t.Client:545 - Adding child Task to root1
+2017-11-02 16:33:03 DEBUG t.Project:210 - introducing activity name
+2017-11-02 16:33:05 DEBUG t.Project:213 - name introduced: fwf
+2017-11-02 16:33:05 DEBUG t.Client:153 - Getting activity: fwf
+2017-11-02 16:33:05 DEBUG t.Project:40 - getting childrens: []from project root1
+2017-11-02 16:33:05 DEBUG t.Client:195 - nonVisited queue is empty
+2017-11-02 16:33:05 DEBUG t.Project:222 - introducing activity description
+2017-11-02 16:33:08 DEBUG t.Project:225 - description introduced: wefw
+2017-11-02 16:33:08 DEBUG t.Project:226 - all properties has been introduced correctly
+2017-11-02 16:33:08 DEBUG t.Project:110 - Introducing interval time option
+2017-11-02 16:33:10 DEBUG t.Project:113 - interval time option introduced have correct type
+2017-11-02 16:33:10 DEBUG t.Project:128 - interval time option introduced correctly
+2017-11-02 16:33:10 DEBUG t.Project:154 - introducing scheduled option
+2017-11-02 16:33:11 DEBUG t.Project:157 - scheduled option introduced have correct type
+2017-11-02 16:33:11 DEBUG t.Project:173 - introducing scheduled option introduced correctly
+2017-11-02 16:33:11 DEBUG t.Project:183 - introducing starting date for schedule task
+2017-11-02 16:33:27 DEBUG t.Project:188 - introduced date Thu Nov 02 16:33:30 CET 2017 correctly
+2017-11-02 16:33:27 DEBUG t.Clock:43 - getting clock notification
+2017-11-02 16:33:27 INFO  t.Project:200 - added task fwf
+2017-11-02 16:33:27 DEBUG t.Client:654 - choosing submenu option
+2017-11-02 16:33:30 DEBUG t.Interval:199 - interval started
+2017-11-02 16:33:30 DEBUG t.Interval:122 - set start date: Thu Nov 02 16:33:30 CET 2017
+2017-11-02 16:33:30 DEBUG t.Interval:37 - getting Task: fwf
+2017-11-02 16:33:30 DEBUG t.Interval:172 - setting interval running: true
+2017-11-02 16:33:30 INFO  t.SimpleTask:144 - interval for task fwf started
+2017-11-02 16:33:30 DEBUG t.Interval:72 - setting end date: Thu Nov 02 16:33:30 CET 2017
+2017-11-02 16:33:30 DEBUG t.Interval:192 - calculated time: 0
+2017-11-02 16:33:30 DEBUG t.Interval:137 - getting total time: 0
+2017-11-02 16:33:31 DEBUG t.Interval:72 - setting end date: Thu Nov 02 16:33:31 CET 2017
+2017-11-02 16:33:31 DEBUG t.Interval:192 - calculated time: 1
+2017-11-02 16:33:31 DEBUG t.Interval:137 - getting total time: 1
+2017-11-02 16:33:32 DEBUG t.Interval:72 - setting end date: Thu Nov 02 16:33:32 CET 2017
+2017-11-02 16:33:32 DEBUG t.Interval:192 - calculated time: 2
+2017-11-02 16:33:32 DEBUG t.Interval:137 - getting total time: 2
+2017-11-02 16:33:33 DEBUG t.Interval:72 - setting end date: Thu Nov 02 16:33:33 CET 2017
+2017-11-02 16:33:33 DEBUG t.Interval:192 - calculated time: 3
+2017-11-02 16:33:33 DEBUG t.Interval:137 - getting total time: 3
+2017-11-02 16:33:34 DEBUG t.Interval:72 - setting end date: Thu Nov 02 16:33:34 CET 2017
+2017-11-02 16:33:34 DEBUG t.Interval:192 - calculated time: 4
+2017-11-02 16:33:34 DEBUG t.Interval:137 - getting total time: 4
+2017-11-02 16:33:35 DEBUG t.Interval:72 - setting end date: Thu Nov 02 16:33:35 CET 2017
+2017-11-02 16:33:35 DEBUG t.Interval:192 - calculated time: 5
+2017-11-02 16:33:35 DEBUG t.Interval:137 - getting total time: 5
+2017-11-02 16:34:33 DEBUG t.Clock:96 - Clock started running
+2017-11-02 16:34:33 WARN  t.Client:81 - There is not data.ser file created.
+2017-11-02 16:34:33 DEBUG t.Impresor:41 - set root projects in impresor
+2017-11-02 16:34:33 DEBUG t.Impresor:98 - set impresor running ON
+2017-11-02 16:34:33 DEBUG t.Impresor:74 - impresor running
+2017-11-02 16:34:34 DEBUG t.Impresor:163 - printing activities tree
+2017-11-02 16:34:35 DEBUG t.Impresor:163 - printing activities tree
+2017-11-02 16:34:36 DEBUG t.Impresor:163 - printing activities tree
+2017-11-02 16:34:37 DEBUG t.Impresor:163 - printing activities tree
+2017-11-02 16:34:37 DEBUG t.Client:218 - chosen option: 1
+2017-11-02 16:34:37 DEBUG t.Impresor:90 - impresor runing off
+2017-11-02 16:34:38 DEBUG t.Impresor:163 - printing activities tree
+2017-11-02 16:34:38 DEBUG t.Client:654 - choosing submenu option
+2017-11-02 16:34:39 DEBUG t.Client:663 - chosen option: 1
+2017-11-02 16:34:39 DEBUG t.Client:464 - adding root project
+2017-11-02 16:34:39 DEBUG t.Client:465 - asking project properties
+2017-11-02 16:34:39 DEBUG t.Client:127 - introducing root project name
+2017-11-02 16:34:41 DEBUG t.Client:130 - name introduced: root1
+2017-11-02 16:34:41 DEBUG t.Client:49 - getting root project: root1
+2017-11-02 16:34:41 DEBUG t.Client:139 - introducing description
+2017-11-02 16:34:42 DEBUG t.Client:142 - description introduced:freg
+2017-11-02 16:34:42 DEBUG t.Client:143 - all properties has been introduced correctly
+2017-11-02 16:34:42 INFO  t.Client:470 - root project root1 added
+2017-11-02 16:34:42 DEBUG t.Impresor:41 - set root projects in impresor
+2017-11-02 16:34:42 DEBUG t.Client:654 - choosing submenu option
+2017-11-02 16:34:44 DEBUG t.Client:663 - chosen option: 3
+2017-11-02 16:34:44 DEBUG t.Client:525 - adding task to project
+2017-11-02 16:34:44 DEBUG t.Client:526 - introducing name of father project
+2017-11-02 16:34:46 DEBUG t.Client:533 - searching father project root1
+2017-11-02 16:34:46 DEBUG t.Client:153 - Getting activity: root1
+2017-11-02 16:34:46 DEBUG t.Client:544 - father root1 has been found
+2017-11-02 16:34:46 DEBUG t.Client:545 - Adding child Task to root1
+2017-11-02 16:34:46 DEBUG t.Project:210 - introducing activity name
+2017-11-02 16:34:47 DEBUG t.Project:213 - name introduced: task1
+2017-11-02 16:34:47 DEBUG t.Client:153 - Getting activity: task1
+2017-11-02 16:34:47 DEBUG t.Project:40 - getting childrens: []from project root1
+2017-11-02 16:34:47 DEBUG t.Client:195 - nonVisited queue is empty
+2017-11-02 16:34:47 DEBUG t.Project:222 - introducing activity description
+2017-11-02 16:34:48 DEBUG t.Project:225 - description introduced: fwr
+2017-11-02 16:34:48 DEBUG t.Project:226 - all properties has been introduced correctly
+2017-11-02 16:34:48 DEBUG t.Project:110 - Introducing interval time option
+2017-11-02 16:34:50 DEBUG t.Project:113 - interval time option introduced have correct type
+2017-11-02 16:34:50 DEBUG t.Project:128 - interval time option introduced correctly
+2017-11-02 16:34:50 DEBUG t.Project:154 - introducing scheduled option
+2017-11-02 16:34:50 DEBUG t.Project:157 - scheduled option introduced have correct type
+2017-11-02 16:34:50 DEBUG t.Project:173 - introducing scheduled option introduced correctly
+2017-11-02 16:34:50 DEBUG t.Project:183 - introducing starting date for schedule task
+2017-11-02 16:35:12 DEBUG t.Project:188 - introduced date Thu Nov 02 16:35:15 CET 2017 correctly
+2017-11-02 16:35:12 DEBUG t.Clock:43 - getting clock notification
+2017-11-02 16:35:12 INFO  t.Project:200 - added task task1
+2017-11-02 16:35:12 DEBUG t.Client:654 - choosing submenu option
+2017-11-02 16:35:15 DEBUG t.Interval:199 - interval started
+2017-11-02 16:35:15 DEBUG t.Interval:122 - set start date: Thu Nov 02 16:35:15 CET 2017
+2017-11-02 16:35:15 DEBUG t.Interval:37 - getting Task: task1
+2017-11-02 16:35:15 DEBUG t.Interval:172 - setting interval running: true
+2017-11-02 16:35:15 INFO  t.SimpleTask:144 - interval for task task1 started
+2017-11-02 16:36:05 DEBUG t.Client:663 - chosen option: 5
+2017-11-02 16:36:05 DEBUG t.Client:602 - stoping interval
+2017-11-02 16:36:05 DEBUG t.Client:603 - introducing name of the task
+2017-11-02 16:36:08 DEBUG t.Client:610 - task name introduced: task1
+2017-11-02 16:36:08 DEBUG t.Client:611 - searching task task1
+2017-11-02 16:36:08 DEBUG t.Client:153 - Getting activity: task1
+2017-11-02 16:36:08 DEBUG t.Project:40 - getting childrens: [timeTracker.Scheduled@58d3d0d4]from project root1
+2017-11-02 16:36:08 DEBUG t.Client:153 - Getting activity: task1
+2017-11-02 16:36:08 DEBUG t.Project:40 - getting childrens: [timeTracker.Scheduled@58d3d0d4]from project root1
+2017-11-02 16:36:08 DEBUG t.Client:624 - task task1has been found
+2017-11-02 16:36:08 INFO  t.Client:625 - Task task1 stopped
+2017-11-02 16:36:08 DEBUG t.Interval:212 - interval stopped
+2017-11-02 16:36:08 DEBUG t.Interval:172 - setting interval running: false
+2017-11-02 16:36:08 DEBUG t.Client:654 - choosing submenu option
+2017-11-02 16:37:00 DEBUG t.Client:663 - chosen option: 3
+2017-11-02 16:37:00 DEBUG t.Client:525 - adding task to project
+2017-11-02 16:37:00 DEBUG t.Client:526 - introducing name of father project
+2017-11-02 16:37:04 DEBUG t.Client:533 - searching father project root1
+2017-11-02 16:37:04 DEBUG t.Client:153 - Getting activity: root1
+2017-11-02 16:37:04 DEBUG t.Client:544 - father root1 has been found
+2017-11-02 16:37:04 DEBUG t.Client:545 - Adding child Task to root1
+2017-11-02 16:37:04 DEBUG t.Project:210 - introducing activity name
+2017-11-02 16:37:06 DEBUG t.Project:213 - name introduced: task2
+2017-11-02 16:37:06 DEBUG t.Client:153 - Getting activity: task2
+2017-11-02 16:37:06 DEBUG t.Project:40 - getting childrens: [timeTracker.Scheduled@58d3d0d4]from project root1
+2017-11-02 16:37:06 DEBUG t.Client:195 - nonVisited queue is empty
+2017-11-02 16:37:06 DEBUG t.Project:222 - introducing activity description
+2017-11-02 16:37:07 DEBUG t.Project:225 - description introduced: frg
+2017-11-02 16:37:07 DEBUG t.Project:226 - all properties has been introduced correctly
+2017-11-02 16:37:07 DEBUG t.Project:110 - Introducing interval time option
+2017-11-02 16:37:10 DEBUG t.Project:113 - interval time option introduced have correct type
+2017-11-02 16:37:10 DEBUG t.Project:128 - interval time option introduced correctly
+2017-11-02 16:37:10 DEBUG t.Project:154 - introducing scheduled option
+2017-11-02 16:37:12 DEBUG t.Project:157 - scheduled option introduced have correct type
+2017-11-02 16:37:12 DEBUG t.Project:173 - introducing scheduled option introduced correctly
+2017-11-02 16:37:12 DEBUG t.Clock:43 - getting clock notification
+2017-11-02 16:37:12 INFO  t.Project:200 - added task task2
+2017-11-02 16:37:12 DEBUG t.Client:654 - choosing submenu option
+2017-11-02 16:37:14 DEBUG t.Client:663 - chosen option: 4
+2017-11-02 16:37:14 DEBUG t.Client:559 - Option start task
+2017-11-02 16:37:14 DEBUG t.Client:560 - introducing name of the task
+2017-11-02 16:37:16 DEBUG t.Client:570 - task name introduced: task2
+2017-11-02 16:37:16 DEBUG t.Client:571 - searching task task2
+2017-11-02 16:37:16 DEBUG t.Client:153 - Getting activity: task2
+2017-11-02 16:37:16 DEBUG t.Project:40 - getting childrens: [timeTracker.Scheduled@58d3d0d4, timeTracker.SimpleTask@3a333bdb]from project root1
+2017-11-02 16:37:16 DEBUG t.Client:583 - task task2has been found
+2017-11-02 16:37:16 DEBUG t.Client:584 - Starting Tasktask2by adding new Interval
+2017-11-02 16:37:16 DEBUG t.Interval:199 - interval started
+2017-11-02 16:37:16 DEBUG t.Interval:122 - set start date: Thu Nov 02 16:37:16 CET 2017
+2017-11-02 16:37:16 DEBUG t.Interval:37 - getting Task: task2
+2017-11-02 16:37:16 DEBUG t.Interval:172 - setting interval running: true
+2017-11-02 16:37:16 INFO  t.SimpleTask:144 - interval for task task2 started
+2017-11-02 16:37:16 DEBUG t.Client:654 - choosing submenu option
+2017-11-02 16:40:16 DEBUG t.Client:663 - chosen option: 5
+2017-11-02 16:40:16 DEBUG t.Client:602 - stoping interval
+2017-11-02 16:40:16 DEBUG t.Client:603 - introducing name of the task
+2017-11-02 16:40:18 DEBUG t.Client:610 - task name introduced: task2
+2017-11-02 16:40:18 DEBUG t.Client:611 - searching task task2
+2017-11-02 16:40:18 DEBUG t.Client:153 - Getting activity: task2
+2017-11-02 16:40:18 DEBUG t.Project:40 - getting childrens: [timeTracker.Scheduled@58d3d0d4, timeTracker.SimpleTask@3a333bdb]from project root1
+2017-11-02 16:40:18 DEBUG t.Client:153 - Getting activity: task2
+2017-11-02 16:40:18 DEBUG t.Project:40 - getting childrens: [timeTracker.Scheduled@58d3d0d4, timeTracker.SimpleTask@3a333bdb]from project root1
+2017-11-02 16:40:18 DEBUG t.Client:624 - task task2has been found
+2017-11-02 16:40:18 INFO  t.Client:625 - Task task2 stopped
+2017-11-02 16:40:18 DEBUG t.Interval:212 - interval stopped
+2017-11-02 16:40:18 DEBUG t.Interval:172 - setting interval running: false
+2017-11-02 16:40:18 DEBUG t.Client:654 - choosing submenu option
+2017-11-02 16:40:48 DEBUG t.Client:663 - chosen option: 6
+2017-11-02 16:40:48 DEBUG t.Client:694 - removing activity
+2017-11-02 16:40:48 DEBUG t.Client:695 - introducing name of element to eliminate
+2017-11-02 16:40:50 DEBUG t.Client:153 - Getting activity: task2
+2017-11-02 16:40:50 DEBUG t.Project:40 - getting childrens: [timeTracker.Scheduled@58d3d0d4, timeTracker.SimpleTask@3a333bdb]from project root1
+2017-11-02 16:40:50 DEBUG t.Client:705 - task2 is a child project
+2017-11-02 16:40:50 INFO  t.Project:253 - Removed the activity task2
+2017-11-02 16:40:50 DEBUG t.Client:654 - choosing submenu option
+2017-11-02 16:41:31 DEBUG t.Client:663 - chosen option: 7
+2017-11-02 16:41:31 DEBUG t.Client:715 - Changing refresh rate
+2017-11-02 16:41:31 DEBUG t.Client:720 - Introducing refresh rate in seconds
+2017-11-02 16:41:33 DEBUG t.Impresor:57 - set reprint time: 2
+2017-11-02 16:41:33 INFO  t.Client:723 - Introduced new refresh rate
+2017-11-02 16:41:33 DEBUG t.Client:654 - choosing submenu option
+2017-11-02 16:41:40 DEBUG t.Client:663 - chosen option: 8
+2017-11-02 16:41:40 DEBUG t.Client:733 - Changing minimum Interval Time
+2017-11-02 16:41:40 DEBUG t.Client:738 - Introducing minimum interval time in seconds
+2017-11-02 16:41:42 DEBUG t.SimpleTask:67 - setting min interval time: 1
+2017-11-02 16:41:42 INFO  t.Client:741 - Introduced new minimum interval time
+2017-11-02 16:41:42 DEBUG t.Client:654 - choosing submenu option
