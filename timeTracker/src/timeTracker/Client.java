@@ -267,9 +267,7 @@ public class Client {
 				
 				System.out.println("Time will count every 2 seconds.");
 				
-				//**************************
 				Clock.getInstance().setRefreshTime(2);
-				//**************************
 				Impresor.getInstance().setReprintTime(2);
 				Impresor.getInstance().reanudate();
 				impresorThread = new Thread(Impresor.getInstance());
@@ -323,6 +321,118 @@ public class Client {
 				}
 				
 			case 3:		// Test A.2
+				try {
+					Impresor.getInstance().terminate();
+					TimeUnit.SECONDS.sleep(1);
+				} catch (InterruptedException e1) {
+					e1.printStackTrace();
+				}
+				
+				Project p11 = new Project("P1", " ", null);
+				this.rootProjects.add(p11);
+				
+				Project p22 = new Project("P2", " ", p11);
+				p11.testAddChild(p22);
+				
+				Task t33 = new SimpleTask("T3", " ", p11);
+				p11.testAddChild(t33);
+				Clock.getInstance().getNotification().addObserver(t33);
+				
+				Task t11 = new SimpleTask("T1", " ", p22);
+				p22.testAddChild(t11);
+				Clock.getInstance().getNotification().addObserver(t11);
+				
+				Task t22 = new SimpleTask("T2", " ", p22);
+				p22.testAddChild(t22);
+				Clock.getInstance().getNotification().addObserver(t22);
+				
+				try {
+					Thread.sleep(5000);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+					logger.error("Error while putting to sleep the execution");
+				}
+				
+				System.out.println("Time will count every 2 seconds.");
+				
+				Clock.getInstance().setRefreshTime(2);
+				Impresor.getInstance().setReprintTime(2);
+				Impresor.getInstance().reanudate();
+				impresorThread = new Thread(Impresor.getInstance());
+				impresorThread.start();	
+				
+				t33.start();			
+				
+				try {
+					Thread.sleep(4000);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+					logger.error("Error while putting to sleep the execution");
+				}
+				
+				t22.start();
+				
+				try {
+					Thread.sleep(2000);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+					logger.error("Error while putting to sleep the execution");
+				}
+				
+				t33.stop();
+				
+				try {
+					Thread.sleep(2000);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+					logger.error("Error while putting to sleep the execution");
+				}
+				
+				t11.start();
+				
+				try {
+					Thread.sleep(4000);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+					logger.error("Error while putting to sleep the execution");
+				}
+				
+				t11.stop();
+				
+				try {
+					Thread.sleep(2000);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+					logger.error("Error while putting to sleep the execution");
+				}
+				
+				t22.stop();
+				
+				try {
+					Thread.sleep(4000);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+					logger.error("Error while putting to sleep the execution");
+				}
+				
+				
+				t33.start();
+				
+				try {
+					Thread.sleep(2000);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+					logger.error("Error while putting to sleep the execution");
+				}
+				
+				t33.stop();
+				
+				try {
+					Impresor.getInstance().terminate();
+					TimeUnit.SECONDS.sleep(1);
+				} catch (InterruptedException e1) {
+					e1.printStackTrace();
+				}
 				break;
 				
 			case 0:		
