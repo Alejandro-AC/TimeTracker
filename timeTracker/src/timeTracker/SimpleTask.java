@@ -146,7 +146,7 @@ public class SimpleTask extends Task {
 	@Override
 	public void update(Observable arg0, Object arg1) {
 		Date currentD = Clock.getInstance().getCurrentDate();		
-		
+				
 		if (!this.children.isEmpty()) {
 			if (this.getLastInterval().isRunning()) {
 				this.getLastInterval().setEndDate(currentD);

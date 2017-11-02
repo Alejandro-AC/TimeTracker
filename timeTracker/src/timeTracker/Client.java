@@ -227,10 +227,102 @@ public class Client {
 					Impresor.getInstance().terminate();
 					TimeUnit.SECONDS.sleep(1);
 				} catch (InterruptedException e1) {
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
 				printSubMenu();
+				break;
+				
+			case 2: 	// Test A.1
+				try {
+					Impresor.getInstance().terminate();
+					TimeUnit.SECONDS.sleep(1);
+				} catch (InterruptedException e1) {
+					e1.printStackTrace();
+				}
+				
+				Project p1 = new Project("P1", " ", null);
+				this.rootProjects.add(p1);
+				
+				Project p2 = new Project("P2", " ", p1);
+				p1.testAddChild(p2);
+				
+				Task t3 = new SimpleTask("T3", " ", p1);
+				p1.testAddChild(t3);
+				Clock.getInstance().getNotification().addObserver(t3);
+				
+				Task t1 = new SimpleTask("T1", " ", p2);
+				p2.testAddChild(t1);
+				Clock.getInstance().getNotification().addObserver(t1);
+				
+				Task t2 = new SimpleTask("T2", " ", p2);
+				p2.testAddChild(t2);
+				Clock.getInstance().getNotification().addObserver(t2);
+				
+				try {
+					Thread.sleep(5000);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+					logger.error("Error while putting to sleep the execution");
+				}
+				
+				System.out.println("Time will count every 2 seconds.");
+				
+				//**************************
+				Clock.getInstance().setRefreshTime(2);
+				//**************************
+				Impresor.getInstance().setReprintTime(2);
+				Impresor.getInstance().reanudate();
+				impresorThread = new Thread(Impresor.getInstance());
+				impresorThread.start();	
+				
+				t3.start();			
+				
+				try {
+					Thread.sleep(3000);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+					logger.error("Error while putting to sleep the execution");
+				}
+				
+				t3.stop();
+				
+				try {
+					Thread.sleep(7000);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+					logger.error("Error while putting to sleep the execution");
+				}
+				
+				t2.start();
+				
+				try {
+					Thread.sleep(10000);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+					logger.error("Error while putting to sleep the execution");
+				}
+				
+				t2.stop();
+				
+				t3.start();
+				
+				try {
+					Thread.sleep(2000);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+					logger.error("Error while putting to sleep the execution");
+				}
+				
+				t3.stop();
+				
+				try {
+					Impresor.getInstance().terminate();
+					TimeUnit.SECONDS.sleep(1);
+				} catch (InterruptedException e1) {
+					e1.printStackTrace();
+				}
+				
+			case 3:		// Test A.2
 				break;
 				
 			case 0:		
@@ -437,7 +529,7 @@ public class Client {
 		
 		while(option != 0) {	
 			System.out.println("");
-			System.out.println(" - CONFIG MENU - ");
+			System.out.println("  - CONFIG MENU - ");
 			System.out.println("");
 			System.out.println("1. Add Root Project");
 			System.out.println("2. Add Child Project");
@@ -534,7 +626,7 @@ public class Client {
 				while(!correctType){
 					try{
 						logger.debug("Introducing minimum interval time in seconds");
-						System.out.print("Enter the new minimum Interval time in seconds: ");				
+						System.out.print("Enter the new minimum Interval time in seconds: ");			
 						SimpleTask.setMinIntervalTime(Long.parseLong(scanner.nextLine()));
 						logger.info("Introduced new minimum interval time");
 						correctType = true;

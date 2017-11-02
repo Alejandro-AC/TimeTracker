@@ -261,4 +261,12 @@ public class Project extends Activity {
 			child.acceptVisitor(visitor, level+1);
 		}
 	}
+
+	/**
+	 * Function used in the tests to add a new child without asking for the properties.
+	 * @param child: new child to add to the children list.
+	 */
+	public void testAddChild(Activity newChild){
+		this.children.add(newChild);
+	}
 }
