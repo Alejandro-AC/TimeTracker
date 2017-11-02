@@ -187,9 +187,9 @@ public class SimpleTask extends Task {
 		}
 		
 		this.totalTime = sum;
-		
+				
 		if(this.father != null){
-			father.calculateTotalTime();
+			this.father.calculateTotalTime();
 		}
 	}
 

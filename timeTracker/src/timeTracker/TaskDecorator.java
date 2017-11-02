@@ -95,6 +95,6 @@ public abstract class TaskDecorator extends Task {
 	}
 	
 	public long getTotalTime() {
-		return this.task.totalTime;
+		return this.task.getTotalTime();
 	}
 }

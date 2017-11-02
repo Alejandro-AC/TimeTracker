@@ -233,9 +233,9 @@ public class Project extends Activity {
 			sum += child.getTotalTime();
 		}
 		this.totalTime = sum;
-		
+				
 		if(this.father != null){
-			father.calculateTotalTime();
+			this.father.calculateTotalTime();
 		}
 	}
 

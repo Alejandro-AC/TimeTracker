@@ -28,7 +28,7 @@
       <MaxFileSize>5MB</MaxFileSize>
     </triggeringPolicy>
   </appender>
-  <root level="debug">
+  <root level="off">
     <appender-ref ref="stdout"/>
     <appender-ref ref="file"/>
   </root>
