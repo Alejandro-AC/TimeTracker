@@ -233,6 +233,8 @@ public class Client {
 				break;
 				
 			case 2: 	// Test A.1
+				Clock.getInstance().setRefreshTime(2);
+				
 				try {
 					Impresor.getInstance().terminate();
 					TimeUnit.SECONDS.sleep(1);
@@ -258,16 +260,7 @@ public class Client {
 				p2.testAddChild(t2);
 				Clock.getInstance().getNotification().addObserver(t2);
 				
-				try {
-					Thread.sleep(5000);
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-					logger.error("Error while putting to sleep the execution");
-				}
-				
 				System.out.println("Time will count every 2 seconds.");
-				
-				Clock.getInstance().setRefreshTime(2);
 				Impresor.getInstance().setReprintTime(2);
 				Impresor.getInstance().reanudate();
 				impresorThread = new Thread(Impresor.getInstance());
@@ -311,7 +304,7 @@ public class Client {
 					logger.error("Error while putting to sleep the execution");
 				}
 				
-				t3.stop();
+				t3.stop();			
 				
 				try {
 					Impresor.getInstance().terminate();
@@ -320,7 +313,15 @@ public class Client {
 					e1.printStackTrace();
 				}
 				
+				System.out.println("");
+				System.out.println("Test A.1 finished!");
+				System.out.println("");
+				
+				break;
+				
 			case 3:		// Test A.2
+				Clock.getInstance().setRefreshTime(2);
+				
 				try {
 					Impresor.getInstance().terminate();
 					TimeUnit.SECONDS.sleep(1);
@@ -346,16 +347,8 @@ public class Client {
 				p22.testAddChild(t22);
 				Clock.getInstance().getNotification().addObserver(t22);
 				
-				try {
-					Thread.sleep(5000);
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-					logger.error("Error while putting to sleep the execution");
-				}
-				
 				System.out.println("Time will count every 2 seconds.");
 				
-				Clock.getInstance().setRefreshTime(2);
 				Impresor.getInstance().setReprintTime(2);
 				Impresor.getInstance().reanudate();
 				impresorThread = new Thread(Impresor.getInstance());
@@ -415,7 +408,6 @@ public class Client {
 					logger.error("Error while putting to sleep the execution");
 				}
 				
-				
 				t33.start();
 				
 				try {
@@ -433,6 +425,11 @@ public class Client {
 				} catch (InterruptedException e1) {
 					e1.printStackTrace();
 				}
+				
+				System.out.println("");
+				System.out.println("Test A.2 finished!");
+				System.out.println("");
+				
 				break;
 				
 			case 0:		

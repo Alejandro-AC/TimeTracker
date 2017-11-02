@@ -65,7 +65,7 @@ public class Clock implements Runnable {
 	 * The default refresh time is 
 	 * @uml.property  name="refreshTime"
 	 */
-	private long refreshTime = 2; //Default refresh 1s
+	private long refreshTime = 1; //Default refresh 1s
 	
 		/**
 		 * Setter of the property <tt>refreshTime</tt>
