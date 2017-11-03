@@ -170,8 +170,7 @@ public class SimpleTask extends Task {
 		if (!this.children.isEmpty()) {
 			if(this.getLastInterval().isRunning()) {
 				
-				Date currentDate = new Date();
-				this.getLastInterval().stop(currentDate);
+				this.getLastInterval().stop();
 				
 				if (this.getLastInterval().getTotalTime() < minIntervalTime) {
 					logger.debug("interval too short");

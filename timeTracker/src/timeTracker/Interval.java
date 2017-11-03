@@ -208,15 +208,12 @@ public class Interval implements Serializable {
 	/**
 	 * Stops the execution of the current Interval.
 	 */
-	public void stop(Date correctDate){
+	public void stop(){
 		logger.debug("interval stopped");
 		Date endD = Clock.getInstance().getCurrentDate();
 		
-		if (correctDate.before(endD)) {
-			this.setEndDate(correctDate);
-		} else {
-			this.setEndDate(endD);
-		}
+		this.setEndDate(endD);
+		
 		this.setRunning(false);
 	}
 	

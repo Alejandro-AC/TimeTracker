@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<editmodel:ClassDiagramEditModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:editmodel="editmodel.xmi" xmlns:options="options.xmi" size="1362,1044" id="timeTracker" metadata="uml2-1.0" initialized="true" tag="1000" key="32303037303533312D313030302074696D65547261636B65722F6D6172636D">
+<editmodel:ClassDiagramEditModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:editmodel="editmodel.xmi" xmlns:options="options.xmi" size="1362,1044" id="timeTracker" metadata="uml2-1.0" initialized="true" scrolledY="286" tag="1000" key="32303037303533312D313030302074696D65547261636B65722F6D6172636D">
   <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.1/@sourceConnections.0 //@children.1/@sourceConnections.1 //@children.12/@sourceConnections.0" name="Activity" location="765,14" size="161,214" id="timeTracker/Activity" runTimeClassModel="endDate,totalTime,name,calculateTotalTime(),description,acceptVisitor(LtimeTracker.Visitor;I),Activity(Ljava.lang.String;Ljava.lang.String;LtimeTracker.Project;),getChildren(),startDate">
     <children xsi:type="editmodel:CompartmentEditModel" size="124,90">
       <children xsi:type="editmodel:AttributeEditModel" name="description" location="10,41" id="timeTracker/Activity#description"/>
@@ -50,7 +50,7 @@
     </sourceConnections>
     <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
   </children>
-  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.3/@sourceConnections.0" name="SimpleTask" location="764,615" size="163,268" id="timeTracker/SimpleTask" runTimeClassModel="SimpleTask(Ljava.lang.String;Ljava.lang.String;LtimeTracker.Project;),logger,calculateTotalTime(),start(),childrenIsEmpty(),minIntervalTime,setMinIntervalTime(J),getIntervalById(I),removeInterval(I),update(Ljava.util.Observable;Ljava.lang.Object;),stop(),getLastInterval(),acceptVisitor(LtimeTracker.Visitor;I)">
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.3/@sourceConnections.0" name="SimpleTask" location="764,615" size="163,268" id="timeTracker/SimpleTask" runTimeClassModel="SimpleTask(Ljava.lang.String;Ljava.lang.String;LtimeTracker.Project;),logger,start(),calculateTotalTime(),childrenIsEmpty(),minIntervalTime,setMinIntervalTime(J),getIntervalById(I),removeInterval(I),update(Ljava.util.Observable;Ljava.lang.Object;),stop(),getLastInterval(),acceptVisitor(LtimeTracker.Visitor;I)">
     <children xsi:type="editmodel:CompartmentEditModel" size="140,36">
       <children xsi:type="editmodel:AttributeEditModel" name="logger" id="timeTracker/SimpleTask#logger"/>
       <children xsi:type="editmodel:AttributeEditModel" name="minIntervalTime" id="timeTracker/SimpleTask#minIntervalTime"/>
@@ -74,7 +74,7 @@
     </sourceConnections>
     <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
   </children>
-  <children xsi:type="editmodel:ClassEditModel" name="Interval" location="578,315" size="137,250" id="timeTracker/Interval" runTimeClassModel="running,endDate,totalTime,logger,calculateTime(),start(),stop(Ljava.util.Date;),acceptVisitor(LtimeTracker.Visitor;I),id,startDate,Interval(ILtimeTracker.SimpleTask;)">
+  <children xsi:type="editmodel:ClassEditModel" name="Interval" location="578,315" size="137,250" id="timeTracker/Interval" runTimeClassModel="running,endDate,totalTime,logger,stop(),calculateTime(),start(),acceptVisitor(LtimeTracker.Visitor;I),id,startDate,Interval(ILtimeTracker.SimpleTask;)">
     <children xsi:type="editmodel:CompartmentEditModel" size="114,108">
       <children xsi:type="editmodel:AttributeEditModel" name="endDate" id="timeTracker/Interval#endDate"/>
       <children xsi:type="editmodel:AttributeEditModel" name="id" location="12,22" id="timeTracker/Interval#id"/>
@@ -86,7 +86,7 @@
     <children xsi:type="editmodel:CompartmentEditModel" size="111,90">
       <children xsi:type="editmodel:MethodEditModel" name="calculateTime" id="timeTracker/Interval#calculateTime()"/>
       <children xsi:type="editmodel:MethodEditModel" name="start" id="timeTracker/Interval#start()"/>
-      <children xsi:type="editmodel:MethodEditModel" name="stop" id="timeTracker/Interval#stop(Ljava.util.Date;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="stop" id="timeTracker/Interval#stop()"/>
       <children xsi:type="editmodel:MethodEditModel" name="Interval" id="timeTracker/Interval#Interval(ILtimeTracker.SimpleTask;)"/>
       <children xsi:type="editmodel:MethodEditModel" name="acceptVisitor" id="timeTracker/Interval#acceptVisitor(LtimeTracker.Visitor;I)"/>
     </children>
@@ -101,7 +101,7 @@
     </sourceConnections>
     <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
   </children>
-  <children xsi:type="editmodel:ClassEditModel" name="Client" location="1230,165" size="202,304" id="timeTracker/Client" runTimeClassModel="startTask(),logger,addChildProject(),getRootProject(Ljava.lang.String;),stopTask(),askRootProjectProperties(),main([Ljava.lang.String;),addChildTask(),getActivity(Ljava.lang.String;),Client(),printMenu(),printSubMenu(),addRootProject()">
+  <children xsi:type="editmodel:ClassEditModel" name="Client" location="1230,165" size="202,304" id="timeTracker/Client" runTimeClassModel="startTask(),logger,addChildProject(),getRootProject(Ljava.lang.String;),stopTask(),askRootProjectProperties(),addChildTask(),main([Ljava.lang.String;),getActivity(Ljava.lang.String;),Client(),printSubMenu(),printMenu(),addRootProject()">
     <children xsi:type="editmodel:CompartmentEditModel" size="101,18">
       <children xsi:type="editmodel:AttributeEditModel" name="logger" id="timeTracker/Client#logger"/>
     </children>
@@ -173,7 +173,7 @@
     </sourceConnections>
     <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
   </children>
-  <children xsi:type="editmodel:ClassEditModel" name="Impresor" location="400,297" size="147,268" id="timeTracker/Impresor" runTimeClassModel="visitProject(LtimeTracker.Project;I),terminate(),logger,getInstance(),rootProjects,reanudate(),run(),reprintTime,imprimeix(),visitTask(LtimeTracker.Task;I),Impresor(),setRootProjects(Ljava.util.Collection;),visitInterval(LtimeTracker.Interval;I)">
+  <children xsi:type="editmodel:ClassEditModel" name="Impresor" location="400,297" size="147,268" id="timeTracker/Impresor" runTimeClassModel="visitProject(LtimeTracker.Project;I),terminate(),logger,getInstance(),rootProjects,reanudate(),run(),reprintTime,imprimeix(),Impresor(),visitTask(LtimeTracker.Task;I),setRootProjects(Ljava.util.Collection;),visitInterval(LtimeTracker.Interval;I)">
     <children xsi:type="editmodel:CompartmentEditModel" size="115,36">
       <children xsi:type="editmodel:AttributeEditModel" name="reprintTime" id="timeTracker/Impresor#reprintTime"/>
       <children xsi:type="editmodel:AttributeEditModel" name="logger" id="timeTracker/Impresor#logger"/>
@@ -235,9 +235,10 @@
     </sourceConnections>
     <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
   </children>
-  <children xsi:type="editmodel:ClassEditModel" name="Scheduled" location="1230,705" size="163,124" id="timeTracker/Scheduled" runTimeClassModel="update(Ljava.util.Observable;Ljava.lang.Object;),Scheduled(Ljava.lang.String;Ljava.lang.String;LtimeTracker.Project;LtimeTracker.Task;Ljava.util.Date;),start(),scheduledDate">
-    <children xsi:type="editmodel:CompartmentEditModel" size="140,18">
+  <children xsi:type="editmodel:ClassEditModel" name="Scheduled" location="1230,705" size="163,142" id="timeTracker/Scheduled" runTimeClassModel="update(Ljava.util.Observable;Ljava.lang.Object;),Scheduled(Ljava.lang.String;Ljava.lang.String;LtimeTracker.Project;LtimeTracker.Task;Ljava.util.Date;),logger,start(),scheduledDate">
+    <children xsi:type="editmodel:CompartmentEditModel" size="140,36">
       <children xsi:type="editmodel:AttributeEditModel" name="scheduledDate" id="timeTracker/Scheduled#scheduledDate"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="logger" id="timeTracker/Scheduled#logger"/>
     </children>
     <children xsi:type="editmodel:CompartmentEditModel" size="92,54">
       <children xsi:type="editmodel:MethodEditModel" name="Scheduled" id="timeTracker/Scheduled#Scheduled(Ljava.lang.String;Ljava.lang.String;LtimeTracker.Project;LtimeTracker.Task;Ljava.util.Date;)"/>
@@ -251,9 +252,10 @@
     </sourceConnections>
     <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
   </children>
-  <children xsi:type="editmodel:ClassEditModel" name="LimitedIntervalTime" location="1185,510" size="194,106" id="timeTracker/LimitedIntervalTime" runTimeClassModel="update(Ljava.util.Observable;Ljava.lang.Object;),LimitedIntervalTime(Ljava.lang.String;Ljava.lang.String;LtimeTracker.Project;LtimeTracker.Task;J),maxIntervalTime">
-    <children xsi:type="editmodel:CompartmentEditModel" size="144,18">
+  <children xsi:type="editmodel:ClassEditModel" name="LimitedIntervalTime" location="1185,510" size="194,124" id="timeTracker/LimitedIntervalTime" runTimeClassModel="update(Ljava.util.Observable;Ljava.lang.Object;),logger,LimitedIntervalTime(Ljava.lang.String;Ljava.lang.String;LtimeTracker.Project;LtimeTracker.Task;J),maxIntervalTime">
+    <children xsi:type="editmodel:CompartmentEditModel" size="144,36">
       <children xsi:type="editmodel:AttributeEditModel" name="maxIntervalTime" id="timeTracker/LimitedIntervalTime#maxIntervalTime"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="logger" id="timeTracker/LimitedIntervalTime#logger"/>
     </children>
     <children xsi:type="editmodel:CompartmentEditModel" size="141,36">
       <children xsi:type="editmodel:MethodEditModel" name="LimitedIntervalTime" id="timeTracker/LimitedIntervalTime#LimitedIntervalTime(Ljava.lang.String;Ljava.lang.String;LtimeTracker.Project;LtimeTracker.Task;J)"/>
@@ -266,7 +268,7 @@
     </sourceConnections>
     <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
   </children>
-  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.2/@sourceConnections.0" name="Task" location="765,331" size="161,232" id="timeTracker/Task" runTimeClassModel="getIntervalById(I),removeInterval(I),update(Ljava.util.Observable;Ljava.lang.Object;),stop(),calculateTotalTime(),start(),childrenIsEmpty(),getLastInterval(),acceptVisitor(LtimeTracker.Visitor;I),Task(Ljava.lang.String;Ljava.lang.String;LtimeTracker.Project;)">
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.2/@sourceConnections.0" name="Task" location="765,331" size="161,232" id="timeTracker/Task" runTimeClassModel="getIntervalById(I),removeInterval(I),update(Ljava.util.Observable;Ljava.lang.Object;),stop(),calculateTotalTime(),start(),acceptVisitor(LtimeTracker.Visitor;I),getLastInterval(),childrenIsEmpty(),Task(Ljava.lang.String;Ljava.lang.String;LtimeTracker.Project;)">
     <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
     <children xsi:type="editmodel:CompartmentEditModel" size="138,180">
       <children xsi:type="editmodel:MethodEditModel" name="acceptVisitor" id="timeTracker/Task#acceptVisitor(LtimeTracker.Visitor;I)"/>
@@ -334,7 +336,7 @@
   <boardSetting snapToGeometry="true" gridEnabled="true" gridSpacing="15,15" gridOrigin="0,0" rulerUnit="pixel" gridVisibility="false">
     <leftRuler/>
     <topRuler>
-      <guides position="675"/>
+      <guides position="-30"/>
     </topRuler>
   </boardSetting>
   <classDiagramPreferences xsi:type="editmodel:UMLClassDiagramPreference" showPopupBars="true" showConnectionHandles="true" attributeSorter="Natural" methodSorter="Natural" showClassStereotype="true" showPackageStereotype="true" showDependencyStereotype="true" showInterfaceStereotype="true" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
