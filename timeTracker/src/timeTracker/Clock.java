@@ -94,8 +94,7 @@ public class Clock implements Runnable {
 	@Override
 	public void run() {
 		logger.debug("Clock started running");
-		  while(running) {		
-			   notification.clockNotify();
+		  while(running) {			   
 			   try {
 				   Thread.sleep(this.refreshTime*1000);
 			   } catch (InterruptedException e) {
@@ -103,6 +102,7 @@ public class Clock implements Runnable {
 				   logger.error("Error trying to put to sleep the Clock");
 			   }
 			   this.currentDate = new Date();
+			   notification.clockNotify();
 		  }
 	}
 
