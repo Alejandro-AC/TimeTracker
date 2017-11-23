@@ -47,8 +47,9 @@ public class Project extends Activity {
 	 */
 	@SuppressWarnings("unchecked") 
 	public final Collection<Activity> getChildren() {
-		getLogger().debug("getting childrens: " + children + "from project "
-				+ this.getName());
+		getLogger()
+				.debug("getting childrens: " + children + "from project "
+						+ this.getName());
 		if (children.isEmpty()) {
 			return null;
 		} else {
@@ -313,5 +314,29 @@ public class Project extends Activity {
 	 */
 	public final void testAddChild(final Activity newChild) {
 		this.children.add(newChild);
+	}
+
+	/**
+	 * @uml.property  name="report"
+	 * @uml.associationEnd  multiplicity="(0 -1)" inverse="project:timetracker.Report"
+	 */
+	private Collection report;
+
+	/**
+	 * Getter of the property <tt>report</tt>
+	 * @return  Returns the report.
+	 * @uml.property  name="report"
+	 */
+	public Collection getReport() {
+		return report;
+	}
+
+	/**
+	 * Setter of the property <tt>report</tt>
+	 * @param report  The report to set.
+	 * @uml.property  name="report"
+	 */
+	public void setReport(Collection report) {
+		this.report = report;
 	}
 }
