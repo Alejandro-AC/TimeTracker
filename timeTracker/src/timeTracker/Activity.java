@@ -1,4 +1,4 @@
-package timeTracker;
+package timetracker;
 
 import java.util.Date;
 import java.io.Serializable;
@@ -14,18 +14,19 @@ public abstract class Activity implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	/** 
-	 * @uml.property name="father"
-	 * @uml.associationEnd multiplicity="(1 1)" inverse="children:timeTracker.Project"
+	/**
+	 * @uml.property   name="father"
+	 * @uml.associationEnd   multiplicity="(1 1)"
+	 * inverse="children:time.Tracker.Project"
 	 */
-	protected Project father = null;
+	private Project father = null;
 
 		/** 
 		 * Getter of the property <tt>father</tt>
 		 * @return  Returns the father.
 		 * @uml.property  name="father"
 		 */
-		public Project getFather() {
+		protected final Project getFather() {
 			return father;
 		}
 	
@@ -34,22 +35,22 @@ public abstract class Activity implements Serializable {
 		 * @param father  The father to set.
 		 * @uml.property  name="father"
 		 */
-		public void setFather(Project father) {
-			this.father = father;
+		protected final void setFather(final Project fatherSet) {
+			this.father = fatherSet;
 		}
 		
-	/** 
-	 * @uml.property name="name"
+	/**
+	 * @uml.property   name="name"
 	 */
-	protected String name;
+	private String name;
 
 		/** 
 		 * Getter of the property <tt>name</tt>
 		 * @return  Returns the name.
 		 * @uml.property  name="name"
 		 */
-		public String getName() {
-			return name;
+		protected final String getName() {
+			return this.name;
 		}
 
 		/** 
@@ -57,23 +58,23 @@ public abstract class Activity implements Serializable {
 		 * @param name  The name to set.
 		 * @uml.property  name="name"
 		 */
-		public void setName(String name) {
-			this.name = name;
+		protected final void setName(final String nameSet) {
+			this.name = nameSet;
 		}
 		
 	
-	/** 
-	 * @uml.property name="description"
+	/**
+	 * @uml.property   name="description"
 	 */
-	protected String description;
+	private String description;
 
 		/** 
 		 * Getter of the property <tt>description</tt>
 		 * @return  Returns the description.
 		 * @uml.property  name="description"
 		 */
-		public String getDescription() {
-			return description;
+		protected final String getDescription() {
+			return this.description;
 		}
 	
 		/** 
@@ -81,22 +82,22 @@ public abstract class Activity implements Serializable {
 		 * @param description  The description to set.
 		 * @uml.property  name="description"
 		 */
-		public void setDescription(String description) {
-			this.description = description;
+		protected final void setDescription(final String descriptionSet) {
+			this.description = descriptionSet;
 		}
 
-	/** 
-	 * @uml.property name="endDate"
+	/**
+	 * @uml.property   name="endDate"
 	 */
-	protected Date endDate;
+	private Date endDate;
 
 		/** 
 		 * Getter of the property <tt>endDate</tt>
 		 * @return  Returns the endDate.
 		 * @uml.property  name="endDate"
 		 */
-		public Date getEndDate() {
-			return endDate;
+		protected final Date getEndDate() {
+			return this.endDate;
 		}
 	
 		/** 
@@ -104,26 +105,26 @@ public abstract class Activity implements Serializable {
 		 * @param endDate  The endDate to set.
 		 * @uml.property  name="endDate"
 		 */
-		public void setEndDate(Date endDate) {
-			this.endDate = endDate;
+		protected final void setEndDate(final Date endDateSet) {
+			this.endDate = endDateSet;
 			if (this.getFather() != null) {
-				this.getFather().setEndDate(endDate);
+				this.getFather().setEndDate(endDateSet);
 			}
 		}
 
 
-	/** 
-	 * @uml.property name="startDate"
+	/**
+	 * @uml.property   name="startDate"
 	 */
-	protected Date startDate;
+	private Date startDate;
 
 		/** 
 		 * Getter of the property <tt>startDate</tt>
 		 * @return  Returns the startDate.
 		 * @uml.property  name="startDate"
 		 */
-		public Date getStartDate() {
-			return startDate;
+		protected final Date getStartDate() {
+			return this.startDate;
 		}
 	
 		/** 
@@ -131,27 +132,27 @@ public abstract class Activity implements Serializable {
 		 * @param startDate  The startDate to set.
 		 * @uml.property  name="startDate"
 		 */
-		public void setStartDate(Date startDate) {
-			if (this.startDate == null){
+		protected final void setStartDate(final Date startDateSet) {
+			if (this.startDate == null) {
 				if (this.getFather() != null) {
-					this.getFather().setStartDate(startDate);
+					this.getFather().setStartDate(startDateSet);
 				}
-				this.startDate = startDate;
+				this.startDate = startDateSet;
 			}
-	}
+		}
 
-	/** 
-	 * @uml.property name="totalTime"
+	/**
+	 * @uml.property   name="totalTime"
 	 */
-	protected long totalTime;
+	private long totalTime;
 
 		/** 
 		 * Getter of the property <tt>totalTime</tt>
 		 * @return  Returns the totalTime.
 		 * @uml.property  name="totalTime"
 		 */
-		public long getTotalTime() {
-			return totalTime;
+		protected final long getTotalTime() {
+			return this.totalTime;
 		}
 	
 		/** 
@@ -159,17 +160,18 @@ public abstract class Activity implements Serializable {
 		 * @param totalTime  The totalTime to set.
 		 * @uml.property  name="totalTime"
 		 */
-		public void setTotalTime(long totalTime) {
-			this.totalTime = totalTime;
+		protected final void setTotalTime(final long totalTimeSet) {
+			this.totalTime = totalTimeSet;
 		}
 
 	/**
 	 * Constructor of the class.
 	 */
-	public Activity(String description, String name, Project father) {
-		this.description = description;
-		this.name = name;
-		this.father = father;
+	public Activity(final String descriptionConstr, 
+			final String nameConstr, final Project fatherConstr) {
+		this.description = descriptionConstr;
+		this.name = nameConstr;
+		this.father = fatherConstr;
 	}
 	
 	/**
@@ -185,7 +187,8 @@ public abstract class Activity implements Serializable {
 
 	
 	/**
-	 * Accepts a Visitor (in this case, the Impresor to print this Acitivity's information).
+	 * Accepts a Visitor 
+	 * (in this case, the Impresor to print this Acitivity's information).
 	 * @param visitor: visitor that is being accepted.
 	 * @level: current level of the Activity in the Activities Tree.
 	 */

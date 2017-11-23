@@ -1,4 +1,4 @@
-package timeTracker;
+package timetracker;
 
 import java.util.Collection;
 import java.util.Observable;
@@ -13,18 +13,19 @@ public abstract class TaskDecorator extends Task {
 	 */
 	private static final long serialVersionUID = 5L;
 	
-	/** 
-	 * @uml.property name="task"
-	 * @uml.associationEnd multiplicity="(1 1)" aggregation="shared" inverse="taskDecorator:timeTracker.Task"
+	/**
+	 * @uml.property   name="task"
+	 * @uml.associationEnd   multiplicity="(1 1)" aggregation="shared" 
+	 * 		inverse="taskDecorator:timetracker.Task"
 	 */
-	protected Task task = null;
+	private Task task = null;
 
 		/** 
 		 * Getter of the property <tt>task</tt>
 		 * @return  Returns the task.
 		 * @uml.property  name="task"
 		 */
-		public Task getTask() {
+		protected final Task getTask() {
 			return task;
 		}
 	
@@ -33,68 +34,69 @@ public abstract class TaskDecorator extends Task {
 		 * @param task  The task to set.
 		 * @uml.property  name="task"
 		 */
-		public void setTask(Task task) {
-			this.task = task;
+		protected final void setTask(final Task newTask) {
+			this.task = newTask;
 		}
 	
 	/**
 	 * Constructor of the class.
 	 */
-	public TaskDecorator(String description, String name, Project father, Task task) {
+	public TaskDecorator(final String description, final String name, 
+			final Project father, final Task decoratedTask) {
 		super(description, name, father);
-		this.task = task;
+		this.task = decoratedTask;
 	}    
 	
-	// The following methods are the implementation of the Task.java abstract methods.
-	// Every methods calls its father's method, so when it reaches a SimpleTask this is executed.
-	// In the case of the getters, we want to reach the SimpleTask so it will return it's variable. 
+	// The following methods are the implementation of the 
+	// Task.java abstract methods. Every methods calls its 
+	// father's method, so when it reaches a SimpleTask this is executed.
+	// In the case of the getters, we want to reach the SimpleTask so 
+	// it will return it's variable. 
 	
-	public void acceptVisitor(Visitor visitor, int level) {
+	public final void acceptVisitor(final Visitor visitor, final int level) {
 		this.task.acceptVisitor(visitor, level);
 	}
 	
 	@SuppressWarnings("unchecked")
-	public Collection<Interval> getChildren() {
+	public final Collection<Interval> getChildren() {
 		return this.task.getChildren();
 	}
 	
-	public void calculateTotalTime() {
+	public final void calculateTotalTime() {
 		this.task.calculateTotalTime();
 	}
 
 	public void start() {
-		this.task.start();
 	}
 
-	public Interval getIntervalById(int id) {
+	public final Interval getIntervalById(final int id) {
 		return this.task.getIntervalById(id);
 	}
 	
-	public Interval getLastInterval() {
+	public final Interval getLastInterval() {
 		return this.task.getLastInterval();
 	}
 	
-	public boolean removeInterval(int id) {
+	public final boolean removeInterval(final int id) {
 		return this.task.removeInterval(id);
 	}
 
-	public void stop() {
+	public final void stop() {
 		this.task.stop();
 	}
 	
-	public boolean childrenIsEmpty() {
+	public final boolean childrenIsEmpty() {
 		return this.task.childrenIsEmpty();
 	}
 	
-	public void update(Observable arg0, Object arg1) {
-		this.task.update(arg0, arg1);
+	public void update(final Observable arg0, final Object arg1) {
 	}
 	
-	public String getName() {
+	public final String getName() {
 		return this.task.getName();
 	}
 	
-	public long getTotalTime() {
+	public final long getTotalTime() {
 		return this.task.getTotalTime();
 	}
 }

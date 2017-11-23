@@ -1,16 +1,16 @@
-package timeTracker;
+package timetracker;
 
 /**
- * This class is used as an Interface for the Impresor class. 
+ * This class is used as an Interface for the Impresser class. 
  */
 public interface Visitor {
-	// Declatarion of the specific visiting methods that are needed to print
+	// Declaration of the specific visiting methods that are needed to print
 	// the Activities tree.
 	
-	public void visitInterval(Interval interval, int level);
+	void visitInterval(Interval interval, int level);
 	
-	public void visitTask(Task task, int level);
+	void visitTask(Task task, int level);
 	
-	public void visitProject(Project project, int level);
+	void visitProject(Project project, int level);
 	
 }

@@ -1,5 +1,5 @@
 
-package timeTracker;
+package timetracker;
 
 import java.util.ArrayList;
 
@@ -12,15 +12,15 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * This class defines the implementation of a Task without any Decorator. 
+ * This class defines the implementation of a Task without any Decorator.
+ * @uml.dependency   supplier="timetracker.Interval"
  * @uml.dependency   supplier="java.util.Observer"
- * @uml.dependency   supplier="timeTracker.Interval"
  */
 public class SimpleTask extends Task {
 	/**
 	 * Logger for the class.
 	 */
-	static Logger logger = LoggerFactory.getLogger(SimpleTask.class);
+	private static Logger logger = LoggerFactory.getLogger(SimpleTask.class);
 
 	/**
 	 * Used for serialization.
@@ -29,7 +29,8 @@ public class SimpleTask extends Task {
 	
 	/**
 	 * @uml.property   name="children"
-	 * @uml.associationEnd   multiplicity="(0 -1)" aggregation="shared" inverse="task:timeTracker.Interval"
+	 * @uml.associationEnd   multiplicity="(0 -1)" 
+	 * 		aggregation="shared" inverse="task:timetracker.Interval"
 	 */
 	private Collection<Interval> children = new ArrayList<Interval>();
 	
@@ -39,8 +40,9 @@ public class SimpleTask extends Task {
 		 * @uml.property  name="children"
 		 */
 		@SuppressWarnings("unchecked")
-		public Collection<Interval> getChildren() {
-			logger.debug("getting childrens from simple task: " + this.getName());
+		public final Collection<Interval> getChildren() {
+			logger.debug("getting childrens from simple task: " 
+					+ this.getName());
 			if (children.isEmpty()) {
 				return null;
 			} else {
@@ -48,22 +50,22 @@ public class SimpleTask extends Task {
 			}
 		}
 		
-		public boolean childrenIsEmpty() {
-			//logger.debug("checking if children is empty");
+		public final boolean childrenIsEmpty() {
+			logger.debug("checking if children is empty");
 			return this.children.isEmpty();
 		}
 
 	/**
 	 * @uml.property   name="minIntervalTime"
 	 */
-	public static long minIntervalTime;
+	private static long minIntervalTime;
 	
 		/**
 		 * Setter of the property <tt>minIntervalTime</tt>
 		 * @param intervalTime  The minIntervalTime to set.
 		 * @uml.property  name="minIntervalTime"
 		 */
-		public static void setMinIntervalTime(long intervalTime){
+		public static void setMinIntervalTime(final long intervalTime) {
 			logger.debug("setting min interval time: " + intervalTime);
 			minIntervalTime = intervalTime;
 		}
@@ -71,18 +73,22 @@ public class SimpleTask extends Task {
 	/**
 	 * Constructor of the class.
 	 */
-	public SimpleTask(String name, String description, Project father) {
+	public SimpleTask(final String name, final String description, 
+			final Project father) {
 		super(description, name, father);
 		
 	}
 	
 	/** 
-	 * Searches for the interval with the id given and returns it if it has been found.
+	 * Searches for the interval with the id given 
+	 * and returns it if it has been found.
 	 * @param id: id of the interval to be found.
-	 * @return Return the interval with the same id, or null if it has not been found.
+	 * @return Return the interval with the same id, 
+	 * or null if it has not been found.
 	 */
-	public Interval getIntervalById(int id) {
-		//logger.debug("searching interval with id: " + id + "in task " + this.getName());
+	public final Interval getIntervalById(final int id) {
+		logger.debug("searching interval with id: " + id 
+				+ "in task " + this.getName());
 		for (Interval interval : children) {
 			if (interval.getId() == id) {
 				return interval;
@@ -94,7 +100,7 @@ public class SimpleTask extends Task {
 	/**
 	 * Gets the last Interval of the children list.
 	 */
-	public Interval getLastInterval(){
+	public final Interval getLastInterval() {
 		return getIntervalById(children.size());			
 	}
 
@@ -103,12 +109,13 @@ public class SimpleTask extends Task {
 	 * @param id: id of the interval to be removed.
 	 * @return True if the interval could be removed and false if it couldn't.
 	 */
-	public boolean removeInterval(int id) {
+	public final boolean removeInterval(final int id) {
 		Interval interval = getIntervalById(id);
 		if (interval != null) {
 			logger.debug("interval exists");
 			children.remove(interval);
-			logger.info("interval with id "+ id +" has been removed from simple task " + this.getName());
+			logger.info("interval with id " + id
+					+ " has been removed from simple task " + this.getName());
 			return true;
 		} else {
 			logger.debug("interval doesnt exist");
@@ -118,30 +125,33 @@ public class SimpleTask extends Task {
 	
 	/**
 	 * Implements the acceptVisitor() method of Task.java.
-	 * Accepts a Visitor (in this case, the Impresor to print this Acitivity's information).
+	 * Accepts a Visitor (in this case, the Impresor to 
+	 * print this Acitivity's information).
 	 * @param visitor: visitor that is being accepted.
 	 * @level: current level of the SimpleTask in the Activities Tree.
 	 */
 	@Override
-	public void acceptVisitor(Visitor visitor, int level) {		
+	public final void acceptVisitor(final Visitor visitor, 
+			final int level) {		
 		logger.debug("simple task " + this.getName() + "is accepting visitor");
 		visitor.visitTask(this, level);
 		for (Interval child : children) {
-			child.acceptVisitor(visitor, level+1);
+			child.acceptVisitor(visitor, level + 1);
 		}	
 	}
 
 	/**
 	 * Adds a new Interval to the children list.
 	 */
-	public void start() {	
-		if (!this.children.isEmpty() && this.getLastInterval().isRunning() == true){
+	public final void start() {	
+		if (!this.children.isEmpty() 
+				&& this.getLastInterval().isRunning()) {
 			logger.warn("Can't start the task, it is already running");
 			System.out.println("Can't start the task, it is already running");
-		}else{
+		} else {
 			Interval interval = new Interval(children.size() + 1, this);
 			children.add(interval);		
-			logger.info("interval for task "+this.getName()+" started");
+			logger.info("interval for task " + this.getName() + " started");
 		}
 	}
 	
@@ -150,7 +160,7 @@ public class SimpleTask extends Task {
 	 * If there is an active Interval, it will update it's properties. 
 	 */
 	@Override
-	public void update(Observable arg0, Object arg1) {
+	public final void update(final Observable arg0, final Object arg1) {
 		Date currentD = Clock.getInstance().getCurrentDate();		
 				
 		if (!this.children.isEmpty()) {
@@ -166,12 +176,12 @@ public class SimpleTask extends Task {
 	/**
 	 * Stops an Interval that was running.
 	 */
-	public void stop() {
+	public final void stop() {
 		if (!this.children.isEmpty()) {
-			if(this.getLastInterval().isRunning()) {
+			if (this.getLastInterval().isRunning()) {
 				
-				Date currentDate = new Date();
-				this.getLastInterval().stop(currentDate);
+				//Date currentDate = new Date();
+				this.getLastInterval().stop();
 				
 				if (this.getLastInterval().getTotalTime() < minIntervalTime) {
 					logger.debug("interval too short");
@@ -179,7 +189,8 @@ public class SimpleTask extends Task {
 				}
 			} else {
 				logger.warn("trying to stop an interval already stopped");
-				System.out.println("You can not stop an interval that has already been stopped.");
+				System.out.println("You can not stop an interval that " 
+						+ "has already been stopped.");
 			}
 		}
 	}
@@ -187,19 +198,20 @@ public class SimpleTask extends Task {
 	/**
 	 * Calculates the total time of all the children of the current SimpleTask.
 	 */
-	public void calculateTotalTime() {
+	public final void calculateTotalTime() {
 		long sum = 0;
 		
 		for (Interval child : children) {
 			sum += child.getTotalTime();
 		}
 		
-		this.totalTime = sum;
+		setTotalTime(sum);
 		
-		//logger.debug("calculating total time from simple task " + this.getName() + " = " + sum);
+		logger.debug("calculating total time from simple task " 
+				+ this.getName() + " = " + sum);
 		
-		if(this.father != null){
-			this.father.calculateTotalTime();
+		if (this.getFather() != null) {
+			this.getFather().calculateTotalTime();
 		}
 	}
 

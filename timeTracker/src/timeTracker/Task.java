@@ -1,4 +1,4 @@
-package timeTracker;
+package timetracker;
 
 import java.io.IOException;
 import java.util.Observable;
@@ -20,7 +20,7 @@ public abstract class Task extends Activity implements Observer {
 	 * While doing the deserialization, this function adds every Task to
 	 * the Observer list.
 	 */
-	private void readObject(java.io.ObjectInputStream stream)
+	private void readObject(final java.io.ObjectInputStream stream)
          throws IOException, ClassNotFoundException {
          stream.defaultReadObject();
          Clock.getInstance().getNotification().addObserver(this);
@@ -29,11 +29,13 @@ public abstract class Task extends Activity implements Observer {
 	/**
 	 * Constructor of the class.
 	 */
-	public Task(String description, String name, Project father) {
+	public Task(final String description, final String name, 
+			final Project father) {
 		super(description, name, father);
 	}
 	
-	// Abstract methods that will be implemented in the sub-classes that need them.
+	// Abstract methods that will be implemented in the 
+	// sub-classes that need them.
 	
 	public abstract void acceptVisitor(Visitor visitor, int level);	
 	

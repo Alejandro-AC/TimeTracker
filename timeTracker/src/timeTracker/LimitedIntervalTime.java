@@ -1,18 +1,20 @@
-package timeTracker;
+package timetracker;
 
 import java.util.Observable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 /**
  * This class is used as a Decorator for a Task.
- * A LimitedIntervalTime Task will stop by itself when an interval reaches the established maximum time. 
+ * A LimitedIntervalTime Task will stop by itself when 
+ * an interval reaches the established maximum time. 
  */
 public class LimitedIntervalTime extends TaskDecorator {
 
 	/**
 	 * Logger for the class.
 	 */
-	static Logger logger = LoggerFactory.getLogger(LimitedIntervalTime.class);
+	private static Logger logger = 
+			LoggerFactory.getLogger(LimitedIntervalTime.class);
 	
 	/**
 	 * Used for serialization.
@@ -29,7 +31,7 @@ public class LimitedIntervalTime extends TaskDecorator {
 		 * @return  Returns the maxIntervalTime.
 		 * @uml.property  name="maxIntervalTime"
 		 */
-		public long getMaxIntervalTime() {
+		public final long getMaxIntervalTime() {
 			logger.debug("getting max interval time: " + maxIntervalTime);
 			return maxIntervalTime;
 		}
@@ -39,9 +41,9 @@ public class LimitedIntervalTime extends TaskDecorator {
 		 * @param maxIntervalTime  The maxIntervalTime to set.
 		 * @uml.property  name="maxIntervalTime"
 		 */
-		public void setMaxIntervalTime(long maxIntervalTime) {
+		public final void setMaxIntervalTime(final long newMaxIntervalTime) {
 			logger.debug("setting max interval time: " + maxIntervalTime);
-			this.maxIntervalTime = maxIntervalTime;
+			this.maxIntervalTime = newMaxIntervalTime;
 		}
 	
 	/**
@@ -50,11 +52,14 @@ public class LimitedIntervalTime extends TaskDecorator {
 	 * @param name: name of the Task.
 	 * @param father: Project Father of the task.
 	 * @param task: Task that is decorating.
-	 * @param maxIntervalTime: maxim of seconds each Interval of this task can last.
+	 * @param maxIntervalTime: maxim of seconds each 
+	 * 		Interval of this task can last.
 	 */
-	public LimitedIntervalTime(String description, String name, Project father, Task task, long maxIntervalTime) {
+	public LimitedIntervalTime(final String description, final String name, 
+			final Project father, final Task task, 
+			final long newMaxIntervalTime) {
 		super(description, name, father, task);
-		this.maxIntervalTime = maxIntervalTime;
+		this.maxIntervalTime = newMaxIntervalTime;
 	}
  
 	/**
@@ -62,16 +67,24 @@ public class LimitedIntervalTime extends TaskDecorator {
 	 * It will automatically stop the Task if it reaches the maxIntervalTime.
 	 */
 	@Override
-	public void update(Observable observable, Object object) {
-		this.task.update(observable, object);	
+	public final void update(final Observable observable, final Object object) {
+		this.getTask().update(observable, object);	
 
-		if (!this.task.childrenIsEmpty()) {
-			if (this.task.getLastInterval().isRunning()) {
-				if (this.task.getLastInterval().getTotalTime() >= this.maxIntervalTime) {
-					this.task.stop();
+		if (!this.getTask().childrenIsEmpty()) {
+			if (this.getTask().getLastInterval().isRunning()) {
+				if (this.getTask().getLastInterval().getTotalTime() 
+						>= this.maxIntervalTime) {
+					this.getTask().stop();
 				}
 			}
 		}		
+	}
+	
+	/**
+	 * Implements the start() method from Task.java.
+	 */
+	public final void start() {
+		this.getTask().start();
 	}
 	
 

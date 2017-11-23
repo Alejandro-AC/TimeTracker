@@ -1,4 +1,4 @@
-package timeTracker;
+package timetracker;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -22,11 +22,21 @@ import org.slf4j.LoggerFactory;
  */
 public class Client {
 	
-	static Logger logger = LoggerFactory.getLogger(Client.class);
+	private static Logger logger = LoggerFactory.getLogger(Client.class);
 	
 	/**
-	 * @uml.property  name="rootProjects"
-	 * @uml.associationEnd  multiplicity="(0 -1)" aggregation="shared" inverse="client:timeTracker.Project"
+	 * Getter of the property <tt>logger</tt>
+	 * @return  Returns the Logger.
+	 * @uml.property  name="logger"
+	 */
+	public static final Logger getLogger() {
+		return logger;
+	}
+	
+	/**
+	 * @uml.property   name="rootProjects"
+	 * @uml.associationEnd   multiplicity="(0 -1)" 
+	 * aggregation="shared" inverse="client:time.Tracker.Project"
 	 */
 	private Collection<Project> rootProjects = new ArrayList<Project>();
 
@@ -35,17 +45,19 @@ public class Client {
 		 * @return  Returns the rootProjects.
 		 * @uml.property  name="rootProjects"
 		 */
-		public Collection<Project> getRootProjects() {
+		public final Collection<Project> getRootProjects() {
 			logger.debug("getting root projects");
 			return rootProjects;
 		}
 		
 		/**
-		 * Searches for the rootProject with the name given and returns it if it has been found.
+		 * Searches for the rootProject with the name 
+		 * given and returns it if it has been found.
 		 * @param name: name of the rootProject to be found.
-		 * @return Return the 1 with the same name, or null if it has not been found.
+		 * @return Return the 1 with the same name, 
+		 * or null if it has not been found.
 		 */
-		public Project getRootProject(String name) {
+		public final Project getRootProject(final String name) {
 			logger.debug("getting root project: " + name);
 			for (Project rootProject : rootProjects) {
 				if (rootProject.getName().equals(name)) {
@@ -65,7 +77,7 @@ public class Client {
 	 * Main function of the program.
 	 */
 	@SuppressWarnings("unchecked")
-	public static void main(String[] args) {		
+	public static void main(final String[] args) {		
 		
 		Client c = new Client();
 		Thread clockThread = new Thread(Clock.getInstance());
@@ -118,46 +130,50 @@ public class Client {
 
 	/** 
 	 * Asks the user the properties needed to create a new Project.
-	 * @return ArrayList with two strings: the name and the description for the new Activity.
+	 * @return ArrayList with two strings: 
+	 * the name and the description for the new Activity.
 	 */
-	public ArrayList<String> askRootProjectProperties() {
+	public final ArrayList<String> askRootProjectProperties() {
 		ArrayList<String> properties = new ArrayList<String>();
 		Scanner sc = new Scanner(System.in);
 		
 		logger.debug("introducing root project name");
 		System.out.print("Introduce a name for the RootProject: ");		
 		properties.add(sc.nextLine());
-		logger.debug("name introduced: "+properties.get(0));
+		logger.debug("name introduced: " + properties.get(0));
 		while (getRootProject(properties.get(0)) != null) {
-			logger.warn("project name "+properties.get(0)+" already exist");
+			logger.warn("project name " + properties.get(0) + " already exist");
 			properties.remove(0);
 			logger.debug("Introducing new name for the project");
-			System.out.print("A Root Project with the same name already exists in the system. Introduce a new name: ");
+			System.out.print("A Root Project with the same name already " 
+					+ "exists in the system. Introduce a new name: ");
 			properties.add(sc.nextLine());
 			logger.debug("new name introduced: " + properties.get(0));
 		}
 		logger.debug("introducing description");
 		System.out.print("Introduce a description: ");		
 		properties.add(sc.nextLine());
-		logger.debug("description introduced:"+properties.get(1));
+		logger.debug("description introduced:" + properties.get(1));
 		logger.debug("all properties has been introduced correctly");
 		return properties;
 	}
 	
 	/**
-	 * Searches for a specific Activity in the tree, starting from the rootProjects, using a BFS based algorithm.
+	 * Searches for a specific Activity in the tree, 
+	 * starting from the rootProjects, using a BFS based algorithm.
 	 * @param name: name of the Activity to be found.
-	 * @return the Activity that has been searched. It's value is null if it couldn't be found.
+	 * @return the Activity that has been searched.
+	 *  It's value is null if it couldn't be found.
 	 */
-	public Activity getActivity(String name) {
-		logger.debug("Getting activity: "+name);
+	public final Activity getActivity(final String name) {
+		logger.debug("Getting activity: " + name);
 		boolean found = false;
 		Queue<Activity> nonVisited = new LinkedList<Activity>();
 		nonVisited.addAll(rootProjects);
 		Iterator<Project> iter = rootProjects.iterator();
 		Activity activity = null;
 		
-		while(!found && iter.hasNext()) {
+		while (!found && iter.hasNext()) {
 			activity = searchActivity(name, iter.next(), nonVisited);
 			if (activity != null) {
 				found = true;
@@ -171,16 +187,20 @@ public class Client {
 	 * @param name: name of the Activity to be found.
 	 * @param activity: actual Activity that is being checked.
 	 * @param nonVisited: list of Activities that haven't been visited.
-	 * @return the Activity that has been found. It's value is null if it couldn't be found.
+	 * @return the Activity that has been found. 
+	 * It's value is null if it couldn't be found.
 	 */
-	private Activity searchActivity(String name, Activity activity, Queue<Activity> nonVisited) {
-		if (!nonVisited.isEmpty()) {		// There's at least one element to visit (the current one)
+	private Activity searchActivity(final String name, final Activity activity, 
+			final Queue<Activity> nonVisited) {
+		// There's at least one element to visit (the current one)
+		if (!nonVisited.isEmpty()) {		
 			nonVisited.remove();
 			if (name.equals(activity.getName())) {
 				return activity;
 				
 			} else if (activity instanceof Project) {		// keep searching
-				Collection<Activity> children = activity.getChildren();				
+				Collection<Activity> children = 
+						activity.getChildren();				
 				if (children != null) {
 					nonVisited.addAll(children);
 				}
@@ -198,29 +218,33 @@ public class Client {
 	}
 	
 	/** 
-	 * Menu that lets swap between the printing of the Tree of Activities and the subMenu with the options.
+	 * Menu that lets swap between the printing 
+	 * of the Tree of Activities and the subMenu with the options.
 	 */
-	public void printMenu() {
+	public final void printMenu() {
 		
 		Scanner scanner = new Scanner(System.in);
 		int option = -1;
 	
-		while(option != 0) {
+		while (option != 0) {
 			
 			Impresor.getInstance().reanudate();
 			Thread impresorThread = new Thread(Impresor.getInstance());
 			impresorThread.start();	
+			final int thirdOption = 3;
 				
 			boolean correctType = false;
-			while(!correctType){
-				try{			
+			while (!correctType) {
+				try {			
 					option = Integer.parseInt(scanner.nextLine());
 					logger.debug("chosen option: " + option);
 					correctType = true;
-				}catch(Exception e){
+				} catch (Exception e) { 
 					logger.debug("chosen option: " + option);
-					logger.warn("Introduced value is not a valid value. Introducing new value");
-					System.out.print("Introduced value is not a number. Please enter a number:");
+					logger.warn("Introduced value is not a valid value. " 
+							+ "Introducing new value");
+					System.out.print("Introduced value is not a number. " 
+							+ "Please enter a number:");
 				}
 			}
 			
@@ -236,202 +260,11 @@ public class Client {
 				break;
 				
 			case 2: 	// Test A.1
-				Clock.getInstance().setRefreshTime(2);
-				
-				try {
-					Impresor.getInstance().terminate();
-					TimeUnit.SECONDS.sleep(1);
-				} catch (InterruptedException e1) {
-					e1.printStackTrace();
-				}
-				
-				Project p1 = new Project("P1", " ", null);
-				this.rootProjects.add(p1);
-				
-				Project p2 = new Project("P2", " ", p1);
-				p1.testAddChild(p2);
-				
-				Task t3 = new SimpleTask("T3", " ", p1);
-				p1.testAddChild(t3);
-				Clock.getInstance().getNotification().addObserver(t3);
-				
-				Task t1 = new SimpleTask("T1", " ", p2);
-				p2.testAddChild(t1);
-				Clock.getInstance().getNotification().addObserver(t1);
-				
-				Task t2 = new SimpleTask("T2", " ", p2);
-				p2.testAddChild(t2);
-				Clock.getInstance().getNotification().addObserver(t2);
-				
-				System.out.println("Time will count every 2 seconds.");
-				Impresor.getInstance().setReprintTime(2);
-				Impresor.getInstance().reanudate();
-				impresorThread = new Thread(Impresor.getInstance());
-				impresorThread.start();	
-				
-				t3.start();			
-				
-				try {
-					Thread.sleep(3000);
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-					logger.error("Error while putting to sleep the execution");
-				}
-				
-				t3.stop();
-				
-				try {
-					Thread.sleep(7000);
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-					logger.error("Error while putting to sleep the execution");
-				}
-				
-				t2.start();
-				
-				try {
-					Thread.sleep(10000);
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-					logger.error("Error while putting to sleep the execution");
-				}
-				
-				t2.stop();
-				
-				t3.start();
-				
-				try {
-					Thread.sleep(2000);
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-					logger.error("Error while putting to sleep the execution");
-				}
-				
-				t3.stop();			
-				
-				try {
-					Impresor.getInstance().terminate();
-					TimeUnit.SECONDS.sleep(1);
-				} catch (InterruptedException e1) {
-					e1.printStackTrace();
-				}
-				
-				System.out.println("");
-				System.out.println("Test A.1 finished!");
-				System.out.println("");
-				
+				this.testA1(impresorThread);
 				break;
 				
-			case 3:		// Test A.2
-				Clock.getInstance().setRefreshTime(2);
-				
-				try {
-					Impresor.getInstance().terminate();
-					TimeUnit.SECONDS.sleep(1);
-				} catch (InterruptedException e1) {
-					e1.printStackTrace();
-				}
-				
-				Project p11 = new Project("P1", " ", null);
-				this.rootProjects.add(p11);
-				
-				Project p22 = new Project("P2", " ", p11);
-				p11.testAddChild(p22);
-				
-				Task t33 = new SimpleTask("T3", " ", p11);
-				p11.testAddChild(t33);
-				Clock.getInstance().getNotification().addObserver(t33);
-				
-				Task t11 = new SimpleTask("T1", " ", p22);
-				p22.testAddChild(t11);
-				Clock.getInstance().getNotification().addObserver(t11);
-				
-				Task t22 = new SimpleTask("T2", " ", p22);
-				p22.testAddChild(t22);
-				Clock.getInstance().getNotification().addObserver(t22);
-				
-				System.out.println("Time will count every 2 seconds.");
-				
-				Impresor.getInstance().setReprintTime(2);
-				Impresor.getInstance().reanudate();
-				impresorThread = new Thread(Impresor.getInstance());
-				impresorThread.start();	
-				
-				t33.start();			
-				
-				try {
-					Thread.sleep(4000);
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-					logger.error("Error while putting to sleep the execution");
-				}
-				
-				t22.start();
-				
-				try {
-					Thread.sleep(2000);
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-					logger.error("Error while putting to sleep the execution");
-				}
-				
-				t33.stop();
-				
-				try {
-					Thread.sleep(2000);
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-					logger.error("Error while putting to sleep the execution");
-				}
-				
-				t11.start();
-				
-				try {
-					Thread.sleep(4000);
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-					logger.error("Error while putting to sleep the execution");
-				}
-				
-				t11.stop();
-				
-				try {
-					Thread.sleep(2000);
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-					logger.error("Error while putting to sleep the execution");
-				}
-				
-				t22.stop();
-				
-				try {
-					Thread.sleep(4000);
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-					logger.error("Error while putting to sleep the execution");
-				}
-				
-				t33.start();
-				
-				try {
-					Thread.sleep(2000);
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-					logger.error("Error while putting to sleep the execution");
-				}
-				
-				t33.stop();
-				
-				try {
-					Impresor.getInstance().terminate();
-					TimeUnit.SECONDS.sleep(1);
-				} catch (InterruptedException e1) {
-					e1.printStackTrace();
-				}
-				
-				System.out.println("");
-				System.out.println("Test A.2 finished!");
-				System.out.println("");
+			case thirdOption:		// Test A.2
+				this.testA2(impresorThread);
 				
 				break;
 				
@@ -455,11 +288,220 @@ public class Client {
 		logger.debug("Closing Scanner");
 		scanner.close();
 	}	
+	
+	private void testA1(final Thread impresorThread) {
+		Clock.getInstance().setRefreshTime(2);
+		final int waitTimeA11 = 3000;
+		final int waitTimeA12 = 7000;
+		final int waitTimeA13 = 10000;
+		final int waitTimeA14 = 2000;
+		try {
+			Impresor.getInstance().terminate();
+			TimeUnit.SECONDS.sleep(1);
+		} catch (InterruptedException e1) {
+			e1.printStackTrace();
+		}
+		
+		Project p1 = new Project("P1", " ", null);
+		this.rootProjects.add(p1);
+		
+		Project p2 = new Project("P2", " ", p1);
+		p1.testAddChild(p2);
+		
+		Task t3 = new SimpleTask("T3", " ", p1);
+		p1.testAddChild(t3);
+		Clock.getInstance().getNotification().addObserver(t3);
+		
+		Task t1 = new SimpleTask("T1", " ", p2);
+		p2.testAddChild(t1);
+		Clock.getInstance().getNotification().addObserver(t1);
+		
+		Task t2 = new SimpleTask("T2", " ", p2);
+		p2.testAddChild(t2);
+		Clock.getInstance().getNotification().addObserver(t2);
+		
+		System.out.println("Time will count every 2 seconds.");
+		Impresor.getInstance().setReprintTime(2);
+		Impresor.getInstance().reanudate();
+		Thread impresorThread2 = new Thread(Impresor.getInstance());
+		impresorThread2.start();	
+		
+		t3.start();			
+		
+		try {
+			Thread.sleep(waitTimeA11);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+			logger.error("Error while putting to sleep the execution");
+		}
+		
+		t3.stop();
+		
+		try {
+			Thread.sleep(waitTimeA12);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+			logger.error("Error while putting to sleep the execution");
+		}
+		
+		t2.start();
+		
+		try {
+			Thread.sleep(waitTimeA13);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+			logger.error("Error while putting to sleep the execution");
+		}
+		
+		t2.stop();
+		
+		t3.start();
+		
+		try {
+			Thread.sleep(waitTimeA14);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+			logger.error("Error while putting to sleep the execution");
+		}
+		
+		t3.stop();			
+		
+		try {
+			Impresor.getInstance().terminate();
+			TimeUnit.SECONDS.sleep(1);
+		} catch (InterruptedException e1) {
+			e1.printStackTrace();
+		}
+		
+		System.out.println("");
+		System.out.println("Test A.1 finished!");
+		System.out.println("");
+		
+	}
+	
+	private void testA2(final Thread impresorThread) {
+		Clock.getInstance().setRefreshTime(2);
+		final int waitTimeA21 = 4000;
+		final int waitTimeA22 = 2000;
+		final int waitTimeA23 = 2000;
+		final int waitTimeA24 = 4000;
+		final int waitTimeA25 = 2000;
+		final int waitTimeA26 = 4000;
+		final int waitTimeA27 = 2000;
+		
+		try {
+			Impresor.getInstance().terminate();
+			TimeUnit.SECONDS.sleep(1);
+		} catch (InterruptedException e1) {
+			e1.printStackTrace();
+		}
+		
+		Project p11 = new Project("P1", " ", null);
+		this.rootProjects.add(p11);
+		
+		Project p22 = new Project("P2", " ", p11);
+		p11.testAddChild(p22);
+		
+		Task t33 = new SimpleTask("T3", " ", p11);
+		p11.testAddChild(t33);
+		Clock.getInstance().getNotification().addObserver(t33);
+		
+		Task t11 = new SimpleTask("T1", " ", p22);
+		p22.testAddChild(t11);
+		Clock.getInstance().getNotification().addObserver(t11);
+		
+		Task t22 = new SimpleTask("T2", " ", p22);
+		p22.testAddChild(t22);
+		Clock.getInstance().getNotification().addObserver(t22);
+		
+		System.out.println("Time will count every 2 seconds.");
+		
+		Impresor.getInstance().setReprintTime(2);
+		Impresor.getInstance().reanudate();
+		Thread impresorThread2 = new Thread(Impresor.getInstance());
+		impresorThread2.start();	
+		
+		t33.start();			
+		
+		try {
+			Thread.sleep(waitTimeA21);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+			logger.error("Error while putting to sleep the execution");
+		}
+		
+		t22.start();
+		
+		try {
+			Thread.sleep(waitTimeA22);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+			logger.error("Error while putting to sleep the execution");
+		}
+		
+		t33.stop();
+		
+		try {
+			Thread.sleep(waitTimeA23);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+			logger.error("Error while putting to sleep the execution");
+		}
+		
+		t11.start();
+		
+		try {
+			Thread.sleep(waitTimeA24);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+			logger.error("Error while putting to sleep the execution");
+		}
+		
+		t11.stop();
+		
+		try {
+			Thread.sleep(waitTimeA25);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+			logger.error("Error while putting to sleep the execution");
+		}
+		
+		t22.stop();
+		
+		try {
+			Thread.sleep(waitTimeA26);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+			logger.error("Error while putting to sleep the execution");
+		}
+		
+		t33.start();
+		
+		try {
+			Thread.sleep(waitTimeA27);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+			logger.error("Error while putting to sleep the execution");
+		}
+		
+		t33.stop();
+		
+		try {
+			Impresor.getInstance().terminate();
+			TimeUnit.SECONDS.sleep(1);
+		} catch (InterruptedException e1) {
+			e1.printStackTrace();
+		}
+		
+		System.out.println("");
+		System.out.println("Test A.2 finished!");
+		System.out.println("");
+	}
 
 	/**
 	 * Adds a rootProject to the rootProjects list.
 	 */
-	public void addRootProject() {
+	public final void addRootProject() {
 		ArrayList<String> properties = new ArrayList<String>();
 		logger.debug("adding root project");
 		logger.debug("asking project properties");
@@ -467,7 +509,7 @@ public class Client {
 		
 		Project p = new Project(properties.get(0), properties.get(1), null);
 		this.rootProjects.add(p);
-		logger.info("root project "+p.getName()+" added");
+		logger.info("root project " + p.getName() + " added");
 		Impresor.getInstance().setRootProjects(this.rootProjects);
 	}
 		
@@ -475,7 +517,7 @@ public class Client {
 	 * Adds a child Project to an existing Project.
 	 * @param father: father of the new child Project.
 	 */
-	public void addChildProject() {
+	public final void addChildProject() {
 		Scanner scanner = new Scanner(System.in);
 		
 		Project fatherProject = null;
@@ -486,26 +528,28 @@ public class Client {
 		System.out.print("Enter the name of the Father Project: ");
 				
 		boolean correctType = false;
-		while(!correctType){
-			try{
+		while (!correctType) {
+			try {
 				fatherName = scanner.nextLine();
-				logger.debug("searching father project "+fatherName);
+				logger.debug("searching father project " + fatherName);
 				fatherProject = (Project) getActivity(fatherName);
 				correctType = true;
-			}catch(Exception e){
+			} catch (Exception e) {
 				logger.warn("Trying to add project into task.");
 				logger.debug("Introducing new name of Father Project.");
-				System.out.println("You can't add project into task. Please introduce a project name:");
+				System.out.println("You can't add project into task. " 
+						+ "Please introduce a project name:");
 			}
 		}
 		
 		if (fatherProject != null) {
-			logger.debug("father "+fatherName+" has been found");
+			logger.debug("father " + fatherName + " has been found");
 			logger.debug("Adding child Project to " + fatherName);
 			fatherProject.addChildProject(this);
 		} else {
 			logger.info("The specified Father Project does not exist.");
-			System.out.println("Error. The specified Father Project does not exist.");
+			System.out.println("Error. " 
+					+ "The specified Father Project does not exist.");
 		}
 		
 	}
@@ -515,7 +559,7 @@ public class Client {
 	 * @param client 
 	 * @param father: father of the new child Task.
 	 */
-	public void addChildTask() {
+	public final void addChildTask() {
 		
 		Scanner scanner = new Scanner(System.in);
 		
@@ -526,27 +570,29 @@ public class Client {
 		logger.debug("introducing name of father project");
 		
 		boolean correctType = false;
-		while(!correctType){
-			try{
+		while (!correctType) {
+			try {
 				System.out.print("Enter the name of the Father Project: ");
 				fatherName = scanner.nextLine();
-				logger.debug("searching father project "+fatherName);
+				logger.debug("searching father project " + fatherName);
 				fatherProject = (Project) getActivity(fatherName);
 				correctType = true;
-			}catch(Exception e){
+			} catch (Exception e) {
 				logger.warn("Trying to add project into task.");
 				logger.debug("Introducing new name of Father Project.");
-				System.out.println("You can't add task into task. Please introduce a project name:");
+				System.out.println("You can't add task into task. " 
+						+ "Please introduce a project name:");
 			}
 		}
 		
 		if (fatherProject != null) {
-			logger.debug("father "+fatherName+" has been found");
+			logger.debug("father " + fatherName + " has been found");
 			logger.debug("Adding child Task to " + fatherName);
 			fatherProject.addChildTask(this);
 		} else {
 			logger.info("The specified Father Project does not exist.");
-			System.out.println("Error. The specified Father Project does not exist.");
+			System.out.println("Error. " 
+					+ "The specified Father Project does not exist.");
 		}
 	}
 
@@ -554,7 +600,7 @@ public class Client {
 	 * Starts a Task adding a new Interval 
 	 * @param father: Task where the new Interval must be added. 
 	 */
-	public void startTask() {
+	public final void startTask() {
 		Scanner scanner = new Scanner(System.in);
 		logger.debug("Option start task");
 		logger.debug("introducing name of the task");
@@ -564,24 +610,26 @@ public class Client {
 		Task task = null;
 		
 		boolean correctType = false;
-		while(!correctType){
-			try{
+		while (!correctType) {
+			try {
 				fatherName = scanner.nextLine();
 				logger.debug("task name introduced: " + fatherName);
 				logger.debug("searching task " + fatherName);				
 				task = (Task) getActivity(fatherName);
 				correctType = true;
-			}catch(Exception e){
+			} catch (Exception e) {
 				logger.warn(fatherName + " is a project, not a task.");
 				logger.warn("introducing a new task to find.");
-				System.out.print("You need to choose a task, not a project. Please introduce task name: ");
+				System.out.print("You need to choose a task, not a project." 
+						+ " Please introduce task name: ");
 			}
 		}
 
 		
 		if (task != null) {
-			logger.debug("task " + fatherName+ " has been found");
-			logger.debug("Starting Task " + fatherName+ " by adding new Interval");
+			logger.debug("task " + fatherName + " has been found");
+			logger.debug("Starting Task " 
+			+ fatherName + " by adding new Interval");
 			task.start();
 		} else {
 			logger.debug("The specified task does not exist.");
@@ -594,7 +642,7 @@ public class Client {
 	 * Stops last Interval of the specified Task. 
 	 * @param father: Task where the last Interval will be stopped. 
 	 */
-	public void stopTask() {
+	public final void stopTask() {
 		Scanner scanner = new Scanner(System.in);
 		String fatherName = "";
 		Task task = null;
@@ -604,24 +652,25 @@ public class Client {
 		System.out.print("Enter the name of the Task: ");
 		
 		boolean correctType = false;
-		while(!correctType){
-			try{
+		while (!correctType) {
+			try {
 				fatherName = scanner.nextLine();
 				logger.debug("task name introduced: " + fatherName);
 				logger.debug("searching task " + fatherName);				
 				task = (Task) getActivity(fatherName);
 				correctType = true;
-			}catch(Exception e){
+			} catch (Exception e) {
 				logger.warn(fatherName + " is a project, not a task.");
 				logger.warn("introducing a new task to find.");
-				System.out.print("You need to choose a task, not a project. Please introduce task name: ");
+				System.out.print("You need to choose a task, not a project. "
+						 + "Please introduce task name: ");
 			}
 		}
 		
 		task = (Task) getActivity(fatherName);
 		
 		if (task != null) {
-			logger.debug("task " + fatherName+ "has been found");
+			logger.debug("task " + fatherName + "has been found");
 			logger.info("Task " + task.getName() + " stopped");
 			task.stop();
 		} else {
@@ -633,11 +682,20 @@ public class Client {
 	/**
 	 * Menu for the actions that the user can select. 
 	 */
-	public void printSubMenu(){
+	public final void printSubMenu() {
+		final int optionAddRoot = 1;
+		final int optionAddChildProject = 2;
+		final int optionAddChildTask = 3;
+		final int optionStartInterval = 4;
+		final int optionStopInterval = 5;
+		final int optionRemoveActivity = 6;
+		final int optionChangeReprintRate = 7;
+		final int optionChangeIntervalTime = 8;
+		
 		Scanner scanner = new Scanner(System.in);
 		int option = -1;
 		
-		while(option != 0) {	
+		while (option != 0) {	
 			System.out.println("");
 			System.out.println("  - CONFIG MENU - ");
 			System.out.println("");
@@ -657,40 +715,42 @@ public class Client {
 			System.out.print("Enter an option: ");			
 						
 			boolean correctType = false;
-			while(!correctType){
-				try{
+			while (!correctType) {
+				try {
 					option = Integer.parseInt(scanner.nextLine());
 					logger.debug("chosen option: " + option);
 					correctType = true;					
-				}catch(Exception e){
+				} catch (Exception e) {
 					logger.debug("chosen option: " + option);
-					logger.warn("Introduced value is not a number. Introducing new value");
-					System.out.print("Introduced value is not a number. Please enter a number:");
+					logger.warn("Introduced value is not a number. " 
+							+ "Introducing new value");
+					System.out.print("Introduced value is not a number. " 
+							+ "Please enter a number:");
 				}
 			}
 			
 			switch(option) {
-			case 1:		// Add Root Project
+			case optionAddRoot:		// Add Root Project
 				addRootProject();
 				break;
 				
-			case 2:		// Add Child Project
+			case optionAddChildProject:		// Add Child Project
 				addChildProject();
 				break;
 				
-			case 3:		// Add Child Task
+			case optionAddChildTask:		// Add Child Task
 				addChildTask();
 				break;	
 				
-			case 4: 	// Start Interval
+			case optionStartInterval: 	// Start Interval
 				startTask();
 				break;
 				
-			case 5: 	// Stop Interval
+			case optionStopInterval: 	// Stop Interval
 				stopTask();				
 				break;
 				
-			case 6:		// Remove Activity
+			case optionRemoveActivity:		// Remove Activity
 				logger.debug("removing activity");
 				logger.debug("introducing name of element to eliminate");
 				System.out.print("Enter name of the element to eliminate: ");
@@ -698,51 +758,62 @@ public class Client {
 				Activity activity = getActivity(name);
 				if (activity != null) {
 					if (activity.getFather() == null) {
-						logger.debug(activity.getName()+" is a root project");
+						logger.debug(activity.getName() + " is a root project");
 						this.rootProjects.remove(activity);
-						logger.debug("Removed the root project " + activity.getName());
+						logger.debug("Removed the root project " 
+						+ activity.getName());
 					} else {
-						logger.debug(activity.getName()+" is a child activity");
+						logger.debug(activity.getName() 
+								+ " is a child activity");
 						activity.getFather().removeChild(activity);
 					}
 				} else {
 					logger.debug("activity introduced does not exist");
-					System.out.println("This activity does not exist in the system");
+					System.out.println("This activity does " 
+							+ "not exist in the system");
 				}
 				break;
 				
-			case 7:		// Change Reprint Rate
+			case optionChangeReprintRate:		// Change Reprint Rate
 				logger.debug("Changing refresh rate");
 				
 				correctType = false;
-				while(!correctType){
-					try{
+				while (!correctType) {
+					try {
 						logger.debug("Introducing refresh rate in seconds");
-						System.out.print("Enter the new refresh rate in seconds: ");
-						Impresor.getInstance().setReprintTime(Long.parseLong(scanner.nextLine()));
+						System.out.print("Enter the new "
+								+ "refresh rate in seconds: ");
+						Impresor.getInstance().setReprintTime(
+								Long.parseLong(scanner.nextLine()));
 						logger.info("Introduced new refresh rate");
 						correctType = true;
-					}catch(Exception e){
-						logger.warn("string has been introduced as refresh rate");
+					} catch (Exception e) {
+						logger.warn("string has been "
+								+ "introduced as refresh rate");
 						System.out.println("Refresh rate must be a number.");
 					}
 				}				
 				break;
 				
-			case 8:		// Change minimum Interval Time
+			case optionChangeIntervalTime:		// Change minimum Interval Time
 				logger.debug("Changing minimum Interval Time");
 				
 				correctType = false;
-				while(!correctType){
-					try{
-						logger.debug("Introducing minimum interval time in seconds");
-						System.out.print("Enter the new minimum Interval time in seconds: ");			
-						SimpleTask.setMinIntervalTime(Long.parseLong(scanner.nextLine()));
+				while (!correctType) {
+					try {
+						logger.debug("Introducing minimum "
+								+ "interval time in seconds");
+						System.out.print("Enter the new minimum " 
+								+ "Interval time in seconds: ");			
+						SimpleTask.setMinIntervalTime(
+								Long.parseLong(scanner.nextLine()));
 						logger.info("Introduced new minimum interval time");
 						correctType = true;
-					}catch(Exception e){
-						logger.warn("string has been introduced as minimum interval time");
-						System.out.println("Minimum interval time must be a number.");
+					} catch (Exception e) {
+						logger.warn("string has been introduced " 
+								+ "as minimum interval time");
+						System.out.println("Minimum interval " 
+								+ "time must be a number.");
 					}
 				}
 				break;
