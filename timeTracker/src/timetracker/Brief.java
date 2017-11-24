@@ -62,17 +62,29 @@ public class Brief extends Report {
 
 	@Override
 	public final void visitTask(final Task task, final int level) {
-		// Check dates
-			// If correct, visit children
+		if (task.getStartDate().before(getEndDate()) 
+				&& task.getEndDate().after(getStartDate())) {
+			// Valid task
+			for (Interval child : task.getChildren()) {
+				child.acceptVisitor(this, level + 1);
+			}
+		}
 	}
 
 	@Override
 	public final void visitProject(final Project project, final int level) {
 		this.intersectionTime = 0;
 		
-		// Check date
-			// If correct, visit children
-			// Get data
+		if (project.getStartDate().before(getEndDate()) 
+				&& project.getEndDate().after(getStartDate())) {
+			// Valid project
+			for (Activity child : project.getChildren()) {
+				child.acceptVisitor(this, level + 1);
+			}
+			
+			// Get data : TODO
+		}
+
 	}
 
 }

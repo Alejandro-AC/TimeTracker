@@ -34,22 +34,22 @@ public class SimpleTask extends Task {
 	 */
 	private Collection<Interval> children = new ArrayList<Interval>();
 	
-		/**
-		 * Getter of the property <tt>children</tt>
-		 * @return  Returns the intervals.
-		 * @uml.property  name="children"
-		 */
-		@SuppressWarnings("unchecked")
-		public final Collection<Interval> getChildren() {
-			logger.debug("getting childrens from simple task: " 
-					+ this.getName());
-			return this.children;
-		}
-		
-		public final boolean childrenIsEmpty() {
-			logger.debug("checking if children is empty");
-			return this.children.isEmpty();
-		}
+	/**
+	 * Getter of the property <tt>children</tt>
+	 * @return  Returns the intervals.
+	 * @uml.property  name="children"
+	 */
+	@SuppressWarnings("unchecked")
+	public final Collection<Interval> getChildren() {
+		logger.debug("getting childrens from simple task: " 
+				+ this.getName());
+		return this.children;
+	}
+	
+	public final boolean childrenIsEmpty() {
+		logger.debug("checking if children is empty");
+		return this.children.isEmpty();
+	}
 
 	/**
 	 * @uml.property   name="minIntervalTime"
@@ -72,7 +72,8 @@ public class SimpleTask extends Task {
 	public SimpleTask(final String name, final String description, 
 			final Project father) {
 		super(description, name, father);
-		
+		this.children = new ArrayList<Interval>();
+
 	}
 	
 	/** 
