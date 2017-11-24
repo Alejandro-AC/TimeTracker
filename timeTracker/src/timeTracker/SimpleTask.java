@@ -44,13 +44,6 @@ public class SimpleTask extends Task {
 			logger.debug("getting childrens from simple task: " 
 					+ this.getName());
 			return this.children;
-			
-			
-			/*if (children.isEmpty()) {
-				return null;
-			} else {
-				return children;
-			}*/
 		}
 		
 		public final boolean childrenIsEmpty() {
@@ -139,10 +132,6 @@ public class SimpleTask extends Task {
 		logger.debug("simple task " + this.getName() + "is accepting visitor");
 		
 		visitor.visitTask(this, level);
-		for (Interval child : children) {
-			child.acceptVisitor(visitor, level + 1);
-		}		
-		
 	}
 
 	/**

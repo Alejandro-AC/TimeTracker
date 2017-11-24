@@ -296,9 +296,9 @@ public class Project extends Activity {
 				+ " is accepting visitor");
 		
 		visitor.visitProject(this, level);
-		for (Activity child : children) {
+		/*for (Activity child : children) {
 			child.acceptVisitor(visitor, level + 1);
-		}
+		}*/
 		
 	}
 

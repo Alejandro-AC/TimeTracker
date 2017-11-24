@@ -164,6 +164,10 @@ public class Impresor implements Visitor, Runnable {
 					dateFormat.format(task.getEndDate()), 
 					task.getTotalTime());
 		}
+
+		for (Interval child : task.getChildren()) {
+			child.acceptVisitor(this, level + 1);
+		}
 	}
 	
 	/**
@@ -192,6 +196,10 @@ public class Impresor implements Visitor, Runnable {
 					dateFormat.format(project.getStartDate()), 
 					dateFormat.format(project.getEndDate()), 
 					project.getTotalTime());
+		}
+		
+		for (Activity child : project.getChildren()) {
+			child.acceptVisitor(this, level + 1);
 		}
 	}	
 	

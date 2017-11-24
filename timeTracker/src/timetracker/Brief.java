@@ -1,5 +1,7 @@
 package timetracker;
 
+import java.util.concurrent.TimeUnit;
+
 
 public class Brief extends Report {
 	
@@ -30,19 +32,47 @@ public class Brief extends Report {
 
 	@Override
 	public final void visitInterval(final Interval interval, final int level) {
-		//if (interval.)
+		long time;
+		
+		if (interval.getStartDate().before(getEndDate()) 
+				&& interval.getEndDate().after(getStartDate())) {			
+			// Valid interval
+			
+			if (interval.getStartDate().before(getStartDate()) 
+					&& interval.getEndDate().after(getEndDate())) {
+				// I4
+				time = interval.getEndDate().getTime() 
+						- interval.getStartDate().getTime();				
+			} else if (interval.getStartDate().before(getStartDate())) {
+				// I1
+				time = interval.getEndDate().getTime() 
+						- getStartDate().getTime();			
+			} else if (interval.getEndDate().after(getEndDate())) {
+				// I3
+				time = getEndDate().getTime() 
+						- interval.getStartDate().getTime();
+			} else {
+				// I2
+				time = interval.getEndDate().getTime() 
+						- interval.getStartDate().getTime();
+			}			
+			this.intersectionTime += TimeUnit.MILLISECONDS.toSeconds(time);		
+		}
 	}
 
 	@Override
 	public final void visitTask(final Task task, final int level) {
-		// Nothing to do.		
+		// Check dates
+			// If correct, visit children
 	}
 
 	@Override
 	public final void visitProject(final Project project, final int level) {
 		this.intersectionTime = 0;
 		
-		// Coger datos
+		// Check date
+			// If correct, visit children
+			// Get data
 	}
 
 }
