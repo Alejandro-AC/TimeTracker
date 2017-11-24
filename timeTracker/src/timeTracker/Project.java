@@ -45,14 +45,9 @@ public class Project extends Activity {
 	 */
 	@SuppressWarnings("unchecked") 
 	public final Collection<Activity> getChildren() {
-		getLogger()
-				.debug("getting childrens: " + children + "from project "
-						+ this.getName());
-		if (children.isEmpty()) {
-			return null;
-		} else {
-			return children;
-		}
+		getLogger().debug("getting childrens: " + children 
+				+ "from project " + this.getName());
+		return this.children;
 	}
 	
 	/** 

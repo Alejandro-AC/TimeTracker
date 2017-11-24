@@ -49,11 +49,13 @@ public class Client {
 		 */
 		public final Activity getRootProject(final String name) {
 			logger.debug("getting root project: " + name);
+			
 			for (Activity rootProject : voidProject.getChildren()) {
 				if (rootProject.getName().equals(name)) {
 					return rootProject;
 				}
 			}
+
 			return null;
 		}
 	
@@ -191,11 +193,12 @@ public class Client {
 				
 			} else if (activity instanceof Project) {		// keep searching
 				Collection<Activity> children = 
-						activity.getChildren();				
-				if (children != null) {
+						activity.getChildren();
+				
+				if (!children.isEmpty()) {
 					nonVisited.addAll(children);
 				}
-				
+
 				return searchActivity(name, nonVisited.peek(), nonVisited);
 				
 			} else {

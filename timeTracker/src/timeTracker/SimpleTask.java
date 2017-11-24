@@ -43,11 +43,14 @@ public class SimpleTask extends Task {
 		public final Collection<Interval> getChildren() {
 			logger.debug("getting childrens from simple task: " 
 					+ this.getName());
-			if (children.isEmpty()) {
+			return this.children;
+			
+			
+			/*if (children.isEmpty()) {
 				return null;
 			} else {
 				return children;
-			}
+			}*/
 		}
 		
 		public final boolean childrenIsEmpty() {

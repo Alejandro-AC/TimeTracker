@@ -207,17 +207,19 @@ public class Impresor implements Visitor, Runnable {
 		logger.debug("printing activities tree");
 		Stack<Activity> nonVisited = new Stack<Activity>();
 		
+		String title = "- ACTIVITIES TREE -";
+		System.out.println("");
+		System.out.println(title);
+		System.out.println("");
+		
 		if (rootProjects != null) {
-			nonVisited.addAll(rootProjects);			
-			
-			String title = "- ACTIVITIES TREE -";
+			nonVisited.addAll(rootProjects);
+					
 			String activityName = "Activity Name";
 			String startDate = "Start Date";
 			String endTime = "End Time";
 			String totalTime = "Total Time";
-			System.out.println("");
-			System.out.println(title);
-			System.out.println("");
+			
 			String format = "%10s%" + (formatNumber3) + "s%" 
 			+ (formatNumber1) + "s%" + (formatNumber1) 
 			+ "s%" + (formatNumber2) + "s%n";		
