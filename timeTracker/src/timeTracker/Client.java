@@ -17,7 +17,7 @@ import java.util.concurrent.TimeUnit;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-/**
+/** 
  * This class is used to run the application and operate with it.
  */
 public class Client {
@@ -38,17 +38,7 @@ public class Client {
 	 * @uml.associationEnd   multiplicity="(0 -1)" 
 	 * aggregation="shared" inverse="client:time.Tracker.Project"
 	 */
-	private Collection<Project> rootProjects = new ArrayList<Project>();
-
-		/**
-		 * Getter of the property <tt>rootProjects</tt>
-		 * @return  Returns the rootProjects.
-		 * @uml.property  name="rootProjects"
-		 */
-		public final Collection<Project> getRootProjects() {
-			logger.debug("getting root projects");
-			return rootProjects;
-		}
+	private Project voidProject = new Project("/", " ", null);
 		
 		/**
 		 * Searches for the rootProject with the name 
@@ -57,9 +47,9 @@ public class Client {
 		 * @return Return the 1 with the same name, 
 		 * or null if it has not been found.
 		 */
-		public final Project getRootProject(final String name) {
+		public final Activity getRootProject(final String name) {
 			logger.debug("getting root project: " + name);
-			for (Project rootProject : rootProjects) {
+			for (Activity rootProject : voidProject.getChildren()) {
 				if (rootProject.getName().equals(name)) {
 					return rootProject;
 				}
@@ -86,7 +76,7 @@ public class Client {
 		try {		// Deserialization
 			FileInputStream fileIn = new FileInputStream("data.ser");
 			ObjectInputStream in = new ObjectInputStream(fileIn);
-			c.rootProjects = (Collection<Project>) in.readObject();
+			c.voidProject.setChildren((Collection<Activity>) in.readObject());
 			logger.info("Desarialized data from data.ser");
 			System.out.println("Desarialized data from data.ser");
 		} catch (IOException e) {
@@ -96,7 +86,8 @@ public class Client {
 			return;
 		}
 		
-		Impresor.getInstance().setRootProjects(c.rootProjects);		
+		Impresor.getInstance()
+			.setRootProjects(c.voidProject.getChildren());		
 		
 		c.printMenu();
 		
@@ -115,7 +106,7 @@ public class Client {
 		try {		// Serialization
 			FileOutputStream fileOut = new FileOutputStream("data.ser");
 			ObjectOutputStream out = new ObjectOutputStream(fileOut);
-			out.writeObject(c.rootProjects);
+			out.writeObject(c.voidProject.getChildren());
 			out.close();
 			fileOut.close();
 			logger.info("Serialized data is saved in data.ser");
@@ -169,8 +160,8 @@ public class Client {
 		logger.debug("Getting activity: " + name);
 		boolean found = false;
 		Queue<Activity> nonVisited = new LinkedList<Activity>();
-		nonVisited.addAll(rootProjects);
-		Iterator<Project> iter = rootProjects.iterator();
+		nonVisited.addAll(voidProject.getChildren());
+		Iterator<Activity> iter = voidProject.getChildren().iterator();
 		Activity activity = null;
 		
 		while (!found && iter.hasNext()) {
@@ -303,7 +294,7 @@ public class Client {
 		}
 		
 		Project p1 = new Project("P1", " ", null);
-		this.rootProjects.add(p1);
+		this.voidProject.addExistingChildProject(p1);
 		
 		Project p2 = new Project("P2", " ", p1);
 		p1.testAddChild(p2);
@@ -397,7 +388,7 @@ public class Client {
 		}
 		
 		Project p11 = new Project("P1", " ", null);
-		this.rootProjects.add(p11);
+		this.voidProject.addExistingChildProject(p11);
 		
 		Project p22 = new Project("P2", " ", p11);
 		p11.testAddChild(p22);
@@ -508,9 +499,9 @@ public class Client {
 		properties = askRootProjectProperties();			
 		
 		Project p = new Project(properties.get(0), properties.get(1), null);
-		this.rootProjects.add(p);
+		this.voidProject.addExistingChildProject(p);
 		logger.info("root project " + p.getName() + " added");
-		Impresor.getInstance().setRootProjects(this.rootProjects);
+		Impresor.getInstance().setRootProjects(this.voidProject.getChildren());
 	}
 		
 	/** 
@@ -759,9 +750,9 @@ public class Client {
 				if (activity != null) {
 					if (activity.getFather() == null) {
 						logger.debug(activity.getName() + " is a root project");
-						this.rootProjects.remove(activity);
+						this.voidProject.removeChild(activity);
 						logger.debug("Removed the root project " 
-						+ activity.getName());
+								+ activity.getName());
 					} else {
 						logger.debug(activity.getName() 
 								+ " is a child activity");

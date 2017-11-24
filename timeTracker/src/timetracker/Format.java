@@ -5,7 +5,8 @@ public abstract class Format {
 
 	/** 
 	 * @uml.property name="report"
-	 * @uml.associationEnd multiplicity="(1 1)" inverse="format:timetracker.Report"
+	 * @uml.associationEnd multiplicity="(1 1)" 
+	 * 		inverse="format:timetracker.Report"
 	 */
 	private Report report = null;
 
@@ -14,8 +15,8 @@ public abstract class Format {
 	 * @return  Returns the report.
 	 * @uml.property  name="report"
 	 */
-	public Report getReport() {
-		return report;
+	public final Report getReport() {
+		return this.report;
 	}
 
 	/** 
@@ -23,8 +24,8 @@ public abstract class Format {
 	 * @param report  The report to set.
 	 * @uml.property  name="report"
 	 */
-	public void setReport(Report report) {
-		this.report = report;
+	public final void setReport(final Report reportSet) {
+		this.report = reportSet;
 	}
 
 }

@@ -34,8 +34,8 @@ public abstract class TaskDecorator extends Task {
 		 * @param task  The task to set.
 		 * @uml.property  name="task"
 		 */
-		protected final void setTask(final Task newTask) {
-			this.task = newTask;
+		protected final void setTask(final Task taskSet) {
+			this.task = taskSet;
 		}
 	
 	/**

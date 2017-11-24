@@ -134,10 +134,12 @@ public class SimpleTask extends Task {
 	public final void acceptVisitor(final Visitor visitor, 
 			final int level) {		
 		logger.debug("simple task " + this.getName() + "is accepting visitor");
+		
 		visitor.visitTask(this, level);
 		for (Interval child : children) {
 			child.acceptVisitor(visitor, level + 1);
-		}	
+		}		
+		
 	}
 
 	/**
@@ -180,7 +182,6 @@ public class SimpleTask extends Task {
 		if (!this.children.isEmpty()) {
 			if (this.getLastInterval().isRunning()) {
 				
-				//Date currentDate = new Date();
 				this.getLastInterval().stop();
 				
 				if (this.getLastInterval().getTotalTime() < minIntervalTime) {

@@ -41,9 +41,9 @@ public class LimitedIntervalTime extends TaskDecorator {
 		 * @param maxIntervalTime  The maxIntervalTime to set.
 		 * @uml.property  name="maxIntervalTime"
 		 */
-		public final void setMaxIntervalTime(final long newMaxIntervalTime) {
+		public final void setMaxIntervalTime(final long maxIntervalTimeSet) {
 			logger.debug("setting max interval time: " + maxIntervalTime);
-			this.maxIntervalTime = newMaxIntervalTime;
+			this.maxIntervalTime = maxIntervalTimeSet;
 		}
 	
 	/**
@@ -57,9 +57,9 @@ public class LimitedIntervalTime extends TaskDecorator {
 	 */
 	public LimitedIntervalTime(final String description, final String name, 
 			final Project father, final Task task, 
-			final long newMaxIntervalTime) {
+			final long maxIntervalTimeSet) {
 		super(description, name, father, task);
-		this.maxIntervalTime = newMaxIntervalTime;
+		this.maxIntervalTime = maxIntervalTimeSet;
 	}
  
 	/**

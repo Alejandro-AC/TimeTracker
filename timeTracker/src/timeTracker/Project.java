@@ -9,9 +9,7 @@ import java.util.Scanner;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-/**
- * 
- */
+
 public class Project extends Activity {
 	
 	/**
@@ -301,10 +299,12 @@ public class Project extends Activity {
 	public final void acceptVisitor(final Visitor visitor, final int level) {
 		getLogger().debug("Project " + this.getName() 
 				+ " is accepting visitor");
+		
 		visitor.visitProject(this, level);
 		for (Activity child : children) {
 			child.acceptVisitor(visitor, level + 1);
 		}
+		
 	}
 
 	/**
@@ -316,27 +316,18 @@ public class Project extends Activity {
 		this.children.add(newChild);
 	}
 
-	/**
-	 * @uml.property  name="report"
-	 * @uml.associationEnd  multiplicity="(0 -1)" inverse="project:timetracker.Report"
+	/** 
+	 * @uml.property name="reports"
+	 * @uml.associationEnd multiplicity="(0 -1)" 
+	 * 		inverse="project:timetracker.Report"
 	 */
-	private Collection report;
-
+	@SuppressWarnings("unused")
+	private Collection<Report> reports = new ArrayList<Report>();
+		
 	/**
-	 * Getter of the property <tt>report</tt>
-	 * @return  Returns the report.
-	 * @uml.property  name="report"
+	 * Adds an already existing project to the current project.
 	 */
-	public Collection getReport() {
-		return report;
-	}
-
-	/**
-	 * Setter of the property <tt>report</tt>
-	 * @param report  The report to set.
-	 * @uml.property  name="report"
-	 */
-	public void setReport(Collection report) {
-		this.report = report;
+	public final void addExistingChildProject(final Project project) {
+		this.children.add(project);
 	}
 }

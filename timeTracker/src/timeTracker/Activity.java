@@ -49,7 +49,7 @@ public abstract class Activity implements Serializable {
 		 * @return  Returns the name.
 		 * @uml.property  name="name"
 		 */
-		protected final String getName() {
+		protected String getName() {
 			return this.name;
 		}
 
@@ -151,7 +151,7 @@ public abstract class Activity implements Serializable {
 		 * @return  Returns the totalTime.
 		 * @uml.property  name="totalTime"
 		 */
-		protected final long getTotalTime() {
+		protected long getTotalTime() {
 			return this.totalTime;
 		}
 	

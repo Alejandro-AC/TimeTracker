@@ -44,12 +44,12 @@ public class Impresor implements Visitor, Runnable {
 	/**
 	 * Root projects of the system.
 	 */
-	private Collection<Project> rootProjects = new ArrayList<Project>();
+	private Collection<Activity> rootProjects = new ArrayList<Activity>();
 	
 		public final void setRootProjects(
-				final Collection<Project> rootProjectsSet) {
+				final Collection<Activity> collection) {
 			logger.debug("set root projects in impresor");
-			this.rootProjects = rootProjectsSet;
+			this.rootProjects = collection;
 		}
 	
 	/**
@@ -206,26 +206,29 @@ public class Impresor implements Visitor, Runnable {
 		
 		logger.debug("printing activities tree");
 		Stack<Activity> nonVisited = new Stack<Activity>();
-		nonVisited.addAll(rootProjects);
-		String title = "- ACTIVITIES TREE -";
-		String activityName = "Activity Name";
-		String startDate = "Start Date";
-		String endTime = "End Time";
-		String totalTime = "Total Time";
-		System.out.println("");
-		System.out.println(title);
-		System.out.println("");
-		String format = "%10s%" + (formatNumber3) + "s%" 
-		+ (formatNumber1) + "s%" + (formatNumber1) 
-		+ "s%" + (formatNumber2) + "s%n";		
-		System.out.printf(format, " ", 
-				activityName, startDate, 
-				endTime, totalTime);	
-		for (Project root : rootProjects) {
-			root.acceptVisitor(uniqueInstance, 0);
-			System.out.println("");
-		}
 		
+		if (rootProjects != null) {
+			nonVisited.addAll(rootProjects);			
+			
+			String title = "- ACTIVITIES TREE -";
+			String activityName = "Activity Name";
+			String startDate = "Start Date";
+			String endTime = "End Time";
+			String totalTime = "Total Time";
+			System.out.println("");
+			System.out.println(title);
+			System.out.println("");
+			String format = "%10s%" + (formatNumber3) + "s%" 
+			+ (formatNumber1) + "s%" + (formatNumber1) 
+			+ "s%" + (formatNumber2) + "s%n";		
+			System.out.printf(format, " ", 
+					activityName, startDate, 
+					endTime, totalTime);	
+			for (Activity root : rootProjects) {
+				root.acceptVisitor(uniqueInstance, 0);
+				System.out.println("");
+			}
+		}
 		System.out.println("");
 		System.out.print("Enter 1 to see the menu, 2 to run the test A.1, "
 				+ "3 to run the test A.2, 0 to Exit: ");		

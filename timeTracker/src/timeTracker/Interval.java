@@ -236,7 +236,9 @@ public class Interval implements Serializable {
 	 */
 	public final void acceptVisitor(final Visitor visitor, final int level) {
 		logger.debug("Interval with ID " + this.getId() + "accepting visitor");
+		
 		visitor.visitInterval(this, level + 1);
+		
 	}
 
 
