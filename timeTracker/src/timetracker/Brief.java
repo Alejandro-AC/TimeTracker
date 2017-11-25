@@ -64,6 +64,7 @@ public class Brief extends Report {
 	public final void visitTask(final Task task, final int level) {
 		if (task.getStartDate().before(getEndDate()) 
 				&& task.getEndDate().after(getStartDate())) {
+			
 			// Valid task
 			for (Interval child : task.getChildren()) {
 				child.acceptVisitor(this, level + 1);

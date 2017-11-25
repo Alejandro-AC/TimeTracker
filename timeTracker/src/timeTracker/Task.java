@@ -1,6 +1,7 @@
 package timetracker;
 
 import java.io.IOException;
+import java.util.Collection;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -33,6 +34,10 @@ public abstract class Task extends Activity implements Observer {
 			final Project father) {
 		super(description, name, father);
 	}
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public abstract Collection<Interval> getChildren();
 	
 	// Abstract methods that will be implemented in the 
 	// sub-classes that need them.
