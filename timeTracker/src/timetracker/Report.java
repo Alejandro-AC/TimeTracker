@@ -3,26 +3,10 @@ package timetracker;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
 public abstract class Report implements Visitor {
-	
-	/**
-	 * @uml.property  name="logger"
-	 */
-	private Logger logger = LoggerFactory.getLogger(Report.class);
-
-		/**
-		 * Getter of the property <tt>logger</tt>
-		 * @return  Returns the logger.
-		 * @uml.property  name="logger"
-		 */
-		public final Logger getLogger() {
-			return this.logger;
-		}
 
 	/**
 	 * @uml.property name="project"
@@ -41,17 +25,6 @@ public abstract class Report implements Visitor {
 			return this.project;
 		}
 
-		/**
-		 * Setter of the property <tt>project</tt>
-		 * 
-		 * @param project
-		 *            The projects to set.
-		 * @uml.property name="project"
-		 */
-		public final void setProject(final Project projectSet) {
-			this.project = projectSet;
-		}
-
 	/**
 	 * @uml.property name="format"
 	 * @uml.associationEnd multiplicity="(1 1)"
@@ -67,17 +40,6 @@ public abstract class Report implements Visitor {
 		 */
 		public final Format getFormat() {
 			return this.format;
-		}
-	
-		/**
-		 * Setter of the property <tt>format</tt>
-		 * 
-		 * @param format
-		 *            The format to set.
-		 * @uml.property name="format"
-		 */
-		public final void setFormat(final Format formatSet) {
-			this.format = formatSet;
 		}
 
 	/**
@@ -122,17 +84,6 @@ public abstract class Report implements Visitor {
 		public final Date getStartDate() {
 			return startDate;
 		}
-	
-		/**
-		 * Setter of the property <tt>startDate</tt>
-		 * 
-		 * @param startDate
-		 *            The startDate to set.
-		 * @uml.property name="startDate"
-		 */
-		public final void setStartDate(final Date startDateSet) {
-			this.startDate = startDateSet;
-		}
 
 	/**
 	 * @uml.property name="endDate"
@@ -147,17 +98,6 @@ public abstract class Report implements Visitor {
 		 */
 		public final Date getEndDate() {
 			return endDate;
-		}
-	
-		/**
-		 * Setter of the property <tt>endDate</tt>
-		 * 
-		 * @param endDate
-		 *            The endDate to set.
-		 * @uml.property name="endDate"
-		 */
-		public final void setEndDate(final Date endDateSet) {
-			this.endDate = endDateSet;
 		}
 	
 	/**
@@ -182,27 +122,21 @@ public abstract class Report implements Visitor {
 		public final void setIntersectionTime(final long intersectionTimeSet) {
 			this.intersectionTime = intersectionTimeSet;
 		}
-
-	public abstract void visitInterval(Interval interval, int level);
-
-	public abstract void visitTask(Task task, int level);
-
-	public abstract void visitProject(Project projectVisited, int level);
-
+		
 	/**
 	 * @uml.property  name="durationFormat"
 	 */
 	private DateFormat durationFormat = 
 			new SimpleDateFormat("HH'h' mm'm' ss's'");
-	
-	/**
-	 * Getter of the property <tt>durationFormat</tt>
-	 * @return  Returns the durationFormat.
-	 * @uml.property  name="durationFormat"
-	 */
-	public final DateFormat getDurationFormat() {
-		return this.durationFormat;
-	}
+		
+		/**
+		 * Getter of the property <tt>durationFormat</tt>
+		 * @return  Returns the durationFormat.
+		 * @uml.property  name="durationFormat"
+		 */
+		public final DateFormat getDurationFormat() {
+			return this.durationFormat;
+		}
 
 	/**
 	 * @uml.property  name="dateFormat"
@@ -210,13 +144,33 @@ public abstract class Report implements Visitor {
 	private DateFormat dateFormat =
 			new SimpleDateFormat("yyyy/MM/dd, HH:mm'h'");
 
+		/**
+		 * Getter of the property <tt>dateFormat</tt>
+		 * @return  Returns the dateFormat.
+		 * @uml.property  name="dateFormat"
+		 */
+		public final DateFormat getDateFormat() {
+			return this.dateFormat;
+		}
 	/**
-	 * Getter of the property <tt>dateFormat</tt>
-	 * @return  Returns the dateFormat.
-	 * @uml.property  name="dateFormat"
+	 * Constructor of the class.
 	 */
-	public final DateFormat getDateFormat() {
-		return this.dateFormat;
+	public Report(final Project projectSet, final Format formatSet, 
+			final Date startDateSet, final Date endDateSet) {
+		this.project = projectSet;
+		this.format = formatSet;
+		this.startDate = startDateSet;
+		this.endDate = endDateSet;
 	}
+		
+	public abstract void visitInterval(Interval interval, int level);
+
+	public abstract void visitTask(Task task, int level);
+
+	public abstract void visitProject(Project projectVisited, int level);
+
+	public abstract void generateReport();
+		
+	
 
 }

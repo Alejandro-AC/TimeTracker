@@ -8,6 +8,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Queue;
@@ -562,6 +563,7 @@ public class Client {
 
 		t1.stop();
 		t2.start();
+		Date startDate = new Date();
 
 		try {
 			Thread.sleep(waitTime2);
@@ -583,6 +585,7 @@ public class Client {
 
 		t3.stop();
 		t2.start();
+		Date endDate = new Date();
 
 		try {
 			Thread.sleep(waitTime4);
@@ -603,7 +606,10 @@ public class Client {
 		t2.stop();
 		t3.stop();
 		
-		// Generate reports
+		// Generate report
+		Brief briefReport = new Brief(this.voidProject, new Text(), 
+				startDate, endDate);
+		briefReport.generateReport();
 
 		System.out.println("");
 		System.out.println("		Test Fita 2 finished!");
