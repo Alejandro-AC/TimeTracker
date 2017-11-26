@@ -246,8 +246,8 @@ public class Impresor implements Visitor, Runnable {
 			}
 		}
 		System.out.println("");
-		System.out.print("Enter 1 to see the menu, 2 to run the test A.1, "
-				+ "3 to run the test A.2, 0 to Exit: ");
+		System.out.print("Enter 1 to see the menu, 2 to run test A.1, "
+				+ "3 to run test A.2, 4 to run test Fita 2, 0 to Exit: ");
 		System.out.println("");
 		System.out.println("");
 	}

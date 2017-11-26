@@ -233,8 +233,9 @@ public class Client {
 			Impresor.getInstance().reanudate();
 			Thread impresorThread = new Thread(Impresor.getInstance());
 			impresorThread.start();
-			final int thirdOption = 3;
-
+			
+			final int one = 1, two = 2, three = 3, four = 4;
+			
 			boolean correctType = false;
 			while (!correctType) {
 				try {
@@ -251,7 +252,7 @@ public class Client {
 			}
 
 			switch (option) {
-			case 1:
+			case one:
 				try {
 					Impresor.getInstance().terminate();
 					TimeUnit.SECONDS.sleep(1);
@@ -261,13 +262,16 @@ public class Client {
 				printSubMenu();
 				break;
 
-			case 2: // Test A.1
+			case two: // Test A.1
 				this.testA1(impresorThread);
 				break;
 
-			case thirdOption: // Test A.2
+			case three: // Test A.2
 				this.testA2(impresorThread);
-
+				break;
+				
+			case four:	// Test Fita 2
+				this.testFita2(impresorThread);
 				break;
 
 			case 0:
@@ -293,10 +297,10 @@ public class Client {
 
 	private void testA1(final Thread impresorThread) {
 		Clock.getInstance().setRefreshTime(2);
-		final int waitTimeA11 = 3000;
-		final int waitTimeA12 = 7000;
-		final int waitTimeA13 = 10000;
-		final int waitTimeA14 = 2000;
+		final int waitTimeA1 = 3000;
+		final int waitTimeA2 = 7000;
+		final int waitTimeA3 = 10000;
+		final int waitTimeA4 = 2000;
 		try {
 			Impresor.getInstance().terminate();
 			TimeUnit.SECONDS.sleep(1);
@@ -331,7 +335,7 @@ public class Client {
 		t3.start();
 
 		try {
-			Thread.sleep(waitTimeA11);
+			Thread.sleep(waitTimeA1);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 			logger.error("Error while putting to sleep the execution");
@@ -340,7 +344,7 @@ public class Client {
 		t3.stop();
 
 		try {
-			Thread.sleep(waitTimeA12);
+			Thread.sleep(waitTimeA2);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 			logger.error("Error while putting to sleep the execution");
@@ -349,7 +353,7 @@ public class Client {
 		t2.start();
 
 		try {
-			Thread.sleep(waitTimeA13);
+			Thread.sleep(waitTimeA3);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 			logger.error("Error while putting to sleep the execution");
@@ -360,7 +364,7 @@ public class Client {
 		t3.start();
 
 		try {
-			Thread.sleep(waitTimeA14);
+			Thread.sleep(waitTimeA4);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 			logger.error("Error while putting to sleep the execution");
@@ -383,13 +387,13 @@ public class Client {
 
 	private void testA2(final Thread impresorThread) {
 		Clock.getInstance().setRefreshTime(2);
-		final int waitTimeA21 = 4000;
-		final int waitTimeA22 = 2000;
-		final int waitTimeA23 = 2000;
-		final int waitTimeA24 = 4000;
-		final int waitTimeA25 = 2000;
-		final int waitTimeA26 = 4000;
-		final int waitTimeA27 = 2000;
+		final int waitTimeA1 = 4000;
+		final int waitTimeA2 = 2000;
+		final int waitTimeA3 = 2000;
+		final int waitTimeA4 = 4000;
+		final int waitTimeA5 = 2000;
+		final int waitTimeA6 = 4000;
+		final int waitTimeA7 = 2000;
 
 		try {
 			Impresor.getInstance().terminate();
@@ -398,23 +402,23 @@ public class Client {
 			e1.printStackTrace();
 		}
 
-		Project p11 = new Project("P1", " ", null);
-		this.voidProject.addExistingChildProject(p11);
+		Project p1 = new Project("P1", " ", null);
+		this.voidProject.addExistingChildProject(p1);
 
-		Project p22 = new Project("P2", " ", p11);
-		p11.testAddChild(p22);
+		Project p2 = new Project("P2", " ", p1);
+		p1.testAddChild(p2);
 
-		Task t33 = new SimpleTask("T3", " ", p11);
-		p11.testAddChild(t33);
-		Clock.getInstance().getNotification().addObserver(t33);
+		Task t3 = new SimpleTask("T3", " ", p1);
+		p1.testAddChild(t3);
+		Clock.getInstance().getNotification().addObserver(t3);
 
-		Task t11 = new SimpleTask("T1", " ", p22);
-		p22.testAddChild(t11);
-		Clock.getInstance().getNotification().addObserver(t11);
+		Task t1 = new SimpleTask("T1", " ", p2);
+		p2.testAddChild(t1);
+		Clock.getInstance().getNotification().addObserver(t1);
 
-		Task t22 = new SimpleTask("T2", " ", p22);
-		p22.testAddChild(t22);
-		Clock.getInstance().getNotification().addObserver(t22);
+		Task t2 = new SimpleTask("T2", " ", p2);
+		p2.testAddChild(t2);
+		Clock.getInstance().getNotification().addObserver(t2);
 
 		System.out.println("Time will count every 2 seconds.");
 
@@ -423,70 +427,70 @@ public class Client {
 		Thread impresorThread2 = new Thread(Impresor.getInstance());
 		impresorThread2.start();
 
-		t33.start();
+		t3.start();
 
 		try {
-			Thread.sleep(waitTimeA21);
+			Thread.sleep(waitTimeA1);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 			logger.error("Error while putting to sleep the execution");
 		}
 
-		t22.start();
+		t2.start();
 
 		try {
-			Thread.sleep(waitTimeA22);
+			Thread.sleep(waitTimeA2);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 			logger.error("Error while putting to sleep the execution");
 		}
 
-		t33.stop();
+		t3.stop();
 
 		try {
-			Thread.sleep(waitTimeA23);
+			Thread.sleep(waitTimeA3);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 			logger.error("Error while putting to sleep the execution");
 		}
 
-		t11.start();
+		t1.start();
 
 		try {
-			Thread.sleep(waitTimeA24);
+			Thread.sleep(waitTimeA4);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 			logger.error("Error while putting to sleep the execution");
 		}
 
-		t11.stop();
+		t1.stop();
 
 		try {
-			Thread.sleep(waitTimeA25);
+			Thread.sleep(waitTimeA5);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 			logger.error("Error while putting to sleep the execution");
 		}
 
-		t22.stop();
+		t2.stop();
 
 		try {
-			Thread.sleep(waitTimeA26);
+			Thread.sleep(waitTimeA6);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 			logger.error("Error while putting to sleep the execution");
 		}
 
-		t33.start();
+		t3.start();
 
 		try {
-			Thread.sleep(waitTimeA27);
+			Thread.sleep(waitTimeA7);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 			logger.error("Error while putting to sleep the execution");
 		}
 
-		t33.stop();
+		t3.stop();
 
 		try {
 			Impresor.getInstance().terminate();
@@ -497,6 +501,112 @@ public class Client {
 
 		System.out.println("");
 		System.out.println("Test A.2 finished!");
+		System.out.println("");
+	}
+	
+	private void testFita2(final Thread impresorThread) {
+		Clock.getInstance().setRefreshTime(1);
+		final int waitTime1 = 4000;
+		final int waitTime2 = 6000;
+		final int waitTime3 = 4000;
+		final int waitTime4 = 2000;
+		final int waitTime5 = 4000;
+
+		try {
+			Impresor.getInstance().terminate();
+			TimeUnit.SECONDS.sleep(1);
+		} catch (InterruptedException e1) {
+			e1.printStackTrace();
+		}
+
+		Project p1 = new Project("P1", " ", null);
+		this.voidProject.addExistingChildProject(p1);
+
+		Project p2 = new Project("P2", " ", p1);
+		this.voidProject.addExistingChildProject(p2);
+		
+		Project p12 = new Project("P1.2", " ", p1);
+		p1.addExistingChildProject(p12);
+		
+		Task t1 = new SimpleTask("T1", " ", p1);
+		p1.testAddChild(t1);
+		Clock.getInstance().getNotification().addObserver(t1);
+		
+		Task t2 = new SimpleTask("T2", " ", p1);
+		p1.testAddChild(t2);
+		Clock.getInstance().getNotification().addObserver(t2);
+		
+		Task t3 = new SimpleTask("T3", " ", p2);
+		p2.testAddChild(t3);
+		Clock.getInstance().getNotification().addObserver(t3);
+		
+		Task t4 = new SimpleTask("T3", " ", p12);
+		p12.testAddChild(t4);
+		Clock.getInstance().getNotification().addObserver(t4);
+		
+		Impresor.getInstance().setReprintTime(1);
+		Impresor.getInstance().reanudate();
+		Thread impresorThread2 = new Thread(Impresor.getInstance());
+		impresorThread2.start();
+
+		
+		t1.start();
+		t4.start();
+
+		try {
+			Thread.sleep(waitTime1);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+			logger.error("Error while putting to sleep the execution");
+		}
+
+		t1.stop();
+		t2.start();
+
+		try {
+			Thread.sleep(waitTime2);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+			logger.error("Error while putting to sleep the execution");
+		}
+
+		t2.stop();
+		t4.stop();
+		t3.start();
+
+		try {
+			Thread.sleep(waitTime3);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+			logger.error("Error while putting to sleep the execution");
+		}
+
+		t3.stop();
+		t2.start();
+
+		try {
+			Thread.sleep(waitTime4);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+			logger.error("Error while putting to sleep the execution");
+		}
+
+		t3.start();
+
+		try {
+			Thread.sleep(waitTime5);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+			logger.error("Error while putting to sleep the execution");
+		}
+
+		t2.stop();
+		t3.stop();
+		
+		// Generate reports
+
+		System.out.println("");
+		System.out.println("		Test Fita 2 finished!");
 		System.out.println("");
 	}
 

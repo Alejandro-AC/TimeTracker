@@ -5,6 +5,8 @@ import java.util.Collection;
 import java.util.Date;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 
 public abstract class Report implements Visitor {
 	
@@ -187,9 +189,34 @@ public abstract class Report implements Visitor {
 
 	public abstract void visitProject(Project projectVisited, int level);
 
-	public final long calculateIntersectionTime(final Activity activity) {
-		return 0;
+	/**
+	 * @uml.property  name="durationFormat"
+	 */
+	private DateFormat durationFormat = 
+			new SimpleDateFormat("HH'h' mm'm' ss's'");
+	
+	/**
+	 * Getter of the property <tt>durationFormat</tt>
+	 * @return  Returns the durationFormat.
+	 * @uml.property  name="durationFormat"
+	 */
+	public final DateFormat getDurationFormat() {
+		return this.durationFormat;
+	}
 
+	/**
+	 * @uml.property  name="dateFormat"
+	 */
+	private DateFormat dateFormat =
+			new SimpleDateFormat("yyyy/MM/dd, HH:mm'h'");
+
+	/**
+	 * Getter of the property <tt>dateFormat</tt>
+	 * @return  Returns the dateFormat.
+	 * @uml.property  name="dateFormat"
+	 */
+	public final DateFormat getDateFormat() {
+		return this.dateFormat;
 	}
 
 }
