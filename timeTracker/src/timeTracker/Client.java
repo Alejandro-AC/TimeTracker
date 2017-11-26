@@ -607,7 +607,7 @@ public class Client {
 		t3.stop();
 		
 		// Generate report
-		Brief briefReport = new Brief(this.voidProject, new Text(), 
+		Brief briefReport = new Brief(this.voidProject, new Html(), 
 				startDate, endDate);
 		briefReport.generateReport();
 
