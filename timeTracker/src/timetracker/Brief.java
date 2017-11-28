@@ -165,7 +165,7 @@ public class Brief extends Report {
 	@Override
 	public final void visitProject(final Project project, final int level) {
 		
-		if (level == 0) {
+		if (level == 0 && getIntersectionTime() > 0) {
 			logger.debug("visiting a root project, " 
 					+ "restarting the intersection time");
 			setIntersectionTime(0);
@@ -179,7 +179,7 @@ public class Brief extends Report {
 				child.acceptVisitor(this, level + 1);
 			}			
 			
-			if (level  == 0) {
+			if (level  == 0 && getIntersectionTime() > 0) {
 					// Adding project data
 				logger.debug("generating data table " 
 						+ "for the current root project");
