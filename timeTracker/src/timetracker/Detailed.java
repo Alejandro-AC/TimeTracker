@@ -170,26 +170,31 @@ public class Detailed extends Report {
 	@Override
 	public final void visitInterval(final Interval interval, final int level) {
 		long time;
+	// Interval doesn't start after period or ends before period then valid
 		if (interval.getStartDate().before(getEndDate())
 				&& interval.getEndDate().after(getStartDate())) {
 			logger.debug("visiting a valid interval");
 			// It's a valid interval
 
+			// Interval starts before period and ends after period
 			if (interval.getStartDate().before(getStartDate())
 					&& interval.getEndDate().after(getEndDate())) {
-				// I4
-				time = interval.getEndDate().getTime()
-						- interval.getStartDate().getTime();
-			} else if (interval.getStartDate().before(getStartDate())) {
-				// I1
+				time = getEndDate().getTime()
+						- getStartDate().getTime();
+				
+				// Interval starts before period and ends before period
+			} else if (interval.getStartDate().before(getStartDate())
+					&& interval.getEndDate().before(getEndDate())) {
 				time = interval.getEndDate().getTime()
 						- getStartDate().getTime();
-			} else if (interval.getEndDate().after(getEndDate())) {
-				// I3
+				
+				// Interval starts after period and ends after period 
+			} else if (interval.getStartDate().after(getStartDate())
+					&& interval.getEndDate().after(getEndDate())) {				
 				time = getEndDate().getTime()
 						- interval.getStartDate().getTime();
+				// Interval starts after period and ends before period 
 			} else {
-				// I2
 				time = interval.getEndDate().getTime()
 						- interval.getStartDate().getTime();
 			}
