@@ -19,17 +19,17 @@ public class Brief extends Report {
 	 * Constructor of the class;
 	 */
 	public Brief(final Project projectSet, final Format formatSet,
-			final Date startDateSet, final Date endDateSet) {
-		super(projectSet, formatSet, startDateSet, endDateSet);
+			final Date startDateSet, final Date endDateSet, final String reportNameSet) {
+		super(projectSet, formatSet, startDateSet, endDateSet, reportNameSet);
 	}
 	
 	public final void generateReport() {
 		logger.debug("generating report of root projects");
 		getElements().add(new Line());
-		getElements().add(new TextElement("Brief report"));
+		getElements().add(new Title("Brief report"));
 		getElements().add(new Line());
 		
-		getElements().add(new TextElement("Period"));
+		getElements().add(new SubTitle("Period"));
 			// Period Table
 		logger.debug("creating period table");
 		ArrayList<String> periodFields = new ArrayList<String>();
@@ -61,7 +61,7 @@ public class Brief extends Report {
 	
 		getElements().add(new Line());
 		
-		getElements().add(new TextElement("Projectes arrel"));
+		getElements().add(new SubTitle("Root Projects"));
 		
 			// Creating table to save rootProjects' data
 		logger.debug("creating root projects table");
@@ -83,7 +83,7 @@ public class Brief extends Report {
 		getElements().add(new Line());
 		getElements().add(new TextElement("Time Tracker v1.0"));	
 		
-		// Aply format
+		// Apply format
 		getFormat().setReport(this);
 		getFormat().applyFormat();
 	}
@@ -115,8 +115,11 @@ public class Brief extends Report {
 						- interval.getStartDate().getTime();
 			}
 			logger.debug("getting intersection time of the interval");
+			logger.debug("sum until now:" + getIntersectionTime());
+			logger.debug("adding:" + time);
 			setIntersectionTime(getIntersectionTime() 
 					+ TimeUnit.MILLISECONDS.toSeconds(time));
+			
 		}
 	}
 
@@ -157,7 +160,13 @@ public class Brief extends Report {
 				row.add(project.getName());
 				row.add(getDateFormat().format(project.getStartDate()));
 				row.add(getDateFormat().format(project.getEndDate()));
-				row.add(getDurationFormat().format(getIntersectionTime()));
+				
+				long hours = getIntersectionTime() / 3600;
+				long minutes = (getIntersectionTime() % 3600) / 60;
+				long seconds = getIntersectionTime() % 60;
+				String timeString = String.format(" %02d" +"h" +" %02d" +"m" +" %02d" +"s", hours, minutes, seconds);
+				
+				row.add(timeString);
 	
 				this.rootProjectsTable.addRow(row);
 			}			

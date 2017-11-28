@@ -21,10 +21,13 @@
       <MaxFileSize>5MB</MaxFileSize>
     </triggeringPolicy>
   </appender>
-  <root level="off">
+  <root level="error">
     <appender-ref ref="stdout"/>
     <appender-ref ref="file"/>
   </root>
+  <logger name="timetracker.Report" level="debug"/>
+  <logger name="timetracker.Brief" level="debug"/>
+  <logger name="timetracker.Detailed" level="debug"/>
   
   <!-- modify level to specify class -->
   <!-- <logger name="timeTracker.Client" level="info"/>  -->

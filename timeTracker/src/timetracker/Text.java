@@ -17,60 +17,48 @@ public class Text extends Format {
 	public final void applyFormat() {
 		try {
 			logger.error("creating an output file");
-			PrintWriter out = new PrintWriter("report.txt");
+			PrintWriter out = new PrintWriter(getReport().getReportName() 
+					+ ".txt");
 			
-			for (Element element : getReport().getElements()) {
-				if (element instanceof TextElement 
-						|| element instanceof Line) {
+			for (Element element : getReport().getElements()) {			
+				
+				if (element instanceof TextElement) {
 					out.println(element.getData());
-				} else {
-					final int space = 25;
+					
+				} else if (element instanceof Title) {
+					out.println(element.getData());
+					
+				} else if (element instanceof SubTitle) {
+					out.println(element.getData());
+					
+				} else if (element instanceof Line) {
+					out.println("------------------------------" 
+							+ "---------------------------------"
+							+ "---------------------------------------");
+					
+				} else if (element instanceof Table){
 					@SuppressWarnings("unchecked")
 					ArrayList<ArrayList<String>> rows 
 						= (ArrayList<ArrayList<String>>) element.getData();
-					
-					if (rows.get(0).size() == 2) {
-						// Period table
-						for (int i = 0; i < 4; i++) {
-							ArrayList<String> periodRow = rows.get(0);
-							/*String format = "s%" 
-									+ (space - periodRow.get(0).length()) 
-									+ "s%";*/
-							out.println(periodRow.get(0));
-							/*out.format(format, periodRow.get(0), 
-									periodRow.get(1));*/
-							rows.remove(0);						
-						}
-					} else {
-						// Project table
-						while (!rows.isEmpty()) {
-							ArrayList<String> projectRow = rows.get(0);
-							/*String format = "s%-" 
-									+ (space - projectRow.get(0).length()) 
-									+ "s%" 
-									+ (space - projectRow.get(1).length()) 
-									+ "s%" 
-									+ (space - projectRow.get(2).length()) 
-									+ "s%" 
-									+ (space - projectRow.get(3).length());
-							out.format(format, projectRow.get(0), 
-									projectRow.get(1), projectRow.get(2), 
-									projectRow.get(3));*/
-							out.println(projectRow.get(0));
-							rows.remove(0);
-						}
-					}
-					
+
+					for (ArrayList<String> row:rows) {
+
+			            ArrayList<String> temp = row;
+
+			            for (String tableElement : temp) {
+			            	out.printf("%-24s", tableElement);
+			            }
+			            out.print("\n");			      
+			        }				
 				}
-			}
-			
+			}			
 			out.close();
 			
 		} catch (FileNotFoundException e) {
-			logger.error("Erro trying to create the output file");
+			logger.error("Error trying to create the output file");
 			e.printStackTrace();
 		}
 		
-	}	
+	}		
 
 }

@@ -606,10 +606,25 @@ public class Client {
 		t2.stop();
 		t3.stop();
 		
-		// Generate report
-		Brief briefReport = new Brief(this.voidProject, new Html(), 
-				startDate, endDate);
-		briefReport.generateReport();
+		// Generate Brief Html report
+		Brief briefHtmlReport = new Brief(this.voidProject, new Html(), 
+				startDate, endDate, "briefHtmlReport");
+		briefHtmlReport.generateReport();
+		
+		// Generate Brief Text report
+		Brief briefTextReport = new Brief(this.voidProject, new Text(), 
+				startDate, endDate, "briefTextReport");
+		briefTextReport.generateReport();
+		
+		// Generate Detailed Html report
+		Detailed detailedHtmlReport = new Detailed(this.voidProject, new Html(), 
+				startDate, endDate, "detailedHtmlReport");
+		detailedHtmlReport.generateReport();
+		
+		// Generate Detailed Text report
+		Detailed detailedTextReport = new Detailed(this.voidProject, new Text(), 
+				startDate, endDate, "detailedTextReport");
+		detailedTextReport.generateReport();
 
 		System.out.println("");
 		System.out.println("		Test Fita 2 finished!");

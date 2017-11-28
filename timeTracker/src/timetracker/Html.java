@@ -15,14 +15,24 @@ public class Html extends Format {
 	public final void applyFormat() {
 		try {
 			logger.error("creating an output file");
-			PrintWriter out = new PrintWriter("report.html");
+			PrintWriter out = new PrintWriter(getReport().getReportName() 
+					+ ".html");
 			
-			for (Element element : getReport().getElements()) {
+			for (Element element : getReport().getElements()) {			
+				
 				if (element instanceof TextElement) {
 					out.println("<p>" + element.getData() + "</p>");
+					
+				} else if (element instanceof Title) {
+					out.println("<h1>" + element.getData() + "</h1>");
+					
+				} else if (element instanceof SubTitle) {
+					out.println("<h3>" + element.getData() + "</h3>");
+					
 				} else if (element instanceof Line) {
 					out.println("<hr/>");
-				} else {
+					
+				} else if (element instanceof Table){
 					@SuppressWarnings("unchecked")
 					ArrayList<ArrayList<String>> rows 
 						= (ArrayList<ArrayList<String>>) element.getData();

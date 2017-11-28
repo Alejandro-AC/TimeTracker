@@ -156,11 +156,12 @@ public abstract class Report implements Visitor {
 	 * Constructor of the class.
 	 */
 	public Report(final Project projectSet, final Format formatSet, 
-			final Date startDateSet, final Date endDateSet) {
+			final Date startDateSet, final Date endDateSet, final String reportNameSet) {
 		this.project = projectSet;
 		this.format = formatSet;
 		this.startDate = startDateSet;
 		this.endDate = endDateSet;
+		this.reportName = reportNameSet;
 	}
 		
 	public abstract void visitInterval(Interval interval, int level);
@@ -170,6 +171,29 @@ public abstract class Report implements Visitor {
 	public abstract void visitProject(Project projectVisited, int level);
 
 	public abstract void generateReport();
+
+	/**
+	 * @uml.property  name="reportName"
+	 */
+	private String reportName;
+
+	/**
+	 * Getter of the property <tt>reportName</tt>
+	 * @return  Returns the reportName.
+	 * @uml.property  name="reportName"
+	 */
+	public String getReportName() {
+		return reportName;
+	}
+
+	/**
+	 * Setter of the property <tt>reportName</tt>
+	 * @param reportName  The reportName to set.
+	 * @uml.property  name="reportName"
+	 */
+	public void setReportName(String reportName) {
+		this.reportName = reportName;
+	}
 		
 	
 
