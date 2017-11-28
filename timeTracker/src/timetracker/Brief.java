@@ -95,29 +95,52 @@ public class Brief extends Report {
 	@Override
 	public final void visitInterval(final Interval interval, final int level) {
 		long time;
+		// Interval doesn't start after period or ends before period then valid
 		if (interval.getStartDate().before(getEndDate())
 				&& interval.getEndDate().after(getStartDate())) {
 			logger.debug("visiting a valid interval");
 			// It's a valid interval
+			
+			Date intervalStart = new Date(
+					((interval.getStartDate().getTime() 
+							+ (MILISECONDS_IN_SECOND / 2)) 
+							/ MILISECONDS_IN_SECOND)
+							* MILISECONDS_IN_SECOND);
+			
+			Date intervalEnd = new Date(
+					((interval.getEndDate().getTime() 
+							+ (MILISECONDS_IN_SECOND / 2)) 
+							/ MILISECONDS_IN_SECOND)
+							* MILISECONDS_IN_SECOND);	
 
+			// Interval starts before period and ends after period
 			if (interval.getStartDate().before(getStartDate())
 					&& interval.getEndDate().after(getEndDate())) {
-				// I4
-				time = interval.getEndDate().getTime()
-						- interval.getStartDate().getTime();
-			} else if (interval.getStartDate().before(getStartDate())) {
-				// I1
-				time = interval.getEndDate().getTime()
-						- getStartDate().getTime();
-			} else if (interval.getEndDate().after(getEndDate())) {
-				// I3
+				
 				time = getEndDate().getTime()
-						- interval.getStartDate().getTime();
+						- getStartDate().getTime();
+				
+				// Interval starts before period and ends before period
+			} else if (interval.getStartDate().before(getStartDate())
+					&& interval.getEndDate().before(getEndDate())) {
+				
+				time = intervalEnd.getTime()
+						- getStartDate().getTime();
+				
+				// Interval starts after period and ends after period 
+			} else if (interval.getStartDate().after(getStartDate())
+					&& interval.getEndDate().after(getEndDate())) {	
+				
+				time = getEndDate().getTime()
+						- intervalStart.getTime();
+				
+				// Interval starts after period and ends before period 
 			} else {
-				// I2
-				time = interval.getEndDate().getTime()
-						- interval.getStartDate().getTime();
+				
+				time = intervalEnd.getTime()
+						- intervalStart.getTime();
 			}
+						
 			logger.debug("getting intersection time of the interval");
 			logger.debug("sum until now:" + getIntersectionTime());
 			logger.debug("adding:" + time);
