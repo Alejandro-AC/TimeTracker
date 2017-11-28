@@ -17,9 +17,12 @@ public class Detailed extends Report {
 	private Table projectsTable;
 	private Table tasksTable;
 	private Table intervalsTable;
+	private static final long SECONDS_IN_HOUR = 3600;
+	private static final long MINUTES_IN_HOUR = 60;
 	
 	public Detailed(final Project projectSet, final Format formatSet,
-			final Date startDateSet, final Date endDateSet, final String reportNameSet) {
+			final Date startDateSet, final Date endDateSet, 
+			final String reportNameSet) {
 		super(projectSet, formatSet, startDateSet, endDateSet, reportNameSet);
 	}
 
@@ -66,7 +69,7 @@ public class Detailed extends Report {
 			// Creating table to save rootProjects' data
 		logger.debug("creating root projects table");
 		ArrayList<String> rootProjectsFields = new ArrayList<String>();
-		rootProjectsFields.add("No.");
+		rootProjectsFields.add("Father Project");
 		rootProjectsFields.add("Project");
 		rootProjectsFields.add("Start date");
 		rootProjectsFields.add("End date");
@@ -92,7 +95,7 @@ public class Detailed extends Report {
 			// Creating table to save subProjects' data
 		logger.debug("creating subprojects table");
 		ArrayList<String> subProjectsFields = new ArrayList<String>();
-		subProjectsFields.add("No.");
+		subProjectsFields.add("Father Project");
 		subProjectsFields.add("Project");
 		subProjectsFields.add("Start date");
 		subProjectsFields.add("End date");
@@ -117,7 +120,7 @@ public class Detailed extends Report {
 			// Creating table to save tasks data
 		logger.debug("creating root projects table");
 		ArrayList<String> tasksFields = new ArrayList<String>();
-		tasksFields.add("No.(sub) Project");
+		tasksFields.add("Father Project");
 		tasksFields.add("Task");
 		tasksFields.add("Start date");
 		tasksFields.add("End date");
@@ -143,7 +146,7 @@ public class Detailed extends Report {
 			// Creating table to save intervals data
 		logger.debug("creating root projects table");
 		ArrayList<String> intervalsFields = new ArrayList<String>();
-		intervalsFields.add("No.(sub) Project");
+		intervalsFields.add("Task's Father Project");
 		intervalsFields.add("Task");
 		intervalsFields.add("Interval");
 		intervalsFields.add("Start date");
@@ -204,7 +207,7 @@ public class Detailed extends Report {
 				logger.debug("visiting a interval as root");
 				
 				ArrayList<String> row = new ArrayList<String>();
-				row.add("1");  										//****
+				row.add(interval.getTask().getFather().getName());
 				row.add(interval.getTask().getName());
 				row.add(Integer.toString(interval.getId()));
 				row.add(getDateFormat().format(interval.getStartDate()));
@@ -212,10 +215,11 @@ public class Detailed extends Report {
 				
 				long duration = TimeUnit.MILLISECONDS.toSeconds(time);
 				
-				long hours = duration / 3600;
-				long minutes = (duration % 3600) / 60;
-				long seconds = duration % 60;
-				String timeString = String.format(" %02d" +"h" +" %02d" +"m" +" %02d" +"s", hours, minutes, seconds);
+				long hours = duration / SECONDS_IN_HOUR;
+				long minutes = (duration % SECONDS_IN_HOUR) / MINUTES_IN_HOUR;
+				long seconds = duration % MINUTES_IN_HOUR;
+				String timeString = String.format(" %02d" + "h" + " %02d" 
+						+ "m" + " %02d" + "s", hours, minutes, seconds);
 				
 				row.add(timeString);
 	
@@ -227,7 +231,6 @@ public class Detailed extends Report {
 
 	@Override
 	public final void visitTask(final Task task, final int level) {
-		// Is this correct?
 		if (level == 0) {
 			logger.debug("visiting a task as root" 
 					+ " restarting the intersection time");
@@ -248,15 +251,17 @@ public class Detailed extends Report {
 				logger.debug("generating data table " 
 						+ "for the current root task");
 				ArrayList<String> row = new ArrayList<String>();
-				row.add("1");  										//****
+				row.add(task.getFather().getName());
 				row.add(task.getName());
 				row.add(getDateFormat().format(task.getStartDate()));
 				row.add(getDateFormat().format(task.getEndDate()));
 				
-				long hours = getIntersectionTime() / 3600;
-				long minutes = (getIntersectionTime() % 3600) / 60;
-				long seconds = getIntersectionTime() % 60;
-				String timeString = String.format(" %02d" +"h" +" %02d" +"m" +" %02d" +"s", hours, minutes, seconds);
+				long hours = getIntersectionTime() / SECONDS_IN_HOUR;
+				long minutes = (getIntersectionTime() % SECONDS_IN_HOUR) 
+						/ MINUTES_IN_HOUR;
+				long seconds = getIntersectionTime() % MINUTES_IN_HOUR;
+				String timeString = String.format(" %02d" + "h" + " %02d" 
+						+ "m" + " %02d" + "s", hours, minutes, seconds);
 				
 				row.add(timeString);
 	
@@ -267,7 +272,6 @@ public class Detailed extends Report {
 
 	@Override
 	public final void visitProject(final Project project, final int level) {
-		// Is this correct?
 		if (level == 0) {
 			logger.debug("visiting a root project, " 
 					+ "restarting the intersection time");
@@ -282,20 +286,22 @@ public class Detailed extends Report {
 				child.acceptVisitor(this, level + 1);
 			}			
 			
-			if (level  == 0) {
+			if (level == 0) {
 					// Adding project data
 				logger.debug("generating data table " 
 						+ "for the current root project");
 				ArrayList<String> row = new ArrayList<String>();
-				row.add("1");  										//****
+				row.add(project.getFather().getName()); 
 				row.add(project.getName());
 				row.add(getDateFormat().format(project.getStartDate()));
 				row.add(getDateFormat().format(project.getEndDate()));
 				
-				long hours = getIntersectionTime() / 3600;
-				long minutes = (getIntersectionTime() % 3600) / 60;
-				long seconds = getIntersectionTime() % 60;
-				String timeString = String.format(" %02d" +"h" +" %02d" +"m" +" %02d" +"s", hours, minutes, seconds);
+				long hours = getIntersectionTime() / SECONDS_IN_HOUR;
+				long minutes = (getIntersectionTime() % SECONDS_IN_HOUR) 
+						/ MINUTES_IN_HOUR;
+				long seconds = getIntersectionTime() % MINUTES_IN_HOUR;
+				String timeString = String.format(" %02d" + "h" + " %02d" 
+						+ "m" + " %02d" + "s", hours, minutes, seconds);
 				
 				row.add(timeString);
 	
@@ -305,11 +311,11 @@ public class Detailed extends Report {
 
 	}
 
-	public void subProjectsTable(Collection<Activity> activities) {
+	public final void subProjectsTable(final Collection<Activity> activities) {
 		
 		for (Activity activity : activities) {
 			if (activity instanceof Project) {
-			Collection <Activity> subActivities = activity.getChildren();	
+			Collection<Activity> subActivities = activity.getChildren();	
 			subProjectsTable(subActivities);
 				for (Activity subActivity : subActivities) {			
 					if (subActivity instanceof Project) {					
@@ -321,13 +327,14 @@ public class Detailed extends Report {
 		}
 	}
 	
-	public void tasksTable(Collection<Activity> activities) {
+	public final void tasksTable(final Collection<Activity> activities) {
 		
 		for (Activity activity : activities) {
 			if (activity instanceof Project) {
-			Collection <Activity> subActivities = activity.getChildren();	
-			tasksTable(subActivities);
-				for (Activity subActivity : subActivities) {							
+				Collection<Activity> subActivities = activity.getChildren();	
+				tasksTable(subActivities);
+				for (Activity subActivity 
+						: subActivities) {							
 					if (subActivity instanceof Task) {
 						logger.debug("visiting a new task");
 						subActivity.acceptVisitor(this, 0);
@@ -337,15 +344,15 @@ public class Detailed extends Report {
 		}
 	}
 	
-	public void intervalsTable(Collection<Activity> activities) {
+	public final void intervalsTable(final Collection<Activity> activities) {
 		
 		for (Activity activity : activities) {
 			if (activity instanceof Project) {
-				Collection <Activity> subActivities = activity.getChildren();	
+				Collection<Activity> subActivities = activity.getChildren();	
 				intervalsTable(subActivities);
 			} else {
 				if (activity instanceof Task) {	
-					Collection <Interval> intervals = activity.getChildren();
+					Collection<Interval> intervals = activity.getChildren();
 					for (Interval interval : intervals) {				
 						logger.debug("visiting a new interval");
 						interval.acceptVisitor(this, -1);		

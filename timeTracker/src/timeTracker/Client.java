@@ -6,6 +6,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
@@ -520,10 +521,10 @@ public class Client {
 			e1.printStackTrace();
 		}
 
-		Project p1 = new Project("P1", " ", null);
+		Project p1 = new Project("P1", " ", this.voidProject);
 		this.voidProject.addExistingChildProject(p1);
 
-		Project p2 = new Project("P2", " ", p1);
+		Project p2 = new Project("P2", " ", this.voidProject);
 		this.voidProject.addExistingChildProject(p2);
 		
 		Project p12 = new Project("P1.2", " ", p1);
@@ -541,7 +542,7 @@ public class Client {
 		p2.testAddChild(t3);
 		Clock.getInstance().getNotification().addObserver(t3);
 		
-		Task t4 = new SimpleTask("T3", " ", p12);
+		Task t4 = new SimpleTask("T4", " ", p12);
 		p12.testAddChild(t4);
 		Clock.getInstance().getNotification().addObserver(t4);
 		
@@ -617,13 +618,13 @@ public class Client {
 		briefTextReport.generateReport();
 		
 		// Generate Detailed Html report
-		Detailed detailedHtmlReport = new Detailed(this.voidProject, new Html(), 
-				startDate, endDate, "detailedHtmlReport");
+		Detailed detailedHtmlReport = new Detailed(this.voidProject, 
+				new Html(), startDate, endDate, "detailedHtmlReport");
 		detailedHtmlReport.generateReport();
 		
 		// Generate Detailed Text report
-		Detailed detailedTextReport = new Detailed(this.voidProject, new Text(), 
-				startDate, endDate, "detailedTextReport");
+		Detailed detailedTextReport = new Detailed(this.voidProject, 
+				new Text(), startDate, endDate, "detailedTextReport");
 		detailedTextReport.generateReport();
 
 		System.out.println("");
@@ -818,6 +819,140 @@ public class Client {
 			System.out.println("Error. The specified Task does not exist.");
 		}
 	}
+	
+	/**
+	 * 
+	 */
+	public final void generateReport() {
+		logger.debug("Generating report");
+		
+		System.out.print("Choose the type of report to " 
+				+ "generate (0 brief, 1 detailed): ");
+		Scanner scanner = new Scanner(System.in);
+		boolean correctValue = false, correctType = false;
+		int reportType = 0;
+		while (!correctValue) {
+			correctType = false;
+			while (!correctType) {
+				try {
+					reportType = Integer.parseInt(scanner.nextLine());
+					logger.debug("chosen option: " + reportType);
+					correctType = true;
+					if (reportType == 1 || reportType == 0) {
+						correctValue = true;
+					} else {
+						System.out.println("The introduced value "
+								+ "is not valid.");
+						System.out.print("Choose the type "
+								+ "of report to " 
+								+ "generate (0 brief, 1 detailed): ");
+					}
+				} catch (Exception e) {
+					logger.debug("chosen option: " + reportType);
+					logger.warn("Introduced value is not a number. "
+							+ "Introducing new value");
+					System.out.print("Introduced value is not a number."
+							+ " Please enter a number:");
+				}
+			}
+		}
+		
+		System.out.print("Choose the format of report to " 
+				+ "generate (0 text, 1 web): ");
+		correctValue = false;
+		int reportFormat = 0;
+		while (!correctValue) {
+			correctType = false;
+			while (!correctType) {
+				try {
+					reportFormat = Integer.parseInt(scanner.nextLine());
+					logger.debug("chosen option: " + reportFormat);
+					correctType = true;
+					if (reportFormat == 1 || reportFormat == 0) {
+						correctValue = true;
+					} else {
+						System.out.println("The introduced value "
+								+ "is not valid.");
+						System.out.print("Choose the format "
+								+ "of report to " 
+								+ "generate (0 text, 1 web): ");
+					}
+				} catch (Exception e) {
+					logger.debug("chosen option: " + reportFormat);
+					logger.warn("Introduced value is not a number. "
+							+ "Introducing new value");
+					System.out.print("Introduced value is not a number."
+							+ " Please enter a number:");
+				}
+			}
+		}
+		
+		Date startDate = null;
+		correctType = false;
+		while (!correctType) {
+			try {
+				getLogger().debug("introducing starting date" 
+								+ " for schedule task");
+				System.out.print("Start date (yyyy-MM-dd HH:mm): ");
+				String dateString = scanner.nextLine();
+				SimpleDateFormat dateFormat = new SimpleDateFormat(
+						"yyyy-MM-dd HH:mm");
+				startDate = dateFormat.parse(dateString);
+				getLogger().debug(
+						"introduced date " + startDate + " correctly");
+				correctType = true;
+			} catch (Exception e) {
+				getLogger().debug("Date format incorrect");
+				System.out.println("Date format incorrect."
+						+ " Introduce date again.");
+			}
+		}
+		
+		Date endDate = null;
+		correctType = false;
+		while (!correctType) {
+			try {
+				getLogger().debug("introducing starting date" 
+						+ " for schedule task");
+				System.out.print("End date (yyyy-MM-dd HH:mm): ");
+				String dateString = scanner.nextLine();
+				SimpleDateFormat dateFormat = new SimpleDateFormat(
+						"yyyy-MM-dd HH:mm");
+				endDate = dateFormat.parse(dateString);
+				getLogger().debug(
+						"introduced date " + endDate + " correctly");
+				correctType = true;
+			} catch (Exception e) {
+				getLogger().debug("Date format incorrect");
+				System.out.println("Date format incorrect."
+						+ " Introduce date again.");
+			}
+		}	
+		
+		System.out.print("Introduce the report name: ");
+		String reportName = scanner.nextLine();
+		
+		
+		Format format;
+		
+		if (reportFormat == 0) {
+			format = new Text();
+		} else {
+			format = new Html();
+		}
+		
+		Report report;
+		
+		if (reportType == 0) {
+			report = new Brief(this.voidProject, format, 
+					startDate, endDate, reportName);
+		} else {
+			report = new Detailed(this.voidProject, format, 
+					startDate, endDate, reportName);
+		}
+		
+		report.generateReport();
+	}
 
 	/**
 	 * Menu for the actions that the user can select.
@@ -831,6 +966,7 @@ public class Client {
 		final int optionRemoveActivity = 6;
 		final int optionChangeReprintRate = 7;
 		final int optionChangeIntervalTime = 8;
+		final int optionGenerateReport = 9;
 
 		Scanner scanner = new Scanner(System.in);
 		int option = -1;
@@ -847,13 +983,12 @@ public class Client {
 			System.out.println("6. Remove Activity");
 			System.out.println("7. Change Reprint Rate");
 			System.out.println("8. Change minimum Interval Time");
+			System.out.println("9. Generate Report");
 			System.out.println("0. Return");
 
 			logger.debug("choosing submenu option");
-
 			System.out.println("");
 			System.out.print("Enter an option: ");
-
 			boolean correctType = false;
 			while (!correctType) {
 				try {
@@ -870,27 +1005,27 @@ public class Client {
 			}
 
 			switch (option) {
-			case optionAddRoot: // Add Root Project
+			case optionAddRoot:
 				addRootProject();
 				break;
 
-			case optionAddChildProject: // Add Child Project
+			case optionAddChildProject:
 				addChildProject();
 				break;
 
-			case optionAddChildTask: // Add Child Task
+			case optionAddChildTask:
 				addChildTask();
 				break;
 
-			case optionStartInterval: // Start Interval
+			case optionStartInterval:
 				startTask();
 				break;
 
-			case optionStopInterval: // Stop Interval
+			case optionStopInterval:
 				stopTask();
 				break;
 
-			case optionRemoveActivity: // Remove Activity
+			case optionRemoveActivity:
 				logger.debug("removing activity");
 				logger.debug("introducing name of element to eliminate");
 				System.out.print("Enter name of the element to eliminate: ");
@@ -914,7 +1049,7 @@ public class Client {
 				}
 				break;
 
-			case optionChangeReprintRate: // Change Reprint Rate
+			case optionChangeReprintRate:
 				logger.debug("Changing refresh rate");
 
 				correctType = false;
@@ -935,7 +1070,7 @@ public class Client {
 				}
 				break;
 
-			case optionChangeIntervalTime: // Change minimum Interval Time
+			case optionChangeIntervalTime:
 				logger.debug("Changing minimum Interval Time");
 
 				correctType = false;
@@ -956,6 +1091,10 @@ public class Client {
 								+ "time must be a number.");
 					}
 				}
+				break;
+			
+			case optionGenerateReport:
+				generateReport();
 				break;
 
 			case 0:

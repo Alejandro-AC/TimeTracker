@@ -36,7 +36,7 @@ public class Text extends Format {
 							+ "---------------------------------"
 							+ "---------------------------------------");
 					
-				} else if (element instanceof Table){
+				} else if (element instanceof Table) {
 					@SuppressWarnings("unchecked")
 					ArrayList<ArrayList<String>> rows 
 						= (ArrayList<ArrayList<String>>) element.getData();
@@ -48,7 +48,7 @@ public class Text extends Format {
 			            for (String tableElement : temp) {
 			            	out.printf("%-24s", tableElement);
 			            }
-			            out.print("\n");			      
+			            out.println("\n");			      
 			        }				
 				}
 			}			

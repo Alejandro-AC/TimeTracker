@@ -12860,3 +12860,1415 @@
 2017-11-28 19:22:25 DEBUG t.Detailed:204 - visiting a interval as root
 2017-11-28 19:22:25 DEBUG t.Detailed:350 - visiting a new interval
 2017-11-28 19:22:25 ERROR t.Text:19 - creating an output file
+2017-11-28 19:58:57 DEBUG t.Brief:31 - generating report of root projects
+2017-11-28 19:58:57 DEBUG t.Brief:38 - creating period table
+2017-11-28 19:58:57 DEBUG t.Brief:71 - creating root projects table
+2017-11-28 19:58:57 DEBUG t.Brief:80 - visiting a new root project
+2017-11-28 19:58:57 DEBUG t.Brief:146 - visiting a root project, restarting the intersection time
+2017-11-28 19:58:57 DEBUG t.Brief:154 - visiting a valid project
+2017-11-28 19:58:57 DEBUG t.Brief:154 - visiting a valid project
+2017-11-28 19:58:57 DEBUG t.Brief:135 - visiting a valid task
+2017-11-28 19:58:57 DEBUG t.Brief:100 - visiting a valid interval
+2017-11-28 19:58:57 DEBUG t.Brief:121 - getting intersection time of the interval
+2017-11-28 19:58:57 DEBUG t.Brief:122 - sum until now:0
+2017-11-28 19:58:57 DEBUG t.Brief:123 - adding:5073
+2017-11-28 19:58:57 DEBUG t.Brief:135 - visiting a valid task
+2017-11-28 19:58:57 DEBUG t.Brief:100 - visiting a valid interval
+2017-11-28 19:58:57 DEBUG t.Brief:121 - getting intersection time of the interval
+2017-11-28 19:58:57 DEBUG t.Brief:122 - sum until now:5
+2017-11-28 19:58:57 DEBUG t.Brief:123 - adding:5073
+2017-11-28 19:58:57 DEBUG t.Brief:100 - visiting a valid interval
+2017-11-28 19:58:57 DEBUG t.Brief:121 - getting intersection time of the interval
+2017-11-28 19:58:57 DEBUG t.Brief:122 - sum until now:10
+2017-11-28 19:58:57 DEBUG t.Brief:123 - adding:937
+2017-11-28 19:58:57 DEBUG t.Brief:161 - generating data table for the current root project
+2017-11-28 19:58:57 DEBUG t.Brief:80 - visiting a new root project
+2017-11-28 19:58:57 DEBUG t.Brief:146 - visiting a root project, restarting the intersection time
+2017-11-28 19:58:57 DEBUG t.Brief:154 - visiting a valid project
+2017-11-28 19:58:57 DEBUG t.Brief:135 - visiting a valid task
+2017-11-28 19:58:57 DEBUG t.Brief:100 - visiting a valid interval
+2017-11-28 19:58:57 DEBUG t.Brief:121 - getting intersection time of the interval
+2017-11-28 19:58:57 DEBUG t.Brief:122 - sum until now:0
+2017-11-28 19:58:57 DEBUG t.Brief:123 - adding:4009
+2017-11-28 19:58:57 DEBUG t.Brief:161 - generating data table for the current root project
+2017-11-28 19:58:57 ERROR t.Text:17 - creating an output file
+2017-11-28 19:58:57 DEBUG t.Brief:31 - generating report of root projects
+2017-11-28 19:58:57 DEBUG t.Brief:38 - creating period table
+2017-11-28 19:58:57 DEBUG t.Brief:71 - creating root projects table
+2017-11-28 19:58:57 DEBUG t.Brief:80 - visiting a new root project
+2017-11-28 19:58:57 DEBUG t.Brief:146 - visiting a root project, restarting the intersection time
+2017-11-28 19:58:57 DEBUG t.Brief:154 - visiting a valid project
+2017-11-28 19:58:57 DEBUG t.Brief:154 - visiting a valid project
+2017-11-28 19:58:57 DEBUG t.Brief:135 - visiting a valid task
+2017-11-28 19:58:57 DEBUG t.Brief:100 - visiting a valid interval
+2017-11-28 19:58:57 DEBUG t.Brief:121 - getting intersection time of the interval
+2017-11-28 19:58:57 DEBUG t.Brief:122 - sum until now:0
+2017-11-28 19:58:57 DEBUG t.Brief:123 - adding:5073
+2017-11-28 19:58:57 DEBUG t.Brief:135 - visiting a valid task
+2017-11-28 19:58:57 DEBUG t.Brief:100 - visiting a valid interval
+2017-11-28 19:58:57 DEBUG t.Brief:121 - getting intersection time of the interval
+2017-11-28 19:58:57 DEBUG t.Brief:122 - sum until now:5
+2017-11-28 19:58:57 DEBUG t.Brief:123 - adding:5073
+2017-11-28 19:58:57 DEBUG t.Brief:100 - visiting a valid interval
+2017-11-28 19:58:57 DEBUG t.Brief:121 - getting intersection time of the interval
+2017-11-28 19:58:57 DEBUG t.Brief:122 - sum until now:10
+2017-11-28 19:58:57 DEBUG t.Brief:123 - adding:937
+2017-11-28 19:58:57 DEBUG t.Brief:161 - generating data table for the current root project
+2017-11-28 19:58:57 DEBUG t.Brief:80 - visiting a new root project
+2017-11-28 19:58:57 DEBUG t.Brief:146 - visiting a root project, restarting the intersection time
+2017-11-28 19:58:57 DEBUG t.Brief:154 - visiting a valid project
+2017-11-28 19:58:57 DEBUG t.Brief:135 - visiting a valid task
+2017-11-28 19:58:57 DEBUG t.Brief:100 - visiting a valid interval
+2017-11-28 19:58:57 DEBUG t.Brief:121 - getting intersection time of the interval
+2017-11-28 19:58:57 DEBUG t.Brief:122 - sum until now:0
+2017-11-28 19:58:57 DEBUG t.Brief:123 - adding:4009
+2017-11-28 19:58:57 DEBUG t.Brief:161 - generating data table for the current root project
+2017-11-28 19:58:57 ERROR t.Text:19 - creating an output file
+2017-11-28 19:58:57 DEBUG t.Detailed:30 - generating detailed report
+2017-11-28 19:58:57 DEBUG t.Detailed:37 - creating period table
+2017-11-28 19:58:57 DEBUG t.Detailed:70 - creating root projects table
+2017-11-28 19:58:57 DEBUG t.Detailed:80 - visiting a new root project
+2017-11-28 19:58:57 DEBUG t.Detailed:278 - visiting a root project, restarting the intersection time
+2017-11-28 19:58:57 DEBUG t.Detailed:286 - visiting a valid project
+2017-11-28 19:58:57 DEBUG t.Detailed:286 - visiting a valid project
+2017-11-28 19:58:57 DEBUG t.Detailed:244 - visiting a valid task
+2017-11-28 19:58:57 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 19:58:57 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 19:58:57 DEBUG t.Detailed:200 - sum until now:0
+2017-11-28 19:58:57 DEBUG t.Detailed:201 - adding:5073
+2017-11-28 19:58:57 DEBUG t.Detailed:244 - visiting a valid task
+2017-11-28 19:58:57 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 19:58:57 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 19:58:57 DEBUG t.Detailed:200 - sum until now:5
+2017-11-28 19:58:57 DEBUG t.Detailed:201 - adding:5073
+2017-11-28 19:58:57 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 19:58:57 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 19:58:57 DEBUG t.Detailed:200 - sum until now:10
+2017-11-28 19:58:57 DEBUG t.Detailed:201 - adding:937
+2017-11-28 19:58:57 DEBUG t.Detailed:293 - generating data table for the current root project
+2017-11-28 19:58:57 DEBUG t.Detailed:80 - visiting a new root project
+2017-11-28 19:58:57 DEBUG t.Detailed:278 - visiting a root project, restarting the intersection time
+2017-11-28 19:58:57 DEBUG t.Detailed:286 - visiting a valid project
+2017-11-28 19:58:57 DEBUG t.Detailed:244 - visiting a valid task
+2017-11-28 19:58:57 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 19:58:57 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 19:58:57 DEBUG t.Detailed:200 - sum until now:0
+2017-11-28 19:58:57 DEBUG t.Detailed:201 - adding:4009
+2017-11-28 19:58:57 DEBUG t.Detailed:293 - generating data table for the current root project
+2017-11-28 19:58:57 DEBUG t.Detailed:96 - creating subprojects table
+2017-11-28 19:58:57 DEBUG t.Detailed:324 - visiting a new sub project
+2017-11-28 19:58:57 DEBUG t.Detailed:278 - visiting a root project, restarting the intersection time
+2017-11-28 19:58:57 DEBUG t.Detailed:286 - visiting a valid project
+2017-11-28 19:58:57 DEBUG t.Detailed:244 - visiting a valid task
+2017-11-28 19:58:57 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 19:58:57 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 19:58:57 DEBUG t.Detailed:200 - sum until now:0
+2017-11-28 19:58:57 DEBUG t.Detailed:201 - adding:5073
+2017-11-28 19:58:57 DEBUG t.Detailed:293 - generating data table for the current root project
+2017-11-28 19:58:57 DEBUG t.Detailed:121 - creating root projects table
+2017-11-28 19:58:57 DEBUG t.Detailed:341 - visiting a new task
+2017-11-28 19:58:57 DEBUG t.Detailed:236 - visiting a task as root restarting the intersection time
+2017-11-28 19:58:57 DEBUG t.Detailed:244 - visiting a valid task
+2017-11-28 19:58:57 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 19:58:57 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 19:58:57 DEBUG t.Detailed:200 - sum until now:0
+2017-11-28 19:58:57 DEBUG t.Detailed:201 - adding:5073
+2017-11-28 19:58:57 DEBUG t.Detailed:252 - generating data table for the current root task
+2017-11-28 19:58:57 DEBUG t.Detailed:341 - visiting a new task
+2017-11-28 19:58:57 DEBUG t.Detailed:236 - visiting a task as root restarting the intersection time
+2017-11-28 19:58:57 DEBUG t.Detailed:341 - visiting a new task
+2017-11-28 19:58:57 DEBUG t.Detailed:236 - visiting a task as root restarting the intersection time
+2017-11-28 19:58:57 DEBUG t.Detailed:244 - visiting a valid task
+2017-11-28 19:58:57 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 19:58:57 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 19:58:57 DEBUG t.Detailed:200 - sum until now:0
+2017-11-28 19:58:57 DEBUG t.Detailed:201 - adding:5073
+2017-11-28 19:58:57 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 19:58:57 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 19:58:57 DEBUG t.Detailed:200 - sum until now:5
+2017-11-28 19:58:57 DEBUG t.Detailed:201 - adding:937
+2017-11-28 19:58:57 DEBUG t.Detailed:252 - generating data table for the current root task
+2017-11-28 19:58:57 DEBUG t.Detailed:341 - visiting a new task
+2017-11-28 19:58:57 DEBUG t.Detailed:236 - visiting a task as root restarting the intersection time
+2017-11-28 19:58:57 DEBUG t.Detailed:244 - visiting a valid task
+2017-11-28 19:58:57 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 19:58:57 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 19:58:57 DEBUG t.Detailed:200 - sum until now:0
+2017-11-28 19:58:57 DEBUG t.Detailed:201 - adding:4009
+2017-11-28 19:58:57 DEBUG t.Detailed:252 - generating data table for the current root task
+2017-11-28 19:58:57 DEBUG t.Detailed:147 - creating root projects table
+2017-11-28 19:58:57 DEBUG t.Detailed:359 - visiting a new interval
+2017-11-28 19:58:57 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 19:58:57 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 19:58:57 DEBUG t.Detailed:207 - visiting a interval as root
+2017-11-28 19:58:57 DEBUG t.Detailed:359 - visiting a new interval
+2017-11-28 19:58:57 DEBUG t.Detailed:359 - visiting a new interval
+2017-11-28 19:58:57 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 19:58:57 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 19:58:57 DEBUG t.Detailed:207 - visiting a interval as root
+2017-11-28 19:58:57 DEBUG t.Detailed:359 - visiting a new interval
+2017-11-28 19:58:57 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 19:58:57 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 19:58:57 DEBUG t.Detailed:207 - visiting a interval as root
+2017-11-28 19:58:57 DEBUG t.Detailed:359 - visiting a new interval
+2017-11-28 19:58:57 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 19:58:57 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 19:58:57 DEBUG t.Detailed:207 - visiting a interval as root
+2017-11-28 19:58:57 DEBUG t.Detailed:359 - visiting a new interval
+2017-11-28 19:58:57 ERROR t.Text:17 - creating an output file
+2017-11-28 19:58:57 DEBUG t.Detailed:30 - generating detailed report
+2017-11-28 19:58:57 DEBUG t.Detailed:37 - creating period table
+2017-11-28 19:58:57 DEBUG t.Detailed:70 - creating root projects table
+2017-11-28 19:58:57 DEBUG t.Detailed:80 - visiting a new root project
+2017-11-28 19:58:57 DEBUG t.Detailed:278 - visiting a root project, restarting the intersection time
+2017-11-28 19:58:57 DEBUG t.Detailed:286 - visiting a valid project
+2017-11-28 19:58:57 DEBUG t.Detailed:286 - visiting a valid project
+2017-11-28 19:58:57 DEBUG t.Detailed:244 - visiting a valid task
+2017-11-28 19:58:57 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 19:58:57 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 19:58:57 DEBUG t.Detailed:200 - sum until now:0
+2017-11-28 19:58:57 DEBUG t.Detailed:201 - adding:5073
+2017-11-28 19:58:57 DEBUG t.Detailed:244 - visiting a valid task
+2017-11-28 19:58:57 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 19:58:57 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 19:58:57 DEBUG t.Detailed:200 - sum until now:5
+2017-11-28 19:58:57 DEBUG t.Detailed:201 - adding:5073
+2017-11-28 19:58:57 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 19:58:57 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 19:58:57 DEBUG t.Detailed:200 - sum until now:10
+2017-11-28 19:58:57 DEBUG t.Detailed:201 - adding:937
+2017-11-28 19:58:57 DEBUG t.Detailed:293 - generating data table for the current root project
+2017-11-28 19:58:57 DEBUG t.Detailed:80 - visiting a new root project
+2017-11-28 19:58:57 DEBUG t.Detailed:278 - visiting a root project, restarting the intersection time
+2017-11-28 19:58:57 DEBUG t.Detailed:286 - visiting a valid project
+2017-11-28 19:58:57 DEBUG t.Detailed:244 - visiting a valid task
+2017-11-28 19:58:57 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 19:58:57 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 19:58:57 DEBUG t.Detailed:200 - sum until now:0
+2017-11-28 19:58:57 DEBUG t.Detailed:201 - adding:4009
+2017-11-28 19:58:57 DEBUG t.Detailed:293 - generating data table for the current root project
+2017-11-28 19:58:57 DEBUG t.Detailed:96 - creating subprojects table
+2017-11-28 19:58:57 DEBUG t.Detailed:324 - visiting a new sub project
+2017-11-28 19:58:57 DEBUG t.Detailed:278 - visiting a root project, restarting the intersection time
+2017-11-28 19:58:57 DEBUG t.Detailed:286 - visiting a valid project
+2017-11-28 19:58:57 DEBUG t.Detailed:244 - visiting a valid task
+2017-11-28 19:58:57 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 19:58:57 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 19:58:57 DEBUG t.Detailed:200 - sum until now:0
+2017-11-28 19:58:57 DEBUG t.Detailed:201 - adding:5073
+2017-11-28 19:58:57 DEBUG t.Detailed:293 - generating data table for the current root project
+2017-11-28 19:58:57 DEBUG t.Detailed:121 - creating root projects table
+2017-11-28 19:58:57 DEBUG t.Detailed:341 - visiting a new task
+2017-11-28 19:58:57 DEBUG t.Detailed:236 - visiting a task as root restarting the intersection time
+2017-11-28 19:58:57 DEBUG t.Detailed:244 - visiting a valid task
+2017-11-28 19:58:57 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 19:58:57 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 19:58:57 DEBUG t.Detailed:200 - sum until now:0
+2017-11-28 19:58:57 DEBUG t.Detailed:201 - adding:5073
+2017-11-28 19:58:57 DEBUG t.Detailed:252 - generating data table for the current root task
+2017-11-28 19:58:57 DEBUG t.Detailed:341 - visiting a new task
+2017-11-28 19:58:57 DEBUG t.Detailed:236 - visiting a task as root restarting the intersection time
+2017-11-28 19:58:57 DEBUG t.Detailed:341 - visiting a new task
+2017-11-28 19:58:57 DEBUG t.Detailed:236 - visiting a task as root restarting the intersection time
+2017-11-28 19:58:57 DEBUG t.Detailed:244 - visiting a valid task
+2017-11-28 19:58:57 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 19:58:57 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 19:58:57 DEBUG t.Detailed:200 - sum until now:0
+2017-11-28 19:58:57 DEBUG t.Detailed:201 - adding:5073
+2017-11-28 19:58:57 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 19:58:57 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 19:58:57 DEBUG t.Detailed:200 - sum until now:5
+2017-11-28 19:58:57 DEBUG t.Detailed:201 - adding:937
+2017-11-28 19:58:57 DEBUG t.Detailed:252 - generating data table for the current root task
+2017-11-28 19:58:57 DEBUG t.Detailed:341 - visiting a new task
+2017-11-28 19:58:57 DEBUG t.Detailed:236 - visiting a task as root restarting the intersection time
+2017-11-28 19:58:57 DEBUG t.Detailed:244 - visiting a valid task
+2017-11-28 19:58:57 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 19:58:57 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 19:58:57 DEBUG t.Detailed:200 - sum until now:0
+2017-11-28 19:58:57 DEBUG t.Detailed:201 - adding:4009
+2017-11-28 19:58:57 DEBUG t.Detailed:252 - generating data table for the current root task
+2017-11-28 19:58:57 DEBUG t.Detailed:147 - creating root projects table
+2017-11-28 19:58:57 DEBUG t.Detailed:359 - visiting a new interval
+2017-11-28 19:58:57 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 19:58:57 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 19:58:57 DEBUG t.Detailed:207 - visiting a interval as root
+2017-11-28 19:58:57 DEBUG t.Detailed:359 - visiting a new interval
+2017-11-28 19:58:57 DEBUG t.Detailed:359 - visiting a new interval
+2017-11-28 19:58:57 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 19:58:57 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 19:58:57 DEBUG t.Detailed:207 - visiting a interval as root
+2017-11-28 19:58:57 DEBUG t.Detailed:359 - visiting a new interval
+2017-11-28 19:58:57 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 19:58:57 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 19:58:57 DEBUG t.Detailed:207 - visiting a interval as root
+2017-11-28 19:58:57 DEBUG t.Detailed:359 - visiting a new interval
+2017-11-28 19:58:57 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 19:58:57 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 19:58:57 DEBUG t.Detailed:207 - visiting a interval as root
+2017-11-28 19:58:57 DEBUG t.Detailed:359 - visiting a new interval
+2017-11-28 19:58:57 ERROR t.Text:19 - creating an output file
+2017-11-28 20:02:37 DEBUG t.Brief:31 - generating report of root projects
+2017-11-28 20:02:37 DEBUG t.Brief:38 - creating period table
+2017-11-28 20:02:37 DEBUG t.Brief:71 - creating root projects table
+2017-11-28 20:02:37 DEBUG t.Brief:80 - visiting a new root project
+2017-11-28 20:02:37 DEBUG t.Brief:146 - visiting a root project, restarting the intersection time
+2017-11-28 20:02:37 DEBUG t.Brief:154 - visiting a valid project
+2017-11-28 20:02:37 DEBUG t.Brief:154 - visiting a valid project
+2017-11-28 20:02:37 DEBUG t.Brief:135 - visiting a valid task
+2017-11-28 20:02:37 DEBUG t.Brief:100 - visiting a valid interval
+2017-11-28 20:02:37 DEBUG t.Brief:121 - getting intersection time of the interval
+2017-11-28 20:02:37 DEBUG t.Brief:122 - sum until now:0
+2017-11-28 20:02:37 DEBUG t.Brief:123 - adding:5760
+2017-11-28 20:02:37 DEBUG t.Brief:135 - visiting a valid task
+2017-11-28 20:02:37 DEBUG t.Brief:100 - visiting a valid interval
+2017-11-28 20:02:37 DEBUG t.Brief:121 - getting intersection time of the interval
+2017-11-28 20:02:37 DEBUG t.Brief:122 - sum until now:5
+2017-11-28 20:02:37 DEBUG t.Brief:123 - adding:5760
+2017-11-28 20:02:37 DEBUG t.Brief:100 - visiting a valid interval
+2017-11-28 20:02:37 DEBUG t.Brief:121 - getting intersection time of the interval
+2017-11-28 20:02:37 DEBUG t.Brief:122 - sum until now:10
+2017-11-28 20:02:37 DEBUG t.Brief:123 - adding:250
+2017-11-28 20:02:37 DEBUG t.Brief:161 - generating data table for the current root project
+2017-11-28 20:02:37 DEBUG t.Brief:80 - visiting a new root project
+2017-11-28 20:02:37 DEBUG t.Brief:146 - visiting a root project, restarting the intersection time
+2017-11-28 20:02:37 DEBUG t.Brief:154 - visiting a valid project
+2017-11-28 20:02:37 DEBUG t.Brief:135 - visiting a valid task
+2017-11-28 20:02:37 DEBUG t.Brief:100 - visiting a valid interval
+2017-11-28 20:02:37 DEBUG t.Brief:121 - getting intersection time of the interval
+2017-11-28 20:02:37 DEBUG t.Brief:122 - sum until now:0
+2017-11-28 20:02:37 DEBUG t.Brief:123 - adding:4008
+2017-11-28 20:02:37 DEBUG t.Brief:161 - generating data table for the current root project
+2017-11-28 20:02:37 ERROR t.Text:17 - creating an output file
+2017-11-28 20:02:37 DEBUG t.Brief:31 - generating report of root projects
+2017-11-28 20:02:37 DEBUG t.Brief:38 - creating period table
+2017-11-28 20:02:37 DEBUG t.Brief:71 - creating root projects table
+2017-11-28 20:02:37 DEBUG t.Brief:80 - visiting a new root project
+2017-11-28 20:02:37 DEBUG t.Brief:146 - visiting a root project, restarting the intersection time
+2017-11-28 20:02:37 DEBUG t.Brief:154 - visiting a valid project
+2017-11-28 20:02:37 DEBUG t.Brief:154 - visiting a valid project
+2017-11-28 20:02:37 DEBUG t.Brief:135 - visiting a valid task
+2017-11-28 20:02:37 DEBUG t.Brief:100 - visiting a valid interval
+2017-11-28 20:02:37 DEBUG t.Brief:121 - getting intersection time of the interval
+2017-11-28 20:02:37 DEBUG t.Brief:122 - sum until now:0
+2017-11-28 20:02:37 DEBUG t.Brief:123 - adding:5760
+2017-11-28 20:02:37 DEBUG t.Brief:135 - visiting a valid task
+2017-11-28 20:02:37 DEBUG t.Brief:100 - visiting a valid interval
+2017-11-28 20:02:37 DEBUG t.Brief:121 - getting intersection time of the interval
+2017-11-28 20:02:37 DEBUG t.Brief:122 - sum until now:5
+2017-11-28 20:02:37 DEBUG t.Brief:123 - adding:5760
+2017-11-28 20:02:37 DEBUG t.Brief:100 - visiting a valid interval
+2017-11-28 20:02:37 DEBUG t.Brief:121 - getting intersection time of the interval
+2017-11-28 20:02:37 DEBUG t.Brief:122 - sum until now:10
+2017-11-28 20:02:37 DEBUG t.Brief:123 - adding:250
+2017-11-28 20:02:37 DEBUG t.Brief:161 - generating data table for the current root project
+2017-11-28 20:02:37 DEBUG t.Brief:80 - visiting a new root project
+2017-11-28 20:02:37 DEBUG t.Brief:146 - visiting a root project, restarting the intersection time
+2017-11-28 20:02:37 DEBUG t.Brief:154 - visiting a valid project
+2017-11-28 20:02:37 DEBUG t.Brief:135 - visiting a valid task
+2017-11-28 20:02:37 DEBUG t.Brief:100 - visiting a valid interval
+2017-11-28 20:02:37 DEBUG t.Brief:121 - getting intersection time of the interval
+2017-11-28 20:02:37 DEBUG t.Brief:122 - sum until now:0
+2017-11-28 20:02:37 DEBUG t.Brief:123 - adding:4008
+2017-11-28 20:02:37 DEBUG t.Brief:161 - generating data table for the current root project
+2017-11-28 20:02:37 ERROR t.Text:19 - creating an output file
+2017-11-28 20:02:37 DEBUG t.Detailed:30 - generating detailed report
+2017-11-28 20:02:37 DEBUG t.Detailed:37 - creating period table
+2017-11-28 20:02:37 DEBUG t.Detailed:70 - creating root projects table
+2017-11-28 20:02:37 DEBUG t.Detailed:80 - visiting a new root project
+2017-11-28 20:02:37 DEBUG t.Detailed:278 - visiting a root project, restarting the intersection time
+2017-11-28 20:02:37 DEBUG t.Detailed:286 - visiting a valid project
+2017-11-28 20:02:37 DEBUG t.Detailed:286 - visiting a valid project
+2017-11-28 20:02:37 DEBUG t.Detailed:244 - visiting a valid task
+2017-11-28 20:02:37 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 20:02:37 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 20:02:37 DEBUG t.Detailed:200 - sum until now:0
+2017-11-28 20:02:37 DEBUG t.Detailed:201 - adding:5760
+2017-11-28 20:02:37 DEBUG t.Detailed:244 - visiting a valid task
+2017-11-28 20:02:37 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 20:02:37 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 20:02:37 DEBUG t.Detailed:200 - sum until now:5
+2017-11-28 20:02:37 DEBUG t.Detailed:201 - adding:5760
+2017-11-28 20:02:37 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 20:02:37 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 20:02:37 DEBUG t.Detailed:200 - sum until now:10
+2017-11-28 20:02:37 DEBUG t.Detailed:201 - adding:250
+2017-11-28 20:02:37 DEBUG t.Detailed:293 - generating data table for the current root project
+2017-11-28 20:02:37 DEBUG t.Detailed:80 - visiting a new root project
+2017-11-28 20:02:37 DEBUG t.Detailed:278 - visiting a root project, restarting the intersection time
+2017-11-28 20:02:37 DEBUG t.Detailed:286 - visiting a valid project
+2017-11-28 20:02:37 DEBUG t.Detailed:244 - visiting a valid task
+2017-11-28 20:02:37 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 20:02:37 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 20:02:37 DEBUG t.Detailed:200 - sum until now:0
+2017-11-28 20:02:37 DEBUG t.Detailed:201 - adding:4008
+2017-11-28 20:02:37 DEBUG t.Detailed:293 - generating data table for the current root project
+2017-11-28 20:02:37 DEBUG t.Detailed:96 - creating subprojects table
+2017-11-28 20:02:37 DEBUG t.Detailed:324 - visiting a new sub project
+2017-11-28 20:02:37 DEBUG t.Detailed:278 - visiting a root project, restarting the intersection time
+2017-11-28 20:02:37 DEBUG t.Detailed:286 - visiting a valid project
+2017-11-28 20:02:37 DEBUG t.Detailed:244 - visiting a valid task
+2017-11-28 20:02:37 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 20:02:37 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 20:02:37 DEBUG t.Detailed:200 - sum until now:0
+2017-11-28 20:02:37 DEBUG t.Detailed:201 - adding:5760
+2017-11-28 20:02:37 DEBUG t.Detailed:293 - generating data table for the current root project
+2017-11-28 20:02:37 DEBUG t.Detailed:121 - creating root projects table
+2017-11-28 20:02:37 DEBUG t.Detailed:341 - visiting a new task
+2017-11-28 20:02:37 DEBUG t.Detailed:236 - visiting a task as root restarting the intersection time
+2017-11-28 20:02:37 DEBUG t.Detailed:244 - visiting a valid task
+2017-11-28 20:02:37 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 20:02:37 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 20:02:37 DEBUG t.Detailed:200 - sum until now:0
+2017-11-28 20:02:37 DEBUG t.Detailed:201 - adding:5760
+2017-11-28 20:02:37 DEBUG t.Detailed:252 - generating data table for the current root task
+2017-11-28 20:02:37 DEBUG t.Detailed:341 - visiting a new task
+2017-11-28 20:02:37 DEBUG t.Detailed:236 - visiting a task as root restarting the intersection time
+2017-11-28 20:02:37 DEBUG t.Detailed:341 - visiting a new task
+2017-11-28 20:02:37 DEBUG t.Detailed:236 - visiting a task as root restarting the intersection time
+2017-11-28 20:02:37 DEBUG t.Detailed:244 - visiting a valid task
+2017-11-28 20:02:37 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 20:02:37 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 20:02:37 DEBUG t.Detailed:200 - sum until now:0
+2017-11-28 20:02:37 DEBUG t.Detailed:201 - adding:5760
+2017-11-28 20:02:37 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 20:02:37 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 20:02:37 DEBUG t.Detailed:200 - sum until now:5
+2017-11-28 20:02:37 DEBUG t.Detailed:201 - adding:250
+2017-11-28 20:02:37 DEBUG t.Detailed:252 - generating data table for the current root task
+2017-11-28 20:02:37 DEBUG t.Detailed:341 - visiting a new task
+2017-11-28 20:02:37 DEBUG t.Detailed:236 - visiting a task as root restarting the intersection time
+2017-11-28 20:02:37 DEBUG t.Detailed:244 - visiting a valid task
+2017-11-28 20:02:37 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 20:02:37 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 20:02:37 DEBUG t.Detailed:200 - sum until now:0
+2017-11-28 20:02:37 DEBUG t.Detailed:201 - adding:4008
+2017-11-28 20:02:37 DEBUG t.Detailed:252 - generating data table for the current root task
+2017-11-28 20:02:37 DEBUG t.Detailed:147 - creating root projects table
+2017-11-28 20:02:37 DEBUG t.Detailed:359 - visiting a new interval
+2017-11-28 20:02:37 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 20:02:37 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 20:02:37 DEBUG t.Detailed:207 - visiting a interval as root
+2017-11-28 20:02:37 DEBUG t.Detailed:359 - visiting a new interval
+2017-11-28 20:02:37 DEBUG t.Detailed:359 - visiting a new interval
+2017-11-28 20:02:37 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 20:02:37 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 20:02:37 DEBUG t.Detailed:207 - visiting a interval as root
+2017-11-28 20:02:37 DEBUG t.Detailed:359 - visiting a new interval
+2017-11-28 20:02:37 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 20:02:37 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 20:02:37 DEBUG t.Detailed:207 - visiting a interval as root
+2017-11-28 20:02:37 DEBUG t.Detailed:359 - visiting a new interval
+2017-11-28 20:02:37 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 20:02:37 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 20:02:37 DEBUG t.Detailed:207 - visiting a interval as root
+2017-11-28 20:02:37 DEBUG t.Detailed:359 - visiting a new interval
+2017-11-28 20:02:37 ERROR t.Text:17 - creating an output file
+2017-11-28 20:02:37 DEBUG t.Detailed:30 - generating detailed report
+2017-11-28 20:02:37 DEBUG t.Detailed:37 - creating period table
+2017-11-28 20:02:37 DEBUG t.Detailed:70 - creating root projects table
+2017-11-28 20:02:37 DEBUG t.Detailed:80 - visiting a new root project
+2017-11-28 20:02:37 DEBUG t.Detailed:278 - visiting a root project, restarting the intersection time
+2017-11-28 20:02:37 DEBUG t.Detailed:286 - visiting a valid project
+2017-11-28 20:02:37 DEBUG t.Detailed:286 - visiting a valid project
+2017-11-28 20:02:37 DEBUG t.Detailed:244 - visiting a valid task
+2017-11-28 20:02:37 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 20:02:37 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 20:02:37 DEBUG t.Detailed:200 - sum until now:0
+2017-11-28 20:02:37 DEBUG t.Detailed:201 - adding:5760
+2017-11-28 20:02:37 DEBUG t.Detailed:244 - visiting a valid task
+2017-11-28 20:02:37 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 20:02:37 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 20:02:37 DEBUG t.Detailed:200 - sum until now:5
+2017-11-28 20:02:37 DEBUG t.Detailed:201 - adding:5760
+2017-11-28 20:02:37 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 20:02:37 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 20:02:37 DEBUG t.Detailed:200 - sum until now:10
+2017-11-28 20:02:37 DEBUG t.Detailed:201 - adding:250
+2017-11-28 20:02:37 DEBUG t.Detailed:293 - generating data table for the current root project
+2017-11-28 20:02:37 DEBUG t.Detailed:80 - visiting a new root project
+2017-11-28 20:02:37 DEBUG t.Detailed:278 - visiting a root project, restarting the intersection time
+2017-11-28 20:02:37 DEBUG t.Detailed:286 - visiting a valid project
+2017-11-28 20:02:37 DEBUG t.Detailed:244 - visiting a valid task
+2017-11-28 20:02:37 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 20:02:37 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 20:02:37 DEBUG t.Detailed:200 - sum until now:0
+2017-11-28 20:02:37 DEBUG t.Detailed:201 - adding:4008
+2017-11-28 20:02:37 DEBUG t.Detailed:293 - generating data table for the current root project
+2017-11-28 20:02:37 DEBUG t.Detailed:96 - creating subprojects table
+2017-11-28 20:02:37 DEBUG t.Detailed:324 - visiting a new sub project
+2017-11-28 20:02:37 DEBUG t.Detailed:278 - visiting a root project, restarting the intersection time
+2017-11-28 20:02:37 DEBUG t.Detailed:286 - visiting a valid project
+2017-11-28 20:02:37 DEBUG t.Detailed:244 - visiting a valid task
+2017-11-28 20:02:37 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 20:02:37 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 20:02:37 DEBUG t.Detailed:200 - sum until now:0
+2017-11-28 20:02:37 DEBUG t.Detailed:201 - adding:5760
+2017-11-28 20:02:37 DEBUG t.Detailed:293 - generating data table for the current root project
+2017-11-28 20:02:37 DEBUG t.Detailed:121 - creating root projects table
+2017-11-28 20:02:37 DEBUG t.Detailed:341 - visiting a new task
+2017-11-28 20:02:37 DEBUG t.Detailed:236 - visiting a task as root restarting the intersection time
+2017-11-28 20:02:37 DEBUG t.Detailed:244 - visiting a valid task
+2017-11-28 20:02:37 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 20:02:37 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 20:02:37 DEBUG t.Detailed:200 - sum until now:0
+2017-11-28 20:02:37 DEBUG t.Detailed:201 - adding:5760
+2017-11-28 20:02:37 DEBUG t.Detailed:252 - generating data table for the current root task
+2017-11-28 20:02:37 DEBUG t.Detailed:341 - visiting a new task
+2017-11-28 20:02:37 DEBUG t.Detailed:236 - visiting a task as root restarting the intersection time
+2017-11-28 20:02:37 DEBUG t.Detailed:341 - visiting a new task
+2017-11-28 20:02:37 DEBUG t.Detailed:236 - visiting a task as root restarting the intersection time
+2017-11-28 20:02:37 DEBUG t.Detailed:244 - visiting a valid task
+2017-11-28 20:02:37 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 20:02:37 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 20:02:37 DEBUG t.Detailed:200 - sum until now:0
+2017-11-28 20:02:37 DEBUG t.Detailed:201 - adding:5760
+2017-11-28 20:02:37 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 20:02:37 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 20:02:37 DEBUG t.Detailed:200 - sum until now:5
+2017-11-28 20:02:37 DEBUG t.Detailed:201 - adding:250
+2017-11-28 20:02:37 DEBUG t.Detailed:252 - generating data table for the current root task
+2017-11-28 20:02:37 DEBUG t.Detailed:341 - visiting a new task
+2017-11-28 20:02:37 DEBUG t.Detailed:236 - visiting a task as root restarting the intersection time
+2017-11-28 20:02:37 DEBUG t.Detailed:244 - visiting a valid task
+2017-11-28 20:02:37 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 20:02:37 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 20:02:37 DEBUG t.Detailed:200 - sum until now:0
+2017-11-28 20:02:37 DEBUG t.Detailed:201 - adding:4008
+2017-11-28 20:02:37 DEBUG t.Detailed:252 - generating data table for the current root task
+2017-11-28 20:02:37 DEBUG t.Detailed:147 - creating root projects table
+2017-11-28 20:02:37 DEBUG t.Detailed:359 - visiting a new interval
+2017-11-28 20:02:37 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 20:02:37 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 20:02:37 DEBUG t.Detailed:207 - visiting a interval as root
+2017-11-28 20:02:37 DEBUG t.Detailed:359 - visiting a new interval
+2017-11-28 20:02:37 DEBUG t.Detailed:359 - visiting a new interval
+2017-11-28 20:02:37 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 20:02:37 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 20:02:37 DEBUG t.Detailed:207 - visiting a interval as root
+2017-11-28 20:02:37 DEBUG t.Detailed:359 - visiting a new interval
+2017-11-28 20:02:37 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 20:02:37 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 20:02:37 DEBUG t.Detailed:207 - visiting a interval as root
+2017-11-28 20:02:37 DEBUG t.Detailed:359 - visiting a new interval
+2017-11-28 20:02:37 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 20:02:37 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 20:02:37 DEBUG t.Detailed:207 - visiting a interval as root
+2017-11-28 20:02:37 DEBUG t.Detailed:359 - visiting a new interval
+2017-11-28 20:02:37 ERROR t.Text:19 - creating an output file
+2017-11-28 20:04:50 DEBUG t.Brief:31 - generating report of root projects
+2017-11-28 20:04:50 DEBUG t.Brief:38 - creating period table
+2017-11-28 20:04:50 DEBUG t.Brief:71 - creating root projects table
+2017-11-28 20:04:50 DEBUG t.Brief:80 - visiting a new root project
+2017-11-28 20:04:50 DEBUG t.Brief:146 - visiting a root project, restarting the intersection time
+2017-11-28 20:04:50 DEBUG t.Brief:154 - visiting a valid project
+2017-11-28 20:04:50 DEBUG t.Brief:154 - visiting a valid project
+2017-11-28 20:04:50 DEBUG t.Brief:135 - visiting a valid task
+2017-11-28 20:04:50 DEBUG t.Brief:100 - visiting a valid interval
+2017-11-28 20:04:50 DEBUG t.Brief:121 - getting intersection time of the interval
+2017-11-28 20:04:50 DEBUG t.Brief:122 - sum until now:0
+2017-11-28 20:04:50 DEBUG t.Brief:123 - adding:5918
+2017-11-28 20:04:50 DEBUG t.Brief:135 - visiting a valid task
+2017-11-28 20:04:50 DEBUG t.Brief:100 - visiting a valid interval
+2017-11-28 20:04:50 DEBUG t.Brief:121 - getting intersection time of the interval
+2017-11-28 20:04:50 DEBUG t.Brief:122 - sum until now:5
+2017-11-28 20:04:50 DEBUG t.Brief:123 - adding:5918
+2017-11-28 20:04:50 DEBUG t.Brief:100 - visiting a valid interval
+2017-11-28 20:04:50 DEBUG t.Brief:121 - getting intersection time of the interval
+2017-11-28 20:04:50 DEBUG t.Brief:122 - sum until now:10
+2017-11-28 20:04:50 DEBUG t.Brief:123 - adding:94
+2017-11-28 20:04:50 DEBUG t.Brief:161 - generating data table for the current root project
+2017-11-28 20:04:50 DEBUG t.Brief:80 - visiting a new root project
+2017-11-28 20:04:50 DEBUG t.Brief:146 - visiting a root project, restarting the intersection time
+2017-11-28 20:04:50 DEBUG t.Brief:154 - visiting a valid project
+2017-11-28 20:04:50 DEBUG t.Brief:135 - visiting a valid task
+2017-11-28 20:04:50 DEBUG t.Brief:100 - visiting a valid interval
+2017-11-28 20:04:50 DEBUG t.Brief:121 - getting intersection time of the interval
+2017-11-28 20:04:50 DEBUG t.Brief:122 - sum until now:0
+2017-11-28 20:04:50 DEBUG t.Brief:123 - adding:4008
+2017-11-28 20:04:50 DEBUG t.Brief:161 - generating data table for the current root project
+2017-11-28 20:04:50 ERROR t.Text:17 - creating an output file
+2017-11-28 20:04:50 DEBUG t.Brief:31 - generating report of root projects
+2017-11-28 20:04:50 DEBUG t.Brief:38 - creating period table
+2017-11-28 20:04:50 DEBUG t.Brief:71 - creating root projects table
+2017-11-28 20:04:50 DEBUG t.Brief:80 - visiting a new root project
+2017-11-28 20:04:50 DEBUG t.Brief:146 - visiting a root project, restarting the intersection time
+2017-11-28 20:04:50 DEBUG t.Brief:154 - visiting a valid project
+2017-11-28 20:04:50 DEBUG t.Brief:154 - visiting a valid project
+2017-11-28 20:04:50 DEBUG t.Brief:135 - visiting a valid task
+2017-11-28 20:04:50 DEBUG t.Brief:100 - visiting a valid interval
+2017-11-28 20:04:50 DEBUG t.Brief:121 - getting intersection time of the interval
+2017-11-28 20:04:50 DEBUG t.Brief:122 - sum until now:0
+2017-11-28 20:04:50 DEBUG t.Brief:123 - adding:5918
+2017-11-28 20:04:50 DEBUG t.Brief:135 - visiting a valid task
+2017-11-28 20:04:50 DEBUG t.Brief:100 - visiting a valid interval
+2017-11-28 20:04:50 DEBUG t.Brief:121 - getting intersection time of the interval
+2017-11-28 20:04:50 DEBUG t.Brief:122 - sum until now:5
+2017-11-28 20:04:50 DEBUG t.Brief:123 - adding:5918
+2017-11-28 20:04:50 DEBUG t.Brief:100 - visiting a valid interval
+2017-11-28 20:04:50 DEBUG t.Brief:121 - getting intersection time of the interval
+2017-11-28 20:04:50 DEBUG t.Brief:122 - sum until now:10
+2017-11-28 20:04:50 DEBUG t.Brief:123 - adding:94
+2017-11-28 20:04:50 DEBUG t.Brief:161 - generating data table for the current root project
+2017-11-28 20:04:50 DEBUG t.Brief:80 - visiting a new root project
+2017-11-28 20:04:50 DEBUG t.Brief:146 - visiting a root project, restarting the intersection time
+2017-11-28 20:04:50 DEBUG t.Brief:154 - visiting a valid project
+2017-11-28 20:04:50 DEBUG t.Brief:135 - visiting a valid task
+2017-11-28 20:04:50 DEBUG t.Brief:100 - visiting a valid interval
+2017-11-28 20:04:50 DEBUG t.Brief:121 - getting intersection time of the interval
+2017-11-28 20:04:50 DEBUG t.Brief:122 - sum until now:0
+2017-11-28 20:04:50 DEBUG t.Brief:123 - adding:4008
+2017-11-28 20:04:50 DEBUG t.Brief:161 - generating data table for the current root project
+2017-11-28 20:04:50 ERROR t.Text:19 - creating an output file
+2017-11-28 20:04:50 DEBUG t.Detailed:30 - generating detailed report
+2017-11-28 20:04:50 DEBUG t.Detailed:37 - creating period table
+2017-11-28 20:04:50 DEBUG t.Detailed:70 - creating root projects table
+2017-11-28 20:04:50 DEBUG t.Detailed:80 - visiting a new root project
+2017-11-28 20:04:50 DEBUG t.Detailed:278 - visiting a root project, restarting the intersection time
+2017-11-28 20:04:50 DEBUG t.Detailed:286 - visiting a valid project
+2017-11-28 20:04:50 DEBUG t.Detailed:286 - visiting a valid project
+2017-11-28 20:04:50 DEBUG t.Detailed:244 - visiting a valid task
+2017-11-28 20:04:50 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 20:04:50 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 20:04:50 DEBUG t.Detailed:200 - sum until now:0
+2017-11-28 20:04:50 DEBUG t.Detailed:201 - adding:5918
+2017-11-28 20:04:50 DEBUG t.Detailed:244 - visiting a valid task
+2017-11-28 20:04:50 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 20:04:50 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 20:04:50 DEBUG t.Detailed:200 - sum until now:5
+2017-11-28 20:04:50 DEBUG t.Detailed:201 - adding:5918
+2017-11-28 20:04:50 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 20:04:50 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 20:04:50 DEBUG t.Detailed:200 - sum until now:10
+2017-11-28 20:04:50 DEBUG t.Detailed:201 - adding:94
+2017-11-28 20:04:50 DEBUG t.Detailed:293 - generating data table for the current root project
+2017-11-28 20:04:50 DEBUG t.Detailed:80 - visiting a new root project
+2017-11-28 20:04:50 DEBUG t.Detailed:278 - visiting a root project, restarting the intersection time
+2017-11-28 20:04:50 DEBUG t.Detailed:286 - visiting a valid project
+2017-11-28 20:04:50 DEBUG t.Detailed:244 - visiting a valid task
+2017-11-28 20:04:50 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 20:04:50 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 20:04:50 DEBUG t.Detailed:200 - sum until now:0
+2017-11-28 20:04:50 DEBUG t.Detailed:201 - adding:4008
+2017-11-28 20:04:50 DEBUG t.Detailed:293 - generating data table for the current root project
+2017-11-28 20:04:50 DEBUG t.Detailed:96 - creating subprojects table
+2017-11-28 20:04:50 DEBUG t.Detailed:324 - visiting a new sub project
+2017-11-28 20:04:50 DEBUG t.Detailed:278 - visiting a root project, restarting the intersection time
+2017-11-28 20:04:50 DEBUG t.Detailed:286 - visiting a valid project
+2017-11-28 20:04:50 DEBUG t.Detailed:244 - visiting a valid task
+2017-11-28 20:04:50 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 20:04:50 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 20:04:50 DEBUG t.Detailed:200 - sum until now:0
+2017-11-28 20:04:50 DEBUG t.Detailed:201 - adding:5918
+2017-11-28 20:04:50 DEBUG t.Detailed:293 - generating data table for the current root project
+2017-11-28 20:04:50 DEBUG t.Detailed:121 - creating root projects table
+2017-11-28 20:04:50 DEBUG t.Detailed:341 - visiting a new task
+2017-11-28 20:04:50 DEBUG t.Detailed:236 - visiting a task as root restarting the intersection time
+2017-11-28 20:04:50 DEBUG t.Detailed:244 - visiting a valid task
+2017-11-28 20:04:50 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 20:04:50 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 20:04:50 DEBUG t.Detailed:200 - sum until now:0
+2017-11-28 20:04:50 DEBUG t.Detailed:201 - adding:5918
+2017-11-28 20:04:50 DEBUG t.Detailed:252 - generating data table for the current root task
+2017-11-28 20:04:50 DEBUG t.Detailed:341 - visiting a new task
+2017-11-28 20:04:50 DEBUG t.Detailed:236 - visiting a task as root restarting the intersection time
+2017-11-28 20:04:50 DEBUG t.Detailed:341 - visiting a new task
+2017-11-28 20:04:50 DEBUG t.Detailed:236 - visiting a task as root restarting the intersection time
+2017-11-28 20:04:50 DEBUG t.Detailed:244 - visiting a valid task
+2017-11-28 20:04:50 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 20:04:50 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 20:04:50 DEBUG t.Detailed:200 - sum until now:0
+2017-11-28 20:04:50 DEBUG t.Detailed:201 - adding:5918
+2017-11-28 20:04:50 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 20:04:50 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 20:04:50 DEBUG t.Detailed:200 - sum until now:5
+2017-11-28 20:04:50 DEBUG t.Detailed:201 - adding:94
+2017-11-28 20:04:50 DEBUG t.Detailed:252 - generating data table for the current root task
+2017-11-28 20:04:50 DEBUG t.Detailed:341 - visiting a new task
+2017-11-28 20:04:50 DEBUG t.Detailed:236 - visiting a task as root restarting the intersection time
+2017-11-28 20:04:50 DEBUG t.Detailed:244 - visiting a valid task
+2017-11-28 20:04:50 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 20:04:50 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 20:04:50 DEBUG t.Detailed:200 - sum until now:0
+2017-11-28 20:04:50 DEBUG t.Detailed:201 - adding:4008
+2017-11-28 20:04:50 DEBUG t.Detailed:252 - generating data table for the current root task
+2017-11-28 20:04:50 DEBUG t.Detailed:147 - creating root projects table
+2017-11-28 20:04:50 DEBUG t.Detailed:359 - visiting a new interval
+2017-11-28 20:04:50 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 20:04:50 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 20:04:50 DEBUG t.Detailed:207 - visiting a interval as root
+2017-11-28 20:04:50 DEBUG t.Detailed:359 - visiting a new interval
+2017-11-28 20:04:50 DEBUG t.Detailed:359 - visiting a new interval
+2017-11-28 20:04:50 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 20:04:50 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 20:04:50 DEBUG t.Detailed:207 - visiting a interval as root
+2017-11-28 20:04:50 DEBUG t.Detailed:359 - visiting a new interval
+2017-11-28 20:04:50 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 20:04:50 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 20:04:50 DEBUG t.Detailed:207 - visiting a interval as root
+2017-11-28 20:04:50 DEBUG t.Detailed:359 - visiting a new interval
+2017-11-28 20:04:50 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 20:04:50 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 20:04:50 DEBUG t.Detailed:207 - visiting a interval as root
+2017-11-28 20:04:50 DEBUG t.Detailed:359 - visiting a new interval
+2017-11-28 20:04:50 ERROR t.Text:17 - creating an output file
+2017-11-28 20:04:50 DEBUG t.Detailed:30 - generating detailed report
+2017-11-28 20:04:50 DEBUG t.Detailed:37 - creating period table
+2017-11-28 20:04:50 DEBUG t.Detailed:70 - creating root projects table
+2017-11-28 20:04:50 DEBUG t.Detailed:80 - visiting a new root project
+2017-11-28 20:04:50 DEBUG t.Detailed:278 - visiting a root project, restarting the intersection time
+2017-11-28 20:04:50 DEBUG t.Detailed:286 - visiting a valid project
+2017-11-28 20:04:50 DEBUG t.Detailed:286 - visiting a valid project
+2017-11-28 20:04:50 DEBUG t.Detailed:244 - visiting a valid task
+2017-11-28 20:04:50 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 20:04:50 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 20:04:50 DEBUG t.Detailed:200 - sum until now:0
+2017-11-28 20:04:50 DEBUG t.Detailed:201 - adding:5918
+2017-11-28 20:04:50 DEBUG t.Detailed:244 - visiting a valid task
+2017-11-28 20:04:50 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 20:04:50 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 20:04:50 DEBUG t.Detailed:200 - sum until now:5
+2017-11-28 20:04:50 DEBUG t.Detailed:201 - adding:5918
+2017-11-28 20:04:50 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 20:04:50 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 20:04:50 DEBUG t.Detailed:200 - sum until now:10
+2017-11-28 20:04:50 DEBUG t.Detailed:201 - adding:94
+2017-11-28 20:04:50 DEBUG t.Detailed:293 - generating data table for the current root project
+2017-11-28 20:04:50 DEBUG t.Detailed:80 - visiting a new root project
+2017-11-28 20:04:50 DEBUG t.Detailed:278 - visiting a root project, restarting the intersection time
+2017-11-28 20:04:50 DEBUG t.Detailed:286 - visiting a valid project
+2017-11-28 20:04:50 DEBUG t.Detailed:244 - visiting a valid task
+2017-11-28 20:04:50 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 20:04:50 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 20:04:50 DEBUG t.Detailed:200 - sum until now:0
+2017-11-28 20:04:50 DEBUG t.Detailed:201 - adding:4008
+2017-11-28 20:04:50 DEBUG t.Detailed:293 - generating data table for the current root project
+2017-11-28 20:04:50 DEBUG t.Detailed:96 - creating subprojects table
+2017-11-28 20:04:50 DEBUG t.Detailed:324 - visiting a new sub project
+2017-11-28 20:04:50 DEBUG t.Detailed:278 - visiting a root project, restarting the intersection time
+2017-11-28 20:04:50 DEBUG t.Detailed:286 - visiting a valid project
+2017-11-28 20:04:50 DEBUG t.Detailed:244 - visiting a valid task
+2017-11-28 20:04:50 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 20:04:50 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 20:04:50 DEBUG t.Detailed:200 - sum until now:0
+2017-11-28 20:04:50 DEBUG t.Detailed:201 - adding:5918
+2017-11-28 20:04:50 DEBUG t.Detailed:293 - generating data table for the current root project
+2017-11-28 20:04:50 DEBUG t.Detailed:121 - creating root projects table
+2017-11-28 20:04:50 DEBUG t.Detailed:341 - visiting a new task
+2017-11-28 20:04:50 DEBUG t.Detailed:236 - visiting a task as root restarting the intersection time
+2017-11-28 20:04:50 DEBUG t.Detailed:244 - visiting a valid task
+2017-11-28 20:04:50 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 20:04:50 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 20:04:50 DEBUG t.Detailed:200 - sum until now:0
+2017-11-28 20:04:50 DEBUG t.Detailed:201 - adding:5918
+2017-11-28 20:04:50 DEBUG t.Detailed:252 - generating data table for the current root task
+2017-11-28 20:04:50 DEBUG t.Detailed:341 - visiting a new task
+2017-11-28 20:04:50 DEBUG t.Detailed:236 - visiting a task as root restarting the intersection time
+2017-11-28 20:04:50 DEBUG t.Detailed:341 - visiting a new task
+2017-11-28 20:04:50 DEBUG t.Detailed:236 - visiting a task as root restarting the intersection time
+2017-11-28 20:04:50 DEBUG t.Detailed:244 - visiting a valid task
+2017-11-28 20:04:50 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 20:04:50 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 20:04:50 DEBUG t.Detailed:200 - sum until now:0
+2017-11-28 20:04:50 DEBUG t.Detailed:201 - adding:5918
+2017-11-28 20:04:50 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 20:04:50 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 20:04:50 DEBUG t.Detailed:200 - sum until now:5
+2017-11-28 20:04:50 DEBUG t.Detailed:201 - adding:94
+2017-11-28 20:04:50 DEBUG t.Detailed:252 - generating data table for the current root task
+2017-11-28 20:04:50 DEBUG t.Detailed:341 - visiting a new task
+2017-11-28 20:04:50 DEBUG t.Detailed:236 - visiting a task as root restarting the intersection time
+2017-11-28 20:04:50 DEBUG t.Detailed:244 - visiting a valid task
+2017-11-28 20:04:50 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 20:04:50 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 20:04:50 DEBUG t.Detailed:200 - sum until now:0
+2017-11-28 20:04:50 DEBUG t.Detailed:201 - adding:4008
+2017-11-28 20:04:50 DEBUG t.Detailed:252 - generating data table for the current root task
+2017-11-28 20:04:50 DEBUG t.Detailed:147 - creating root projects table
+2017-11-28 20:04:50 DEBUG t.Detailed:359 - visiting a new interval
+2017-11-28 20:04:50 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 20:04:50 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 20:04:50 DEBUG t.Detailed:207 - visiting a interval as root
+2017-11-28 20:04:50 DEBUG t.Detailed:359 - visiting a new interval
+2017-11-28 20:04:50 DEBUG t.Detailed:359 - visiting a new interval
+2017-11-28 20:04:50 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 20:04:50 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 20:04:50 DEBUG t.Detailed:207 - visiting a interval as root
+2017-11-28 20:04:50 DEBUG t.Detailed:359 - visiting a new interval
+2017-11-28 20:04:50 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 20:04:50 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 20:04:50 DEBUG t.Detailed:207 - visiting a interval as root
+2017-11-28 20:04:50 DEBUG t.Detailed:359 - visiting a new interval
+2017-11-28 20:04:50 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 20:04:50 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 20:04:50 DEBUG t.Detailed:207 - visiting a interval as root
+2017-11-28 20:04:50 DEBUG t.Detailed:359 - visiting a new interval
+2017-11-28 20:04:50 ERROR t.Text:19 - creating an output file
+2017-11-28 20:05:56 DEBUG t.Brief:31 - generating report of root projects
+2017-11-28 20:05:56 DEBUG t.Brief:38 - creating period table
+2017-11-28 20:05:56 DEBUG t.Brief:71 - creating root projects table
+2017-11-28 20:05:56 DEBUG t.Brief:80 - visiting a new root project
+2017-11-28 20:05:56 DEBUG t.Brief:146 - visiting a root project, restarting the intersection time
+2017-11-28 20:05:56 DEBUG t.Brief:154 - visiting a valid project
+2017-11-28 20:05:56 DEBUG t.Brief:154 - visiting a valid project
+2017-11-28 20:05:56 DEBUG t.Brief:135 - visiting a valid task
+2017-11-28 20:05:56 DEBUG t.Brief:100 - visiting a valid interval
+2017-11-28 20:05:56 DEBUG t.Brief:121 - getting intersection time of the interval
+2017-11-28 20:05:56 DEBUG t.Brief:122 - sum until now:0
+2017-11-28 20:05:56 DEBUG t.Brief:123 - adding:5982
+2017-11-28 20:05:56 DEBUG t.Brief:135 - visiting a valid task
+2017-11-28 20:05:56 DEBUG t.Brief:100 - visiting a valid interval
+2017-11-28 20:05:56 DEBUG t.Brief:121 - getting intersection time of the interval
+2017-11-28 20:05:56 DEBUG t.Brief:122 - sum until now:5
+2017-11-28 20:05:56 DEBUG t.Brief:123 - adding:5982
+2017-11-28 20:05:56 DEBUG t.Brief:100 - visiting a valid interval
+2017-11-28 20:05:56 DEBUG t.Brief:121 - getting intersection time of the interval
+2017-11-28 20:05:56 DEBUG t.Brief:122 - sum until now:10
+2017-11-28 20:05:56 DEBUG t.Brief:123 - adding:31
+2017-11-28 20:05:56 DEBUG t.Brief:161 - generating data table for the current root project
+2017-11-28 20:05:56 DEBUG t.Brief:80 - visiting a new root project
+2017-11-28 20:05:56 DEBUG t.Brief:146 - visiting a root project, restarting the intersection time
+2017-11-28 20:05:56 DEBUG t.Brief:154 - visiting a valid project
+2017-11-28 20:05:56 DEBUG t.Brief:135 - visiting a valid task
+2017-11-28 20:05:56 DEBUG t.Brief:100 - visiting a valid interval
+2017-11-28 20:05:56 DEBUG t.Brief:121 - getting intersection time of the interval
+2017-11-28 20:05:56 DEBUG t.Brief:122 - sum until now:0
+2017-11-28 20:05:56 DEBUG t.Brief:123 - adding:4008
+2017-11-28 20:05:56 DEBUG t.Brief:161 - generating data table for the current root project
+2017-11-28 20:05:56 ERROR t.Text:17 - creating an output file
+2017-11-28 20:05:56 DEBUG t.Brief:31 - generating report of root projects
+2017-11-28 20:05:56 DEBUG t.Brief:38 - creating period table
+2017-11-28 20:05:56 DEBUG t.Brief:71 - creating root projects table
+2017-11-28 20:05:56 DEBUG t.Brief:80 - visiting a new root project
+2017-11-28 20:05:56 DEBUG t.Brief:146 - visiting a root project, restarting the intersection time
+2017-11-28 20:05:56 DEBUG t.Brief:154 - visiting a valid project
+2017-11-28 20:05:56 DEBUG t.Brief:154 - visiting a valid project
+2017-11-28 20:05:56 DEBUG t.Brief:135 - visiting a valid task
+2017-11-28 20:05:56 DEBUG t.Brief:100 - visiting a valid interval
+2017-11-28 20:05:56 DEBUG t.Brief:121 - getting intersection time of the interval
+2017-11-28 20:05:56 DEBUG t.Brief:122 - sum until now:0
+2017-11-28 20:05:56 DEBUG t.Brief:123 - adding:5982
+2017-11-28 20:05:56 DEBUG t.Brief:135 - visiting a valid task
+2017-11-28 20:05:56 DEBUG t.Brief:100 - visiting a valid interval
+2017-11-28 20:05:56 DEBUG t.Brief:121 - getting intersection time of the interval
+2017-11-28 20:05:56 DEBUG t.Brief:122 - sum until now:5
+2017-11-28 20:05:56 DEBUG t.Brief:123 - adding:5982
+2017-11-28 20:05:56 DEBUG t.Brief:100 - visiting a valid interval
+2017-11-28 20:05:56 DEBUG t.Brief:121 - getting intersection time of the interval
+2017-11-28 20:05:56 DEBUG t.Brief:122 - sum until now:10
+2017-11-28 20:05:56 DEBUG t.Brief:123 - adding:31
+2017-11-28 20:05:56 DEBUG t.Brief:161 - generating data table for the current root project
+2017-11-28 20:05:56 DEBUG t.Brief:80 - visiting a new root project
+2017-11-28 20:05:56 DEBUG t.Brief:146 - visiting a root project, restarting the intersection time
+2017-11-28 20:05:56 DEBUG t.Brief:154 - visiting a valid project
+2017-11-28 20:05:56 DEBUG t.Brief:135 - visiting a valid task
+2017-11-28 20:05:56 DEBUG t.Brief:100 - visiting a valid interval
+2017-11-28 20:05:56 DEBUG t.Brief:121 - getting intersection time of the interval
+2017-11-28 20:05:56 DEBUG t.Brief:122 - sum until now:0
+2017-11-28 20:05:56 DEBUG t.Brief:123 - adding:4008
+2017-11-28 20:05:56 DEBUG t.Brief:161 - generating data table for the current root project
+2017-11-28 20:05:56 ERROR t.Text:19 - creating an output file
+2017-11-28 20:05:56 DEBUG t.Detailed:30 - generating detailed report
+2017-11-28 20:05:56 DEBUG t.Detailed:37 - creating period table
+2017-11-28 20:05:56 DEBUG t.Detailed:70 - creating root projects table
+2017-11-28 20:05:56 DEBUG t.Detailed:80 - visiting a new root project
+2017-11-28 20:05:56 DEBUG t.Detailed:278 - visiting a root project, restarting the intersection time
+2017-11-28 20:05:56 DEBUG t.Detailed:286 - visiting a valid project
+2017-11-28 20:05:56 DEBUG t.Detailed:286 - visiting a valid project
+2017-11-28 20:05:56 DEBUG t.Detailed:244 - visiting a valid task
+2017-11-28 20:05:56 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 20:05:56 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 20:05:56 DEBUG t.Detailed:200 - sum until now:0
+2017-11-28 20:05:56 DEBUG t.Detailed:201 - adding:5982
+2017-11-28 20:05:56 DEBUG t.Detailed:244 - visiting a valid task
+2017-11-28 20:05:56 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 20:05:56 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 20:05:56 DEBUG t.Detailed:200 - sum until now:5
+2017-11-28 20:05:56 DEBUG t.Detailed:201 - adding:5982
+2017-11-28 20:05:56 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 20:05:56 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 20:05:56 DEBUG t.Detailed:200 - sum until now:10
+2017-11-28 20:05:56 DEBUG t.Detailed:201 - adding:31
+2017-11-28 20:05:56 DEBUG t.Detailed:293 - generating data table for the current root project
+2017-11-28 20:05:56 DEBUG t.Detailed:80 - visiting a new root project
+2017-11-28 20:05:56 DEBUG t.Detailed:278 - visiting a root project, restarting the intersection time
+2017-11-28 20:05:56 DEBUG t.Detailed:286 - visiting a valid project
+2017-11-28 20:05:56 DEBUG t.Detailed:244 - visiting a valid task
+2017-11-28 20:05:56 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 20:05:56 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 20:05:56 DEBUG t.Detailed:200 - sum until now:0
+2017-11-28 20:05:56 DEBUG t.Detailed:201 - adding:4008
+2017-11-28 20:05:56 DEBUG t.Detailed:293 - generating data table for the current root project
+2017-11-28 20:05:56 DEBUG t.Detailed:96 - creating subprojects table
+2017-11-28 20:05:56 DEBUG t.Detailed:324 - visiting a new sub project
+2017-11-28 20:05:56 DEBUG t.Detailed:278 - visiting a root project, restarting the intersection time
+2017-11-28 20:05:56 DEBUG t.Detailed:286 - visiting a valid project
+2017-11-28 20:05:56 DEBUG t.Detailed:244 - visiting a valid task
+2017-11-28 20:05:56 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 20:05:56 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 20:05:56 DEBUG t.Detailed:200 - sum until now:0
+2017-11-28 20:05:56 DEBUG t.Detailed:201 - adding:5982
+2017-11-28 20:05:56 DEBUG t.Detailed:293 - generating data table for the current root project
+2017-11-28 20:05:56 DEBUG t.Detailed:121 - creating root projects table
+2017-11-28 20:05:56 DEBUG t.Detailed:341 - visiting a new task
+2017-11-28 20:05:56 DEBUG t.Detailed:236 - visiting a task as root restarting the intersection time
+2017-11-28 20:05:56 DEBUG t.Detailed:244 - visiting a valid task
+2017-11-28 20:05:56 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 20:05:56 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 20:05:56 DEBUG t.Detailed:200 - sum until now:0
+2017-11-28 20:05:56 DEBUG t.Detailed:201 - adding:5982
+2017-11-28 20:05:56 DEBUG t.Detailed:252 - generating data table for the current root task
+2017-11-28 20:05:56 DEBUG t.Detailed:341 - visiting a new task
+2017-11-28 20:05:56 DEBUG t.Detailed:236 - visiting a task as root restarting the intersection time
+2017-11-28 20:05:56 DEBUG t.Detailed:341 - visiting a new task
+2017-11-28 20:05:56 DEBUG t.Detailed:236 - visiting a task as root restarting the intersection time
+2017-11-28 20:05:56 DEBUG t.Detailed:244 - visiting a valid task
+2017-11-28 20:05:56 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 20:05:56 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 20:05:56 DEBUG t.Detailed:200 - sum until now:0
+2017-11-28 20:05:56 DEBUG t.Detailed:201 - adding:5982
+2017-11-28 20:05:56 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 20:05:56 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 20:05:56 DEBUG t.Detailed:200 - sum until now:5
+2017-11-28 20:05:56 DEBUG t.Detailed:201 - adding:31
+2017-11-28 20:05:56 DEBUG t.Detailed:252 - generating data table for the current root task
+2017-11-28 20:05:56 DEBUG t.Detailed:341 - visiting a new task
+2017-11-28 20:05:56 DEBUG t.Detailed:236 - visiting a task as root restarting the intersection time
+2017-11-28 20:05:56 DEBUG t.Detailed:244 - visiting a valid task
+2017-11-28 20:05:56 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 20:05:56 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 20:05:56 DEBUG t.Detailed:200 - sum until now:0
+2017-11-28 20:05:56 DEBUG t.Detailed:201 - adding:4008
+2017-11-28 20:05:56 DEBUG t.Detailed:252 - generating data table for the current root task
+2017-11-28 20:05:56 DEBUG t.Detailed:147 - creating root projects table
+2017-11-28 20:05:56 DEBUG t.Detailed:359 - visiting a new interval
+2017-11-28 20:05:56 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 20:05:56 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 20:05:56 DEBUG t.Detailed:207 - visiting a interval as root
+2017-11-28 20:05:56 DEBUG t.Detailed:359 - visiting a new interval
+2017-11-28 20:05:56 DEBUG t.Detailed:359 - visiting a new interval
+2017-11-28 20:05:56 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 20:05:56 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 20:05:56 DEBUG t.Detailed:207 - visiting a interval as root
+2017-11-28 20:05:56 DEBUG t.Detailed:359 - visiting a new interval
+2017-11-28 20:05:56 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 20:05:56 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 20:05:56 DEBUG t.Detailed:207 - visiting a interval as root
+2017-11-28 20:05:56 DEBUG t.Detailed:359 - visiting a new interval
+2017-11-28 20:05:56 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 20:05:56 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 20:05:56 DEBUG t.Detailed:207 - visiting a interval as root
+2017-11-28 20:05:56 DEBUG t.Detailed:359 - visiting a new interval
+2017-11-28 20:05:56 ERROR t.Text:17 - creating an output file
+2017-11-28 20:05:56 DEBUG t.Detailed:30 - generating detailed report
+2017-11-28 20:05:56 DEBUG t.Detailed:37 - creating period table
+2017-11-28 20:05:56 DEBUG t.Detailed:70 - creating root projects table
+2017-11-28 20:05:56 DEBUG t.Detailed:80 - visiting a new root project
+2017-11-28 20:05:56 DEBUG t.Detailed:278 - visiting a root project, restarting the intersection time
+2017-11-28 20:05:56 DEBUG t.Detailed:286 - visiting a valid project
+2017-11-28 20:05:56 DEBUG t.Detailed:286 - visiting a valid project
+2017-11-28 20:05:56 DEBUG t.Detailed:244 - visiting a valid task
+2017-11-28 20:05:56 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 20:05:56 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 20:05:56 DEBUG t.Detailed:200 - sum until now:0
+2017-11-28 20:05:56 DEBUG t.Detailed:201 - adding:5982
+2017-11-28 20:05:56 DEBUG t.Detailed:244 - visiting a valid task
+2017-11-28 20:05:56 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 20:05:56 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 20:05:56 DEBUG t.Detailed:200 - sum until now:5
+2017-11-28 20:05:56 DEBUG t.Detailed:201 - adding:5982
+2017-11-28 20:05:56 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 20:05:56 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 20:05:56 DEBUG t.Detailed:200 - sum until now:10
+2017-11-28 20:05:56 DEBUG t.Detailed:201 - adding:31
+2017-11-28 20:05:56 DEBUG t.Detailed:293 - generating data table for the current root project
+2017-11-28 20:05:56 DEBUG t.Detailed:80 - visiting a new root project
+2017-11-28 20:05:56 DEBUG t.Detailed:278 - visiting a root project, restarting the intersection time
+2017-11-28 20:05:56 DEBUG t.Detailed:286 - visiting a valid project
+2017-11-28 20:05:56 DEBUG t.Detailed:244 - visiting a valid task
+2017-11-28 20:05:56 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 20:05:56 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 20:05:56 DEBUG t.Detailed:200 - sum until now:0
+2017-11-28 20:05:56 DEBUG t.Detailed:201 - adding:4008
+2017-11-28 20:05:56 DEBUG t.Detailed:293 - generating data table for the current root project
+2017-11-28 20:05:56 DEBUG t.Detailed:96 - creating subprojects table
+2017-11-28 20:05:56 DEBUG t.Detailed:324 - visiting a new sub project
+2017-11-28 20:05:56 DEBUG t.Detailed:278 - visiting a root project, restarting the intersection time
+2017-11-28 20:05:56 DEBUG t.Detailed:286 - visiting a valid project
+2017-11-28 20:05:56 DEBUG t.Detailed:244 - visiting a valid task
+2017-11-28 20:05:56 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 20:05:56 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 20:05:56 DEBUG t.Detailed:200 - sum until now:0
+2017-11-28 20:05:56 DEBUG t.Detailed:201 - adding:5982
+2017-11-28 20:05:56 DEBUG t.Detailed:293 - generating data table for the current root project
+2017-11-28 20:05:56 DEBUG t.Detailed:121 - creating root projects table
+2017-11-28 20:05:56 DEBUG t.Detailed:341 - visiting a new task
+2017-11-28 20:05:56 DEBUG t.Detailed:236 - visiting a task as root restarting the intersection time
+2017-11-28 20:05:56 DEBUG t.Detailed:244 - visiting a valid task
+2017-11-28 20:05:56 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 20:05:56 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 20:05:56 DEBUG t.Detailed:200 - sum until now:0
+2017-11-28 20:05:56 DEBUG t.Detailed:201 - adding:5982
+2017-11-28 20:05:56 DEBUG t.Detailed:252 - generating data table for the current root task
+2017-11-28 20:05:56 DEBUG t.Detailed:341 - visiting a new task
+2017-11-28 20:05:56 DEBUG t.Detailed:236 - visiting a task as root restarting the intersection time
+2017-11-28 20:05:56 DEBUG t.Detailed:341 - visiting a new task
+2017-11-28 20:05:56 DEBUG t.Detailed:236 - visiting a task as root restarting the intersection time
+2017-11-28 20:05:56 DEBUG t.Detailed:244 - visiting a valid task
+2017-11-28 20:05:56 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 20:05:56 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 20:05:56 DEBUG t.Detailed:200 - sum until now:0
+2017-11-28 20:05:56 DEBUG t.Detailed:201 - adding:5982
+2017-11-28 20:05:56 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 20:05:56 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 20:05:56 DEBUG t.Detailed:200 - sum until now:5
+2017-11-28 20:05:56 DEBUG t.Detailed:201 - adding:31
+2017-11-28 20:05:56 DEBUG t.Detailed:252 - generating data table for the current root task
+2017-11-28 20:05:56 DEBUG t.Detailed:341 - visiting a new task
+2017-11-28 20:05:56 DEBUG t.Detailed:236 - visiting a task as root restarting the intersection time
+2017-11-28 20:05:56 DEBUG t.Detailed:244 - visiting a valid task
+2017-11-28 20:05:56 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 20:05:56 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 20:05:56 DEBUG t.Detailed:200 - sum until now:0
+2017-11-28 20:05:56 DEBUG t.Detailed:201 - adding:4008
+2017-11-28 20:05:56 DEBUG t.Detailed:252 - generating data table for the current root task
+2017-11-28 20:05:56 DEBUG t.Detailed:147 - creating root projects table
+2017-11-28 20:05:56 DEBUG t.Detailed:359 - visiting a new interval
+2017-11-28 20:05:56 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 20:05:56 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 20:05:56 DEBUG t.Detailed:207 - visiting a interval as root
+2017-11-28 20:05:56 DEBUG t.Detailed:359 - visiting a new interval
+2017-11-28 20:05:56 DEBUG t.Detailed:359 - visiting a new interval
+2017-11-28 20:05:56 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 20:05:56 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 20:05:56 DEBUG t.Detailed:207 - visiting a interval as root
+2017-11-28 20:05:56 DEBUG t.Detailed:359 - visiting a new interval
+2017-11-28 20:05:56 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 20:05:56 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 20:05:56 DEBUG t.Detailed:207 - visiting a interval as root
+2017-11-28 20:05:56 DEBUG t.Detailed:359 - visiting a new interval
+2017-11-28 20:05:56 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 20:05:56 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 20:05:56 DEBUG t.Detailed:207 - visiting a interval as root
+2017-11-28 20:05:56 DEBUG t.Detailed:359 - visiting a new interval
+2017-11-28 20:05:56 ERROR t.Text:19 - creating an output file
+2017-11-28 20:16:34 DEBUG t.Brief:31 - generating report of root projects
+2017-11-28 20:16:34 DEBUG t.Brief:38 - creating period table
+2017-11-28 20:16:34 DEBUG t.Brief:71 - creating root projects table
+2017-11-28 20:16:34 DEBUG t.Brief:80 - visiting a new root project
+2017-11-28 20:16:34 DEBUG t.Brief:146 - visiting a root project, restarting the intersection time
+2017-11-28 20:16:34 DEBUG t.Brief:154 - visiting a valid project
+2017-11-28 20:16:34 DEBUG t.Brief:154 - visiting a valid project
+2017-11-28 20:16:34 DEBUG t.Brief:135 - visiting a valid task
+2017-11-28 20:16:34 DEBUG t.Brief:100 - visiting a valid interval
+2017-11-28 20:16:34 DEBUG t.Brief:121 - getting intersection time of the interval
+2017-11-28 20:16:34 DEBUG t.Brief:122 - sum until now:0
+2017-11-28 20:16:34 DEBUG t.Brief:123 - adding:5668
+2017-11-28 20:16:34 DEBUG t.Brief:135 - visiting a valid task
+2017-11-28 20:16:34 DEBUG t.Brief:100 - visiting a valid interval
+2017-11-28 20:16:34 DEBUG t.Brief:121 - getting intersection time of the interval
+2017-11-28 20:16:34 DEBUG t.Brief:122 - sum until now:5
+2017-11-28 20:16:34 DEBUG t.Brief:123 - adding:5668
+2017-11-28 20:16:34 DEBUG t.Brief:100 - visiting a valid interval
+2017-11-28 20:16:34 DEBUG t.Brief:121 - getting intersection time of the interval
+2017-11-28 20:16:34 DEBUG t.Brief:122 - sum until now:10
+2017-11-28 20:16:34 DEBUG t.Brief:123 - adding:343
+2017-11-28 20:16:34 DEBUG t.Brief:161 - generating data table for the current root project
+2017-11-28 20:16:34 DEBUG t.Brief:80 - visiting a new root project
+2017-11-28 20:16:34 DEBUG t.Brief:146 - visiting a root project, restarting the intersection time
+2017-11-28 20:16:34 DEBUG t.Brief:154 - visiting a valid project
+2017-11-28 20:16:34 DEBUG t.Brief:135 - visiting a valid task
+2017-11-28 20:16:34 DEBUG t.Brief:100 - visiting a valid interval
+2017-11-28 20:16:34 DEBUG t.Brief:121 - getting intersection time of the interval
+2017-11-28 20:16:34 DEBUG t.Brief:122 - sum until now:0
+2017-11-28 20:16:34 DEBUG t.Brief:123 - adding:4007
+2017-11-28 20:16:34 DEBUG t.Brief:161 - generating data table for the current root project
+2017-11-28 20:16:34 ERROR t.Text:17 - creating an output file
+2017-11-28 20:16:34 DEBUG t.Brief:31 - generating report of root projects
+2017-11-28 20:16:34 DEBUG t.Brief:38 - creating period table
+2017-11-28 20:16:34 DEBUG t.Brief:71 - creating root projects table
+2017-11-28 20:16:34 DEBUG t.Brief:80 - visiting a new root project
+2017-11-28 20:16:34 DEBUG t.Brief:146 - visiting a root project, restarting the intersection time
+2017-11-28 20:16:34 DEBUG t.Brief:154 - visiting a valid project
+2017-11-28 20:16:34 DEBUG t.Brief:154 - visiting a valid project
+2017-11-28 20:16:34 DEBUG t.Brief:135 - visiting a valid task
+2017-11-28 20:16:34 DEBUG t.Brief:100 - visiting a valid interval
+2017-11-28 20:16:34 DEBUG t.Brief:121 - getting intersection time of the interval
+2017-11-28 20:16:34 DEBUG t.Brief:122 - sum until now:0
+2017-11-28 20:16:34 DEBUG t.Brief:123 - adding:5668
+2017-11-28 20:16:34 DEBUG t.Brief:135 - visiting a valid task
+2017-11-28 20:16:34 DEBUG t.Brief:100 - visiting a valid interval
+2017-11-28 20:16:34 DEBUG t.Brief:121 - getting intersection time of the interval
+2017-11-28 20:16:34 DEBUG t.Brief:122 - sum until now:5
+2017-11-28 20:16:34 DEBUG t.Brief:123 - adding:5668
+2017-11-28 20:16:34 DEBUG t.Brief:100 - visiting a valid interval
+2017-11-28 20:16:34 DEBUG t.Brief:121 - getting intersection time of the interval
+2017-11-28 20:16:34 DEBUG t.Brief:122 - sum until now:10
+2017-11-28 20:16:34 DEBUG t.Brief:123 - adding:343
+2017-11-28 20:16:34 DEBUG t.Brief:161 - generating data table for the current root project
+2017-11-28 20:16:34 DEBUG t.Brief:80 - visiting a new root project
+2017-11-28 20:16:34 DEBUG t.Brief:146 - visiting a root project, restarting the intersection time
+2017-11-28 20:16:34 DEBUG t.Brief:154 - visiting a valid project
+2017-11-28 20:16:34 DEBUG t.Brief:135 - visiting a valid task
+2017-11-28 20:16:34 DEBUG t.Brief:100 - visiting a valid interval
+2017-11-28 20:16:34 DEBUG t.Brief:121 - getting intersection time of the interval
+2017-11-28 20:16:34 DEBUG t.Brief:122 - sum until now:0
+2017-11-28 20:16:34 DEBUG t.Brief:123 - adding:4007
+2017-11-28 20:16:34 DEBUG t.Brief:161 - generating data table for the current root project
+2017-11-28 20:16:34 ERROR t.Text:19 - creating an output file
+2017-11-28 20:16:34 DEBUG t.Detailed:30 - generating detailed report
+2017-11-28 20:16:34 DEBUG t.Detailed:37 - creating period table
+2017-11-28 20:16:34 DEBUG t.Detailed:70 - creating root projects table
+2017-11-28 20:16:34 DEBUG t.Detailed:80 - visiting a new root project
+2017-11-28 20:16:34 DEBUG t.Detailed:276 - visiting a root project, restarting the intersection time
+2017-11-28 20:16:34 DEBUG t.Detailed:284 - visiting a valid project
+2017-11-28 20:16:34 DEBUG t.Detailed:284 - visiting a valid project
+2017-11-28 20:16:34 DEBUG t.Detailed:243 - visiting a valid task
+2017-11-28 20:16:34 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 20:16:34 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 20:16:34 DEBUG t.Detailed:200 - sum until now:0
+2017-11-28 20:16:34 DEBUG t.Detailed:201 - adding:5668
+2017-11-28 20:16:34 DEBUG t.Detailed:243 - visiting a valid task
+2017-11-28 20:16:34 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 20:16:34 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 20:16:34 DEBUG t.Detailed:200 - sum until now:5
+2017-11-28 20:16:34 DEBUG t.Detailed:201 - adding:5668
+2017-11-28 20:16:34 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 20:16:34 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 20:16:34 DEBUG t.Detailed:200 - sum until now:10
+2017-11-28 20:16:34 DEBUG t.Detailed:201 - adding:343
+2017-11-28 20:16:34 DEBUG t.Detailed:291 - generating data table for the current root project
+2017-11-28 20:18:37 DEBUG t.Brief:31 - generating report of root projects
+2017-11-28 20:18:37 DEBUG t.Brief:38 - creating period table
+2017-11-28 20:18:37 DEBUG t.Brief:71 - creating root projects table
+2017-11-28 20:18:37 DEBUG t.Brief:80 - visiting a new root project
+2017-11-28 20:18:37 DEBUG t.Brief:146 - visiting a root project, restarting the intersection time
+2017-11-28 20:18:37 DEBUG t.Brief:154 - visiting a valid project
+2017-11-28 20:18:37 DEBUG t.Brief:154 - visiting a valid project
+2017-11-28 20:18:37 DEBUG t.Brief:135 - visiting a valid task
+2017-11-28 20:18:37 DEBUG t.Brief:100 - visiting a valid interval
+2017-11-28 20:18:37 DEBUG t.Brief:121 - getting intersection time of the interval
+2017-11-28 20:18:37 DEBUG t.Brief:122 - sum until now:0
+2017-11-28 20:18:37 DEBUG t.Brief:123 - adding:5308
+2017-11-28 20:18:37 DEBUG t.Brief:135 - visiting a valid task
+2017-11-28 20:18:37 DEBUG t.Brief:100 - visiting a valid interval
+2017-11-28 20:18:37 DEBUG t.Brief:121 - getting intersection time of the interval
+2017-11-28 20:18:37 DEBUG t.Brief:122 - sum until now:5
+2017-11-28 20:18:37 DEBUG t.Brief:123 - adding:5308
+2017-11-28 20:18:37 DEBUG t.Brief:100 - visiting a valid interval
+2017-11-28 20:18:37 DEBUG t.Brief:121 - getting intersection time of the interval
+2017-11-28 20:18:37 DEBUG t.Brief:122 - sum until now:10
+2017-11-28 20:18:37 DEBUG t.Brief:123 - adding:703
+2017-11-28 20:18:37 DEBUG t.Brief:161 - generating data table for the current root project
+2017-11-28 20:18:37 DEBUG t.Brief:80 - visiting a new root project
+2017-11-28 20:18:37 DEBUG t.Brief:146 - visiting a root project, restarting the intersection time
+2017-11-28 20:18:37 DEBUG t.Brief:154 - visiting a valid project
+2017-11-28 20:18:37 DEBUG t.Brief:135 - visiting a valid task
+2017-11-28 20:18:37 DEBUG t.Brief:100 - visiting a valid interval
+2017-11-28 20:18:37 DEBUG t.Brief:121 - getting intersection time of the interval
+2017-11-28 20:18:37 DEBUG t.Brief:122 - sum until now:0
+2017-11-28 20:18:37 DEBUG t.Brief:123 - adding:4007
+2017-11-28 20:18:37 DEBUG t.Brief:161 - generating data table for the current root project
+2017-11-28 20:18:37 ERROR t.Text:17 - creating an output file
+2017-11-28 20:18:37 DEBUG t.Brief:31 - generating report of root projects
+2017-11-28 20:18:37 DEBUG t.Brief:38 - creating period table
+2017-11-28 20:18:37 DEBUG t.Brief:71 - creating root projects table
+2017-11-28 20:18:37 DEBUG t.Brief:80 - visiting a new root project
+2017-11-28 20:18:37 DEBUG t.Brief:146 - visiting a root project, restarting the intersection time
+2017-11-28 20:18:37 DEBUG t.Brief:154 - visiting a valid project
+2017-11-28 20:18:37 DEBUG t.Brief:154 - visiting a valid project
+2017-11-28 20:18:37 DEBUG t.Brief:135 - visiting a valid task
+2017-11-28 20:18:37 DEBUG t.Brief:100 - visiting a valid interval
+2017-11-28 20:18:37 DEBUG t.Brief:121 - getting intersection time of the interval
+2017-11-28 20:18:37 DEBUG t.Brief:122 - sum until now:0
+2017-11-28 20:18:37 DEBUG t.Brief:123 - adding:5308
+2017-11-28 20:18:37 DEBUG t.Brief:135 - visiting a valid task
+2017-11-28 20:18:37 DEBUG t.Brief:100 - visiting a valid interval
+2017-11-28 20:18:37 DEBUG t.Brief:121 - getting intersection time of the interval
+2017-11-28 20:18:37 DEBUG t.Brief:122 - sum until now:5
+2017-11-28 20:18:37 DEBUG t.Brief:123 - adding:5308
+2017-11-28 20:18:37 DEBUG t.Brief:100 - visiting a valid interval
+2017-11-28 20:18:37 DEBUG t.Brief:121 - getting intersection time of the interval
+2017-11-28 20:18:37 DEBUG t.Brief:122 - sum until now:10
+2017-11-28 20:18:37 DEBUG t.Brief:123 - adding:703
+2017-11-28 20:18:37 DEBUG t.Brief:161 - generating data table for the current root project
+2017-11-28 20:18:37 DEBUG t.Brief:80 - visiting a new root project
+2017-11-28 20:18:37 DEBUG t.Brief:146 - visiting a root project, restarting the intersection time
+2017-11-28 20:18:37 DEBUG t.Brief:154 - visiting a valid project
+2017-11-28 20:18:37 DEBUG t.Brief:135 - visiting a valid task
+2017-11-28 20:18:37 DEBUG t.Brief:100 - visiting a valid interval
+2017-11-28 20:18:37 DEBUG t.Brief:121 - getting intersection time of the interval
+2017-11-28 20:18:37 DEBUG t.Brief:122 - sum until now:0
+2017-11-28 20:18:37 DEBUG t.Brief:123 - adding:4007
+2017-11-28 20:18:37 DEBUG t.Brief:161 - generating data table for the current root project
+2017-11-28 20:18:37 ERROR t.Text:19 - creating an output file
+2017-11-28 20:18:37 DEBUG t.Detailed:30 - generating detailed report
+2017-11-28 20:18:37 DEBUG t.Detailed:37 - creating period table
+2017-11-28 20:18:37 DEBUG t.Detailed:70 - creating root projects table
+2017-11-28 20:18:37 DEBUG t.Detailed:80 - visiting a new root project
+2017-11-28 20:18:37 DEBUG t.Detailed:276 - visiting a root project, restarting the intersection time
+2017-11-28 20:18:37 DEBUG t.Detailed:284 - visiting a valid project
+2017-11-28 20:18:37 DEBUG t.Detailed:284 - visiting a valid project
+2017-11-28 20:18:37 DEBUG t.Detailed:243 - visiting a valid task
+2017-11-28 20:18:37 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 20:18:37 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 20:18:37 DEBUG t.Detailed:200 - sum until now:0
+2017-11-28 20:18:37 DEBUG t.Detailed:201 - adding:5308
+2017-11-28 20:18:37 DEBUG t.Detailed:243 - visiting a valid task
+2017-11-28 20:18:37 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 20:18:37 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 20:18:37 DEBUG t.Detailed:200 - sum until now:5
+2017-11-28 20:18:37 DEBUG t.Detailed:201 - adding:5308
+2017-11-28 20:18:37 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 20:18:37 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 20:18:37 DEBUG t.Detailed:200 - sum until now:10
+2017-11-28 20:18:37 DEBUG t.Detailed:201 - adding:703
+2017-11-28 20:18:37 DEBUG t.Detailed:291 - generating data table for the current root project
+2017-11-28 20:20:21 DEBUG t.Brief:31 - generating report of root projects
+2017-11-28 20:20:21 DEBUG t.Brief:38 - creating period table
+2017-11-28 20:20:21 DEBUG t.Brief:71 - creating root projects table
+2017-11-28 20:20:21 DEBUG t.Brief:80 - visiting a new root project
+2017-11-28 20:20:21 DEBUG t.Brief:146 - visiting a root project, restarting the intersection time
+2017-11-28 20:20:21 DEBUG t.Brief:154 - visiting a valid project
+2017-11-28 20:20:21 DEBUG t.Brief:154 - visiting a valid project
+2017-11-28 20:20:21 DEBUG t.Brief:135 - visiting a valid task
+2017-11-28 20:20:21 DEBUG t.Brief:100 - visiting a valid interval
+2017-11-28 20:20:21 DEBUG t.Brief:121 - getting intersection time of the interval
+2017-11-28 20:20:21 DEBUG t.Brief:122 - sum until now:0
+2017-11-28 20:20:21 DEBUG t.Brief:123 - adding:5948
+2017-11-28 20:20:21 DEBUG t.Brief:135 - visiting a valid task
+2017-11-28 20:20:21 DEBUG t.Brief:100 - visiting a valid interval
+2017-11-28 20:20:21 DEBUG t.Brief:121 - getting intersection time of the interval
+2017-11-28 20:20:21 DEBUG t.Brief:122 - sum until now:5
+2017-11-28 20:20:21 DEBUG t.Brief:123 - adding:5948
+2017-11-28 20:20:21 DEBUG t.Brief:100 - visiting a valid interval
+2017-11-28 20:20:21 DEBUG t.Brief:121 - getting intersection time of the interval
+2017-11-28 20:20:21 DEBUG t.Brief:122 - sum until now:10
+2017-11-28 20:20:21 DEBUG t.Brief:123 - adding:62
+2017-11-28 20:20:21 DEBUG t.Brief:161 - generating data table for the current root project
+2017-11-28 20:20:21 DEBUG t.Brief:80 - visiting a new root project
+2017-11-28 20:20:21 DEBUG t.Brief:146 - visiting a root project, restarting the intersection time
+2017-11-28 20:20:21 DEBUG t.Brief:154 - visiting a valid project
+2017-11-28 20:20:21 DEBUG t.Brief:135 - visiting a valid task
+2017-11-28 20:20:21 DEBUG t.Brief:100 - visiting a valid interval
+2017-11-28 20:20:21 DEBUG t.Brief:121 - getting intersection time of the interval
+2017-11-28 20:20:21 DEBUG t.Brief:122 - sum until now:0
+2017-11-28 20:20:21 DEBUG t.Brief:123 - adding:4007
+2017-11-28 20:20:21 DEBUG t.Brief:161 - generating data table for the current root project
+2017-11-28 20:20:21 ERROR t.Text:17 - creating an output file
+2017-11-28 20:20:21 DEBUG t.Brief:31 - generating report of root projects
+2017-11-28 20:20:21 DEBUG t.Brief:38 - creating period table
+2017-11-28 20:20:21 DEBUG t.Brief:71 - creating root projects table
+2017-11-28 20:20:21 DEBUG t.Brief:80 - visiting a new root project
+2017-11-28 20:20:21 DEBUG t.Brief:146 - visiting a root project, restarting the intersection time
+2017-11-28 20:20:21 DEBUG t.Brief:154 - visiting a valid project
+2017-11-28 20:20:21 DEBUG t.Brief:154 - visiting a valid project
+2017-11-28 20:20:21 DEBUG t.Brief:135 - visiting a valid task
+2017-11-28 20:20:21 DEBUG t.Brief:100 - visiting a valid interval
+2017-11-28 20:20:21 DEBUG t.Brief:121 - getting intersection time of the interval
+2017-11-28 20:20:21 DEBUG t.Brief:122 - sum until now:0
+2017-11-28 20:20:21 DEBUG t.Brief:123 - adding:5948
+2017-11-28 20:20:21 DEBUG t.Brief:135 - visiting a valid task
+2017-11-28 20:20:21 DEBUG t.Brief:100 - visiting a valid interval
+2017-11-28 20:20:21 DEBUG t.Brief:121 - getting intersection time of the interval
+2017-11-28 20:20:21 DEBUG t.Brief:122 - sum until now:5
+2017-11-28 20:20:21 DEBUG t.Brief:123 - adding:5948
+2017-11-28 20:20:21 DEBUG t.Brief:100 - visiting a valid interval
+2017-11-28 20:20:21 DEBUG t.Brief:121 - getting intersection time of the interval
+2017-11-28 20:20:21 DEBUG t.Brief:122 - sum until now:10
+2017-11-28 20:20:21 DEBUG t.Brief:123 - adding:62
+2017-11-28 20:20:21 DEBUG t.Brief:161 - generating data table for the current root project
+2017-11-28 20:20:21 DEBUG t.Brief:80 - visiting a new root project
+2017-11-28 20:20:21 DEBUG t.Brief:146 - visiting a root project, restarting the intersection time
+2017-11-28 20:20:21 DEBUG t.Brief:154 - visiting a valid project
+2017-11-28 20:20:21 DEBUG t.Brief:135 - visiting a valid task
+2017-11-28 20:20:21 DEBUG t.Brief:100 - visiting a valid interval
+2017-11-28 20:20:21 DEBUG t.Brief:121 - getting intersection time of the interval
+2017-11-28 20:20:21 DEBUG t.Brief:122 - sum until now:0
+2017-11-28 20:20:21 DEBUG t.Brief:123 - adding:4007
+2017-11-28 20:20:21 DEBUG t.Brief:161 - generating data table for the current root project
+2017-11-28 20:20:21 ERROR t.Text:19 - creating an output file
+2017-11-28 20:20:21 DEBUG t.Detailed:30 - generating detailed report
+2017-11-28 20:20:21 DEBUG t.Detailed:37 - creating period table
+2017-11-28 20:20:21 DEBUG t.Detailed:70 - creating root projects table
+2017-11-28 20:20:21 DEBUG t.Detailed:80 - visiting a new root project
+2017-11-28 20:20:21 DEBUG t.Detailed:276 - visiting a root project, restarting the intersection time
+2017-11-28 20:20:21 DEBUG t.Detailed:284 - visiting a valid project
+2017-11-28 20:20:21 DEBUG t.Detailed:284 - visiting a valid project
+2017-11-28 20:20:21 DEBUG t.Detailed:243 - visiting a valid task
+2017-11-28 20:20:21 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 20:20:21 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 20:20:21 DEBUG t.Detailed:200 - sum until now:0
+2017-11-28 20:20:21 DEBUG t.Detailed:201 - adding:5948
+2017-11-28 20:20:21 DEBUG t.Detailed:243 - visiting a valid task
+2017-11-28 20:20:21 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 20:20:21 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 20:20:21 DEBUG t.Detailed:200 - sum until now:5
+2017-11-28 20:20:21 DEBUG t.Detailed:201 - adding:5948
+2017-11-28 20:20:21 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 20:20:21 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 20:20:21 DEBUG t.Detailed:200 - sum until now:10
+2017-11-28 20:20:21 DEBUG t.Detailed:201 - adding:62
+2017-11-28 20:20:21 DEBUG t.Detailed:291 - generating data table for the current root project
+2017-11-28 20:20:21 DEBUG t.Detailed:80 - visiting a new root project
+2017-11-28 20:20:21 DEBUG t.Detailed:276 - visiting a root project, restarting the intersection time
+2017-11-28 20:20:21 DEBUG t.Detailed:284 - visiting a valid project
+2017-11-28 20:20:21 DEBUG t.Detailed:243 - visiting a valid task
+2017-11-28 20:20:21 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 20:20:21 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 20:20:21 DEBUG t.Detailed:200 - sum until now:0
+2017-11-28 20:20:21 DEBUG t.Detailed:201 - adding:4007
+2017-11-28 20:20:21 DEBUG t.Detailed:291 - generating data table for the current root project
+2017-11-28 20:20:21 DEBUG t.Detailed:96 - creating subprojects table
+2017-11-28 20:20:21 DEBUG t.Detailed:323 - visiting a new sub project
+2017-11-28 20:20:21 DEBUG t.Detailed:276 - visiting a root project, restarting the intersection time
+2017-11-28 20:20:21 DEBUG t.Detailed:284 - visiting a valid project
+2017-11-28 20:20:21 DEBUG t.Detailed:243 - visiting a valid task
+2017-11-28 20:20:21 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 20:20:21 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 20:20:21 DEBUG t.Detailed:200 - sum until now:0
+2017-11-28 20:20:21 DEBUG t.Detailed:201 - adding:5948
+2017-11-28 20:20:21 DEBUG t.Detailed:291 - generating data table for the current root project
+2017-11-28 20:20:21 DEBUG t.Detailed:121 - creating root projects table
+2017-11-28 20:20:21 DEBUG t.Detailed:340 - visiting a new task
+2017-11-28 20:20:21 DEBUG t.Detailed:235 - visiting a task as root restarting the intersection time
+2017-11-28 20:20:21 DEBUG t.Detailed:243 - visiting a valid task
+2017-11-28 20:20:21 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 20:20:21 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 20:20:21 DEBUG t.Detailed:200 - sum until now:0
+2017-11-28 20:20:21 DEBUG t.Detailed:201 - adding:5948
+2017-11-28 20:20:21 DEBUG t.Detailed:251 - generating data table for the current root task
+2017-11-28 20:20:21 DEBUG t.Detailed:340 - visiting a new task
+2017-11-28 20:20:21 DEBUG t.Detailed:235 - visiting a task as root restarting the intersection time
+2017-11-28 20:20:21 DEBUG t.Detailed:340 - visiting a new task
+2017-11-28 20:20:21 DEBUG t.Detailed:235 - visiting a task as root restarting the intersection time
+2017-11-28 20:20:21 DEBUG t.Detailed:243 - visiting a valid task
+2017-11-28 20:20:21 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 20:20:21 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 20:20:21 DEBUG t.Detailed:200 - sum until now:0
+2017-11-28 20:20:21 DEBUG t.Detailed:201 - adding:5948
+2017-11-28 20:20:21 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 20:20:21 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 20:20:21 DEBUG t.Detailed:200 - sum until now:5
+2017-11-28 20:20:21 DEBUG t.Detailed:201 - adding:62
+2017-11-28 20:20:21 DEBUG t.Detailed:251 - generating data table for the current root task
+2017-11-28 20:20:21 DEBUG t.Detailed:340 - visiting a new task
+2017-11-28 20:20:21 DEBUG t.Detailed:235 - visiting a task as root restarting the intersection time
+2017-11-28 20:20:21 DEBUG t.Detailed:243 - visiting a valid task
+2017-11-28 20:20:21 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 20:20:21 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 20:20:21 DEBUG t.Detailed:200 - sum until now:0
+2017-11-28 20:20:21 DEBUG t.Detailed:201 - adding:4007
+2017-11-28 20:20:21 DEBUG t.Detailed:251 - generating data table for the current root task
+2017-11-28 20:20:21 DEBUG t.Detailed:147 - creating root projects table
+2017-11-28 20:20:21 DEBUG t.Detailed:358 - visiting a new interval
+2017-11-28 20:20:21 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 20:20:21 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 20:20:21 DEBUG t.Detailed:207 - visiting a interval as root
+2017-11-28 20:20:21 DEBUG t.Detailed:358 - visiting a new interval
+2017-11-28 20:20:21 DEBUG t.Detailed:358 - visiting a new interval
+2017-11-28 20:20:21 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 20:20:21 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 20:20:21 DEBUG t.Detailed:207 - visiting a interval as root
+2017-11-28 20:20:21 DEBUG t.Detailed:358 - visiting a new interval
+2017-11-28 20:20:21 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 20:20:21 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 20:20:21 DEBUG t.Detailed:207 - visiting a interval as root
+2017-11-28 20:20:21 DEBUG t.Detailed:358 - visiting a new interval
+2017-11-28 20:20:21 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 20:20:21 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 20:20:21 DEBUG t.Detailed:207 - visiting a interval as root
+2017-11-28 20:20:21 DEBUG t.Detailed:358 - visiting a new interval
+2017-11-28 20:20:21 ERROR t.Text:17 - creating an output file
+2017-11-28 20:20:21 DEBUG t.Detailed:30 - generating detailed report
+2017-11-28 20:20:21 DEBUG t.Detailed:37 - creating period table
+2017-11-28 20:20:21 DEBUG t.Detailed:70 - creating root projects table
+2017-11-28 20:20:21 DEBUG t.Detailed:80 - visiting a new root project
+2017-11-28 20:20:21 DEBUG t.Detailed:276 - visiting a root project, restarting the intersection time
+2017-11-28 20:20:21 DEBUG t.Detailed:284 - visiting a valid project
+2017-11-28 20:20:21 DEBUG t.Detailed:284 - visiting a valid project
+2017-11-28 20:20:21 DEBUG t.Detailed:243 - visiting a valid task
+2017-11-28 20:20:21 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 20:20:21 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 20:20:21 DEBUG t.Detailed:200 - sum until now:0
+2017-11-28 20:20:21 DEBUG t.Detailed:201 - adding:5948
+2017-11-28 20:20:21 DEBUG t.Detailed:243 - visiting a valid task
+2017-11-28 20:20:21 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 20:20:21 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 20:20:21 DEBUG t.Detailed:200 - sum until now:5
+2017-11-28 20:20:21 DEBUG t.Detailed:201 - adding:5948
+2017-11-28 20:20:21 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 20:20:21 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 20:20:21 DEBUG t.Detailed:200 - sum until now:10
+2017-11-28 20:20:21 DEBUG t.Detailed:201 - adding:62
+2017-11-28 20:20:21 DEBUG t.Detailed:291 - generating data table for the current root project
+2017-11-28 20:20:21 DEBUG t.Detailed:80 - visiting a new root project
+2017-11-28 20:20:21 DEBUG t.Detailed:276 - visiting a root project, restarting the intersection time
+2017-11-28 20:20:21 DEBUG t.Detailed:284 - visiting a valid project
+2017-11-28 20:20:21 DEBUG t.Detailed:243 - visiting a valid task
+2017-11-28 20:20:21 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 20:20:21 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 20:20:21 DEBUG t.Detailed:200 - sum until now:0
+2017-11-28 20:20:21 DEBUG t.Detailed:201 - adding:4007
+2017-11-28 20:20:21 DEBUG t.Detailed:291 - generating data table for the current root project
+2017-11-28 20:20:21 DEBUG t.Detailed:96 - creating subprojects table
+2017-11-28 20:20:21 DEBUG t.Detailed:323 - visiting a new sub project
+2017-11-28 20:20:21 DEBUG t.Detailed:276 - visiting a root project, restarting the intersection time
+2017-11-28 20:20:21 DEBUG t.Detailed:284 - visiting a valid project
+2017-11-28 20:20:21 DEBUG t.Detailed:243 - visiting a valid task
+2017-11-28 20:20:21 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 20:20:21 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 20:20:21 DEBUG t.Detailed:200 - sum until now:0
+2017-11-28 20:20:21 DEBUG t.Detailed:201 - adding:5948
+2017-11-28 20:20:21 DEBUG t.Detailed:291 - generating data table for the current root project
+2017-11-28 20:20:21 DEBUG t.Detailed:121 - creating root projects table
+2017-11-28 20:20:21 DEBUG t.Detailed:340 - visiting a new task
+2017-11-28 20:20:21 DEBUG t.Detailed:235 - visiting a task as root restarting the intersection time
+2017-11-28 20:20:21 DEBUG t.Detailed:243 - visiting a valid task
+2017-11-28 20:20:21 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 20:20:21 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 20:20:21 DEBUG t.Detailed:200 - sum until now:0
+2017-11-28 20:20:21 DEBUG t.Detailed:201 - adding:5948
+2017-11-28 20:20:21 DEBUG t.Detailed:251 - generating data table for the current root task
+2017-11-28 20:20:21 DEBUG t.Detailed:340 - visiting a new task
+2017-11-28 20:20:21 DEBUG t.Detailed:235 - visiting a task as root restarting the intersection time
+2017-11-28 20:20:21 DEBUG t.Detailed:340 - visiting a new task
+2017-11-28 20:20:21 DEBUG t.Detailed:235 - visiting a task as root restarting the intersection time
+2017-11-28 20:20:21 DEBUG t.Detailed:243 - visiting a valid task
+2017-11-28 20:20:21 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 20:20:21 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 20:20:21 DEBUG t.Detailed:200 - sum until now:0
+2017-11-28 20:20:21 DEBUG t.Detailed:201 - adding:5948
+2017-11-28 20:20:21 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 20:20:21 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 20:20:21 DEBUG t.Detailed:200 - sum until now:5
+2017-11-28 20:20:21 DEBUG t.Detailed:201 - adding:62
+2017-11-28 20:20:21 DEBUG t.Detailed:251 - generating data table for the current root task
+2017-11-28 20:20:21 DEBUG t.Detailed:340 - visiting a new task
+2017-11-28 20:20:21 DEBUG t.Detailed:235 - visiting a task as root restarting the intersection time
+2017-11-28 20:20:21 DEBUG t.Detailed:243 - visiting a valid task
+2017-11-28 20:20:21 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 20:20:21 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 20:20:21 DEBUG t.Detailed:200 - sum until now:0
+2017-11-28 20:20:21 DEBUG t.Detailed:201 - adding:4007
+2017-11-28 20:20:21 DEBUG t.Detailed:251 - generating data table for the current root task
+2017-11-28 20:20:21 DEBUG t.Detailed:147 - creating root projects table
+2017-11-28 20:20:21 DEBUG t.Detailed:358 - visiting a new interval
+2017-11-28 20:20:21 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 20:20:21 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 20:20:21 DEBUG t.Detailed:207 - visiting a interval as root
+2017-11-28 20:20:21 DEBUG t.Detailed:358 - visiting a new interval
+2017-11-28 20:20:21 DEBUG t.Detailed:358 - visiting a new interval
+2017-11-28 20:20:21 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 20:20:21 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 20:20:21 DEBUG t.Detailed:207 - visiting a interval as root
+2017-11-28 20:20:21 DEBUG t.Detailed:358 - visiting a new interval
+2017-11-28 20:20:21 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 20:20:21 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 20:20:21 DEBUG t.Detailed:207 - visiting a interval as root
+2017-11-28 20:20:21 DEBUG t.Detailed:358 - visiting a new interval
+2017-11-28 20:20:21 DEBUG t.Detailed:175 - visiting a valid interval
+2017-11-28 20:20:21 DEBUG t.Detailed:197 - getting intersection time of the interval
+2017-11-28 20:20:21 DEBUG t.Detailed:207 - visiting a interval as root
+2017-11-28 20:20:21 DEBUG t.Detailed:358 - visiting a new interval
+2017-11-28 20:20:21 ERROR t.Text:19 - creating an output file

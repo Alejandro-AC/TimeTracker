@@ -32,7 +32,7 @@ public class Html extends Format {
 				} else if (element instanceof Line) {
 					out.println("<hr/>");
 					
-				} else if (element instanceof Table){
+				} else if (element instanceof Table) {
 					@SuppressWarnings("unchecked")
 					ArrayList<ArrayList<String>> rows 
 						= (ArrayList<ArrayList<String>>) element.getData();

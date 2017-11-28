@@ -15,11 +15,15 @@ public class Brief extends Report {
 	
 	private Table rootProjectsTable;
 	
+	private static final long SECONDS_IN_HOUR = 3600;	
+	private static final long MINUTES_IN_HOUR = 60;
+	
 	/**
 	 * Constructor of the class;
 	 */
 	public Brief(final Project projectSet, final Format formatSet,
-			final Date startDateSet, final Date endDateSet, final String reportNameSet) {
+			final Date startDateSet, final Date endDateSet, 
+			final String reportNameSet) {
 		super(projectSet, formatSet, startDateSet, endDateSet, reportNameSet);
 	}
 	
@@ -137,7 +141,7 @@ public class Brief extends Report {
 
 	@Override
 	public final void visitProject(final Project project, final int level) {
-		// Is this correct?
+		
 		if (level == 0) {
 			logger.debug("visiting a root project, " 
 					+ "restarting the intersection time");
@@ -161,10 +165,12 @@ public class Brief extends Report {
 				row.add(getDateFormat().format(project.getStartDate()));
 				row.add(getDateFormat().format(project.getEndDate()));
 				
-				long hours = getIntersectionTime() / 3600;
-				long minutes = (getIntersectionTime() % 3600) / 60;
-				long seconds = getIntersectionTime() % 60;
-				String timeString = String.format(" %02d" +"h" +" %02d" +"m" +" %02d" +"s", hours, minutes, seconds);
+				long hours = getIntersectionTime() / SECONDS_IN_HOUR;
+				long minutes = (getIntersectionTime() % SECONDS_IN_HOUR) 
+						/ MINUTES_IN_HOUR;
+				long seconds = getIntersectionTime() % MINUTES_IN_HOUR;
+				String timeString = String.format(" %02d" + "h" + " %02d" 
+						+ "m" + " %02d" + "s", hours, minutes, seconds);
 				
 				row.add(timeString);
 	
