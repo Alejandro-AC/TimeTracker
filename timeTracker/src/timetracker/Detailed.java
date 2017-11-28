@@ -8,8 +8,8 @@ import java.util.concurrent.TimeUnit;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class Detailed extends Report {
-
+public class Detailed extends Report {	
+	
 	/**
 	 * @uml.property  name="logger"
 	 */
@@ -175,28 +175,45 @@ public class Detailed extends Report {
 				&& interval.getEndDate().after(getStartDate())) {
 			logger.debug("visiting a valid interval");
 			// It's a valid interval
+			
+			Date intervalStart = new Date(
+					((interval.getStartDate().getTime() 
+							+ (MILISECONDS_IN_SECOND / 2)) 
+							/ MILISECONDS_IN_SECOND)
+							* MILISECONDS_IN_SECOND);
+			
+			Date intervalEnd = new Date(
+					((interval.getEndDate().getTime() 
+							+ (MILISECONDS_IN_SECOND / 2)) 
+							/ MILISECONDS_IN_SECOND)
+							* MILISECONDS_IN_SECOND);			
 
 			// Interval starts before period and ends after period
 			if (interval.getStartDate().before(getStartDate())
 					&& interval.getEndDate().after(getEndDate())) {
+				
 				time = getEndDate().getTime()
 						- getStartDate().getTime();
 				
 				// Interval starts before period and ends before period
 			} else if (interval.getStartDate().before(getStartDate())
 					&& interval.getEndDate().before(getEndDate())) {
-				time = interval.getEndDate().getTime()
+				
+				time = intervalEnd.getTime()
 						- getStartDate().getTime();
 				
 				// Interval starts after period and ends after period 
 			} else if (interval.getStartDate().after(getStartDate())
-					&& interval.getEndDate().after(getEndDate())) {				
+					&& interval.getEndDate().after(getEndDate())) {	
+				
 				time = getEndDate().getTime()
-						- interval.getStartDate().getTime();
+						- intervalStart.getTime();
+				
 				// Interval starts after period and ends before period 
 			} else {
-				time = interval.getEndDate().getTime()
-						- interval.getStartDate().getTime();
+				
+				time = intervalEnd.getTime()
+						- intervalStart.getTime();
 			}
 			
 			logger.debug("getting intersection time of the interval");
@@ -208,7 +225,7 @@ public class Detailed extends Report {
 						+ TimeUnit.MILLISECONDS.toSeconds(time));
 			}			
 			
-			if (level == 0) {
+			if (level == 0 && time > 0) {
 				logger.debug("visiting a interval as root");
 				
 				ArrayList<String> row = new ArrayList<String>();
@@ -251,7 +268,7 @@ public class Detailed extends Report {
 			}
 			
 			
-			if (level  == 0) {
+			if (level  == 0 && getIntersectionTime() > 0) {
 					// Adding task data
 				logger.debug("generating data table " 
 						+ "for the current root task");
@@ -291,7 +308,7 @@ public class Detailed extends Report {
 				child.acceptVisitor(this, level + 1);
 			}			
 			
-			if (level == 0) {
+			if (level == 0 && getIntersectionTime() > 0) {
 					// Adding project data
 				logger.debug("generating data table " 
 						+ "for the current root project");

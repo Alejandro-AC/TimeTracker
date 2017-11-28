@@ -24,6 +24,8 @@ import org.slf4j.LoggerFactory;
  */
 public class Client {
 
+	private static final long MILISECONDS_IN_SECOND = 1000;
+	
 	private static Logger logger = LoggerFactory.getLogger(Client.class);
 
 	/**
@@ -551,6 +553,13 @@ public class Client {
 		Thread impresorThread2 = new Thread(Impresor.getInstance());
 		impresorThread2.start();
 
+		long millisWithinSecond = System.currentTimeMillis() 
+				% MILISECONDS_IN_SECOND;
+		try {
+			Thread.sleep(MILISECONDS_IN_SECOND - millisWithinSecond);
+		} catch (InterruptedException e1) {
+			e1.printStackTrace();
+		}
 		
 		t1.start();
 		t4.start();
@@ -561,10 +570,12 @@ public class Client {
 			e.printStackTrace();
 			logger.error("Error while putting to sleep the execution");
 		}
-
+		
+		
 		t1.stop();
+		Date startDate = Clock.getInstance().getCurrentDate();
 		t2.start();
-		Date startDate = new Date();
+		
 
 		try {
 			Thread.sleep(waitTime2);
@@ -586,7 +597,7 @@ public class Client {
 
 		t3.stop();
 		t2.start();
-		Date endDate = new Date();
+		Date endDate = Clock.getInstance().getCurrentDate();
 
 		try {
 			Thread.sleep(waitTime4);

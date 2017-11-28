@@ -8,6 +8,8 @@ import java.text.SimpleDateFormat;
 
 public abstract class Report implements Visitor {
 
+	public static final int MILISECONDS_IN_SECOND = 1000;
+	
 	/**
 	 * @uml.property name="project"
 	 * @uml.associationEnd multiplicity="(1 1)"
@@ -82,7 +84,12 @@ public abstract class Report implements Visitor {
 		 * @uml.property name="startDate"
 		 */
 		public final Date getStartDate() {
-			return startDate;
+			
+			Date dateStart = new Date(
+				((this.startDate.getTime() 
+						+ (MILISECONDS_IN_SECOND / 2)) / MILISECONDS_IN_SECOND)
+						* MILISECONDS_IN_SECOND);			
+			return dateStart;
 		}
 
 	/**
@@ -97,7 +104,12 @@ public abstract class Report implements Visitor {
 		 * @uml.property name="endDate"
 		 */
 		public final Date getEndDate() {
-			return endDate;
+			Date dateEnd = new Date(
+					((this.endDate.getTime() 
+							+ (MILISECONDS_IN_SECOND / 2)) 
+							/ MILISECONDS_IN_SECOND)
+							* MILISECONDS_IN_SECOND);			
+				return dateEnd;
 		}
 	
 	/**
