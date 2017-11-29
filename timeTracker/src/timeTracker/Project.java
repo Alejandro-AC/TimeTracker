@@ -92,7 +92,7 @@ public class Project extends Activity {
 		super(description, name, father);
 	}
 	
-	private boolean invariant(){
+	private boolean invariant() {
 		boolean correct = true;
 		for (Object obj:this.getChildren()) {
 			if (!(obj instanceof Project) && !(obj instanceof Task)) {

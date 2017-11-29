@@ -29,16 +29,6 @@ public class Client {
 	private static Logger logger = LoggerFactory.getLogger(Client.class);
 
 	/**
-	 * Getter of the property <tt>logger</tt>
-	 * 
-	 * @return Returns the Logger.
-	 * @uml.property name="logger"
-	 */
-	public static final Logger getLogger() {
-		return logger;
-	}
-
-	/**
 	 * @uml.property name="rootProjects"
 	 * @uml.associationEnd multiplicity="(0 -1)" aggregation="shared"
 	 *                     inverse="client:time.Tracker.Project"
@@ -48,11 +38,6 @@ public class Client {
 	/**
 	 * Searches for the rootProject with the name given and returns it if it has
 	 * been found.
-	 * 
-	 * @param name
-	 *            : name of the rootProject to be found.
-	 * @return Return the 1 with the same name, or null if it has not been
-	 *         found.
 	 */
 	public final Activity getRootProject(final String name) {
 		logger.debug("getting root project: " + name);
@@ -66,23 +51,18 @@ public class Client {
 		return null;
 	}
 
-	/**
-	 * Constructor of the class.
-	 */
 	public Client() {
 	}
 
-	/**
-	 * Main function of the program.
-	 */
 	@SuppressWarnings("unchecked")
 	public static void main(final String[] args) {
 
 		Client c = new Client();
 		Thread clockThread = new Thread(Clock.getInstance());
 		clockThread.start();
-
-		try { // Deserialization
+		
+		// Deserialization
+		try {
 			FileInputStream fileIn = new FileInputStream("data.ser");
 			ObjectInputStream in = new ObjectInputStream(fileIn);
 			c.voidProject.setChildren((Collection<Activity>) in.readObject());
@@ -110,8 +90,9 @@ public class Client {
 			e1.printStackTrace();
 			logger.error("Cannot stop clock");
 		}
-
-		try { // Serialization
+		
+		// Serialization
+		try {
 			FileOutputStream fileOut = new FileOutputStream("data.ser");
 			ObjectOutputStream out = new ObjectOutputStream(fileOut);
 			out.writeObject(c.voidProject.getChildren());
@@ -129,9 +110,6 @@ public class Client {
 
 	/**
 	 * Asks the user the properties needed to create a new Project.
-	 * 
-	 * @return ArrayList with two strings: the name and the description for the
-	 *         new Activity.
 	 */
 	public final ArrayList<String> askRootProjectProperties() {
 		ArrayList<String> properties = new ArrayList<String>();
@@ -155,17 +133,15 @@ public class Client {
 		properties.add(sc.nextLine());
 		logger.debug("description introduced:" + properties.get(1));
 		logger.debug("all properties has been introduced correctly");
+		// ArrayList with two strings: the name and the description for the
+		// new Activity.
 		return properties;
 	}
 
 	/**
 	 * Searches for a specific Activity in the tree, starting from the
 	 * rootProjects, using a BFS based algorithm.
-	 * 
-	 * @param name
-	 *            : name of the Activity to be found.
-	 * @return the Activity that has been searched. It's value is null if it
-	 *         couldn't be found.
+	 * @param name: name of the Activity to be found.
 	 */
 	public final Activity getActivity(final String name) {
 		logger.debug("Getting activity: " + name);
@@ -186,15 +162,8 @@ public class Client {
 
 	/**
 	 * Searches for a specific Activity in the tree.
-	 * 
-	 * @param name
-	 *            : name of the Activity to be found.
-	 * @param activity
-	 *            : actual Activity that is being checked.
-	 * @param nonVisited
-	 *            : list of Activities that haven't been visited.
-	 * @return the Activity that has been found. It's value is null if it
-	 *         couldn't be found.
+	 * @param name: name of the Activity to be found.
+	 * @param activity: actual Activity that is being checked.
 	 */
 	private Activity searchActivity(final String name, final Activity activity,
 			final Queue<Activity> nonVisited) {
@@ -204,13 +173,12 @@ public class Client {
 			if (name.equals(activity.getName())) {
 				return activity;
 
-			} else if (activity instanceof Project) { // keep searching
+			} else if (activity instanceof Project) {
+				// keep searching
 				Collection<Activity> children = activity.getChildren();
-
 				if (!children.isEmpty()) {
 					nonVisited.addAll(children);
 				}
-
 				return searchActivity(name, nonVisited.peek(), nonVisited);
 
 			} else {
@@ -238,7 +206,8 @@ public class Client {
 			Thread impresorThread = new Thread(Impresor.getInstance());
 			impresorThread.start();
 			
-			final int one = 1, two = 2, three = 3, four = 4;
+			final int subMenu = 1, testa1 = 2, testa2 = 3, 
+					testfita2 = 4, exit = 0;
 			
 			boolean correctType = false;
 			while (!correctType) {
@@ -256,7 +225,7 @@ public class Client {
 			}
 
 			switch (option) {
-			case one:
+			case subMenu:	// 1
 				try {
 					Impresor.getInstance().terminate();
 					TimeUnit.SECONDS.sleep(1);
@@ -266,19 +235,19 @@ public class Client {
 				printSubMenu();
 				break;
 
-			case two: // Test A.1
+			case testa1:	// 2
 				this.testA1(impresorThread);
 				break;
 
-			case three: // Test A.2
+			case testa2:	// 3
 				this.testA2(impresorThread);
 				break;
 				
-			case four:	// Test Fita 2
+			case testfita2:	// 4
 				this.testFita2(impresorThread);
 				break;
 
-			case 0:
+			case exit:		// 0
 				logger.debug("Exit requested");
 				Impresor.getInstance().terminate();
 				try {
@@ -660,9 +629,6 @@ public class Client {
 
 	/**
 	 * Adds a child Project to an existing Project.
-	 * 
-	 * @param father
-	 *            : father of the new child Project.
 	 */
 	public final void addChildProject() {
 		Scanner scanner = new Scanner(System.in);
@@ -703,10 +669,6 @@ public class Client {
 
 	/**
 	 * Adds a child Task to an existing Project.
-	 * 
-	 * @param client
-	 * @param father
-	 *            : father of the new child Task.
 	 */
 	public final void addChildTask() {
 
@@ -745,12 +707,6 @@ public class Client {
 		}
 	}
 
-	/**
-	 * Starts a Task adding a new Interval
-	 * 
-	 * @param father
-	 *            : Task where the new Interval must be added.
-	 */
 	public final void startTask() {
 		Scanner scanner = new Scanner(System.in);
 		logger.debug("Option start task");
@@ -785,15 +741,8 @@ public class Client {
 			logger.debug("The specified task does not exist.");
 			System.out.println("Error. The specified Task does not exist.");
 		}
-		// scanner.close();
 	}
 
-	/**
-	 * Stops last Interval of the specified Task.
-	 * 
-	 * @param father
-	 *            : Task where the last Interval will be stopped.
-	 */
 	public final void stopTask() {
 		Scanner scanner = new Scanner(System.in);
 		String fatherName = "";
@@ -830,10 +779,7 @@ public class Client {
 			System.out.println("Error. The specified Task does not exist.");
 		}
 	}
-	
-	/**
-	 * 
-	 */
+
 	public final void generateReport() {
 		logger.debug("Generating report");
 		
@@ -902,18 +848,18 @@ public class Client {
 		correctType = false;
 		while (!correctType) {
 			try {
-				getLogger().debug("introducing starting date" 
+				logger.debug("introducing starting date" 
 								+ " for schedule task");
 				System.out.print("Start date (yyyy-MM-dd HH:mm): ");
 				String dateString = scanner.nextLine();
 				SimpleDateFormat dateFormat = new SimpleDateFormat(
 						"yyyy-MM-dd HH:mm");
 				startDate = dateFormat.parse(dateString);
-				getLogger().debug(
+				logger.debug(
 						"introduced date " + startDate + " correctly");
 				correctType = true;
 			} catch (Exception e) {
-				getLogger().debug("Date format incorrect");
+				logger.debug("Date format incorrect");
 				System.out.println("Date format incorrect."
 						+ " Introduce date again.");
 			}
@@ -923,18 +869,18 @@ public class Client {
 		correctType = false;
 		while (!correctType) {
 			try {
-				getLogger().debug("introducing starting date" 
+				logger.debug("introducing starting date" 
 						+ " for schedule task");
 				System.out.print("End date (yyyy-MM-dd HH:mm): ");
 				String dateString = scanner.nextLine();
 				SimpleDateFormat dateFormat = new SimpleDateFormat(
 						"yyyy-MM-dd HH:mm");
 				endDate = dateFormat.parse(dateString);
-				getLogger().debug(
+				logger.debug(
 						"introduced date " + endDate + " correctly");
 				correctType = true;
 			} catch (Exception e) {
-				getLogger().debug("Date format incorrect");
+				logger.debug("Date format incorrect");
 				System.out.println("Date format incorrect."
 						+ " Introduce date again.");
 			}
@@ -969,15 +915,11 @@ public class Client {
 	 * Menu for the actions that the user can select.
 	 */
 	public final void printSubMenu() {
-		final int optionAddRoot = 1;
-		final int optionAddChildProject = 2;
-		final int optionAddChildTask = 3;
-		final int optionStartInterval = 4;
-		final int optionStopInterval = 5;
-		final int optionRemoveActivity = 6;
-		final int optionChangeReprintRate = 7;
-		final int optionChangeIntervalTime = 8;
-		final int optionGenerateReport = 9;
+		final int optionAddRoot = 1, optionAddChildProject = 2, 
+				optionAddChildTask = 3, optionStartInterval = 4, 
+				optionStopInterval = 5, optionRemoveActivity = 6,
+				optionChangeReprintRate = 7, optionChangeIntervalTime = 8,
+				optionGenerateReport = 9, exit = 0;
 
 		Scanner scanner = new Scanner(System.in);
 		int option = -1;
@@ -1108,7 +1050,7 @@ public class Client {
 				generateReport();
 				break;
 
-			case 0:
+			case exit:
 				break;
 
 			default:

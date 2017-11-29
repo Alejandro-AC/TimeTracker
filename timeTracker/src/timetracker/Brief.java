@@ -6,6 +6,10 @@ import java.util.concurrent.TimeUnit;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * Type of Report. It focuses on the basic information of the Root
+ * Projects of the Activities Tree (their totalTime, end and start Date...).
+ */
 public class Brief extends Report {
 
 	/**
@@ -18,9 +22,6 @@ public class Brief extends Report {
 	private static final long SECONDS_IN_HOUR = 3600;	
 	private static final long MINUTES_IN_HOUR = 60;
 	
-	/**
-	 * Constructor of the class;
-	 */
 	public Brief(final Project projectSet, final Format formatSet,
 			final Date startDateSet, final Date endDateSet, 
 			final String reportNameSet) {
@@ -34,7 +35,7 @@ public class Brief extends Report {
 		getElements().add(new Line());
 		
 		getElements().add(new SubTitle("Period"));
-			// Period Table
+		// Period Table
 		logger.debug("creating period table");
 		ArrayList<String> periodFields = new ArrayList<String>();
 		periodFields.add("");
@@ -59,7 +60,7 @@ public class Brief extends Report {
 		periodTable.addRow(row);
 		
 		getElements().add(periodTable);
-			//
+	
 		
 		getDateFormat().format(getStartDate());
 	
@@ -67,7 +68,7 @@ public class Brief extends Report {
 		
 		getElements().add(new SubTitle("Root Projects"));
 		
-			// Creating table to save rootProjects' data
+		// Creating table to save rootProjects' data
 		logger.debug("creating root projects table");
 		ArrayList<String> rootProjectsFields = new ArrayList<String>();
 		rootProjectsFields.add("Project");
@@ -82,7 +83,7 @@ public class Brief extends Report {
 		}
 		
 		getElements().add(this.rootProjectsTable);
-			//
+		
 		
 		getElements().add(new Line());
 		getElements().add(new TextElement("Time Tracker v1.0"));	
@@ -202,7 +203,5 @@ public class Brief extends Report {
 		}
 
 	}
-
-	
 
 }

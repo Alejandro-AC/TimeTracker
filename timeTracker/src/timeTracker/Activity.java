@@ -4,14 +4,12 @@ import java.util.Date;
 import java.io.Serializable;
 
 /**
- * This abstract class is used for the Composite of the activities of our app.
- * It contains the main functionality for both the Projects and Tasks.
+ * This abstract class is used for the Composite of the activities of our 
+ * application. It contains the main functionality for both the Projects 
+ * and Tasks.
  */
 public abstract class Activity implements Serializable {
 
-	/**
-	 * Used for serialization.
-	 */
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -32,17 +30,6 @@ public abstract class Activity implements Serializable {
 	}
 
 	/**
-	 * Setter of the property <tt>father</tt>
-	 * 
-	 * @param father
-	 *            The father to set.
-	 * @uml.property name="father"
-	 */
-	protected final void setFather(final Project fatherSet) {
-		this.father = fatherSet;
-	}
-
-	/**
 	 * @uml.property name="name"
 	 */
 	private String name;
@@ -58,17 +45,6 @@ public abstract class Activity implements Serializable {
 	}
 
 	/**
-	 * Setter of the property <tt>name</tt>
-	 * 
-	 * @param name
-	 *            The name to set.
-	 * @uml.property name="name"
-	 */
-	protected final void setName(final String nameSet) {
-		this.name = nameSet;
-	}
-
-	/**
 	 * @uml.property name="description"
 	 */
 	private String description;
@@ -81,17 +57,6 @@ public abstract class Activity implements Serializable {
 	 */
 	protected final String getDescription() {
 		return this.description;
-	}
-
-	/**
-	 * Setter of the property <tt>description</tt>
-	 * 
-	 * @param description
-	 *            The description to set.
-	 * @uml.property name="description"
-	 */
-	protected final void setDescription(final String descriptionSet) {
-		this.description = descriptionSet;
 	}
 
 	/**
@@ -180,9 +145,6 @@ public abstract class Activity implements Serializable {
 		this.totalTime = totalTimeSet;
 	}
 
-	/**
-	 * Constructor of the class.
-	 */
 	public Activity(final String descriptionConstr, final String nameConstr,
 			final Project fatherConstr) {
 		this.description = descriptionConstr;
@@ -190,24 +152,11 @@ public abstract class Activity implements Serializable {
 		this.father = fatherConstr;
 	}
 
-	/**
-	 * Calculates the total time of all its children.
-	 */
 	public abstract void calculateTotalTime();
 
-	/**
-	 * Returns all the children of this Activity.
-	 * 
-	 * @return Children of this Activity.
-	 */
 	public abstract <T> T getChildren();
 
 	/**
-	 * Accepts a Visitor (in this case, the Impresor to print this Acitivity's
-	 * information).
-	 * 
-	 * @param visitor
-	 *            : visitor that is being accepted.
 	 * @level: current level of the Activity in the Activities Tree.
 	 */
 	public abstract void acceptVisitor(Visitor visitor, int level);
