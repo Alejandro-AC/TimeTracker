@@ -1,9 +1,15 @@
 package timetracker;
+
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+/**
+ * HTML is a class that applies the HTML format to any Report that
+ * is being generated. 
+ */
 public class Html extends Format {
 	
 	/**

@@ -13,33 +13,14 @@ import org.slf4j.LoggerFactory;
  */
 public class Impresor implements Visitor, Runnable {
 
-	/**
-	 * Logger for the class.
-	 */
 	private static Logger logger = LoggerFactory.getLogger(Impresor.class);
 
-	/**
-	 * Getter of the property <tt>logger</tt>
-	 * 
-	 * @return Returns the Logger.
-	 * @uml.property name="logger"
-	 */
-	public static final Logger getLogger() {
-		return logger;
-	}
-
-	/**
-	 * Unique instance of the Impresor for all the system.
-	 */
 	private static Impresor uniqueInstance = new Impresor();
 
 	public static Impresor getInstance() {
 		return uniqueInstance;
 	}
 
-	/**
-	 * Current state of the Impresor.
-	 */
 	private volatile boolean running = true;
 
 	/**
@@ -71,9 +52,6 @@ public class Impresor implements Visitor, Runnable {
 		this.reprintTime = reprintTimeSet;
 	}
 
-	/**
-	 * Constructor of the class.
-	 */
 	public Impresor() {
 
 	}
@@ -96,31 +74,16 @@ public class Impresor implements Visitor, Runnable {
 		}
 	}
 
-	/**
-	 * Runs off the Impresor.
-	 */
 	public final void terminate() {
 		logger.debug("impresor runing off");
 		running = false;
 	}
 
-	/**
-	 * Reanudates the Impressor.
-	 */
 	public final void reanudate() {
 		logger.debug("set impresor running ON");
 		running = true;
 	}
 
-	/**
-	 * Visits an Interval to print its information.
-	 * 
-	 * @param interval
-	 *            : Interval to print.
-	 * @param level
-	 *            : level of the current Interval in the tree (used for
-	 *            printing).
-	 */
 	public final void visitInterval(final Interval interval, final int level) {
 		final int formatNumber1 = 25;
 		final int formatNumber2 = 30;
@@ -143,14 +106,6 @@ public class Impresor implements Visitor, Runnable {
 		}
 	}
 
-	/**
-	 * Visits a Task to print its information.
-	 * 
-	 * @param task
-	 *            : Task to print.
-	 * @param level
-	 *            : level of the current Task in the tree (used for printing).
-	 */
 	public final void visitTask(final Task task, final int level) {
 		final int formatNumber1 = 25;
 		final int formatNumber2 = 30;
@@ -176,15 +131,6 @@ public class Impresor implements Visitor, Runnable {
 		}
 	}
 
-	/**
-	 * Visits a Project to print its information.
-	 * 
-	 * @param project
-	 *            : Project to print.
-	 * @param level
-	 *            : level of the current Project in the tree (used for
-	 *            printing).
-	 */
 	public final void visitProject(final Project project, final int level) {
 		final int formatNumber1 = 25;
 		final int formatNumber2 = 30;

@@ -10,15 +10,8 @@ import org.slf4j.LoggerFactory;
  */
 public class LimitedIntervalTime extends TaskDecorator {
 
-	/**
-	 * Logger for the class.
-	 */
 	private static Logger logger = LoggerFactory
 			.getLogger(LimitedIntervalTime.class);
-
-	/**
-	 * Used for serialization.
-	 */
 	private static final long serialVersionUID = 7L;
 
 	/**
@@ -38,33 +31,6 @@ public class LimitedIntervalTime extends TaskDecorator {
 		return maxIntervalTime;
 	}
 
-	/**
-	 * Setter of the property <tt>maxIntervalTime</tt>
-	 * 
-	 * @param maxIntervalTime
-	 *            The maxIntervalTime to set.
-	 * @uml.property name="maxIntervalTime"
-	 */
-	public final void setMaxIntervalTime(final long maxIntervalTimeSet) {
-		logger.debug("setting max interval time: " + maxIntervalTime);
-		this.maxIntervalTime = maxIntervalTimeSet;
-		assert this.invariant();
-	}
-
-	/**
-	 * Constructor of the class.
-	 * 
-	 * @param description
-	 *            : description of the Task.
-	 * @param name
-	 *            : name of the Task.
-	 * @param father
-	 *            : Project Father of the task.
-	 * @param task
-	 *            : Task that is decorating.
-	 * @param maxIntervalTime
-	 *            : maxim of seconds each Interval of this task can last.
-	 */
 	public LimitedIntervalTime(final String description, final String name,
 			final Project father, final Task task, 
 			final long maxIntervalTimeSet) {
@@ -92,9 +58,6 @@ public class LimitedIntervalTime extends TaskDecorator {
 		assert this.invariant();
 	}
 
-	/**
-	 * Implements the start() method from Task.java.
-	 */
 	public final void start() {
 		this.getTask().start();
 		assert this.invariant();

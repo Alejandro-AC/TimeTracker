@@ -12,9 +12,6 @@ import java.util.Observer;
  */
 public abstract class Task extends Activity implements Observer {
 
-	/**
-	 * Used for serialization.
-	 */
 	private static final long serialVersionUID = 3L;
 
 	/**
@@ -27,10 +24,6 @@ public abstract class Task extends Activity implements Observer {
 		Clock.getInstance().getNotification().addObserver(this);
 	}
 	
-
-	/**
-	 * Constructor of the class.
-	 */
 	public Task(final String description, final String name,
 			final Project father) {
 		super(description, name, father);

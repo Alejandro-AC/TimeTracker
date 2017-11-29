@@ -2,6 +2,11 @@ package timetracker;
 
 import java.util.ArrayList;
 
+/**
+ * Type of Element. It is used to store data from the Activities
+ * and the Intervals of the Tree Activities, and make it easier to
+ * be presented for the Reports.
+ */
 public class Table extends Element {
 	
 	/**
@@ -14,10 +19,7 @@ public class Table extends Element {
 	public final Object getData() {
 		return table;
 	}
-	
-	/**
-	 * Constructor of the class.
-	 */
+
 	public Table(final ArrayList<String> tableFieldsSet) {
 		this.table.add(tableFieldsSet);
 	}

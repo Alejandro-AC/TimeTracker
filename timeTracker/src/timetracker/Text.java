@@ -6,6 +6,10 @@ import java.util.ArrayList;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * Class that applies a text format to any Report that is being 
+ * generated. It will copy all the data of the Report in a .txt file.
+ */
 public class Text extends Format {
 	
 	/**
@@ -32,9 +36,7 @@ public class Text extends Format {
 					out.println(element.getData());
 					
 				} else if (element instanceof Line) {
-					out.println("------------------------------" 
-							+ "---------------------------------"
-							+ "---------------------------------------");
+					out.println(element.getData());
 					
 				} else if (element instanceof Table) {
 					@SuppressWarnings("unchecked")

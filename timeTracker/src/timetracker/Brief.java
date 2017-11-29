@@ -8,7 +8,8 @@ import org.slf4j.LoggerFactory;
 
 /**
  * Type of Report. It focuses on the basic information of the Root
- * Projects of the Activities Tree (their totalTime, end and start Date...).
+ * Projects of the Activities Tree (their totalTime, end and start Date...)
+ * between a given range of time.
  */
 public class Brief extends Report {
 
@@ -35,12 +36,12 @@ public class Brief extends Report {
 		getElements().add(new Line());
 		
 		getElements().add(new SubTitle("Period"));
-		// Period Table
+			// Period Table
 		logger.debug("creating period table");
 		ArrayList<String> periodFields = new ArrayList<String>();
 		periodFields.add("");
 		periodFields.add("Date");
-		
+	
 		Table periodTable = new Table(periodFields);
 		
 		ArrayList<String> row = new ArrayList<String>();
@@ -58,7 +59,6 @@ public class Brief extends Report {
 		Date currentDate = new Date();
 		row.add(getDateFormat().format(currentDate));
 		periodTable.addRow(row);
-		
 		getElements().add(periodTable);
 	
 		
@@ -68,7 +68,7 @@ public class Brief extends Report {
 		
 		getElements().add(new SubTitle("Root Projects"));
 		
-		// Creating table to save rootProjects' data
+			// Creating table to save rootProjects' data
 		logger.debug("creating root projects table");
 		ArrayList<String> rootProjectsFields = new ArrayList<String>();
 		rootProjectsFields.add("Project");
@@ -81,14 +81,12 @@ public class Brief extends Report {
 			logger.debug("visiting a new root project");
 			rootProject.acceptVisitor(this, 0);
 		}
-		
 		getElements().add(this.rootProjectsTable);
-		
 		
 		getElements().add(new Line());
 		getElements().add(new TextElement("Time Tracker v1.0"));	
 		
-		// Apply format
+			// Apply format
 		getFormat().setReport(this);
 		getFormat().applyFormat();
 	}

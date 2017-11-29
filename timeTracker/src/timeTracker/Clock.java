@@ -9,32 +9,12 @@ import org.slf4j.LoggerFactory;
  */
 public final class Clock implements Runnable {
 
-	/**
-	 * Logger for the class.
-	 */
 	private static Logger logger = LoggerFactory.getLogger(Clock.class);
 
-	/**
-	 * Getter of the property <tt>logger</tt>
-	 * 
-	 * @return Returns the Logger.
-	 * @uml.property name="logger"
-	 */
-	public static Logger getLogger() {
-		return logger;
-	}
-
-	/**
-	 * Unique instance of the Clock for all the system.
-	 */
 	private static Clock uniqueInstance = new Clock();
 
-	/**
-	 * 
-	 * @return uniqueInstance of the Clock.
-	 */
 	public static Clock getInstance() {
-		// logger.debug("getting clock instance");
+		logger.debug("getting clock instance");
 		return uniqueInstance;
 	}
 
@@ -71,16 +51,15 @@ public final class Clock implements Runnable {
 	 * @uml.property name="currentDate"
 	 */
 	public Date getCurrentDate() {
-		// logger.debug("getting current date: " + currentDate);
+		logger.debug("getting current date: " + currentDate);
 		return currentDate;
 	}
 
 	/**
-	 * The default refresh time is
-	 * 
+	 * The default refresh time is 1 second.
 	 * @uml.property name="refreshTime"
 	 */
-	private long refreshTime = 1; // Default refresh 1s
+	private long refreshTime = 1;
 
 	/**
 	 * Setter of the property <tt>refreshTime</tt>
@@ -94,9 +73,6 @@ public final class Clock implements Runnable {
 		this.refreshTime = refreshTimeSet;
 	}
 
-	/**
-	 * Constructor of the class
-	 */
 	private Clock() {
 		this.notification = new Notification();
 		this.currentDate = new Date();
@@ -121,9 +97,6 @@ public final class Clock implements Runnable {
 		}
 	}
 
-	/**
-	 * To stop the Clock.
-	 */
 	public void terminate() {
 		logger.debug("clock running off");
 		this.running = false;

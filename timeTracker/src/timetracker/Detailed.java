@@ -8,15 +8,22 @@ import java.util.concurrent.TimeUnit;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * Type of Report. It focuses on detailed information of the Root
+ * Projects of the Activities Tree and the Activities that it contains
+ * between a given range of time.
+ */
 public class Detailed extends Report {	
 	
 	/**
 	 * @uml.property  name="logger"
 	 */
 	private static Logger logger = LoggerFactory.getLogger(Detailed.class);
+	
 	private Table projectsTable;
 	private Table tasksTable;
 	private Table intervalsTable;
+	
 	private static final long SECONDS_IN_HOUR = 3600;
 	private static final long MINUTES_IN_HOUR = 60;
 	
@@ -58,7 +65,7 @@ public class Detailed extends Report {
 		periodTable.addRow(row);
 		
 		getElements().add(periodTable);
-			//
+	
 		
 		getDateFormat().format(getStartDate());
 	
@@ -82,7 +89,7 @@ public class Detailed extends Report {
 		}
 		
 		getElements().add(this.projectsTable);
-			//
+		
 		
 		getElements().add(new Line());
 		
@@ -104,9 +111,7 @@ public class Detailed extends Report {
 		this.projectsTable = new Table(subProjectsFields);			
 		
 		// Recursion to create subProjects table
-		subProjectsTable(getProject().getChildren());		
-
-		
+		generateSubProjectsTable(getProject().getChildren());		
 		getElements().add(this.projectsTable);
 		
 		
@@ -130,16 +135,11 @@ public class Detailed extends Report {
 		this.tasksTable = new Table(tasksFields);			
 		
 		// Recursion to create tasks table
-		tasksTable(getProject().getChildren());	
-		
+		generateTasksTable(getProject().getChildren());	
 		getElements().add(this.tasksTable);
-		
-		
-		
-		getElements().add(new Line());
-		
-		getElements().add(new SubTitle("Intervals"));
-		
+				
+		getElements().add(new Line());		
+		getElements().add(new SubTitle("Intervals"));		
 		getElements().add(new TextElement("In the next table there are"
 				+ " included the start Date, end Date and duration of"
 				+ " every interval within the specified time. Also the"
@@ -158,8 +158,7 @@ public class Detailed extends Report {
 		this.intervalsTable = new Table(intervalsFields);			
 		
 		// Recursion to create tasks table
-		intervalsTable(getProject().getChildren());	
-		
+		generateIntervalsTable(getProject().getChildren());	
 		getElements().add(this.intervalsTable);
 		
 		getElements().add(new Line());
@@ -173,7 +172,7 @@ public class Detailed extends Report {
 	@Override
 	public final void visitInterval(final Interval interval, final int level) {
 		long time;
-	// Interval doesn't start after period or ends before period then valid
+		// Interval doesn't start after period or ends before period then valid
 		if (interval.getStartDate().before(getEndDate())
 				&& interval.getEndDate().after(getStartDate())) {
 			logger.debug("visiting a valid interval");
@@ -333,15 +332,14 @@ public class Detailed extends Report {
 				this.projectsTable.addRow(row);
 			}			
 		}
-
 	}
 
-	public final void subProjectsTable(final Collection<Activity> activities) {
-		
+	public final void generateSubProjectsTable(
+			final Collection<Activity> activities) {
 		for (Activity activity : activities) {
 			if (activity instanceof Project) {
 			Collection<Activity> subActivities = activity.getChildren();	
-			subProjectsTable(subActivities);
+			generateSubProjectsTable(subActivities);
 				for (Activity subActivity : subActivities) {			
 					if (subActivity instanceof Project) {					
 						logger.debug("visiting a new sub project");
@@ -352,12 +350,12 @@ public class Detailed extends Report {
 		}
 	}
 	
-	public final void tasksTable(final Collection<Activity> activities) {
-		
+	public final void generateTasksTable(
+			final Collection<Activity> activities) {
 		for (Activity activity : activities) {
 			if (activity instanceof Project) {
 				Collection<Activity> subActivities = activity.getChildren();	
-				tasksTable(subActivities);
+				generateTasksTable(subActivities);
 				for (Activity subActivity 
 						: subActivities) {							
 					if (subActivity instanceof Task) {
@@ -369,12 +367,12 @@ public class Detailed extends Report {
 		}
 	}
 	
-	public final void intervalsTable(final Collection<Activity> activities) {
-		
+	public final void generateIntervalsTable(
+			final Collection<Activity> activities) {
 		for (Activity activity : activities) {
 			if (activity instanceof Project) {
 				Collection<Activity> subActivities = activity.getChildren();	
-				intervalsTable(subActivities);
+				generateIntervalsTable(subActivities);
 			} else {
 				if (activity instanceof Task) {	
 					Collection<Interval> intervals = activity.getChildren();

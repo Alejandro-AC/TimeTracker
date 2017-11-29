@@ -3,11 +3,11 @@ package timetracker;
 import java.util.Collection;
 import java.util.Observable;
 
+/**
+ * Abstract class used to implement a Decorator for SimpleTask.
+ */
 public abstract class TaskDecorator extends Task {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 5L;
 
 	/**
@@ -27,20 +27,6 @@ public abstract class TaskDecorator extends Task {
 		return task;
 	}
 
-	/**
-	 * Setter of the property <tt>task</tt>
-	 * 
-	 * @param task
-	 *            The task to set.
-	 * @uml.property name="task"
-	 */
-	protected final void setTask(final Task taskSet) {
-		this.task = taskSet;
-	}
-
-	/**
-	 * Constructor of the class.
-	 */
 	public TaskDecorator(final String description, final String name,
 			final Project father, final Task decoratedTask) {
 		super(description, name, father);

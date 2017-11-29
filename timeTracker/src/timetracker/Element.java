@@ -1,6 +1,9 @@
 package timetracker;
 
-
+/**
+ * Element is an abstract class used to encapsulate all the elements
+ * that a Report can contain in a unique list.
+ */
 public abstract class Element {
 	
 	/**

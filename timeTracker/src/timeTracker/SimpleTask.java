@@ -16,14 +16,8 @@ import org.slf4j.LoggerFactory;
  * @uml.dependency supplier="java.util.Observer"
  */
 public class SimpleTask extends Task {
-	/**
-	 * Logger for the class.
-	 */
-	private static Logger logger = LoggerFactory.getLogger(SimpleTask.class);
 
-	/**
-	 * Used for serialization.
-	 */
+	private static Logger logger = LoggerFactory.getLogger(SimpleTask.class);
 	private static final long serialVersionUID = 4L;
 
 	/**
@@ -68,9 +62,6 @@ public class SimpleTask extends Task {
 		minIntervalTime = intervalTime;
 	}
 
-	/**
-	 * Constructor of the class.
-	 */
 	public SimpleTask(final String name, final String description,
 			final Project father) {
 		super(description, name, father);
@@ -82,11 +73,7 @@ public class SimpleTask extends Task {
 	/**
 	 * Searches for the interval with the id given and returns it if it has been
 	 * found.
-	 * 
-	 * @param id
-	 *            : id of the interval to be found.
-	 * @return Return the interval with the same id, or null if it has not been
-	 *         found.
+	 * @param id: id of the interval to be found.
 	 */
 	public final Interval getIntervalById(final int id) {
 		logger.debug("searching interval with id: " + id + "in task "
@@ -101,20 +88,13 @@ public class SimpleTask extends Task {
 		return null;
 	}
 
-	/**
-	 * Gets the last Interval of the children list.
-	 */
 	public final Interval getLastInterval() {
 		assert this.invariant();
 		return getIntervalById(children.size());
 	}
 
 	/**
-	 * Removes the specified interval if it is in the intervals list.
-	 * 
-	 * @param id
-	 *            : id of the interval to be removed.
-	 * @return True if the interval could be removed and false if it couldn't.
+	 * @param id: id of the interval to be removed.
 	 */
 	public final boolean removeInterval(final int id) {
 		Interval interval = getIntervalById(id);
@@ -132,14 +112,6 @@ public class SimpleTask extends Task {
 		}
 	}
 
-	/**
-	 * Implements the acceptVisitor() method of Task.java. Accepts a Visitor (in
-	 * this case, the Impresor to print this Acitivity's information).
-	 * 
-	 * @param visitor
-	 *            : visitor that is being accepted.
-	 * @level: current level of the SimpleTask in the Activities Tree.
-	 */
 	@Override
 	public final void acceptVisitor(final Visitor visitor, final int level) {
 		logger.debug("simple task " + this.getName() + "is accepting visitor");
@@ -181,9 +153,6 @@ public class SimpleTask extends Task {
 		assert this.invariant();
 	}
 
-	/**
-	 * Stops an Interval that was running.
-	 */
 	public final void stop() {
 		if (!this.children.isEmpty()) {
 			if (this.getLastInterval().isRunning()) {
@@ -203,9 +172,6 @@ public class SimpleTask extends Task {
 		assert this.invariant();
 	}
 
-	/**
-	 * Calculates the total time of all the children of the current SimpleTask.
-	 */
 	public final void calculateTotalTime() {
 		long sum = 0;
 

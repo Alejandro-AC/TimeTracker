@@ -13,24 +13,7 @@ public class Scheduled extends TaskDecorator {
 
 	private static final int SECOND_IN_MILISECONDS = 1000;
 
-	/**
-	 * Logger for the class.
-	 */
 	private static Logger logger = LoggerFactory.getLogger(Scheduled.class);
-
-	/**
-	 * Getter of the property <tt>logger</tt>
-	 * 
-	 * @return Returns the Logger.
-	 * @uml.property name="logger"
-	 */
-	public static final Logger getLogger() {
-		return logger;
-	}
-
-	/**
-	 * Used for serialization.
-	 */
 	private static final long serialVersionUID = 6L;
 
 	/**
@@ -45,38 +28,11 @@ public class Scheduled extends TaskDecorator {
 	 * @uml.property name="scheduledDate"
 	 */
 	public final Date getScheduledDate() {
-		getLogger().debug("getting scheduled date " + this.getName());
+		logger.debug("getting scheduled date " + this.getName());
 		assert this.invariant();
 		return scheduledDate;
 	}
 
-	/**
-	 * Setter of the property <tt>scheduledDate</tt>
-	 * 
-	 * @param scheduledDate
-	 *            The scheduledDate to set.
-	 * @uml.property name="scheduledDate"
-	 */
-	public final void setScheduledDate(final Date scheduleDate) {
-		getLogger().debug("setting scheduled date: " + this.scheduledDate);
-		this.scheduledDate = scheduleDate;
-		assert this.invariant();
-	}
-
-	/**
-	 * Constructor of the class.
-	 * 
-	 * @param description
-	 *            : description of the Task.
-	 * @param name
-	 *            : name of the Task.
-	 * @param father
-	 *            : Project Father of the task.
-	 * @param task
-	 *            : Task that is decorating.
-	 * @param scheduledDate
-	 *            : Date when the Task will start.
-	 */
 	public Scheduled(final String description, final String name,
 			final Project father, final Task task, final Date scheduleDate) {
 		super(description, name, father, task);
@@ -87,12 +43,10 @@ public class Scheduled extends TaskDecorator {
 	/**
 	 * Implements the start() method from Task.java. It will only start if the
 	 * actual Date is the same as the scheduledDate.
-	 * 
-	 * @return
 	 */
 	@Override
 	public final void start() {
-		getLogger().debug("scheduled task start");
+		logger.debug("scheduled task start");
 		Date nearestSecond = new Date(
 				((Clock.getInstance().getCurrentDate().getTime() 
 						+ (SECOND_IN_MILISECONDS / 2)) / SECOND_IN_MILISECONDS)

@@ -13,24 +13,7 @@ import org.slf4j.LoggerFactory;
  */
 public class Interval implements Serializable {
 
-	/**
-	 * Logger for the class.
-	 */
 	private static Logger logger = LoggerFactory.getLogger(Interval.class);
-
-	/**
-	 * Getter of the property <tt>logger</tt>
-	 * 
-	 * @return Returns the Logger.
-	 * @uml.property name="logger"
-	 */
-	public static final Logger getLogger() {
-		return logger;
-	}
-
-	/**
-	 * Used for serialization.
-	 */
 	private static final long serialVersionUID = 8L;
 
 	/**
@@ -49,18 +32,6 @@ public class Interval implements Serializable {
 	public final SimpleTask getTask() {
 		logger.debug("getting Task: " + simpleTask.getName());
 		return simpleTask;
-	}
-
-	/**
-	 * Setter of the property <tt>simpleTask</tt>
-	 * 
-	 * @param simpleTask
-	 *            The simpleTask to set.
-	 * @uml.property name="simpleTask"
-	 */
-	public final void setTask(final SimpleTask simpleTaskToSet) {
-		logger.debug("setting task: " + simpleTask.getName());
-		this.simpleTask = simpleTaskToSet;
 	}
 
 	/**
@@ -87,7 +58,7 @@ public class Interval implements Serializable {
 	 * @uml.property name="endDate"
 	 */
 	public final void setEndDate(final Date endDateToSet) {
-		getLogger().debug("setting end date: " + endDate);
+		logger.debug("setting end date: " + endDate);
 		this.endDate = endDateToSet;
 	}
 
@@ -103,20 +74,8 @@ public class Interval implements Serializable {
 	 * @uml.property name="id"
 	 */
 	public final int getId() {
-		getLogger().debug("getting id" + id);
+		logger.debug("getting id" + id);
 		return id;
-	}
-
-	/**
-	 * Setter of the property <tt>id</tt>
-	 * 
-	 * @param id
-	 *            The id to set.
-	 * @uml.property name="id"
-	 */
-	public final void setId(final int idToSet) {
-		this.id = idToSet;
-		logger.debug("set id: " + id);
 	}
 
 	/**
@@ -159,20 +118,8 @@ public class Interval implements Serializable {
 	 * @uml.property name="totalTime"
 	 */
 	public final long getTotalTime() {
-		getLogger().debug("getting total time: " + totalTime);
+		logger.debug("getting total time: " + totalTime);
 		return totalTime;
-	}
-
-	/**
-	 * Setter of the property <tt>totalTime</tt>
-	 * 
-	 * @param seconds
-	 *            The totalTime to set.
-	 * @uml.property name="totalTime"
-	 */
-	public final void setTotalTime(final long seconds) {
-		logger.debug("set total time: " + seconds);
-		this.totalTime = seconds;
 	}
 
 	/**
@@ -187,7 +134,7 @@ public class Interval implements Serializable {
 	 * @uml.property name="running"
 	 */
 	public final boolean isRunning() {
-		getLogger().debug("interval running: " + running);
+		logger.debug("interval running: " + running);
 		return running;
 	}
 
@@ -203,28 +150,20 @@ public class Interval implements Serializable {
 		this.running = runningToSet;
 	}
 
-	/**
-	 * Constructor of the class.
-	 */
+	
 	public Interval(final int intervalId, final SimpleTask father) {
 		this.id = intervalId;
 		this.simpleTask = father;
 		this.start();
 	}
 
-	/**
-	 * Calculates the time between the startDate and the endDate.
-	 */
 	public final void calculateTime() {
 		long difference = endDate.getTime() - startDate.getTime();
 		long seconds = TimeUnit.MILLISECONDS.toSeconds(difference);
 		this.totalTime = seconds;
-		getLogger().debug("calculated time: " + this.totalTime);
+		logger.debug("calculated time: " + this.totalTime);
 	}
 
-	/**
-	 * Starts the execution of the current Interval.
-	 */
 	public final void start() {
 		logger.debug("interval started");
 		Date startD = Clock.getInstance().getCurrentDate();
@@ -235,9 +174,6 @@ public class Interval implements Serializable {
 		this.setRunning(true);
 	}
 
-	/**
-	 * Stops the execution of the current Interval.
-	 */
 	public final void stop() {
 		logger.debug("interval stopped");
 		Date endD = Clock.getInstance().getCurrentDate();
@@ -248,11 +184,6 @@ public class Interval implements Serializable {
 	}
 
 	/**
-	 * Accepts a Visitor (in this case, the Impresor to print this Acitivity's
-	 * information).
-	 * 
-	 * @param visitor
-	 *            : visitor that is being accepted.
 	 * @level: current level of the Interval in the Activities Tree.
 	 */
 	public final void acceptVisitor(final Visitor visitor, final int level) {
