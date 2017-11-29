@@ -9,6 +9,8 @@ import org.slf4j.LoggerFactory;
  */
 public final class Clock implements Runnable {
 
+	private static final int MAX_REFRESH_RATE = 1000;
+	
 	private static Logger logger = LoggerFactory.getLogger(Clock.class);
 
 	private static Clock uniqueInstance = new Clock();
@@ -76,6 +78,19 @@ public final class Clock implements Runnable {
 	private Clock() {
 		this.notification = new Notification();
 		this.currentDate = new Date();
+	}
+
+	private boolean invariant() {
+		boolean correct = true;
+
+		if (this.refreshTime <= 0 || this.refreshTime > MAX_REFRESH_RATE) {
+			correct = false;
+		}
+		if (!(this.currentDate instanceof Date)) {
+			correct = false;
+		}
+		
+		return correct;
 	}
 
 	/**

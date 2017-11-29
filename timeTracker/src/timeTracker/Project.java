@@ -36,6 +36,7 @@ public class Project extends Activity {
 		logger.debug(
 				"getting childrens: " + children + "from project "
 						+ this.getName());
+		assert this.invariant();
 		return this.children;
 	}
 
@@ -49,6 +50,7 @@ public class Project extends Activity {
 	public final void setChildren(final Collection<Activity> childrenToSet) {
 		logger.debug("setting childrens to project " + this.getName());
 		this.children = childrenToSet;
+		assert this.invariant();
 	}
 
 	/**
@@ -61,9 +63,11 @@ public class Project extends Activity {
 				"searching child " + name + " in project " + this.getName());
 		for (Activity child : children) {
 			if (child.getName().equals(name)) {
+				assert this.invariant();
 				return child;
 			}
 		}
+		assert this.invariant();
 		return null;
 	}
 	
@@ -78,6 +82,7 @@ public class Project extends Activity {
 	public Project(final String name, final String description,
 			final Project father) {
 		super(description, name, father);
+		assert this.invariant();
 	}
 	
 	private boolean invariant() {
@@ -86,6 +91,10 @@ public class Project extends Activity {
 			if (!(obj instanceof Project) && !(obj instanceof Task)) {
 				correct = false;
 			}
+		}
+		
+		if (this.getName() == null) {
+			correct = false;
 		}
 		
 		return correct;
@@ -102,6 +111,7 @@ public class Project extends Activity {
 		Project p = new Project(properties.get(0), properties.get(1), this);
 		this.children.add(p);
 		logger.info("added child project " + p.getName());
+		assert this.invariant();
 	}
 
 	/**
@@ -239,6 +249,7 @@ public class Project extends Activity {
 		Clock.getInstance().getNotification().addObserver(t);
 		this.children.add(t);
 		logger.info("added task " + t.getName());
+		assert this.invariant();
 	}
 
 	/**
@@ -268,6 +279,7 @@ public class Project extends Activity {
 		logger.debug("all properties has been introduced correctly");
 		// properties: ArrayList with two strings: the name and the description 
 		// for the new Activity
+		assert this.invariant();
 		return properties;
 	}
 
@@ -284,11 +296,13 @@ public class Project extends Activity {
 		logger.debug(
 				"calculating total time project " + this.getName() + " = "
 						+ this.getTotalTime());
+		assert this.invariant();
 	}
 
 	public final void removeChild(final Activity activity) {
 		this.children.remove(activity);
 		logger.info("Removed the activity " + activity.getName());
+		assert this.invariant();
 	}
 
 	@Override
@@ -296,6 +310,7 @@ public class Project extends Activity {
 		logger.debug("Project " + this.getName() + " is accepting visitor");
 
 		visitor.visitProject(this, level);
+		assert this.invariant();
 	}
 
 	/**
@@ -304,6 +319,7 @@ public class Project extends Activity {
 	 */
 	public final void testAddChild(final Activity newChild) {
 		this.children.add(newChild);
+		assert this.invariant();
 	}
 
 	/**
@@ -312,5 +328,6 @@ public class Project extends Activity {
 	 */
 	public final void addExistingChildProject(final Project project) {
 		this.children.add(project);
+		assert this.invariant();
 	}
 }

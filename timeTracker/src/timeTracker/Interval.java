@@ -29,8 +29,26 @@ public class Interval implements Serializable {
 	 * @return Returns the simpleTask.
 	 * @uml.property name="simpleTask"
 	 */
+
+	private boolean invariant() {
+		boolean correct = true;
+		
+		if (this.simpleTask == null) {
+			correct = false;
+		}
+		if (!(this.simpleTask instanceof SimpleTask) 
+				&& !(this.simpleTask instanceof Task)) {
+			correct = false;
+		}
+		if (this.getStartDate().after(this.getEndDate())) {
+			correct = false;
+		}
+		return correct;
+	}
+
 	public final SimpleTask getTask() {
 		logger.debug("getting Task: " + simpleTask.getName());
+		assert this.invariant();
 		return simpleTask;
 	}
 
@@ -47,6 +65,7 @@ public class Interval implements Serializable {
 	 */
 	public final Date getEndDate() {
 		logger.debug("getting end date: " + endDate);
+		assert this.invariant();
 		return endDate;
 	}
 
@@ -60,6 +79,7 @@ public class Interval implements Serializable {
 	public final void setEndDate(final Date endDateToSet) {
 		logger.debug("setting end date: " + endDate);
 		this.endDate = endDateToSet;
+		assert this.invariant();
 	}
 
 	/**
@@ -75,6 +95,7 @@ public class Interval implements Serializable {
 	 */
 	public final int getId() {
 		logger.debug("getting id" + id);
+		assert this.invariant();
 		return id;
 	}
 
@@ -91,6 +112,7 @@ public class Interval implements Serializable {
 	 */
 	public final Date getStartDate() {
 		logger.debug("getting start date: " + startDate);
+		assert this.invariant();
 		return startDate;
 	}
 
@@ -104,6 +126,7 @@ public class Interval implements Serializable {
 	public final void setStartDate(final Date startDateToSet) {
 		logger.debug("set start date: " + startDateToSet);
 		this.startDate = startDateToSet;
+		assert this.invariant();
 	}
 
 	/**
@@ -119,6 +142,7 @@ public class Interval implements Serializable {
 	 */
 	public final long getTotalTime() {
 		logger.debug("getting total time: " + totalTime);
+		assert this.invariant();
 		return totalTime;
 	}
 
@@ -135,6 +159,7 @@ public class Interval implements Serializable {
 	 */
 	public final boolean isRunning() {
 		logger.debug("interval running: " + running);
+		assert this.invariant();
 		return running;
 	}
 
@@ -148,6 +173,7 @@ public class Interval implements Serializable {
 	public final void setRunning(final boolean runningToSet) {
 		logger.debug("setting interval running: " + runningToSet);
 		this.running = runningToSet;
+		assert this.invariant();
 	}
 
 	
@@ -155,6 +181,7 @@ public class Interval implements Serializable {
 		this.id = intervalId;
 		this.simpleTask = father;
 		this.start();
+		assert this.invariant();
 	}
 
 	public final void calculateTime() {
@@ -162,6 +189,7 @@ public class Interval implements Serializable {
 		long seconds = TimeUnit.MILLISECONDS.toSeconds(difference);
 		this.totalTime = seconds;
 		logger.debug("calculated time: " + this.totalTime);
+		assert this.invariant();
 	}
 
 	public final void start() {
@@ -172,6 +200,7 @@ public class Interval implements Serializable {
 			this.getTask().setStartDate(startD);
 		}
 		this.setRunning(true);
+		assert this.invariant();
 	}
 
 	public final void stop() {
@@ -181,6 +210,7 @@ public class Interval implements Serializable {
 		this.setEndDate(endD);
 
 		this.setRunning(false);
+		assert this.invariant();
 	}
 
 	/**
@@ -190,6 +220,7 @@ public class Interval implements Serializable {
 		logger.debug("Interval with ID " + this.getId() + "accepting visitor");
 
 		visitor.visitInterval(this, level + 1);
+		assert this.invariant();
 
 	}
 
