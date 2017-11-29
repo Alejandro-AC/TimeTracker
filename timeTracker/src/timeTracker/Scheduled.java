@@ -46,6 +46,7 @@ public class Scheduled extends TaskDecorator {
 	 */
 	public final Date getScheduledDate() {
 		getLogger().debug("getting scheduled date " + this.getName());
+		assert this.invariant();
 		return scheduledDate;
 	}
 
@@ -59,6 +60,7 @@ public class Scheduled extends TaskDecorator {
 	public final void setScheduledDate(final Date scheduleDate) {
 		getLogger().debug("setting scheduled date: " + this.scheduledDate);
 		this.scheduledDate = scheduleDate;
+		assert this.invariant();
 	}
 
 	/**
@@ -79,6 +81,7 @@ public class Scheduled extends TaskDecorator {
 			final Project father, final Task task, final Date scheduleDate) {
 		super(description, name, father, task);
 		this.scheduledDate = scheduleDate;
+		assert this.invariant();
 	}
 
 	/**
@@ -99,6 +102,7 @@ public class Scheduled extends TaskDecorator {
 				&& !nearestSecond.after(this.scheduledDate)) {
 			this.getTask().start();
 		}
+		assert this.invariant();
 	}
 
 	/**
@@ -109,6 +113,7 @@ public class Scheduled extends TaskDecorator {
 	public final void update(final Observable arg0, final Object arg1) {
 		this.start();
 		this.getTask().update(arg0, arg1);
+		assert this.invariant();
 	}
 
 }

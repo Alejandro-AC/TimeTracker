@@ -34,6 +34,7 @@ public class LimitedIntervalTime extends TaskDecorator {
 	 */
 	public final long getMaxIntervalTime() {
 		logger.debug("getting max interval time: " + maxIntervalTime);
+		assert this.invariant();
 		return maxIntervalTime;
 	}
 
@@ -47,6 +48,7 @@ public class LimitedIntervalTime extends TaskDecorator {
 	public final void setMaxIntervalTime(final long maxIntervalTimeSet) {
 		logger.debug("setting max interval time: " + maxIntervalTime);
 		this.maxIntervalTime = maxIntervalTimeSet;
+		assert this.invariant();
 	}
 
 	/**
@@ -68,6 +70,7 @@ public class LimitedIntervalTime extends TaskDecorator {
 			final long maxIntervalTimeSet) {
 		super(description, name, father, task);
 		this.maxIntervalTime = maxIntervalTimeSet;
+		assert this.invariant();
 	}
 
 	/**
@@ -86,6 +89,7 @@ public class LimitedIntervalTime extends TaskDecorator {
 				}
 			}
 		}
+		assert this.invariant();
 	}
 
 	/**
@@ -93,6 +97,7 @@ public class LimitedIntervalTime extends TaskDecorator {
 	 */
 	public final void start() {
 		this.getTask().start();
+		assert this.invariant();
 	}
 
 }

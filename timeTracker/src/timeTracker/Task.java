@@ -26,6 +26,7 @@ public abstract class Task extends Activity implements Observer {
 		stream.defaultReadObject();
 		Clock.getInstance().getNotification().addObserver(this);
 	}
+	
 
 	/**
 	 * Constructor of the class.
@@ -38,6 +39,22 @@ public abstract class Task extends Activity implements Observer {
 	@SuppressWarnings("unchecked")
 	@Override
 	public abstract Collection<Interval> getChildren();
+	
+	protected final boolean invariant() {
+		boolean correct = true;
+		if (this.getFather() == null) {
+			correct = false;
+		}
+		if (!(this.getFather() instanceof Project)) {
+			correct = false;
+		}
+		for (Object obj:this.getChildren()) {
+			if (!(obj instanceof Interval) && !childrenIsEmpty()) {
+				correct = false;
+			}
+		}
+		return correct;
+	}
 
 	// Abstract methods that will be implemented in the
 	// sub-classes that need them.

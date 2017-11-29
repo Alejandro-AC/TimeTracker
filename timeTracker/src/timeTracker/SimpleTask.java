@@ -41,11 +41,13 @@ public class SimpleTask extends Task {
 	 */
 	public final Collection<Interval> getChildren() {
 		logger.debug("getting childrens from simple task: " + this.getName());
+		assert this.invariant();
 		return this.children;
 	}
 
 	public final boolean childrenIsEmpty() {
 		logger.debug("checking if children is empty");
+		assert this.invariant();
 		return this.children.isEmpty();
 	}
 
@@ -73,6 +75,7 @@ public class SimpleTask extends Task {
 			final Project father) {
 		super(description, name, father);
 		this.children = new ArrayList<Interval>();
+		assert this.invariant();
 
 	}
 
@@ -90,9 +93,11 @@ public class SimpleTask extends Task {
 				+ this.getName());
 		for (Interval interval : children) {
 			if (interval.getId() == id) {
+				assert this.invariant();
 				return interval;
 			}
 		}
+		assert this.invariant();
 		return null;
 	}
 
@@ -100,6 +105,7 @@ public class SimpleTask extends Task {
 	 * Gets the last Interval of the children list.
 	 */
 	public final Interval getLastInterval() {
+		assert this.invariant();
 		return getIntervalById(children.size());
 	}
 
@@ -117,9 +123,11 @@ public class SimpleTask extends Task {
 			children.remove(interval);
 			logger.info("interval with id " + id
 					+ " has been removed from simple task " + this.getName());
+			assert this.invariant();
 			return true;
 		} else {
 			logger.debug("interval doesnt exist");
+			assert this.invariant();
 			return false;
 		}
 	}
@@ -151,6 +159,7 @@ public class SimpleTask extends Task {
 			children.add(interval);
 			logger.info("interval for task " + this.getName() + " started");
 		}
+		assert this.invariant();
 	}
 
 	/**
@@ -169,6 +178,7 @@ public class SimpleTask extends Task {
 			}
 		}
 		this.calculateTotalTime();
+		assert this.invariant();
 	}
 
 	/**
@@ -190,6 +200,7 @@ public class SimpleTask extends Task {
 						+ "has already been stopped.");
 			}
 		}
+		assert this.invariant();
 	}
 
 	/**
@@ -210,6 +221,7 @@ public class SimpleTask extends Task {
 		if (this.getFather() != null) {
 			this.getFather().calculateTotalTime();
 		}
+		assert this.invariant();
 	}
 
 }

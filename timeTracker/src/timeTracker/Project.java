@@ -91,6 +91,17 @@ public class Project extends Activity {
 			final Project father) {
 		super(description, name, father);
 	}
+	
+	private boolean invariant(){
+		boolean correct = true;
+		for (Object obj:this.getChildren()) {
+			if (!(obj instanceof Project) && !(obj instanceof Task)) {
+				correct = false;
+			}
+		}
+		
+		return correct;
+	}
 
 	/**
 	 * Adds a new project to the children list.
