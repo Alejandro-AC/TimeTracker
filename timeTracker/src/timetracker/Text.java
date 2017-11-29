@@ -20,7 +20,7 @@ public class Text extends Format {
 	@Override
 	public final void applyFormat() {
 		try {
-			logger.error("creating an output file");
+			logger.debug("creating an output file");
 			PrintWriter out = new PrintWriter(getReport().getReportName() 
 					+ ".txt");
 			

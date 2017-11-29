@@ -37,7 +37,7 @@ public class Interval implements Serializable {
 			correct = false;
 		}
 		if (!(this.simpleTask instanceof SimpleTask) 
-				&& !(this.simpleTask instanceof Task)) {
+				|| !(this.simpleTask instanceof Task)) {
 			correct = false;
 		}
 		if (this.getStartDate().after(this.getEndDate())) {

@@ -94,8 +94,14 @@ public class Brief extends Report {
 	@Override
 	public final void visitInterval(final Interval interval, final int level) {
 		long time;
-		// Interval doesn't start after period or ends before period then valid
-		if (interval.getStartDate().before(getEndDate())
+		//Precondition: startDate < endDate
+		if (this.getStartDate().after(this.getEndDate())) {
+			throw new IllegalArgumentException("start date: "
+				+ interval.getStartDate() + " should be lower than end date "
+					+ interval.getEndDate());
+			// Interval doesn't start after 
+			//period or ends before period then valid
+		} else if (interval.getStartDate().before(getEndDate())
 				&& interval.getEndDate().after(getStartDate())) {
 			logger.debug("visiting a valid interval");
 			// It's a valid interval
@@ -139,6 +145,11 @@ public class Brief extends Report {
 				time = intervalEnd.getTime()
 						- intervalStart.getTime();
 			}
+			//Postcondition: time must be lower or 
+			//equal to total intersection time
+			long totalTime = intervalEnd.getTime() - intervalStart.getTime();
+			assert time <= totalTime : String.format("Intersection time " 
+			+ time + "is bigger than total time " + totalTime);
 						
 			logger.debug("getting intersection time of the interval");
 			logger.debug("sum until now:" + getIntersectionTime());
