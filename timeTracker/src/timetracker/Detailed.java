@@ -91,6 +91,7 @@ public class Detailed extends Report {
 		getElements().add(new TextElement("In the next table there are"
 				 + " only included the subprojects that have some task"
 				 + " with some interval within the period:"));
+		getElements().add(new TextElement(""));
 		
 			// Creating table to save subProjects' data
 		logger.debug("creating subprojects table");
@@ -116,6 +117,7 @@ public class Detailed extends Report {
 		getElements().add(new TextElement("In the next table there are"
 				 + " included the duration of every task and the"
 				 + " project they belong to:"));
+		getElements().add(new TextElement(""));
 		
 			// Creating table to save tasks data
 		logger.debug("creating root projects table");
@@ -142,6 +144,7 @@ public class Detailed extends Report {
 				+ " included the start Date, end Date and duration of"
 				+ " every interval within the specified time. Also the"
 				+ " task and project they belong to:"));
+		getElements().add(new TextElement(""));
 		
 			// Creating table to save intervals data
 		logger.debug("creating root projects table");
