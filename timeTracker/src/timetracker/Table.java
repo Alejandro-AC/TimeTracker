@@ -29,8 +29,6 @@ public class Table extends Element {
 	 */
 	public final void addRow(final ArrayList<String> row) {
 		this.table.add(row);
-	}
-	
-	
+	}	
 
 }

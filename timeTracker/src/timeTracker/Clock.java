@@ -33,6 +33,7 @@ public final class Clock implements Runnable {
 	 */
 	public Notification getNotification() {
 		logger.debug("getting clock notification");
+		invariant();
 		return notification;
 	}
 
@@ -54,6 +55,7 @@ public final class Clock implements Runnable {
 	 */
 	public Date getCurrentDate() {
 		logger.debug("getting current date: " + currentDate);
+		invariant();
 		return currentDate;
 	}
 
@@ -73,11 +75,13 @@ public final class Clock implements Runnable {
 	public void setRefreshTime(final long refreshTimeSet) {
 		logger.debug("set refresh time: " + refreshTimeSet);
 		this.refreshTime = refreshTimeSet;
+		invariant();
 	}
 
 	private Clock() {
 		this.notification = new Notification();
 		this.currentDate = new Date();
+		invariant();
 	}
 
 	private boolean invariant() {
@@ -110,11 +114,13 @@ public final class Clock implements Runnable {
 			this.currentDate = new Date();
 			notification.clockNotify();
 		}
+		invariant();
 	}
 
 	public void terminate() {
 		logger.debug("clock running off");
 		this.running = false;
+		invariant();
 	}
 
 }
