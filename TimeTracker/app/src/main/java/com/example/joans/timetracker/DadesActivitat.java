@@ -152,6 +152,16 @@ public class DadesActivitat implements Serializable {
         return str;
     }
 
+    public final String toStringTemps() {
+        String strdurada;
+        if (durada > 0) {
+            strdurada = hores + "h " + minuts + "m " + segons + "s";
+        } else {
+            strdurada = "0s";
+        }
+        return strdurada;
+    }
+
     // Getters
 
     /**

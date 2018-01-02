@@ -52,7 +52,7 @@ public class LlistaIntervalsActivity extends AppCompatActivity {
      * retornarà l'string a mostrar en els <code>TextView</code> (controls de
      * text) de la llista <code>ListView</code>.
      */
-    private ArrayAdapter<DadesInterval> aaAct;
+    private IntervalListAdapter aaAct;
 
     /**
      * Identificador del View les propietats del qual (establertes amb l'editor
@@ -93,8 +93,7 @@ public class LlistaIntervalsActivity extends AppCompatActivity {
         intervalsListView = (ListView) this.findViewById(R.id.listViewIntervals);
 
         llistaDadesIntervals = new ArrayList<DadesInterval>();
-        aaAct = new ArrayAdapter<DadesInterval>(this, layoutID,
-                llistaDadesIntervals);
+        aaAct = new IntervalListAdapter(this, llistaDadesIntervals);
         intervalsListView.setAdapter(aaAct);
     }
 

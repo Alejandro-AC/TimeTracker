@@ -33,15 +33,18 @@ public class ActivityListAdapter extends ArrayAdapter<DadesActivitat> {
         LayoutInflater inflater=context.getLayoutInflater();
         View rowView=inflater.inflate(R.layout.fila_llista_activitats,null,true);
 
-        TextView txtTitle = (TextView) rowView.findViewById(R.id.text_fila);
+        TextView txtNom = (TextView) rowView.findViewById(R.id.text_fila);
+        TextView txtTemps = (TextView) rowView.findViewById(R.id.temps_fila_activitats);
         ImageView imageView = (ImageView) rowView.findViewById(R.id.icon);
+
+        txtNom.setText(dadesActivitats.get(posicio).getNom());
 
         // Canvia el color del temps si l'Activity està sent cronometrada.
         if (dadesActivitats.get(posicio).isCronometreEngegat()) {
-            txtTitle.setTextColor(ContextCompat.getColor(context, R.color.colorRunning));
+            txtTemps.setTextColor(ContextCompat.getColor(context, R.color.colorRunning));
         }
 
-        txtTitle.setText(dadesActivitats.get(posicio).toString());
+        txtTemps.setText(dadesActivitats.get(posicio).toStringTemps());
 
         // Mostra la imatge corresponent.
         if (dadesActivitats.get(posicio).isProjecte()) {
