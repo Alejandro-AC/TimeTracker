@@ -8,8 +8,8 @@ import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.support.v7.widget.Toolbar;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -62,7 +62,7 @@ public class LlistaIntervalsActivity extends AppCompatActivity {
      *
      * @see LlistaActivitatsActivity#layoutID
      */
-    private int layoutID = R.layout.textview_llista_intervals;
+    private int layoutID = R.layout.fila_llista_intervals;
 
     /**
      * Nom de la classe per fer aparèixer als missatges de logging del LogCat.
@@ -86,6 +86,9 @@ public class LlistaIntervalsActivity extends AppCompatActivity {
     public final void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Log.i(tag, "onCreate intervals");
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
         // Tot aquest mecanisme és anàleg al que trobem al onCreate
         // de LlistaActivitatsActivity.
