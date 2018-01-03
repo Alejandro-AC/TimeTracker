@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.support.v7.widget.Toolbar;
+import android.support.design.widget.FloatingActionButton;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -373,6 +374,13 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
                 // pel listener de click "normal", fent que seguidament a
                 // ordenar el cronometrat passem a veure la llista d'intervals.
                 return true;
+            }
+        });
+
+        FloatingActionButton fab = (FloatingActionButton) arrelListView.findViewById(R.id.floating_button_add);
+        fab.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+
             }
         });
 
