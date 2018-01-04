@@ -2,24 +2,31 @@
 <!-- Llista d'Activitats -->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relativelayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.joans.timetracker.LlistaActivitatsActivity">
 
-    <include
-        android:id="@+id/toolbar"
-        layout="@layout/toolbar"
-        />
+    <LinearLayout
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:orientation="vertical" >
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar"
+            />
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/listViewActivitats"
+            android:layout_marginTop="10dp"/>
+
+    </LinearLayout>
 
     <include
-        android:id="@+id/floating_button_add"
+        android:id="@+id/fab_project"
         layout="@layout/floating_button"
         />
 
-    <ListView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/listViewActivitats"
-        android:layout_below="@+id/toolbar"
-        android:layout_marginTop="10dp"/>
 </RelativeLayout>

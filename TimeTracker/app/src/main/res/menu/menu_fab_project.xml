@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item
+        android:id="@+id/fab_report"
+        android:icon="@drawable/ic_report"
+        android:title="@string/report" />
+    <item
+        android:id="@+id/fab_task"
+        android:icon="@drawable/ic_task"
+        android:title="@string/task"/>
+    <item
+        android:id="@+id/fab_project"
+        android:icon="@drawable/ic_project"
+        android:title="@string/project" />
+</menu>

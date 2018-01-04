@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">TimeTracker</string>
+    <string name="project">Project</string>
+    <string name="task">Task</string>
+    <string name="report">Report</string>
 </resources>
