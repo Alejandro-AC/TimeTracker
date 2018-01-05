@@ -3,22 +3,13 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
 
-    android:id="@+id/my_toolbar"
+    android:id="@+id/my_toolbar_new_activity"
     android:layout_width="match_parent"
     android:layout_height="?attr/actionBarSize"
     android:background="@color/colorPrimary"
     android:elevation="4dp"
     android:theme="@style/AppTheme"
-    app:navigationIcon="@drawable/ic_timetracker"
+    app:navigationIcon="@drawable/ic_close"
     app:titleTextColor="@color/colorSecondary" >
 
-    <!-- Imatge de l'Activitat en la que ens trobem -->
-    <ImageView
-        android:id="@+id/activity_icon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_project_white"
-        android:visibility="visible" />
-
 </android.support.v7.widget.Toolbar>
-

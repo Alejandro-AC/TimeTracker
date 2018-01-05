@@ -95,8 +95,8 @@ public class LlistaIntervalsActivity extends AppCompatActivity {
         Log.i(tag, "onCreate intervals");
 
         toolbar = (Toolbar) findViewById(R.id.my_toolbar);
-        toolbar.setTitle(nomActivitatPareActual);
         setSupportActionBar(toolbar);
+        toolbar.setTitle(nomActivitatPareActual);
         toolbar.setNavigationIcon(R.drawable.ic_back);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override

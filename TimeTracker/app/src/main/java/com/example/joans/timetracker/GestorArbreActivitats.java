@@ -42,7 +42,9 @@ import nucli.Tasca;
  */
 public class GestorArbreActivitats extends Service implements Actualitzable {
 
-    static final String TE_NOM = "Te_nom";
+    public static final String TE_NOM = "Te_nom";
+
+    public static final String AFEGIR_PROJECTE = "Afegir_projecte";
 
     /**
      * Nom de la classe per fer aparèixer als missatges de logging del LogCat.

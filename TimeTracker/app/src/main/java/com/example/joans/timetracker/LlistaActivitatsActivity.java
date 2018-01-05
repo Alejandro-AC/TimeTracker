@@ -385,7 +385,6 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
                 } else if (llistaDadesActivitats.get(pos).isTasca()) {
                     startActivity(new Intent(LlistaActivitatsActivity.this,
                             LlistaIntervalsActivity.class));
-                    ImageView imgView = (ImageView)findViewById(R.id.activity_icon);
                     // en aquesta classe ja es demanara la llista de fills
                 } else {
                     // no pot ser!
