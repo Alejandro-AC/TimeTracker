@@ -3,14 +3,14 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
 
-    android:id="@+id/toolbar"
+    android:id="@+id/my_toolbar"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="?attr/actionBarSize"
     android:background="@color/colorPrimary"
     android:elevation="4dp"
+    android:theme="@style/AppTheme"
     app:navigationIcon="@drawable/ic_timetracker"
-    app:title="@string/app_name"
-    app:titleTextColor="@color/colorSecondary">
+    app:titleTextColor="@color/colorSecondary" >
 
 </android.support.v7.widget.Toolbar>
 

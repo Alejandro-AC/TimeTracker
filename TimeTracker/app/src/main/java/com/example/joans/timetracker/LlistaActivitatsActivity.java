@@ -14,8 +14,6 @@ import android.widget.ListView;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.support.design.internal.NavigationMenu;
-import android.widget.Toast;
-import android.view.MenuItem;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -67,6 +65,8 @@ import io.github.yavski.fabspeeddial.SimpleMenuListenerAdapter;
  */
 
 public class LlistaActivitatsActivity extends AppCompatActivity {
+
+    private Toolbar toolbar;
 
     /**
      * Nom de la classe per fer aparèixer als missatges de logging del LogCat.
@@ -166,6 +166,29 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
                 // això farà redibuixar el ListView
                 aaAct.notifyDataSetChanged();
                 Log.d(tag, "mostro els fills actualitzats");
+
+                if (activitatPareActualEsArrel) {
+                    toolbar.setNavigationIcon(R.drawable.ic_timetracker);
+                    toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                        }
+                    });
+                    toolbar.setTitle(R.string.app_name);
+                } else {
+                    toolbar.setNavigationIcon(R.drawable.ic_back);
+                    toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            sendBroadcast(new Intent(LlistaActivitatsActivity.PUJA_NIVELL));
+                            Log.d(tag, "enviat intent PUJA_NIVELL");
+                            sendBroadcast(new Intent(LlistaActivitatsActivity.DONAM_FILLS));
+                            Log.d(tag, "enviat intent DONAM_FILLS");
+                        }
+                    });
+                    toolbar.setTitle(null);
+                }
+
             } else {
                 // no pot ser
                 assert false : "intent d'acció no prevista";
@@ -295,12 +318,12 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
     @Override
     public final void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_llista_activitats);
         Log.i(tag, "onCreate");
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar = (Toolbar) this.findViewById(R.id.my_toolbar);
         setSupportActionBar(toolbar);
 
-        setContentView(R.layout.activity_llista_activitats);
         arrelListView = (ListView) this.findViewById(R.id.listViewActivitats);
 
         llistaDadesActivitats = new ArrayList<DadesActivitat>();
@@ -408,6 +431,7 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
                 return false;
             }
         });
+
     }
 
     /**
