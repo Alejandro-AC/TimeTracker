@@ -8,6 +8,7 @@ import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -29,6 +30,10 @@ import java.util.List;
  * @version 6 febrer 2012
  */
 public class LlistaIntervalsActivity extends AppCompatActivity {
+
+    Toolbar toolbar;
+
+    private String nomActivitatPareActual = "";
 
     /**
      * Llista de dades dels intervals de la tasca però havent fet un cast a la
@@ -89,8 +94,8 @@ public class LlistaIntervalsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_llista_intervals);
         Log.i(tag, "onCreate intervals");
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.my_toolbar);
-        toolbar.setTitle("");
+        toolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        toolbar.setTitle(nomActivitatPareActual);
         setSupportActionBar(toolbar);
         toolbar.setNavigationIcon(R.drawable.ic_back);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
@@ -99,6 +104,9 @@ public class LlistaIntervalsActivity extends AppCompatActivity {
                 onBackPressed();
             }
         });
+        ImageView imgView = (ImageView)findViewById(R.id.activity_icon);
+        imgView.setImageResource(R.drawable.ic_task_white);
+        imgView.setVisibility(View.VISIBLE);
 
         // Tot aquest mecanisme és anàleg al que trobem al onCreate
         // de LlistaActivitatsActivity.
@@ -111,6 +119,8 @@ public class LlistaIntervalsActivity extends AppCompatActivity {
 
     // Aquests són els "serveis" que demana aquesta classe
     // a la classe Service GestorArbreActivitats
+
+    public static final String DONAM_NOM = "Donam_nom";
 
     /**
      * Sol·licita les dades dels intervals fills d'una tasca que és la activitat
@@ -166,6 +176,10 @@ public class LlistaIntervalsActivity extends AppCompatActivity {
                     aaAct.add(dadesInter);
                 }
                 aaAct.notifyDataSetChanged();
+            } else if (intent.getAction().equals(GestorArbreActivitats.TE_NOM)) {
+                Log.d(tag, "rebent nom tasca pare actual");
+                nomActivitatPareActual = (String) intent.getSerializableExtra("nom_activitat_pare_actual");
+                toolbar.setTitle(nomActivitatPareActual);
             }
             Log.i(tag, "final de onReceive LlistaIntervals");
         }
@@ -197,6 +211,7 @@ public class LlistaIntervalsActivity extends AppCompatActivity {
         IntentFilter filter;
         filter = new IntentFilter();
         filter.addAction(GestorArbreActivitats.TE_FILLS);
+        filter.addAction(GestorArbreActivitats.TE_NOM);
         receptor = new Receptor();
         registerReceiver(receptor, filter);
 
@@ -241,6 +256,7 @@ public class LlistaIntervalsActivity extends AppCompatActivity {
     @Override
     public final void onStart() {
         Log.i(tag, "onStart intervals");
+        sendBroadcast(new Intent(LlistaActivitatsActivity.DONAM_NOM));
         super.onStart();
     }
 

@@ -42,6 +42,8 @@ import nucli.Tasca;
  */
 public class GestorArbreActivitats extends Service implements Actualitzable {
 
+    static final String TE_NOM = "Te_nom";
+
     /**
      * Nom de la classe per fer aparèixer als missatges de logging del LogCat.
      *
@@ -307,6 +309,7 @@ public class GestorArbreActivitats extends Service implements Actualitzable {
         filter.addAction(LlistaActivitatsActivity.DESA_ARBRE);
         filter.addAction(LlistaActivitatsActivity.PARA_SERVEI);
         filter.addAction(LlistaIntervalsActivity.PUJA_NIVELL);
+        filter.addAction(LlistaActivitatsActivity.DONAM_NOM);
         receptor = new Receptor();
         registerReceiver(receptor, filter);
 
@@ -492,6 +495,9 @@ public class GestorArbreActivitats extends Service implements Actualitzable {
                 activitatPareActual = activitatClicada;
             } else if (accio.equals(LlistaActivitatsActivity.PARA_SERVEI)) {
                 paraServei();
+            } else if (accio.equals(LlistaActivitatsActivity.DONAM_NOM)) {
+                Log.d(tag, "rebuda intent DONAM_NOM");
+                enviaNomActivitatPareActual();
             } else {
                 Log.d(tag, "accio desconeguda!");
             }
@@ -576,6 +582,20 @@ public class GestorArbreActivitats extends Service implements Actualitzable {
         for (Tasca t : tasquesCronometrantse) {
             t.paraCronometre(rellotge);
         }
+    }
+
+    private void enviaNomActivitatPareActual() {
+        Log.d(tag, "enviant nom pare actual");
+        Intent resposta = new Intent(GestorArbreActivitats.TE_NOM);
+        resposta.putExtra("nom_activitat_pare_actual", getNomActivitatPareActual());
+        sendBroadcast(resposta);
+
+        Log.d(tag, "enviat intent TE_NOM  "
+                + getNomActivitatPareActual());
+    }
+
+    public String getNomActivitatPareActual() {
+        return activitatPareActual.getNom();
     }
 
 }

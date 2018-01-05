@@ -14,6 +14,7 @@ import android.widget.ListView;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.support.design.internal.NavigationMenu;
+import android.widget.ImageView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -65,6 +66,8 @@ import io.github.yavski.fabspeeddial.SimpleMenuListenerAdapter;
  */
 
 public class LlistaActivitatsActivity extends AppCompatActivity {
+
+    private String nomActivitatPareActual = "";
 
     private Toolbar toolbar;
 
@@ -174,6 +177,8 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
                         public void onClick(View v) {
                         }
                     });
+                    ImageView imgView = (ImageView)findViewById(R.id.activity_icon);
+                    imgView.setVisibility(View.GONE);
                     toolbar.setTitle(R.string.app_name);
                 } else {
                     toolbar.setNavigationIcon(R.drawable.ic_back);
@@ -186,9 +191,20 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
                             Log.d(tag, "enviat intent DONAM_FILLS");
                         }
                     });
-                    toolbar.setTitle(null);
+                    sendBroadcast(new Intent(LlistaActivitatsActivity.DONAM_NOM));
+                    ImageView imgView = (ImageView)findViewById(R.id.activity_icon);
+                    imgView.setImageResource(R.drawable.ic_project_white);
+                    imgView.setVisibility(View.VISIBLE);
+                    toolbar.setTitle(nomActivitatPareActual);
                 }
 
+            } else if (intent.getAction().equals(GestorArbreActivitats.TE_NOM)) {
+                Log.d(tag, "rebent nom activitat pare actual");
+                nomActivitatPareActual = (String) intent.getSerializableExtra("nom_activitat_pare_actual");
+                System.out.println("                                      " + nomActivitatPareActual);
+                if (!activitatPareActualEsArrel && !nomActivitatPareActual.equals("")) {
+                    toolbar.setTitle(nomActivitatPareActual);
+                }
             } else {
                 // no pot ser
                 assert false : "intent d'acció no prevista";
@@ -204,6 +220,8 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
     // Aquests són els "serveis", identificats per un string, que demana
     // aquesta classe a la classe Service GestorArbreActivitats, en funció
     // de la interacció de l'usuari:
+
+    public static final String DONAM_NOM = "Donam_nom";
 
     /**
      * String que defineix l'acció de demanar a <code>GestorActivitats</code> la
@@ -268,9 +286,13 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
     public final void onResume() {
         Log.i(tag, "onResume");
 
+        sendBroadcast(new Intent(LlistaActivitatsActivity.DONAM_NOM));
+        toolbar.setTitle(nomActivitatPareActual);
+
         IntentFilter filter;
         filter = new IntentFilter();
         filter.addAction(GestorArbreActivitats.TE_FILLS);
+        filter.addAction(GestorArbreActivitats.TE_NOM);
         receptor = new Receptor();
         registerReceiver(receptor, filter);
 
@@ -323,6 +345,13 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
 
         toolbar = (Toolbar) this.findViewById(R.id.my_toolbar);
         setSupportActionBar(toolbar);
+        ImageView imgView = (ImageView)findViewById(R.id.activity_icon);
+        imgView.setVisibility(View.GONE);
+
+        if (!nomActivitatPareActual.equals("")) {
+            toolbar.setTitle(nomActivitatPareActual);
+        }
+
 
         arrelListView = (ListView) this.findViewById(R.id.listViewActivitats);
 
@@ -351,14 +380,20 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
                     sendBroadcast(new Intent(
                             LlistaActivitatsActivity.DONAM_FILLS));
                     Log.d(tag, "enviat intent DONAM_FILLS");
+                    ImageView imgView = (ImageView)findViewById(R.id.activity_icon);
+                    imgView.setVisibility(View.VISIBLE);
                 } else if (llistaDadesActivitats.get(pos).isTasca()) {
                     startActivity(new Intent(LlistaActivitatsActivity.this,
                             LlistaIntervalsActivity.class));
+                    ImageView imgView = (ImageView)findViewById(R.id.activity_icon);
                     // en aquesta classe ja es demanara la llista de fills
                 } else {
                     // no pot ser!
                     assert false : "activitat que no es projecte ni tasca";
                 }
+
+                // Intent per obtenir el nom de l'activitat pare de l'actual
+                sendBroadcast(new Intent(LlistaActivitatsActivity.DONAM_NOM));
             }
         });
 

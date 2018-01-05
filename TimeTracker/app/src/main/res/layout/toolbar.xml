@@ -12,5 +12,12 @@
     app:navigationIcon="@drawable/ic_timetracker"
     app:titleTextColor="@color/colorSecondary" >
 
+    <ImageView
+        android:id="@+id/activity_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_project_white"
+        android:visibility="visible" />
+
 </android.support.v7.widget.Toolbar>
 
