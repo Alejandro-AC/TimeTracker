@@ -452,6 +452,7 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
                 switch (item.getItemId()) {
                     case R.id.fab_project:
                         System.out.println("                           asdasdadd");
+                        startActivity( new Intent(LlistaActivitatsActivity.this, NouProjecte.class));
                         break;
                     case R.id.fab_task:
                         System.out.println("                           312837919");

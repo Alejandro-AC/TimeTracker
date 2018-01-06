@@ -13,11 +13,14 @@ import android.view.View;
 import android.content.IntentFilter;
 import android.view.MenuItem;
 import android.view.Menu;
+import android.widget.EditText;
 
 
 public class NouProjecte extends AppCompatActivity {
 
     private final String tag = this.getClass().getSimpleName();
+
+    public static final String AFEGIR_PROJECTE = "Afegir_projecte";
 
     private Toolbar toolbar;
 
@@ -50,17 +53,6 @@ public class NouProjecte extends AppCompatActivity {
         return super.onCreateOptionsMenu(menu);
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.boto_desar:
-                //
-                break;
-            default:
-                break;
-        }
-        return true;
-    }
 
     public class Receptor extends BroadcastReceiver {
         private final String tag = this.getClass().getCanonicalName();
@@ -73,6 +65,25 @@ public class NouProjecte extends AppCompatActivity {
     }
 
     private Receptor receptor;
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        Intent inte;
+        final EditText nom = findViewById(R.id.nomProjecte);
+        final EditText descripcio = findViewById(R.id.descripcioProjecte);
+        switch (item.getItemId()) {
+            case R.id.boto_desar:
+                inte = new Intent(GestorArbreActivitats.AFEGIR_PROJECTE);
+                inte.putExtra("nomProjecte", nom.getText().toString());
+                inte.putExtra("descripcioProjecte", descripcio.getText().toString());
+                sendBroadcast(inte);
+                finish();
+                break;
+            default:
+                break;
+        }
+        return true;
+    }
 
     @Override
     public final void onBackPressed() {

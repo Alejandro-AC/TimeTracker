@@ -24,6 +24,10 @@
             android:enabled="true" >
         </service>
 
+        <activity
+            android:name=".NouProjecte">
+        </activity>
+
     </application>
 
 </manifest>

@@ -20,6 +20,7 @@ import java.util.Date;
 
 import nucli.Activitat;
 import nucli.Interval;
+import nucli.Periode;
 import nucli.Projecte;
 /*
 import nucli.GeneradorTicks;
@@ -175,72 +176,72 @@ public class GestorArbreActivitats extends Service implements Actualitzable {
         // developer.android.com/resources/articles/painless-threading.html
 
         switch (opcio) {
-        case llegirArbreArxiu:
-            Log.d("TAG", "carrega arbre d'activitats");
-            try {
-                FileInputStream fips = openFileInput(nomArxiu);
-                ObjectInputStream in = new ObjectInputStream(fips);
-                arrel = (Projecte) in.readObject();
-                in.close();
-                Log.d(tag, "Arbre llegit d'arxiu");
-            } catch (ClassNotFoundException e) {
-                e.printStackTrace();
-            } catch (StreamCorruptedException e) {
-                e.printStackTrace();
-            } catch (FileNotFoundException e) {
-                Log.d(tag, "L'arxiu no es troba, fem un arbre buit");
+            case llegirArbreArxiu:
+                Log.d("TAG", "carrega arbre d'activitats");
+                try {
+                    FileInputStream fips = openFileInput(nomArxiu);
+                    ObjectInputStream in = new ObjectInputStream(fips);
+                    arrel = (Projecte) in.readObject();
+                    in.close();
+                    Log.d(tag, "Arbre llegit d'arxiu");
+                } catch (ClassNotFoundException e) {
+                    e.printStackTrace();
+                } catch (StreamCorruptedException e) {
+                    e.printStackTrace();
+                } catch (FileNotFoundException e) {
+                    Log.d(tag, "L'arxiu no es troba, fem un arbre buit");
+                    arrel = new Projecte("ARREL", "arrel de projectes", null);
+                    // e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                break;
+            case ferArbrePetitBuit:
+                // Crea un arbre de "mostra" petit, sense intervals. Per tant, cap
+                // tasca ni projecte tenen data inicial, final ni durada.
                 arrel = new Projecte("ARREL", "arrel de projectes", null);
-                // e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            break;
-        case ferArbrePetitBuit:
-            // Crea un arbre de "mostra" petit, sense intervals. Per tant, cap
-            // tasca ni projecte tenen data inicial, final ni durada.
-            arrel = new Projecte("ARREL", "arrel de projectes", null);
-            Projecte proj1 = new Projecte("Enginyeria del software 2",
-                    "primer projecte", arrel);
-            new Projecte("Visió artificial", "segon projecte", arrel);
-            new Tasca("Anar a buscar carnet biblio", "tercera tasca", arrel);
-            new Tasca("Instal·lar Eclipse", "primera tasca", proj1);
-            new Tasca("Estudiar patrons", "segona tasca", proj1);
-            Log.d(tag, "Arbre de mostra petit i sense intervals creat");
-            break;
-        case ferArbreGran:
-            // Crea un arbre depenent dels paràmetres passats, i que pot ser
-            // gran doncs.
-            ArbreAleatori rt = new ArbreAleatori();
-            final int nNivells = 3;
-            final int nMaximActivitatsFilles = 10;
-            final int nMaximIntervalsFills = 20;
-            final double ratio = 0.5;
-            // El constructor de Date demana any amb 0=1900, mes entre 0 i 11 i
-            // dia entre 1 i 28...31.
-            // TODO : canviar Date per GregorianCalendar per que és deprecated i
-            // te un us més natural.
-            final int anyBaseDate = 1900;
-            final int anyInici = 2009;
-            final int mesInici = 0; // gener, segons constructor de Date
-            final int diaInici = 1;
-            // 1 de gener de 2009
-            final Date dataInici = new Date(anyInici - anyBaseDate, mesInici,
-                    diaInici);
-            final int anyFi = 2011;
-            final int mesFi = 11; // desembre, segons constructor de Date
-            final int diaFi = 31;
-            // 31 desembre 2011
-            final Date dataFi = new Date(anyFi - anyBaseDate, mesFi, diaFi);
-            final long duradaMinimaInterval = 30; // en segons, mig minut
-            final long duradaMaximaInterval = 48 * 3600; // en segons, 48 hores
-            arrel = rt.nextArbre(nNivells, nMaximActivitatsFilles,
-                    nMaximIntervalsFills, ratio, dataInici, dataFi,
-                    duradaMinimaInterval, duradaMaximaInterval);
-            Log.d(tag, "Arbre de mostra aleatori creat");
-            break;
-        default:
-            // no hi ha més opcions possibles
-            assert false : "opció de creació de l'arbre no existent";
+                Projecte proj1 = new Projecte("Enginyeria del software 2",
+                        "primer projecte", arrel);
+                new Projecte("Visió artificial", "segon projecte", arrel);
+                new Tasca("Anar a buscar carnet biblio", "tercera tasca", arrel);
+                new Tasca("Instal·lar Eclipse", "primera tasca", proj1);
+                new Tasca("Estudiar patrons", "segona tasca", proj1);
+                Log.d(tag, "Arbre de mostra petit i sense intervals creat");
+                break;
+            case ferArbreGran:
+                // Crea un arbre depenent dels paràmetres passats, i que pot ser
+                // gran doncs.
+                ArbreAleatori rt = new ArbreAleatori();
+                final int nNivells = 3;
+                final int nMaximActivitatsFilles = 10;
+                final int nMaximIntervalsFills = 20;
+                final double ratio = 0.5;
+                // El constructor de Date demana any amb 0=1900, mes entre 0 i 11 i
+                // dia entre 1 i 28...31.
+                // TODO : canviar Date per GregorianCalendar per que és deprecated i
+                // te un us més natural.
+                final int anyBaseDate = 1900;
+                final int anyInici = 2009;
+                final int mesInici = 0; // gener, segons constructor de Date
+                final int diaInici = 1;
+                // 1 de gener de 2009
+                final Date dataInici = new Date(anyInici - anyBaseDate, mesInici,
+                        diaInici);
+                final int anyFi = 2011;
+                final int mesFi = 11; // desembre, segons constructor de Date
+                final int diaFi = 31;
+                // 31 desembre 2011
+                final Date dataFi = new Date(anyFi - anyBaseDate, mesFi, diaFi);
+                final long duradaMinimaInterval = 30; // en segons, mig minut
+                final long duradaMaximaInterval = 48 * 3600; // en segons, 48 hores
+                arrel = rt.nextArbre(nNivells, nMaximActivitatsFilles,
+                        nMaximIntervalsFills, ratio, dataInici, dataFi,
+                        duradaMinimaInterval, duradaMaximaInterval);
+                Log.d(tag, "Arbre de mostra aleatori creat");
+                break;
+            default:
+                // no hi ha més opcions possibles
+                assert false : "opció de creació de l'arbre no existent";
         }
     }
 
@@ -312,6 +313,7 @@ public class GestorArbreActivitats extends Service implements Actualitzable {
         filter.addAction(LlistaActivitatsActivity.PARA_SERVEI);
         filter.addAction(LlistaIntervalsActivity.PUJA_NIVELL);
         filter.addAction(LlistaActivitatsActivity.DONAM_NOM);
+        filter.addAction(NouProjecte.AFEGIR_PROJECTE);
         receptor = new Receptor();
         registerReceiver(receptor, filter);
 
@@ -352,7 +354,7 @@ public class GestorArbreActivitats extends Service implements Actualitzable {
      */
     @Override
     public final int onStartCommand(final Intent intent, final int flags,
-            final int startId) {
+                                    final int startId) {
         if ((flags & Service.START_FLAG_RETRY) == 0) {
             // es un restart, després d'acabar de manera anormal
             Log.d(tag, "onStartCommand repetit");
@@ -389,7 +391,7 @@ public class GestorArbreActivitats extends Service implements Actualitzable {
      * construeix aquesta llista i la posa com un "extra" a un Intent que té una
      * acció igual a TE_FILLS.</li>
      * <li><code>DESA_ARBRE</code> demana que s'escrigui l'arbre actual a
-     * l'arxiu per defecte, privat de la aplicació, el nom del qual és a
+     * l'arxiu per defecte, privat de la aplicació, el nom del qual és af
      * {@link GestorArbreActivitats#nomArxiu}.</li>
      * <li>PARA_SERVEI</li> demana el que faríem si en Android es pogués
      * "sortir" de la aplicació: parar els handlers actualitzadors de la
@@ -427,12 +429,12 @@ public class GestorArbreActivitats extends Service implements Actualitzable {
          */
         @Override
         public final void onReceive(final Context context,
-                final Intent intent) {
+                                    final Intent intent) {
             Log.d(tag, "onReceive");
             String accio = intent.getAction();
             Log.d(tag, "accio = " + accio);
             if ((accio.equals(LlistaActivitatsActivity.ENGEGA_CRONOMETRE))
-                 || (accio.equals(LlistaActivitatsActivity.PARA_CRONOMETRE))) {
+                    || (accio.equals(LlistaActivitatsActivity.PARA_CRONOMETRE))) {
                 int posicio = intent.getIntExtra("posicio", -1);
                 Tasca tascaClicada = (Tasca) ((Projecte) activitatPareActual)
                         .getActivitats().toArray()[posicio];
@@ -441,7 +443,7 @@ public class GestorArbreActivitats extends Service implements Actualitzable {
                         // rellotge.engega();
                         tascaClicada.engegaCronometre(rellotge);
                         Log.d(tag, "engego cronometre de "
-                            + tascaClicada.getNom());
+                                + tascaClicada.getNom());
                         tasquesCronometrantse.add(tascaClicada);
                         actualitzadorIU.engega(); // si ja ho esta no fa res
                     } else {
@@ -476,6 +478,17 @@ public class GestorArbreActivitats extends Service implements Actualitzable {
                         + " tasques cronometrant-se");
             } else if (accio.equals(LlistaActivitatsActivity.DESA_ARBRE)) {
                 desaArbreActivitats();
+            } else if (accio.equals(NouProjecte.AFEGIR_PROJECTE)){
+                    Date d = new Date();
+                    Log.d(tag, "afegint projecte");
+                    String nom = intent.getStringExtra("nomProjecte");
+                    String descripcio = intent.getStringExtra("descripcioProjecte");
+                    Projecte proj1 = new Projecte(nom, descripcio, (Projecte) activitatPareActual);
+                    Periode p = new Periode(d,d,0);
+                    proj1.setPeriode(p);
+                    proj1.setDataFinal(d);
+                    proj1.setDataInicial(d);
+                    proj1.setDurada(0);
             } else if (accio.equals(LlistaActivitatsActivity.DONAM_FILLS)
                     || (accio.equals(LlistaIntervalsActivity.DONAM_FILLS))) {
                 enviaFills();
@@ -493,7 +506,7 @@ public class GestorArbreActivitats extends Service implements Actualitzable {
                 // com una tasca.
                 Activitat activitatClicada =
                         (Activitat) ((Projecte) activitatPareActual)
-                        .getActivitats().toArray()[posicio];
+                                .getActivitats().toArray()[posicio];
                 activitatPareActual = activitatClicada;
             } else if (accio.equals(LlistaActivitatsActivity.PARA_SERVEI)) {
                 paraServei();
