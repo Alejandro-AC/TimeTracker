@@ -15,6 +15,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.support.design.internal.NavigationMenu;
 import android.widget.ImageView;
+import android.support.design.widget.FloatingActionButton;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -70,6 +71,14 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
     private String nomActivitatPareActual = "";
 
     private Toolbar toolbar;
+
+    private FabSpeedDial fabSpeedDial;
+
+    private FloatingActionButton fabPlay;
+
+    private int itemLongClickat = -1;
+
+    private boolean longClick = false;
 
     /**
      * Nom de la classe per fer aparèixer als missatges de logging del LogCat.
@@ -201,7 +210,6 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
             } else if (intent.getAction().equals(GestorArbreActivitats.TE_NOM)) {
                 Log.d(tag, "rebent nom activitat pare actual");
                 nomActivitatPareActual = (String) intent.getSerializableExtra("nom_activitat_pare_actual");
-                System.out.println("                                      " + nomActivitatPareActual);
                 if (!activitatPareActualEsArrel && !nomActivitatPareActual.equals("")) {
                     toolbar.setTitle(nomActivitatPareActual);
                 }
@@ -368,31 +376,52 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
 
         arrelListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(final AdapterView<?> arg0, final View arg1,
+            public void onItemClick(final AdapterView<?> arg0, final View view,
                                     final int pos, final long id) {
                 Log.i(tag, "onItemClick");
                 Log.d(tag, "pos = " + pos + ", id = " + id);
 
-                Intent inte = new Intent(LlistaActivitatsActivity.BAIXA_NIVELL);
-                inte.putExtra("posicio", pos);
-                sendBroadcast(inte);
-                if (llistaDadesActivitats.get(pos).isProjecte()) {
-                    sendBroadcast(new Intent(
-                            LlistaActivitatsActivity.DONAM_FILLS));
-                    Log.d(tag, "enviat intent DONAM_FILLS");
-                    ImageView imgView = (ImageView)findViewById(R.id.activity_icon);
-                    imgView.setVisibility(View.VISIBLE);
-                } else if (llistaDadesActivitats.get(pos).isTasca()) {
-                    startActivity(new Intent(LlistaActivitatsActivity.this,
-                            LlistaIntervalsActivity.class));
-                    // en aquesta classe ja es demanara la llista de fills
-                } else {
-                    // no pot ser!
-                    assert false : "activitat que no es projecte ni tasca";
-                }
+                System.out.println("Click");
 
-                // Intent per obtenir el nom de l'activitat pare de l'actual
-                sendBroadcast(new Intent(LlistaActivitatsActivity.DONAM_NOM));
+                if (!longClick) {
+
+                    System.out.println("          not long click");
+
+
+                    Intent inte = new Intent(LlistaActivitatsActivity.BAIXA_NIVELL);
+                    inte.putExtra("posicio", pos);
+                    sendBroadcast(inte);
+                    if (llistaDadesActivitats.get(pos).isProjecte()) {
+                        sendBroadcast(new Intent(
+                                LlistaActivitatsActivity.DONAM_FILLS));
+                        Log.d(tag, "enviat intent DONAM_FILLS");
+                        ImageView imgView = (ImageView)findViewById(R.id.activity_icon);
+                        imgView.setVisibility(View.VISIBLE);
+                    } else if (llistaDadesActivitats.get(pos).isTasca()) {
+                        startActivity(new Intent(LlistaActivitatsActivity.this,
+                                LlistaIntervalsActivity.class));
+                        // en aquesta classe ja es demanara la llista de fills
+                    } else {
+                        // no pot ser!
+                        assert false : "activitat que no es projecte ni tasca";
+                    }
+
+                    // Intent per obtenir el nom de l'activitat pare de l'actual
+                    sendBroadcast(new Intent(LlistaActivitatsActivity.DONAM_NOM));
+
+                } else {
+
+                    System.out.println("          long click");
+
+                    if (pos == itemLongClickat) {
+                        longClick = false;
+                        itemLongClickat = -1;
+
+                        view.setBackgroundColor(getResources().getColor(R.color.colorNotOnItemLongClick));
+                        fabPlay.setVisibility(View.GONE);
+                        fabSpeedDial.setVisibility(View.VISIBLE);
+                    }
+                }
             }
         });
 
@@ -401,26 +430,31 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
         arrelListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(final AdapterView<?> arg0,
-                                           final View arg1, final int pos, final long id) {
+                                           final View view, final int pos, final long id) {
                 Log.i(tag, "onItemLongClick");
                 Log.d(tag, "pos = " + pos + ", id = " + id);
 
                 if (llistaDadesActivitats.get(pos).isTasca()) {
-                    Intent inte;
-                    if (!llistaDadesActivitats.get(pos).isCronometreEngegat()) {
-                        inte = new Intent(
-                                LlistaActivitatsActivity.ENGEGA_CRONOMETRE);
-                        Log.d(tag, "enviat intent ENGEGA_CRONOMETRE de "
-                                + llistaDadesActivitats.get(pos).getNom());
-                    } else {
-                        inte = new Intent(
-                                LlistaActivitatsActivity.PARA_CRONOMETRE);
-                        Log.d(tag, "enviat intent PARA_CRONOMETRE de "
-                                + llistaDadesActivitats.get(pos).getNom());
+                    if (!longClick) {
+                        System.out.println("Long click");
+
+                        view.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+                        fabSpeedDial.setVisibility(View.GONE);
+
+                        if (llistaDadesActivitats.get(pos).isCronometreEngegat()) {
+                            System.out.println("       item running");
+                            fabPlay.setImageResource(R.drawable.ic_stop);
+                        } else {
+                            System.out.println("       item not running");
+                            fabPlay.setImageResource(R.drawable.ic_play);
+                        }
+                        fabPlay.setVisibility(View.VISIBLE);
+
+                        longClick = true;
+                        itemLongClickat = pos;
                     }
-                    inte.putExtra("posicio", pos);
-                    sendBroadcast(inte);
                 }
+
                 // si es un projecte, no fem res
 
                 // Important :
@@ -440,7 +474,7 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
             }
         });
 
-        FabSpeedDial fabSpeedDial = (FabSpeedDial) findViewById(R.id.fab_speed_dial);
+        fabSpeedDial = (FabSpeedDial) findViewById(R.id.fab_speed_dial);
         fabSpeedDial.setMenuListener(new SimpleMenuListenerAdapter() {
             @Override
             public boolean onPrepareMenu(NavigationMenu navigationMenu) {
@@ -457,12 +491,44 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
                         startActivity( new Intent(LlistaActivitatsActivity.this, NovaTasca.class));
                         break;
                     case R.id.fab_report:
-                        System.out.println("                           31asd123sa");
                         break;
                     default:
                         break;
                 }
                 return false;
+            }
+        });
+
+        fabPlay = (FloatingActionButton) findViewById(R.id.fab_play);
+        fabPlay.setVisibility(View.GONE);
+        fabPlay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                System.out.println("Click to FAB PLAY");
+
+                Intent inte;
+                if (!llistaDadesActivitats.get(itemLongClickat).isCronometreEngegat()) {
+                    inte = new Intent(
+                            LlistaActivitatsActivity.ENGEGA_CRONOMETRE);
+                    Log.d(tag, "enviat intent ENGEGA_CRONOMETRE de "
+                            + llistaDadesActivitats.get(itemLongClickat).getNom());
+                } else {
+                    inte = new Intent(
+                            LlistaActivitatsActivity.PARA_CRONOMETRE);
+                    Log.d(tag, "enviat intent PARA_CRONOMETRE de "
+                            + llistaDadesActivitats.get(itemLongClickat).getNom());
+                }
+                inte.putExtra("posicio", itemLongClickat);
+                sendBroadcast(inte);
+
+                view.setBackgroundColor(getResources().getColor(R.color.colorNotOnItemLongClick));
+                fabPlay.setVisibility(View.GONE);
+
+                fabSpeedDial.setVisibility(View.VISIBLE);
+
+                longClick = false;
+                itemLongClickat = -1;
             }
         });
 

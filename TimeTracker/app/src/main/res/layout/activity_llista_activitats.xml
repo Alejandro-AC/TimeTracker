@@ -2,6 +2,7 @@
 <!-- Llista d'Activitats -->
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/relativelayout"
     android:layout_width="match_parent"
@@ -27,7 +28,19 @@
 
     <include
         android:id="@+id/fab_project"
-        layout="@layout/floating_button"
-        />
+        layout="@layout/floating_button" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab_play"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_play"
+        android:layout_gravity="bottom|end"
+        android:layout_marginBottom="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        app:elevation="6dp"
+        app:pressedTranslationZ="12dp" />
 
 </RelativeLayout>
