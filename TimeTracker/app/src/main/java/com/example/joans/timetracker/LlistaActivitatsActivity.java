@@ -451,11 +451,10 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
             public boolean onMenuItemSelected(MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.fab_project:
-                        System.out.println("                           asdasdadd");
                         startActivity( new Intent(LlistaActivitatsActivity.this, NouProjecte.class));
                         break;
                     case R.id.fab_task:
-                        System.out.println("                           312837919");
+                        startActivity( new Intent(LlistaActivitatsActivity.this, NovaTasca.class));
                         break;
                     case R.id.fab_report:
                         System.out.println("                           31asd123sa");

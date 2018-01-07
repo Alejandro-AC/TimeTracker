@@ -6,4 +6,5 @@
     <string name="nom">Nom</string>
     <string name="descripcio">Descripcio</string>
     <string name="desar">Desar</string>
+    <string name="pick_time">Pick Me!</string>
 </resources>

@@ -28,6 +28,10 @@
             android:name=".NouProjecte">
         </activity>
 
+        <activity
+            android:name=".NovaTasca">
+        </activity>
+
     </application>
 
 </manifest>
