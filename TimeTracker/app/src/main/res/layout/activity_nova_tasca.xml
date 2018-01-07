@@ -21,8 +21,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp" >
 
-            <EditText
-                android:id="@+id/nomProjecte"
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/nomTasca"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0"
@@ -37,8 +37,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp" >
 
-            <EditText
-                android:id="@+id/descripcioProjecte"
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/descripcioTasca"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0"
@@ -48,25 +48,47 @@
         </android.support.design.widget.TextInputLayout>
 
     </LinearLayout>
+
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="fill_parent">
-    <TextView
-        android:id="@+id/scheduleText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="95dp"
-        android:layout_marginTop="35dp"
-        android:text="Add schedule" />
 
-    <ImageButton
-        android:id="@+id/scheduleButton"
-        android:layout_width="56dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="30dp"
-        android:background="@color/colorPrimary"
-        app:srcCompat="@android:drawable/ic_menu_today" />
+        <TextView
+            android:id="@+id/scheduleText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="95dp"
+            android:layout_marginTop="35dp"
+            android:text="@string/add_schedule_text" />
+
+        <ImageButton
+            android:id="@+id/scheduleButton"
+            android:layout_width="56dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="30dp"
+            android:background="@color/colorAccent"
+            app:srcCompat="@android:drawable/ic_menu_today" />
+
+        <ImageButton
+            android:id="@+id/imageButton3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/scheduleButton"
+            android:layout_alignStart="@+id/scheduleButton"
+            android:layout_below="@+id/scheduleButton"
+            android:layout_marginTop="21dp"
+            android:background="@color/colorAccent"
+            app:srcCompat="@drawable/ic_horglass_white" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_marginTop="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/scheduleText"
+            android:layout_alignTop="@+id/imageButton3"
+            android:text="@string/limited_time_text" />
 
     </RelativeLayout>
 </LinearLayout>

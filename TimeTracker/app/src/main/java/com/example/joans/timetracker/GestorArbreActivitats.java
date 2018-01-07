@@ -47,6 +47,8 @@ public class GestorArbreActivitats extends Service implements Actualitzable {
 
     public static final String AFEGIR_PROJECTE = "Afegir_projecte";
 
+    public static final String AFEGIR_TASCA = "Afegir_tasca";
+
     /**
      * Nom de la classe per fer aparèixer als missatges de logging del LogCat.
      *
@@ -314,6 +316,7 @@ public class GestorArbreActivitats extends Service implements Actualitzable {
         filter.addAction(LlistaIntervalsActivity.PUJA_NIVELL);
         filter.addAction(LlistaActivitatsActivity.DONAM_NOM);
         filter.addAction(NouProjecte.AFEGIR_PROJECTE);
+        filter.addAction(NovaTasca.AFEGIR_TASCA);
         receptor = new Receptor();
         registerReceiver(receptor, filter);
 
@@ -478,17 +481,27 @@ public class GestorArbreActivitats extends Service implements Actualitzable {
                         + " tasques cronometrant-se");
             } else if (accio.equals(LlistaActivitatsActivity.DESA_ARBRE)) {
                 desaArbreActivitats();
+            } else if(accio.equals(NovaTasca.AFEGIR_TASCA)){
+                Date d = new Date();
+                String nom = intent.getStringExtra("nomTasca");
+                String descripcio = intent.getStringExtra("descripcioTasca");
+                Tasca task1 = new Tasca(nom, descripcio, (Projecte) activitatPareActual);
+                Periode p = new Periode(d,d,0);
+                task1.setPeriode(p);
+                task1.setDataFinal(d);
+                task1.setDataInicial(d);
+                task1.setDurada(0);
             } else if (accio.equals(NouProjecte.AFEGIR_PROJECTE)){
-                    Date d = new Date();
-                    Log.d(tag, "afegint projecte");
-                    String nom = intent.getStringExtra("nomProjecte");
-                    String descripcio = intent.getStringExtra("descripcioProjecte");
-                    Projecte proj1 = new Projecte(nom, descripcio, (Projecte) activitatPareActual);
-                    Periode p = new Periode(d,d,0);
-                    proj1.setPeriode(p);
-                    proj1.setDataFinal(d);
-                    proj1.setDataInicial(d);
-                    proj1.setDurada(0);
+                Date d = new Date();
+                Log.d(tag, "afegint projecte");
+                String nom = intent.getStringExtra("nomProjecte");
+                String descripcio = intent.getStringExtra("descripcioProjecte");
+                Projecte proj1 = new Projecte(nom, descripcio, (Projecte) activitatPareActual);
+                Periode p = new Periode(d,d,0);
+                proj1.setPeriode(p);
+                proj1.setDataFinal(d);
+                proj1.setDataInicial(d);
+                proj1.setDurada(0);
             } else if (accio.equals(LlistaActivitatsActivity.DONAM_FILLS)
                     || (accio.equals(LlistaIntervalsActivity.DONAM_FILLS))) {
                 enviaFills();

@@ -7,4 +7,6 @@
     <string name="descripcio">Descripcio</string>
     <string name="desar">Desar</string>
     <string name="pick_time">Pick Me!</string>
+    <string name="limited_time_text">Limited time</string>
+    <string name="add_schedule_text">Add Schedule</string>
 </resources>
