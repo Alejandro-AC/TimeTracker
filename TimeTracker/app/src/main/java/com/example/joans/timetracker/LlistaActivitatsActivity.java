@@ -16,6 +16,7 @@ import android.view.MenuItem;
 import android.support.design.internal.NavigationMenu;
 import android.widget.ImageView;
 import android.support.design.widget.FloatingActionButton;
+import android.graphics.Color;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -76,7 +77,7 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
 
     private FloatingActionButton fabPlay;
 
-    private int itemLongClickat = -1;
+    public static int itemLongClickat = -1;
 
     private boolean longClick = false;
 
@@ -381,13 +382,7 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
                 Log.i(tag, "onItemClick");
                 Log.d(tag, "pos = " + pos + ", id = " + id);
 
-                System.out.println("Click");
-
                 if (!longClick) {
-
-                    System.out.println("          not long click");
-
-
                     Intent inte = new Intent(LlistaActivitatsActivity.BAIXA_NIVELL);
                     inte.putExtra("posicio", pos);
                     sendBroadcast(inte);
@@ -410,9 +405,6 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
                     sendBroadcast(new Intent(LlistaActivitatsActivity.DONAM_NOM));
 
                 } else {
-
-                    System.out.println("          long click");
-
                     if (pos == itemLongClickat) {
                         longClick = false;
                         itemLongClickat = -1;
@@ -436,16 +428,12 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
 
                 if (llistaDadesActivitats.get(pos).isTasca()) {
                     if (!longClick) {
-                        System.out.println("Long click");
-
-                        view.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+                        view.setBackgroundColor(Color.GRAY);
                         fabSpeedDial.setVisibility(View.GONE);
 
                         if (llistaDadesActivitats.get(pos).isCronometreEngegat()) {
-                            System.out.println("       item running");
                             fabPlay.setImageResource(R.drawable.ic_stop);
                         } else {
-                            System.out.println("       item not running");
                             fabPlay.setImageResource(R.drawable.ic_play);
                         }
                         fabPlay.setVisibility(View.VISIBLE);
@@ -504,9 +492,6 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
         fabPlay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                System.out.println("Click to FAB PLAY");
-
                 Intent inte;
                 if (!llistaDadesActivitats.get(itemLongClickat).isCronometreEngegat()) {
                     inte = new Intent(

@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import java.util.List;
 import android.support.v4.content.ContextCompat;
+import android.graphics.Color;
 
 /**
  * Adaptador per a les llistes d'Activities.
@@ -31,7 +32,7 @@ public class ActivityListAdapter extends ArrayAdapter<DadesActivitat> {
     public View getView(int posicio, View view, ViewGroup parent){
 
         LayoutInflater inflater=context.getLayoutInflater();
-        View rowView=inflater.inflate(R.layout.fila_llista_activitats,null,true);
+        View rowView = inflater.inflate(R.layout.fila_llista_activitats,null,true);
 
         TextView txtNom = (TextView) rowView.findViewById(R.id.text_fila);
         TextView txtTemps = (TextView) rowView.findViewById(R.id.temps_fila_activitats);
@@ -42,6 +43,10 @@ public class ActivityListAdapter extends ArrayAdapter<DadesActivitat> {
         // Canvia el color del temps si l'Activity està sent cronometrada.
         if (dadesActivitats.get(posicio).isCronometreEngegat()) {
             txtTemps.setTextColor(ContextCompat.getColor(context, R.color.colorRunning));
+        }
+
+        if (posicio == LlistaActivitatsActivity.itemLongClickat) {
+            rowView.setBackgroundColor(Color.GRAY);
         }
 
         txtTemps.setText(dadesActivitats.get(posicio).toStringTemps());
