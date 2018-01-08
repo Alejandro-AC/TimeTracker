@@ -81,6 +81,8 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
 
     private boolean longClick = false;
 
+    private View vistaSeleccionada = null;
+
     /**
      * Nom de la classe per fer aparèixer als missatges de logging del LogCat.
      *
@@ -328,6 +330,15 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
     public final void onPause() {
         Log.i(tag, "onPause");
 
+        vistaSeleccionada = null;
+        itemLongClickat = -1;
+        longClick = false;
+
+        fabPlay.setImageResource(R.drawable.ic_play);
+        fabPlay.setVisibility(View.GONE);
+
+        fabSpeedDial.setVisibility(View.VISIBLE);
+
         unregisterReceiver(receptor);
 
         super.onPause();
@@ -408,8 +419,9 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
                     if (pos == itemLongClickat) {
                         longClick = false;
                         itemLongClickat = -1;
+                        vistaSeleccionada = null;
 
-                        view.setBackgroundColor(getResources().getColor(R.color.colorNotOnItemLongClick));
+                        view.setBackgroundColor(Color.WHITE);
                         fabPlay.setVisibility(View.GONE);
                         fabSpeedDial.setVisibility(View.VISIBLE);
                     }
@@ -507,13 +519,14 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
                 inte.putExtra("posicio", itemLongClickat);
                 sendBroadcast(inte);
 
-                view.setBackgroundColor(getResources().getColor(R.color.colorNotOnItemLongClick));
+                view.setBackgroundColor(Color.WHITE);
                 fabPlay.setVisibility(View.GONE);
 
                 fabSpeedDial.setVisibility(View.VISIBLE);
 
                 longClick = false;
                 itemLongClickat = -1;
+                vistaSeleccionada = null;
             }
         });
 
@@ -539,6 +552,15 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
             Log.d(tag, "enviat intent PUJA_NIVELL");
             sendBroadcast(new Intent(LlistaActivitatsActivity.DONAM_FILLS));
             Log.d(tag, "enviat intent DONAM_FILLS");
+
+            vistaSeleccionada = null;
+            longClick = false;
+            itemLongClickat = -1;
+
+            fabPlay.setImageResource(R.drawable.ic_play);
+            fabPlay.setVisibility(View.GONE);
+
+            fabSpeedDial.setVisibility(View.VISIBLE);
         }
     }
 

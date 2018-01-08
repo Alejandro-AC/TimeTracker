@@ -5,8 +5,7 @@
     android:id="@+id/fila_llista_activitats_linearlayout"
     android:orientation="horizontal"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:background="@color/colorNotOnItemLongClick">
+    android:layout_height="fill_parent" >
 
     <ImageView
         android:id="@+id/icon"

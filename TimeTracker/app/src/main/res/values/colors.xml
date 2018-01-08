@@ -3,8 +3,6 @@
     <color name="colorPrimary">#3f51b5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#ce1237</color>
-    <color name="colorOnItemLongClick">#666666</color>
-    <color name="colorNotOnItemLongClick">#FFFFFF</color>
     <color name="colorRunning">#FF0000</color>
     <color name="colorSecondary">#F1F2F3</color>
     <color name="colorText">#1B191C</color>
