@@ -8,6 +8,7 @@ import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.Menu;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -69,9 +70,13 @@ import io.github.yavski.fabspeeddial.SimpleMenuListenerAdapter;
 
 public class LlistaActivitatsActivity extends AppCompatActivity {
 
+    private View viewLongClickada = null;
+
     private String nomActivitatPareActual = "";
 
     private Toolbar toolbar;
+
+    private Menu menuToolbar;
 
     private FabSpeedDial fabSpeedDial;
 
@@ -197,17 +202,30 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
                     toolbar.setNavigationOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            sendBroadcast(new Intent(LlistaActivitatsActivity.PUJA_NIVELL));
-                            Log.d(tag, "enviat intent PUJA_NIVELL");
-                            sendBroadcast(new Intent(LlistaActivitatsActivity.DONAM_FILLS));
-                            Log.d(tag, "enviat intent DONAM_FILLS");
+                            onBackPressed();
                         }
                     });
+
+                    viewLongClickada = null;
+
                     sendBroadcast(new Intent(LlistaActivitatsActivity.DONAM_NOM));
+
                     ImageView imgView = (ImageView)findViewById(R.id.activity_icon);
                     imgView.setImageResource(R.drawable.ic_project_white);
                     imgView.setVisibility(View.VISIBLE);
                     toolbar.setTitle(nomActivitatPareActual);
+
+                    vistaSeleccionada = null;
+                    longClick = false;
+                    itemLongClickat = -1;
+
+                    fabPlay.setImageResource(R.drawable.ic_play);
+                    fabPlay.setVisibility(View.GONE);
+
+                    MenuItem item = menuToolbar.findItem(R.id.boto_informacio);
+                    item.setVisible(false);
+
+                    fabSpeedDial.setVisibility(View.VISIBLE);
                 }
 
             } else if (intent.getAction().equals(GestorArbreActivitats.TE_NOM)) {
@@ -337,6 +355,9 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
         fabPlay.setImageResource(R.drawable.ic_play);
         fabPlay.setVisibility(View.GONE);
 
+        MenuItem item = menuToolbar.findItem(R.id.boto_informacio);
+        item.setVisible(false);
+
         fabSpeedDial.setVisibility(View.VISIBLE);
 
         unregisterReceiver(receptor);
@@ -371,7 +392,6 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
         if (!nomActivitatPareActual.equals("")) {
             toolbar.setTitle(nomActivitatPareActual);
         }
-
 
         arrelListView = (ListView) this.findViewById(R.id.listViewActivitats);
 
@@ -424,6 +444,9 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
                         view.setBackgroundColor(Color.WHITE);
                         fabPlay.setVisibility(View.GONE);
                         fabSpeedDial.setVisibility(View.VISIBLE);
+
+                        MenuItem item = menuToolbar.findItem(R.id.boto_informacio);
+                        item.setVisible(false);
                     }
                 }
             }
@@ -437,6 +460,11 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
                                            final View view, final int pos, final long id) {
                 Log.i(tag, "onItemLongClick");
                 Log.d(tag, "pos = " + pos + ", id = " + id);
+
+                MenuItem item = menuToolbar.findItem(R.id.boto_informacio);
+                item.setVisible(true);
+
+                viewLongClickada = view;
 
                 if (llistaDadesActivitats.get(pos).isTasca()) {
                     if (!longClick) {
@@ -453,6 +481,17 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
                         longClick = true;
                         itemLongClickat = pos;
                     }
+                } else {
+                    if (!longClick) {
+                        view.setBackgroundColor(Color.GRAY);
+                        fabSpeedDial.setVisibility(View.GONE);
+
+                        fabPlay.setVisibility(View.VISIBLE);
+
+                        longClick = true;
+                        itemLongClickat = pos;
+                    }
+
                 }
 
                 // si es un projecte, no fem res
@@ -532,6 +571,28 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        menuToolbar = menu;
+        getMenuInflater().inflate(R.menu.menu_toolbar_activitat, menu);
+        MenuItem item = menu.findItem(R.id.boto_informacio);
+        item.setVisible(false);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.boto_informacio:
+                break;
+            case R.id.boto_opcions:
+                break;
+            default:
+                break;
+        }
+        return true;
+    }
+
     /**
      * Gestor de l'event de prémer la tecla 'enrera' del D-pad. El que fem es
      * anar "cap amunt" en l'arbre de tasques i projectes. Si el projecte pare
@@ -557,8 +618,15 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
             longClick = false;
             itemLongClickat = -1;
 
+            if (viewLongClickada != null) {
+                viewLongClickada.setBackgroundColor(Color.WHITE);
+            }
+
             fabPlay.setImageResource(R.drawable.ic_play);
             fabPlay.setVisibility(View.GONE);
+
+            MenuItem item = menuToolbar.findItem(R.id.boto_informacio);
+            item.setVisible(false);
 
             fabSpeedDial.setVisibility(View.VISIBLE);
         }

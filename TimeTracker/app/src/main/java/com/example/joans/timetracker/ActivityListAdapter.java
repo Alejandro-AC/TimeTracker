@@ -47,7 +47,9 @@ public class ActivityListAdapter extends ArrayAdapter<DadesActivitat> {
 
         if (posicio == LlistaActivitatsActivity.itemLongClickat) {
             rowView.setBackgroundColor(Color.GRAY);
-        }
+        } /*else {
+            rowView.setBackgroundColor(Color.WHITE);
+        }*/
 
         txtTemps.setText(dadesActivitats.get(posicio).toStringTemps());
 
