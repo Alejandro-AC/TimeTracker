@@ -70,23 +70,52 @@ import io.github.yavski.fabspeeddial.SimpleMenuListenerAdapter;
 
 public class LlistaActivitatsActivity extends AppCompatActivity {
 
-    private View viewLongClickada = null;
-
-    private String nomActivitatPareActual = "";
-
+    /**
+     * Toolbar de l'Activity.
+     */
     private Toolbar toolbar;
 
+    /**
+     * Menú de la Toolbar. Conté les diferents opcions de aquesta.
+     */
     private Menu menuToolbar;
 
-    private FabSpeedDial fabSpeedDial;
-
+    /**
+     * Floating Action Button que permet començar a cronometrar i parar una Tasca.
+     */
     private FloatingActionButton fabPlay;
 
-    public static int itemLongClickat = -1;
+    /**
+     * Floating Action Button amb l'efecte Speed Dial.
+     * Mostra les opcions de creació d'una nova Activitat (Projecte o Tasca) i d'un Informe.
+     */
+    private FabSpeedDial fabSpeedDial;
 
+    /**
+     * Nom de l'Activitat pare de les Activitats que s'estan mostrant a la llista.
+     */
+    private String nomActivitatPareActual = "";
+
+    /**
+     * Flag que indica si hi ha una Activitat de la Llista que està seleccionada (s'ha fet
+     * LongClick sobre ella).
+     */
     private boolean longClick = false;
 
-    private View vistaSeleccionada = null;
+    /**
+     * Posició de l'Activitat que s'ha seleccionat.
+     * Prendrà el valor -1 si no hi ha cap Activitat seleccionada.
+     */
+    public static int itemLongClickat = -1;
+
+    /**
+     * View que pertany a l'Activitat que s'ha seleccionat.
+     * Prendrà el valor null si no hi ha cap Activitat seleccionada.
+     */
+    private View viewLongClickada = null;
+
+
+
 
     /**
      * Nom de la classe per fer aparèixer als missatges de logging del LogCat.
@@ -117,17 +146,6 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
      * actualment, filles del (sub)projecte on estem posicionats actualment.
      */
     private List<DadesActivitat> llistaDadesActivitats;
-
-    /**
-     * Identificador del View les propietats del qual (establertes amb l'editor
-     * XML de la interfase gràfica) estableixen com es mostra cada un els items
-     * o elements de la llista d'activitats (tasques i projectes) referenciada
-     * per l'adaptador {@link #aaAct}. Si per comptes haguéssim posat
-     * <code>android.R.layout.simple_list_item_1</code> llavors fora la
-     * visualització per defecte d'un text. Ara la diferència es la mida de la
-     * tipografia.
-     */
-    private int layoutID = R.layout.fila_llista_activitats;
 
     /**
      * Flag que ens servirà per decidir fer que si premem el botó/tecla "back"
@@ -173,7 +191,7 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
             if (intent.getAction().equals(GestorArbreActivitats.TE_FILLS)) {
                 activitatPareActualEsArrel = intent.getBooleanExtra(
                         "activitat_pare_actual_es_arrel", false);
-                // obtenim la nova llista de dades d'activitat que ve amb
+                // Obtenim la nova llista de dades d'activitat que ve amb
                 // l'intent
                 @SuppressWarnings("unchecked")
                 ArrayList<DadesActivitat> llistaDadesAct =
@@ -183,11 +201,13 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
                 for (DadesActivitat dadesAct : llistaDadesAct) {
                     aaAct.add(dadesAct);
                 }
-                // això farà redibuixar el ListView
+                // Això farà redibuixar el ListView
                 aaAct.notifyDataSetChanged();
                 Log.d(tag, "mostro els fills actualitzats");
 
                 if (activitatPareActualEsArrel) {
+                    // Si ens trobem en els fills de l'arrel de l'arbre d'Activitats, no cal
+                    // mostrar el botó de Back a la Toolbar. En el seu lloc posarem l'icona de l'APP
                     toolbar.setNavigationIcon(R.drawable.ic_timetracker);
                     toolbar.setNavigationOnClickListener(new View.OnClickListener() {
                         @Override
@@ -196,8 +216,11 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
                     });
                     ImageView imgView = (ImageView)findViewById(R.id.activity_icon);
                     imgView.setVisibility(View.GONE);
+
+                    // A la Toolbar apareix el nom de l'app
                     toolbar.setTitle(R.string.app_name);
                 } else {
+                    // Si ens trobem a l'interior de l'arbre, mostrarem a la Toolbar el botó de Back
                     toolbar.setNavigationIcon(R.drawable.ic_back);
                     toolbar.setNavigationOnClickListener(new View.OnClickListener() {
                         @Override
@@ -206,30 +229,20 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
                         }
                     });
 
-                    viewLongClickada = null;
-
+                    // Mostrem a la Toolbar el nom de l'Activitat pare
                     sendBroadcast(new Intent(LlistaActivitatsActivity.DONAM_NOM));
+                    toolbar.setTitle(nomActivitatPareActual);
 
+                    // Mostrem a la Toolbar l'icona corresponent a la classe de l'Activitat pare
+                    // (en aquesta Activity, sempre serà un Projecte)
                     ImageView imgView = (ImageView)findViewById(R.id.activity_icon);
                     imgView.setImageResource(R.drawable.ic_project_white);
                     imgView.setVisibility(View.VISIBLE);
-                    toolbar.setTitle(nomActivitatPareActual);
-
-                    vistaSeleccionada = null;
-                    longClick = false;
-                    itemLongClickat = -1;
-
-                    fabPlay.setImageResource(R.drawable.ic_play);
-                    fabPlay.setVisibility(View.GONE);
-
-                    MenuItem item = menuToolbar.findItem(R.id.boto_informacio);
-                    item.setVisible(false);
-
-                    fabSpeedDial.setVisibility(View.VISIBLE);
                 }
 
             } else if (intent.getAction().equals(GestorArbreActivitats.TE_NOM)) {
                 Log.d(tag, "rebent nom activitat pare actual");
+                // Obtenim el nom de l'Activitat pare actual
                 nomActivitatPareActual = (String) intent.getSerializableExtra("nom_activitat_pare_actual");
                 if (!activitatPareActualEsArrel && !nomActivitatPareActual.equals("")) {
                     toolbar.setTitle(nomActivitatPareActual);
@@ -250,6 +263,10 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
     // aquesta classe a la classe Service GestorArbreActivitats, en funció
     // de la interacció de l'usuari:
 
+    /**
+     * String que defineix l'acció de demanar a GestorActivitats el nom de l'Activitat pare
+     * del nivell on ens trobem actualment.
+     */
     public static final String DONAM_NOM = "Donam_nom";
 
     /**
@@ -325,16 +342,11 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
         receptor = new Receptor();
         registerReceiver(receptor, filter);
 
-        ////////
-
-        vistaSeleccionada = null;
-        longClick = false;
+        // al tornar a mostrar aquesta activitat, cal inicialitzar una altra vegada els atributs
+        // que serveixen per controlar els longClicks
         itemLongClickat = -1;
-
-        if (viewLongClickada != null) {
-            viewLongClickada.setBackgroundColor(Color.WHITE);
-        }
-
+        viewLongClickada = null;
+        longClick = false;
 
         // Crea el servei GestorArbreActivitats, si no existia ja. A més,
         // executa el mètode onStartCommand del servei, de manera que
@@ -358,19 +370,18 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
     @Override
     public final void onPause() {
         Log.i(tag, "onPause");
+        unregisterReceiver(receptor);
 
-        vistaSeleccionada = null;
-        longClick = false;
-
+        // Deixem la Toolbar, el fabPlay i el fabSpeedDial en el seu estat original (quan no hi ha
+        // cap Activitat seleccionada)
         fabPlay.setImageResource(R.drawable.ic_play);
         fabPlay.setVisibility(View.GONE);
 
-        MenuItem item = menuToolbar.findItem(R.id.boto_informacio);
+        MenuItem item = menuToolbar.findItem(R.id.boto_detalls);
         item.setVisible(false);
 
         fabSpeedDial.setVisibility(View.VISIBLE);
 
-        unregisterReceiver(receptor);
 
         super.onPause();
     }
@@ -394,14 +405,13 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_llista_activitats);
         Log.i(tag, "onCreate");
 
+        // Quan es crea aquesta Activity, ens trobem en els fills de l'Activitat arrel
+        // per tant, hem de mostrar només el nom de l'APP
         toolbar = (Toolbar) this.findViewById(R.id.my_toolbar);
         setSupportActionBar(toolbar);
         ImageView imgView = (ImageView)findViewById(R.id.activity_icon);
         imgView.setVisibility(View.GONE);
 
-        if (!nomActivitatPareActual.equals("")) {
-            toolbar.setTitle(nomActivitatPareActual);
-        }
 
         arrelListView = (ListView) this.findViewById(R.id.listViewActivitats);
 
@@ -424,6 +434,8 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
                 Log.d(tag, "pos = " + pos + ", id = " + id);
 
                 if (!longClick) {
+                    // Si no hi ha un element de la llista que està seleccionat, baixem un nivell
+                    // de l'arbre d'Activitats
                     Intent inte = new Intent(LlistaActivitatsActivity.BAIXA_NIVELL);
                     inte.putExtra("posicio", pos);
                     sendBroadcast(inte);
@@ -431,6 +443,8 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
                         sendBroadcast(new Intent(
                                 LlistaActivitatsActivity.DONAM_FILLS));
                         Log.d(tag, "enviat intent DONAM_FILLS");
+
+                        // Cal mostrar l'icona dels Projectes juntament amb el nom del Projecte pare
                         ImageView imgView = (ImageView)findViewById(R.id.activity_icon);
                         imgView.setVisibility(View.VISIBLE);
                     } else if (llistaDadesActivitats.get(pos).isTasca()) {
@@ -446,24 +460,28 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
                     sendBroadcast(new Intent(LlistaActivitatsActivity.DONAM_NOM));
 
                 } else {
+                    // Si a la llista d'Activitats hi ha un element seleccionat (s'ha fet un
+                    // longClick)
                     if (pos == itemLongClickat) {
+                        // Si l'item que hem clickat és el mateix que tenim seleccionat, treïem
+                        // el longClick que hi ha sobre l'item
                         longClick = false;
                         itemLongClickat = -1;
-                        vistaSeleccionada = null;
+                        viewLongClickada = null;
 
                         view.setBackgroundColor(Color.WHITE);
                         fabPlay.setVisibility(View.GONE);
                         fabSpeedDial.setVisibility(View.VISIBLE);
 
-                        MenuItem item = menuToolbar.findItem(R.id.boto_informacio);
+                        MenuItem item = menuToolbar.findItem(R.id.boto_detalls);
                         item.setVisible(false);
                     }
                 }
             }
         });
 
-        // Un "long click" serveix per cronometrar, si es tracta d'una tasca.
-        // Si es un projecte, no fara res.
+        // Un "long click" serveix per seleccionar una Activitat amb la qual volem interactuar,
+        // tant per encendre el seu cronómetre com per parar-lo, o per veure els seus Detalls.
         arrelListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(final AdapterView<?> arg0,
@@ -471,16 +489,21 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
                 Log.i(tag, "onItemLongClick");
                 Log.d(tag, "pos = " + pos + ", id = " + id);
 
-                MenuItem item = menuToolbar.findItem(R.id.boto_informacio);
+                // Mostrem el botó dels Detalls
+                MenuItem item = menuToolbar.findItem(R.id.boto_detalls);
                 item.setVisible(true);
 
+                // Guardem la View seleccionada (per si la necessitem en un futur per canviar el
+                // color del fons.
                 viewLongClickada = view;
 
                 if (llistaDadesActivitats.get(pos).isTasca()) {
                     if (!longClick) {
+                        // Si no tenim cap altre element seleccionat, podem seleccionar la Tasca
                         view.setBackgroundColor(Color.GRAY);
                         fabSpeedDial.setVisibility(View.GONE);
 
+                        // Mostrem el fabPlay amb la imatge que toca
                         if (llistaDadesActivitats.get(pos).isCronometreEngegat()) {
                             fabPlay.setImageResource(R.drawable.ic_stop);
                         } else {
@@ -488,16 +511,18 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
                         }
                         fabPlay.setVisibility(View.VISIBLE);
 
+                        // Guardem els atributs relacionats amb el longClick realitzat
                         longClick = true;
                         itemLongClickat = pos;
                     }
                 } else {
                     if (!longClick) {
+                        // Si no tenim cap altre element seleccionat, podem seleccionar el Projecte
                         view.setBackgroundColor(Color.GRAY);
+
                         fabSpeedDial.setVisibility(View.GONE);
 
-                        fabPlay.setVisibility(View.VISIBLE);
-
+                        // Guardem els atributs relacionats amb el longClick realitzat
                         longClick = true;
                         itemLongClickat = pos;
                     }
@@ -555,11 +580,13 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent inte;
                 if (!llistaDadesActivitats.get(itemLongClickat).isCronometreEngegat()) {
+                    // Si no s'està cronometrant la Tasca, la comencem a cronometrar
                     inte = new Intent(
                             LlistaActivitatsActivity.ENGEGA_CRONOMETRE);
                     Log.d(tag, "enviat intent ENGEGA_CRONOMETRE de "
                             + llistaDadesActivitats.get(itemLongClickat).getNom());
                 } else {
+                    // Si s'està cronometrant la Tasca, la parem
                     inte = new Intent(
                             LlistaActivitatsActivity.PARA_CRONOMETRE);
                     Log.d(tag, "enviat intent PARA_CRONOMETRE de "
@@ -568,14 +595,20 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
                 inte.putExtra("posicio", itemLongClickat);
                 sendBroadcast(inte);
 
+                // Treiem la selecció de l'Activitat en qüestió
+                MenuItem item = menuToolbar.findItem(R.id.boto_detalls);
+                item.setVisible(false);
+
                 view.setBackgroundColor(Color.WHITE);
+
+
                 fabPlay.setVisibility(View.GONE);
 
                 fabSpeedDial.setVisibility(View.VISIBLE);
 
                 longClick = false;
                 itemLongClickat = -1;
-                vistaSeleccionada = null;
+                viewLongClickada = null;
             }
         });
 
@@ -585,19 +618,16 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         menuToolbar = menu;
         getMenuInflater().inflate(R.menu.menu_toolbar_activitat, menu);
-        MenuItem item = menu.findItem(R.id.boto_informacio);
+        MenuItem item = menu.findItem(R.id.boto_detalls);
         item.setVisible(false);
+
         return super.onCreateOptionsMenu(menu);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.boto_informacio:
-                if (viewLongClickada != null) {
-                    viewLongClickada.setBackgroundColor(Color.WHITE);
-                }
-
+            case R.id.boto_detalls:
                 startActivity( new Intent(LlistaActivitatsActivity.this, InformacioActivity.class));
                 break;
             case R.id.boto_opcions:
@@ -629,21 +659,19 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
             sendBroadcast(new Intent(LlistaActivitatsActivity.DONAM_FILLS));
             Log.d(tag, "enviat intent DONAM_FILLS");
 
-            vistaSeleccionada = null;
+            // Al cambiar de nivell de l'arbre, cal reinicialtizar els atributs del longClick
+            viewLongClickada = null;
             longClick = false;
             itemLongClickat = -1;
 
-            if (viewLongClickada != null) {
-                viewLongClickada.setBackgroundColor(Color.WHITE);
-            }
-
+            // Tornem els elements de la Activity al seu estat inicial
             fabPlay.setImageResource(R.drawable.ic_play);
             fabPlay.setVisibility(View.GONE);
 
-            MenuItem item = menuToolbar.findItem(R.id.boto_informacio);
-            item.setVisible(false);
-
             fabSpeedDial.setVisibility(View.VISIBLE);
+
+            MenuItem item = menuToolbar.findItem(R.id.boto_detalls);
+            item.setVisible(false);
         }
     }
 

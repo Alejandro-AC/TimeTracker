@@ -17,12 +17,21 @@ import android.view.Menu;
 import android.widget.EditText;
 
 /**
- * Created by alexg on 07/01/2018.
+ * Classe que gestiona l'Activity per crear una Tasca nova.
  */
+public class NovaTasca extends AppCompatActivity {
 
-public class NovaTasca extends AppCompatActivity{
+    /**
+     * Toolbar de l'Activity.
+     */
     private Toolbar toolbar;
+
+    /**
+     * String que defineix l'acció de demanar a GestorActivitats que afegeixi una nova Tasca a la
+     * llista de fills de l'Activitat pare actual.
+     */
     public static final String AFEGIR_TASCA = "Afegir_tasca";
+
     private final String tag = this.getClass().getSimpleName();
 
     @Override
@@ -30,6 +39,8 @@ public class NovaTasca extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         Log.i(tag, "onCreate nova tasca");
         setContentView(R.layout.activity_nova_tasca);
+
+        // Inicialitzem la Toolbar
         toolbar = (Toolbar) findViewById(R.id.my_toolbar_new_activity);
         setSupportActionBar(toolbar);
         toolbar.setTitle("Nova Tasca");
@@ -65,10 +76,9 @@ public class NovaTasca extends AppCompatActivity{
         Intent inte;
         final TextInputEditText nom = findViewById(R.id.nomTasca);
         final TextInputEditText descripcio = findViewById(R.id.descripcioTasca);
+
         switch (item.getItemId()) {
             case R.id.boto_desar:
-                System.out.println("nombre recogido tasca:"+nom.getText().toString());
-                System.out.println("descripcion recogida tasca:"+descripcio.getText().toString());
                 inte = new Intent(GestorArbreActivitats.AFEGIR_TASCA);
                 inte.putExtra("nomTasca", nom.getText().toString());
                 inte.putExtra("descripcioTasca", descripcio.getText().toString());

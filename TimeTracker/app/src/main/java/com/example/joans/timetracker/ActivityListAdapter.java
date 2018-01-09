@@ -40,18 +40,19 @@ public class ActivityListAdapter extends ArrayAdapter<DadesActivitat> {
 
         txtNom.setText(dadesActivitats.get(posicio).getNom());
 
-        // Canvia el color del temps si l'Activity està sent cronometrada.
+        // Canvia el color del temps si l'Activity està sent cronometrada
         if (dadesActivitats.get(posicio).isCronometreEngegat()) {
             txtTemps.setTextColor(ContextCompat.getColor(context, R.color.colorRunning));
         }
 
+        // Pinta l'item si està seleccionat
         if (posicio == LlistaActivitatsActivity.itemLongClickat) {
             rowView.setBackgroundColor(Color.GRAY);
         }
 
         txtTemps.setText(dadesActivitats.get(posicio).toStringTemps());
 
-        // Mostra la imatge corresponent.
+        // Mostra la imatge corresponent
         if (dadesActivitats.get(posicio).isProjecte()) {
             imageView.setImageResource(R.drawable.ic_project);
         } else {

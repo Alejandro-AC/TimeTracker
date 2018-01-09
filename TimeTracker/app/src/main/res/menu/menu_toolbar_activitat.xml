@@ -3,9 +3,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto" >
 
-    <!-- Settings, should always be in the overflow -->
     <item
-        android:id="@+id/boto_informacio"
+        android:id="@+id/boto_detalls"
         android:icon="@drawable/ic_information"
         android:title="@string/informacio"
         app:titleTextColor="@color/colorSecondary"

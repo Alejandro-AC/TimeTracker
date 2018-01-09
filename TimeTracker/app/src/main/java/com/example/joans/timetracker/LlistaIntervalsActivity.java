@@ -33,8 +33,14 @@ import java.util.List;
  */
 public class LlistaIntervalsActivity extends AppCompatActivity {
 
+    /**
+     * Toolbar de l'Activity.
+     */
     private Toolbar toolbar;
 
+    /**
+     * Nom de l'Activitat pare de les Activitats que s'estan mostrant a la llista.
+     */
     private String nomActivitatPareActual = "";
 
     /**
@@ -96,6 +102,7 @@ public class LlistaIntervalsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_llista_intervals);
         Log.i(tag, "onCreate intervals");
 
+        // Inicialitzem la Toolbar
         toolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(toolbar);
         toolbar.setTitle(nomActivitatPareActual);
@@ -122,8 +129,10 @@ public class LlistaIntervalsActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_toolbar_activitat, menu);
-        MenuItem item = menu.findItem(R.id.boto_informacio);
+
+        MenuItem item = menu.findItem(R.id.boto_detalls);
         item.setVisible(false);
+
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -141,6 +150,9 @@ public class LlistaIntervalsActivity extends AppCompatActivity {
     // Aquests són els "serveis" que demana aquesta classe
     // a la classe Service GestorArbreActivitats
 
+    /**
+     * Sol·licita el nom de l'Activitat pare actual.
+     */
     public static final String DONAM_NOM = "Donam_nom";
 
     /**

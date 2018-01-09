@@ -52,7 +52,7 @@ public class InformacioActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_toolbar_activitat, menu);
-        MenuItem item = menu.findItem(R.id.boto_informacio);
+        MenuItem item = menu.findItem(R.id.boto_detalls);
         item.setVisible(false);
         return super.onCreateOptionsMenu(menu);
     }
