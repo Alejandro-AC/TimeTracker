@@ -32,6 +32,10 @@
             android:name=".NovaTasca">
         </activity>
 
+        <activity
+            android:name=".InformacioActivity" >
+        </activity>
+
     </application>
 
 </manifest>

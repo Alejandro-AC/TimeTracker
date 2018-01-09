@@ -325,6 +325,17 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
         receptor = new Receptor();
         registerReceiver(receptor, filter);
 
+        ////////
+
+        vistaSeleccionada = null;
+        longClick = false;
+        itemLongClickat = -1;
+
+        if (viewLongClickada != null) {
+            viewLongClickada.setBackgroundColor(Color.WHITE);
+        }
+
+
         // Crea el servei GestorArbreActivitats, si no existia ja. A més,
         // executa el mètode onStartCommand del servei, de manera que
         // *un cop creat el servei* = havent llegit ja l'arbre si es el
@@ -349,7 +360,6 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
         Log.i(tag, "onPause");
 
         vistaSeleccionada = null;
-        itemLongClickat = -1;
         longClick = false;
 
         fabPlay.setImageResource(R.drawable.ic_play);
@@ -584,6 +594,11 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.boto_informacio:
+                if (viewLongClickada != null) {
+                    viewLongClickada.setBackgroundColor(Color.WHITE);
+                }
+
+                startActivity( new Intent(LlistaActivitatsActivity.this, InformacioActivity.class));
                 break;
             case R.id.boto_opcions:
                 break;

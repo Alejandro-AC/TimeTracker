@@ -622,7 +622,7 @@ public class GestorArbreActivitats extends Service implements Actualitzable {
                 + getNomActivitatPareActual());
     }
 
-    public String getNomActivitatPareActual() {
+    private String getNomActivitatPareActual() {
         return activitatPareActual.getNom();
     }
 

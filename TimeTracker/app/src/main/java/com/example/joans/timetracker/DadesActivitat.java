@@ -1,6 +1,7 @@
 package com.example.joans.timetracker;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import nucli.Activitat;
@@ -250,5 +251,15 @@ public class DadesActivitat implements Serializable {
      */
     public final boolean isCronometreEngegat() {
         return isCronometreEngegat;
+    }
+
+    public final String toStringInicial() {
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy hh:mm");
+        return "Desde " + sdf.format(dataInicial);
+    }
+
+    public final String toStringFinal() {
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy hh:mm");
+        return "Fins " + sdf.format(dataFinal);
     }
 }

@@ -8,6 +8,8 @@ import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.support.v7.widget.Toolbar;
@@ -31,7 +33,7 @@ import java.util.List;
  */
 public class LlistaIntervalsActivity extends AppCompatActivity {
 
-    Toolbar toolbar;
+    private Toolbar toolbar;
 
     private String nomActivitatPareActual = "";
 
@@ -115,6 +117,25 @@ public class LlistaIntervalsActivity extends AppCompatActivity {
         llistaDadesIntervals = new ArrayList<DadesInterval>();
         aaAct = new IntervalListAdapter(this, llistaDadesIntervals);
         intervalsListView.setAdapter(aaAct);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_toolbar_activitat, menu);
+        MenuItem item = menu.findItem(R.id.boto_informacio);
+        item.setVisible(false);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.boto_opcions:
+                break;
+            default:
+                break;
+        }
+        return true;
     }
 
     // Aquests són els "serveis" que demana aquesta classe
