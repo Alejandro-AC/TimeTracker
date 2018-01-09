@@ -6,7 +6,7 @@ import java.util.Date;
 
 import nucli.Activitat;
 import nucli.Tasca;
-
+import nucli.Projecte;
 
 
 /**
@@ -127,8 +127,9 @@ public class DadesActivitat implements Serializable {
         } else {
             isProjecte = false;
             isTasca = true;
-            isCronometreEngegat = ((Tasca) act).isCronometreEngegat();
         }
+
+        isCronometreEngegat = act.isCronometreEngegat();
     }
 
     /**

@@ -325,8 +325,14 @@ public class GestorArbreActivitats extends Service implements Actualitzable {
         // Escollir la opció desitjada d'entre ferArbreGran, llegirArbreArxiu i
         // ferArbrePetitBuit. Podríem primer fer l'arbre gran i després, quan
         // ja s'hagi desat, escollir la opció de llegir d'arxiu.
+
         final int opcio = ferArbreGran;
         carregaArbreActivitats(opcio);
+
+        if (arrel == null) {
+            arrel = new Projecte("ARREL", "arrel de projectes", null);
+        }
+
         activitatPareActual = arrel;
 
         Log.d(tag, "l'arrel te " + arrel.getActivitats().size() + " fills");

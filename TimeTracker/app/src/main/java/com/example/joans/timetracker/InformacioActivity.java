@@ -17,6 +17,8 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+import nucli.Projecte;
+
 /**
  * Gestiona l'Activity que mostra els detalls de l'Activitat solicitada.
  */
@@ -37,9 +39,6 @@ public class InformacioActivity extends AppCompatActivity {
 
         toolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(toolbar);
-
-        ImageView imgView = (ImageView)findViewById(R.id.activity_icon);
-        imgView.setVisibility(View.GONE);
 
         // En aquesta Activity no cal mostrar cap títol en la Toolbar
         getSupportActionBar().setDisplayShowTitleEnabled(false);
@@ -110,6 +109,15 @@ public class InformacioActivity extends AppCompatActivity {
                     txtTempsTotal.setTextColor(getResources().getColor(R.color.colorRunning));
                     txtDataFinal.setTextColor(getResources().getColor(R.color.colorRunning));
                 }
+
+                ImageView imgView = (ImageView)findViewById(R.id.activity_icon);
+                if (activitat.isProjecte()) {
+                    imgView.setImageResource(R.drawable.ic_project_white);
+                } else {
+                    imgView.setImageResource(R.drawable.ic_task_white);
+                }
+
+                toolbar.setTitle(activitat.getNom());
             }
         }
     }

@@ -69,6 +69,10 @@ public abstract class Activitat implements Serializable {
 	}
 	
 	public void incrementaDurada(long increment) {
+	    if (getPeriode() == null) {
+            Date data = new Date();
+	        this.periode = new Periode(data, data, 0);
+        }
 		getPeriode().incrementaDurada(increment);
 	}
 
@@ -123,4 +127,6 @@ public abstract class Activitat implements Serializable {
 			projectePare.actualitza(df,increment);
 		}
 	}
+
+	public abstract boolean isCronometreEngegat();
 }

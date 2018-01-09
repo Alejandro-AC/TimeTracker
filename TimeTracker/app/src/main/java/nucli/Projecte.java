@@ -61,4 +61,26 @@ public class Projecte extends Activitat {
         super(nom,descr,projPare);
         activitats = new ArrayList<Activitat>();
     }
+
+    public boolean isCronometreEngegat() {
+        for (Activitat activitat : activitats) {
+            if (activitat.isCronometreEngegat()) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /*public boolean isCronometreEngegat() {
+        for (Activitat activitat : activitats) {
+            if (activitat.getClass() == Projecte.class) {
+                if (((Projecte) activitat).isCronometreEngegat()) {
+                    return true;
+                } else if (((Tasca) activitat).isCronometreEngegat()) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }*/
 }
