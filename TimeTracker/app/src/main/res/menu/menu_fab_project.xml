@@ -7,7 +7,7 @@
     <item
         android:id="@+id/fab_task"
         android:icon="@drawable/ic_task"
-        android:title="@string/task"/>
+        android:title="@string/tasca"/>
     <item
         android:id="@+id/fab_project"
         android:icon="@drawable/ic_project"

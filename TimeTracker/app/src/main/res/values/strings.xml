@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">TimeTracker</string>
     <string name="project">Projecte</string>
-    <string name="task">Tasca</string>
+    <string name="tasca">Tasca</string>
     <string name="report">Informe</string>
     <string name="nom">Nom</string>
     <string name="descripcio">Descripció</string>
@@ -10,4 +10,5 @@
     <string name="add_schedule_text">Data programada</string>
     <string name="informacio">Informació</string>
     <string name="opcions">Opcions</string>
+    <string name="empty"></string>
 </resources>

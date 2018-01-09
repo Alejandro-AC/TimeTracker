@@ -27,7 +27,7 @@ public class InformacioActivity extends AppCompatActivity {
     @Override
     public final void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_informacio_activity);
+        setContentView(R.layout.activity_informacio_activitat);
         Log.i(tag, "onCreate InformacioActivity");
 
         toolbar = (Toolbar) findViewById(R.id.my_toolbar);
@@ -35,7 +35,8 @@ public class InformacioActivity extends AppCompatActivity {
 
         ImageView imgView = (ImageView)findViewById(R.id.activity_icon);
         imgView.setVisibility(View.GONE);
-        toolbar.setTitle("");
+
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
 
         toolbar.setNavigationIcon(R.drawable.ic_back);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
@@ -94,7 +95,6 @@ public class InformacioActivity extends AppCompatActivity {
                 txtDataInici.setText(activitat.toStringInicial());
                 txtDataFinal.setText(activitat.toStringFinal());
                 txtTempsTotal.setText(activitat.toStringTemps());
-
             }
         }
     }
