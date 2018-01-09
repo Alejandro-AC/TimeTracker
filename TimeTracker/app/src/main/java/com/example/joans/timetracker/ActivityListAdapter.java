@@ -46,7 +46,7 @@ public class ActivityListAdapter extends ArrayAdapter<DadesActivitat> {
         }
 
         // Pinta l'item si està seleccionat
-        if (posicio == LlistaActivitatsActivity.itemLongClickat) {
+        if (posicio == LlistaActivitatsActivity.posicioItemLongClickat) {
             rowView.setBackgroundColor(Color.GRAY);
         }
 

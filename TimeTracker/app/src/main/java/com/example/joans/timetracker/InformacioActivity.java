@@ -17,18 +17,23 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-
+/**
+ * Gestiona l'Activity que mostra els detalls de l'Activitat solicitada.
+ */
 public class InformacioActivity extends AppCompatActivity {
+
+    /**
+     * Toolbar de l'Activity.
+     */
+    private Toolbar toolbar;
 
     private final String tag = this.getClass().getSimpleName();
 
-    private Toolbar toolbar;
-
     @Override
     public final void onCreate(final Bundle savedInstanceState) {
+        Log.i(tag, "onCreate InformacioActivity");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_informacio_activitat);
-        Log.i(tag, "onCreate InformacioActivity");
 
         toolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(toolbar);
@@ -36,6 +41,7 @@ public class InformacioActivity extends AppCompatActivity {
         ImageView imgView = (ImageView)findViewById(R.id.activity_icon);
         imgView.setVisibility(View.GONE);
 
+        // En aquesta Activity no cal mostrar cap títol en la Toolbar
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
         toolbar.setNavigationIcon(R.drawable.ic_back);
@@ -46,6 +52,8 @@ public class InformacioActivity extends AppCompatActivity {
             }
         });
 
+        // Demanem al GestorArbreActivitats la llista de fills, ja que és on es troba
+        // l'Activitat de la qual es volen veure els Detalls
         sendBroadcast(new Intent(LlistaActivitatsActivity.DONAM_FILLS));
     }
 
@@ -82,7 +90,9 @@ public class InformacioActivity extends AppCompatActivity {
                         (ArrayList<DadesActivitat>) intent
                                 .getSerializableExtra("llista_dades_activitats");
 
-                DadesActivitat activitat = llistaDadesAct.get(LlistaActivitatsActivity.itemLongClickat);
+                // L'Activitat que busquem es la mateixa que hem seleccionat amb un longClick
+                // (utilitzem la seva posició per obtenir-la de la llista)
+                DadesActivitat activitat = llistaDadesAct.get(LlistaActivitatsActivity.posicioItemLongClickat);
 
                 TextView txtNom = findViewById(R.id.text_nom),
                         txtDescripcio = findViewById(R.id.text_descripcio),
@@ -95,6 +105,11 @@ public class InformacioActivity extends AppCompatActivity {
                 txtDataInici.setText(activitat.toStringInicial());
                 txtDataFinal.setText(activitat.toStringFinal());
                 txtTempsTotal.setText(activitat.toStringTemps());
+
+                if (activitat.isCronometreEngegat()) {
+                    txtTempsTotal.setTextColor(getResources().getColor(R.color.colorRunning));
+                    txtDataFinal.setTextColor(getResources().getColor(R.color.colorRunning));
+                }
             }
         }
     }

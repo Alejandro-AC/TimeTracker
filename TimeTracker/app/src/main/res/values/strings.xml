@@ -10,5 +10,6 @@
     <string name="add_schedule_text">Data programada</string>
     <string name="informacio">Detalls</string>
     <string name="opcions">Opcions</string>
-    <string name="empty"></string>
+    <string name="identificacio">Identificació</string>
+    <string name="temps">Temps</string>
 </resources>

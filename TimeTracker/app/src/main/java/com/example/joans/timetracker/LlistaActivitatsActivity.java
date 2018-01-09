@@ -106,7 +106,7 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
      * Posició de l'Activitat que s'ha seleccionat.
      * Prendrà el valor -1 si no hi ha cap Activitat seleccionada.
      */
-    public static int itemLongClickat = -1;
+    public static int posicioItemLongClickat = -1;
 
     /**
      * View que pertany a l'Activitat que s'ha seleccionat.
@@ -344,7 +344,7 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
 
         // al tornar a mostrar aquesta activitat, cal inicialitzar una altra vegada els atributs
         // que serveixen per controlar els longClicks
-        itemLongClickat = -1;
+        posicioItemLongClickat = -1;
         viewLongClickada = null;
         longClick = false;
 
@@ -462,11 +462,11 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
                 } else {
                     // Si a la llista d'Activitats hi ha un element seleccionat (s'ha fet un
                     // longClick)
-                    if (pos == itemLongClickat) {
+                    if (pos == posicioItemLongClickat) {
                         // Si l'item que hem clickat és el mateix que tenim seleccionat, treïem
                         // el longClick que hi ha sobre l'item
                         longClick = false;
-                        itemLongClickat = -1;
+                        posicioItemLongClickat = -1;
                         viewLongClickada = null;
 
                         view.setBackgroundColor(Color.WHITE);
@@ -513,7 +513,7 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
 
                         // Guardem els atributs relacionats amb el longClick realitzat
                         longClick = true;
-                        itemLongClickat = pos;
+                        posicioItemLongClickat = pos;
                     }
                 } else {
                     if (!longClick) {
@@ -524,7 +524,7 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
 
                         // Guardem els atributs relacionats amb el longClick realitzat
                         longClick = true;
-                        itemLongClickat = pos;
+                        posicioItemLongClickat = pos;
                     }
 
                 }
@@ -579,20 +579,20 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent inte;
-                if (!llistaDadesActivitats.get(itemLongClickat).isCronometreEngegat()) {
+                if (!llistaDadesActivitats.get(posicioItemLongClickat).isCronometreEngegat()) {
                     // Si no s'està cronometrant la Tasca, la comencem a cronometrar
                     inte = new Intent(
                             LlistaActivitatsActivity.ENGEGA_CRONOMETRE);
                     Log.d(tag, "enviat intent ENGEGA_CRONOMETRE de "
-                            + llistaDadesActivitats.get(itemLongClickat).getNom());
+                            + llistaDadesActivitats.get(posicioItemLongClickat).getNom());
                 } else {
                     // Si s'està cronometrant la Tasca, la parem
                     inte = new Intent(
                             LlistaActivitatsActivity.PARA_CRONOMETRE);
                     Log.d(tag, "enviat intent PARA_CRONOMETRE de "
-                            + llistaDadesActivitats.get(itemLongClickat).getNom());
+                            + llistaDadesActivitats.get(posicioItemLongClickat).getNom());
                 }
-                inte.putExtra("posicio", itemLongClickat);
+                inte.putExtra("posicio", posicioItemLongClickat);
                 sendBroadcast(inte);
 
                 // Treiem la selecció de l'Activitat en qüestió
@@ -607,7 +607,7 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
                 fabSpeedDial.setVisibility(View.VISIBLE);
 
                 longClick = false;
-                itemLongClickat = -1;
+                posicioItemLongClickat = -1;
                 viewLongClickada = null;
             }
         });
@@ -662,7 +662,7 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
             // Al cambiar de nivell de l'arbre, cal reinicialtizar els atributs del longClick
             viewLongClickada = null;
             longClick = false;
-            itemLongClickat = -1;
+            posicioItemLongClickat = -1;
 
             // Tornem els elements de la Activity al seu estat inicial
             fabPlay.setImageResource(R.drawable.ic_play);

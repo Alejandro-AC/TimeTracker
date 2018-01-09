@@ -61,5 +61,4 @@ public class Projecte extends Activitat {
         super(nom,descr,projPare);
         activitats = new ArrayList<Activitat>();
     }
-
 }
