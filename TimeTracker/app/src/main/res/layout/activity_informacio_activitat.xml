@@ -25,9 +25,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="40dp"
                 android:layout_marginTop="10dp"
-                android:text="@string/identificacio"
-                android:textSize="15sp"
-                android:textColor="@color/colorGrisFosc" />
+                android:text="@string/nom"
+                android:textColor="@color/colorGrisFosc"
+                android:textSize="15sp" />
 
             <TextView
                 android:id="@+id/text_nom"
@@ -37,6 +37,16 @@
                 android:layout_marginTop="10dp"
                 android:textSize="20sp"
                 android:textColor="@color/colorText" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/descripcio"
+                android:textColor="@color/colorGrisFosc"
+                android:textSize="15sp" />
 
             <TextView
                 android:id="@+id/text_descripcio"
@@ -58,7 +68,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="40dp"
                 android:layout_marginTop="30dp"
-                android:text="@string/temps"
+                android:text="@string/interval"
                 android:textSize="15sp"
                 android:textColor="@color/colorGrisFosc" />
 
@@ -79,6 +89,16 @@
                 android:layout_marginTop="20dp"
                 android:textSize="20sp"
                 android:textColor="@color/colorText" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="30dp"
+                android:text="@string/tempsTotal"
+                android:textColor="@color/colorGrisFosc"
+                android:textSize="15sp" />
 
             <TextView
                 android:id="@+id/text_temps_total"

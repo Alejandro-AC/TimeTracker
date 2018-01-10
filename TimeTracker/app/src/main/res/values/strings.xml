@@ -1,15 +1,25 @@
 <resources>
+    <!-- Menu -->
     <string name="app_name">TimeTracker</string>
     <string name="project">Projecte</string>
     <string name="tasca">Tasca</string>
     <string name="report">Informe</string>
+    <string name="opcions">Opcions</string>
+
+    <!-- Activity Info -->
     <string name="nom">Nom</string>
     <string name="descripcio">Descripció</string>
+    <string name="interval">Interval</string>
+    <string name="tempsTotal">Temps total</string>
+
+
+    <!-- New task -->
     <string name="desar">Desar</string>
     <string name="limited_time_text">Temps límit</string>
     <string name="add_schedule_text">Data programada</string>
+
     <string name="informacio">Detalls</string>
-    <string name="opcions">Opcions</string>
     <string name="identificacio">Identificació</string>
     <string name="temps">Temps</string>
+
 </resources>
