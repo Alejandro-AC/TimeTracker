@@ -27,7 +27,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="0"
                 android:layout_marginStart="30dp"
-                android:hint="@string/nom" />
+                android:hint="@string/nom"
+                android:maxLines="1" />
 
         </android.support.design.widget.TextInputLayout>
 
@@ -47,48 +48,43 @@
 
         </android.support.design.widget.TextInputLayout>
 
-    </LinearLayout>
-
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="fill_parent">
-
-        <TextView
-            android:id="@+id/scheduleText"
+        <!-- Dates -->
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/programada_til"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="95dp"
-            android:layout_marginTop="35dp"
-            android:text="@string/add_schedule_text" />
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="30dp" >
 
-        <ImageButton
-            android:id="@+id/scheduleButton"
-            android:layout_width="56dp"
+            <EditText
+                android:id="@+id/programada_et"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:inputType="date"
+                android:focusable="false"
+                android:clickable="true"
+                android:maxLines="1"
+                android:hint="@string/programada" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/temps_limit_til"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
+            android:layout_marginStart="30dp"
             android:layout_marginTop="30dp"
-            android:background="@color/colorAccent"
-            app:srcCompat="@android:drawable/ic_menu_today" />
+            android:hint="@string/temps_limit">
 
-        <ImageButton
-            android:id="@+id/imageButton3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignEnd="@+id/scheduleButton"
-            android:layout_alignStart="@+id/scheduleButton"
-            android:layout_below="@+id/scheduleButton"
-            android:layout_marginTop="21dp"
-            android:background="@color/colorAccent"
-            app:srcCompat="@drawable/ic_horglass_white" />
+            <EditText
+                android:id="@+id/temps_limit_et"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:inputType="date"
+                android:focusable="true"
+                android:clickable="true"
+                android:maxLines="1" />
+        </android.support.design.widget.TextInputLayout>
 
-        <TextView
-            android:id="@+id/textView"
-            android:layout_marginTop="5dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/scheduleText"
-            android:layout_alignTop="@+id/imageButton3"
-            android:text="@string/limited_time_text" />
+    </LinearLayout>
 
-    </RelativeLayout>
 </LinearLayout>

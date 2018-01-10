@@ -38,6 +38,11 @@ public class IntervalListAdapter extends ArrayAdapter<DadesInterval> {
         txtFinal.setText(dadesIntervals.get(posicio).toStringFinal());
         txtTemps.setText(dadesIntervals.get(posicio).toStringTemps());
 
+        if (dadesIntervals.get(posicio).getPare().isCronometreEngegat() && posicio == 0) {
+            txtFinal.setTextColor(ContextCompat.getColor(context, R.color.colorRunning));
+            txtTemps.setTextColor(ContextCompat.getColor(context, R.color.colorRunning));
+        }
+
         return rowView;
     }
 }

@@ -205,8 +205,8 @@ public class LlistaIntervalsActivity extends AppCompatActivity {
                         (ArrayList<DadesInterval>) intent
                                 .getSerializableExtra("llista_dades_intervals");
                 aaAct.clear();
-                for (DadesInterval dadesInter : llistaDadesInter) {
-                    aaAct.add(dadesInter);
+                for (int index = llistaDadesInter.size() - 1; index >= 0; index--) {
+                    aaAct.add(llistaDadesInter.get(index));
                 }
                 aaAct.notifyDataSetChanged();
             } else if (intent.getAction().equals(GestorArbreActivitats.TE_NOM)) {

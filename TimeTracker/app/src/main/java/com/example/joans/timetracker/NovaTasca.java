@@ -1,12 +1,13 @@
 package com.example.joans.timetracker;
 
+import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.design.widget.TextInputEditText;
-import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.support.v7.widget.Toolbar;
@@ -14,7 +15,12 @@ import android.view.View;
 import android.content.IntentFilter;
 import android.view.MenuItem;
 import android.view.Menu;
+import android.widget.DatePicker;
 import android.widget.EditText;
+import android.app.Dialog;
+import android.app.DialogFragment;
+import java.util.Calendar;
+import android.widget.TimePicker;
 
 /**
  * Classe que gestiona l'Activity per crear una Tasca nova.
@@ -25,6 +31,8 @@ public class NovaTasca extends AppCompatActivity {
      * Toolbar de l'Activity.
      */
     private Toolbar toolbar;
+
+    private int any, mes, dia;
 
     /**
      * String que defineix l'acció de demanar a GestorActivitats que afegeixi una nova Tasca a la
@@ -50,6 +58,21 @@ public class NovaTasca extends AppCompatActivity {
                 onBackPressed();
             }
         });
+
+        etProgramada = findViewById(R.id.programada_et);
+        etProgramada.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                switch (view.getId()) {
+                    case R.id.programada_et:
+                        showTimePickerDialog();
+                        showDatePickerDialog();
+                        break;
+                    case R.id.temps_limit_et:
+                        break;
+                }
+            }
+        });
     }
 
     @Override
@@ -71,12 +94,14 @@ public class NovaTasca extends AppCompatActivity {
 
     private Receptor receptor;
 
+    public static EditText etProgramada;
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        Intent inte;
         final TextInputEditText nom = findViewById(R.id.nomTasca);
         final TextInputEditText descripcio = findViewById(R.id.descripcioTasca);
 
+        Intent inte;
         switch (item.getItemId()) {
             case R.id.boto_desar:
                 inte = new Intent(GestorArbreActivitats.AFEGIR_TASCA);
@@ -161,4 +186,96 @@ public class NovaTasca extends AppCompatActivity {
         }
     }
 
+    private static String dataSeleccionada;
+
+    public static class DatePickerFragment extends DialogFragment
+            implements DatePickerDialog.OnDateSetListener {
+        private DatePickerDialog.OnDateSetListener listener;
+
+        public static DatePickerFragment newInstance(DatePickerDialog.OnDateSetListener listener) {
+            DatePickerFragment fragment = new DatePickerFragment();
+            fragment.setListener(listener);
+            return fragment;
+        }
+
+        public void setListener(DatePickerDialog.OnDateSetListener listener) {
+            this.listener = listener;
+        }
+
+        @Override
+        public Dialog onCreateDialog(Bundle savedInstanceState) {
+            final Calendar calendari = Calendar.getInstance();
+            int any = calendari.get(Calendar.YEAR);
+            int mes = calendari.get(Calendar.MONTH);
+            int dia = calendari.get(Calendar.DAY_OF_MONTH);
+
+            return new DatePickerDialog(getActivity(), this, any, mes, dia);
+        }
+
+        public void onDateSet(DatePicker view, int any, int mes, int dia){
+            dataSeleccionada = twoDigits(dia) + "/" + twoDigits((mes + 1)) + "/" + any
+                    + " " + etProgramada.getText();
+        }
+    }
+
+    public static class TimePickerFragment extends DialogFragment
+            implements TimePickerDialog.OnTimeSetListener {
+        private TimePickerDialog.OnTimeSetListener listener;
+
+        public static TimePickerFragment newInstance(TimePickerDialog.OnTimeSetListener listener) {
+            TimePickerFragment fragment = new TimePickerFragment();
+            fragment.setListener(listener);
+            return fragment;
+        }
+
+        public void setListener(TimePickerDialog.OnTimeSetListener listener) {
+            this.listener = listener;
+        }
+
+        @Override
+        public Dialog onCreateDialog(Bundle savedInstanceState) {
+            final Calendar calendari = Calendar.getInstance();
+            int hora = calendari.get(Calendar.HOUR_OF_DAY);
+            int min = calendari.get(Calendar.MINUTE);
+
+            return new TimePickerDialog(getActivity(), this, hora, min, true);
+        }
+
+        public void onTimeSet(TimePicker timePicker, int hora, int min) {
+            final String dataCompleta = dataSeleccionada + " " + (hora) + ":" + twoDigits(min);
+            etProgramada.setText(dataCompleta);
+        }
+    }
+
+    private void showDatePickerDialog() {
+        DatePickerFragment newFragment = DatePickerFragment.newInstance(new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker datePciker, int any, int mes, int dia) {
+                final String dataSeleccionada = twoDigits(dia) + "/" + twoDigits((mes + 1)) + "/" + any;
+                etProgramada.setText(dataSeleccionada);
+            }
+        });
+        newFragment.show(getFragmentManager(), "datePicker");
+    }
+
+    private void showTimePickerDialog() {
+        TimePickerFragment newFragment = TimePickerFragment.newInstance(new TimePickerDialog.OnTimeSetListener() {
+            @Override
+            public void onTimeSet(TimePicker timePicker, int hora, int min) {
+                final String dataSeleccionada = etProgramada.getText() + " " + twoDigits(hora) + ":" + twoDigits(min);
+                etProgramada.setText(dataSeleccionada);
+            }
+        });
+        newFragment.show(getFragmentManager(), "timePicker");
+    }
+
+    public static String twoDigits(int n) {
+        return (n<=9) ? ("0"+n) : String.valueOf(n);
+    }
+
+
 }
+
+
+
+

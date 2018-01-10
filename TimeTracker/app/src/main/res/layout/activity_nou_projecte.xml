@@ -26,7 +26,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="0"
                 android:layout_marginStart="30dp"
-                android:hint="@string/nom" />
+                android:hint="@string/nom"
+                android:maxLines="1" />
 
         </android.support.design.widget.TextInputLayout>
 

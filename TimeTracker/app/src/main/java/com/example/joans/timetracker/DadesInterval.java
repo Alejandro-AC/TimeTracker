@@ -5,6 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import nucli.Interval;
+import nucli.Tasca;
 
 
 
@@ -47,6 +48,11 @@ public class DadesInterval implements Serializable {
     private long durada;
 
     /**
+     * Pare de l'interval.
+     */
+    private Tasca pare;
+
+    /**
      * Extreu les dades de l'interval passat per paràmetre i les copia als
      * atributs propis.
      *
@@ -57,6 +63,7 @@ public class DadesInterval implements Serializable {
         dataInicial = inter.getDataInicial();
         dataFinal = inter.getDataFinal();
         durada = inter.getDurada();
+        pare = inter.getTasca();
     }
 
     /**
@@ -160,4 +167,10 @@ public class DadesInterval implements Serializable {
     public final long getDurada() {
         return durada;
     }
+
+    /**
+     * Getter de <code>pare</code>.
+     * @return {@link #pare}
+     */
+    public final Tasca getPare() { return pare; }
 }
