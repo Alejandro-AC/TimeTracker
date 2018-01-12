@@ -93,6 +93,8 @@ public class DadesActivitat implements Serializable {
      */
     private boolean isCronometreEngegat = false; // nomes te sentit per tasques
 
+    private int id;
+
     /**
      * Extreu les dades de la activitat passada per paràmetre i les copia als
      * atributs propis.
@@ -111,6 +113,7 @@ public class DadesActivitat implements Serializable {
          */
         final long segonsPerMinut = 60;
 
+        id = act.getInfo().getId();
         dataInicial = act.getDataInicial();
         dataFinal = act.getDataFinal();
         durada = act.getDurada();
@@ -221,6 +224,8 @@ public class DadesActivitat implements Serializable {
     public final String getNom() {
         return nom;
     }
+
+    public final int getId() {return id;}
 
     /**
      * Getter de <code>descripcio</code>.

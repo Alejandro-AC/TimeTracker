@@ -581,10 +581,14 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
             public boolean onMenuItemSelected(MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.fab_project:
-                        startActivity( new Intent(LlistaActivitatsActivity.this, NouProjecte.class));
+                        Intent nouProjecte = new Intent(LlistaActivitatsActivity.this, NouProjecte.class);
+                        nouProjecte.putExtra("edit",false);
+                        startActivity(nouProjecte);
                         break;
                     case R.id.fab_task:
-                        startActivity( new Intent(LlistaActivitatsActivity.this, NovaTasca.class));
+                        Intent novaTasca = new Intent(LlistaActivitatsActivity.this, NovaTasca.class);
+                        novaTasca.putExtra("edit",false);
+                        startActivity(novaTasca);
                         break;
                     case R.id.fab_report:
                         startActivity( new Intent(LlistaActivitatsActivity.this, NouInforme.class));
@@ -657,7 +661,10 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.boto_detalls:
-                startActivity( new Intent(LlistaActivitatsActivity.this, InformacioActivity.class));
+                DadesActivitat activitat = llistaDadesActivitats.get(posicioItemLongClickat);
+                Intent showInfo = new Intent(LlistaActivitatsActivity.this, InformacioActivity.class);
+                showInfo.putExtra("idActivitat", activitat.getId());
+                startActivity(showInfo);
                 break;
             case R.id.boto_opcions:
                 break;

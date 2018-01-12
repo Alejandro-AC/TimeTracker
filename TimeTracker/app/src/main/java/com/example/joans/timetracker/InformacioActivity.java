@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.res.Configuration;
+import android.icu.text.IDNA;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -30,6 +31,16 @@ public class InformacioActivity extends AppCompatActivity {
     private Toolbar toolbar;
 
     private final String tag = this.getClass().getSimpleName();
+
+    private String type;
+
+    private int id;
+
+    public void setId(int id) { this.id = id; }
+
+    public void setType(String type){
+        this.type = type;
+    }
 
     @Override
     public final void onCreate(final Bundle savedInstanceState) {
@@ -58,24 +69,13 @@ public class InformacioActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_toolbar_activitat, menu);
-        MenuItem item = menu.findItem(R.id.boto_detalls);
+        getMenuInflater().inflate(R.menu.menu_toolbar_edit, menu);
+        /*MenuItem item = menu.findItem(R.id.boto_detalls);
         item.setVisible(false);
         item = menu.findItem(R.id.boto_informes);
-        item.setVisible(false);
+        item.setVisible(false);*/
 
         return super.onCreateOptionsMenu(menu);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.boto_opcions:
-                break;
-            default:
-                break;
-        }
-        return true;
     }
 
 
@@ -95,13 +95,18 @@ public class InformacioActivity extends AppCompatActivity {
                 // L'Activitat que busquem es la mateixa que hem seleccionat amb un longClick
                 // (utilitzem la seva posició per obtenir-la de la llista)
                 DadesActivitat activitat = llistaDadesAct.get(LlistaActivitatsActivity.posicioItemLongClickat);
-
+                setId(activitat.getId());
+                if(activitat.isProjecte()){
+                    setType("projecte");
+                }
+                if(activitat.isTasca()){
+                    setType("tasca");
+                }
                 TextView txtNom = findViewById(R.id.text_nom),
                         txtDescripcio = findViewById(R.id.text_descripcio),
                         txtDataInici = findViewById(R.id.text_data_inici),
                         txtDataFinal = findViewById(R.id.text_data_final),
                         txtTempsTotal = findViewById(R.id.text_temps_total);
-
                 txtNom.setText(activitat.getNom());
                 txtDescripcio.setText(activitat.getDescripcio());
                 txtDataInici.setText(activitat.toStringInicial());
@@ -126,6 +131,46 @@ public class InformacioActivity extends AppCompatActivity {
                 toolbar.setTitle(activitat.getNom());
             }
         }
+    }
+
+    private InformacioActivity.Receptor receptorInfo;
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        TextView nom = findViewById(R.id.text_nom);
+        String nomStr = nom.getText().toString();
+        TextView descripcio = findViewById(R.id.text_descripcio);
+        String descripcioStr = descripcio.getText().toString();
+
+        switch (item.getItemId()) {
+            case R.id.boto_opcions:
+                break;
+            case R.id.boto_editar:
+                System.out.println(nomStr);
+                System.out.println(descripcioStr);
+                if(this.type.equals("tasca")){
+                    Intent editTask = new Intent(InformacioActivity.this, NovaTasca.class);
+                    editTask.putExtra("edit", true);
+                    editTask.putExtra("id", this.id);
+                    editTask.putExtra("nom", nomStr);
+                    editTask.putExtra("descripcio", descripcioStr);
+                    startActivity(editTask);
+                    finish();
+                }
+                if(this.type.equals("projecte")){
+                    Intent editProject = new Intent(InformacioActivity.this, NouProjecte.class);
+                    editProject.putExtra("edit", true);
+                    editProject.putExtra("id", this.id);
+                    editProject.putExtra("nom", nomStr);
+                    editProject.putExtra("descripcio", descripcioStr);
+                    startActivity(editProject);
+                    finish();
+                }
+                break;
+            default:
+                break;
+        }
+        return true;
     }
 
     private InformacioActivity.Receptor receptor;

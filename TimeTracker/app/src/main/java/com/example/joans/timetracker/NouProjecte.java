@@ -20,10 +20,19 @@ public class NouProjecte extends AppCompatActivity {
 
     private final String tag = this.getClass().getSimpleName();
 
+
+    private int id;
+
+    public void setId(int id){
+        this.id = id;
+    }
+
     /**
      * Acció per demanar al GestorArbreActivitats que afegeixi un nou projecte.
      */
     public static final String AFEGIR_PROJECTE = "Afegir_projecte";
+
+    public static final String EDITAR_PROJECTE = "Editar_projecte";
 
     /**
      * Toolbar de l'Activity.
@@ -33,6 +42,9 @@ public class NouProjecte extends AppCompatActivity {
     @Override
     public final void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Boolean edit = getIntent().getExtras().getBoolean("edit");
+        int id = getIntent().getExtras().getInt("id");
+        setId(id);
         setContentView(R.layout.activity_nou_projecte);
         Log.i(tag, "onCreate nou projecte");
 
@@ -45,6 +57,15 @@ public class NouProjecte extends AppCompatActivity {
                  onBackPressed();
              }
         });
+
+        if(edit){
+            String nomIntent = getIntent().getExtras().getString("nom");
+            String descripcioIntent = getIntent().getExtras().getString("descripcio");
+            EditText nom = findViewById(R.id.nomProjecte);
+            EditText descripcio = findViewById(R.id.descripcioProjecte);
+            nom.setText(nomIntent);
+            descripcio.setText(descripcioIntent);
+        }
 
         final TextInputLayout nom = (TextInputLayout) findViewById(R.id.nomWrapper);
         final TextInputLayout descripcio = (TextInputLayout) findViewById(R.id.descripcioWrapper);
@@ -77,16 +98,28 @@ public class NouProjecte extends AppCompatActivity {
         Intent inte;
         final EditText nom = findViewById(R.id.nomProjecte);
         final EditText descripcio = findViewById(R.id.descripcioProjecte);
+        Boolean edit = getIntent().getExtras().getBoolean("edit");
+
         switch (item.getItemId()) {
             case R.id.boto_desar:
                 if (nom.getText().length() == 0) {
                     nom.setError("El Projecte necessita un nom!");
                 } else {
-                    inte = new Intent(GestorArbreActivitats.AFEGIR_PROJECTE);
-                    inte.putExtra("nomProjecte", nom.getText().toString());
-                    inte.putExtra("descripcioProjecte", descripcio.getText().toString());
-                    sendBroadcast(inte);
-                    finish();
+                    if(edit){
+                        Log.d(tag,"Editant projecte");
+                        inte = new Intent(GestorArbreActivitats.EDITAR_PROJECTE);
+                        inte.putExtra("id", this.id);
+                        inte.putExtra("nomProjecte", nom.getText().toString());
+                        inte.putExtra("descripcioProjecte", descripcio.getText().toString());
+                        sendBroadcast(inte);
+                        finish();
+                    }else{
+                        inte = new Intent(GestorArbreActivitats.AFEGIR_PROJECTE);
+                        inte.putExtra("nomProjecte", nom.getText().toString());
+                        inte.putExtra("descripcioProjecte", descripcio.getText().toString());
+                        sendBroadcast(inte);
+                        finish();
+                    }
                 }
                 break;
             default:

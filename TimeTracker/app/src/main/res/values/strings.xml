@@ -29,4 +29,7 @@
     <string name="missatgeConfirmacioBack">Hi ha tasques que s\'estan cronometrant.\nSi surts, es deixaran de contar.\nSegur que vols sortir?</string>
     <string name="aceptar">OK</string>
     <string name="cancelar">Cancelar</string>
+
+    <!-- Editar -->
+    <string name="editar">Editar</string>
 </resources>

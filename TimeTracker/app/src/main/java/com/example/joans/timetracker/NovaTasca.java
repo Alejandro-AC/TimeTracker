@@ -31,21 +31,29 @@ public class NovaTasca extends AppCompatActivity {
      * Toolbar de l'Activity.
      */
     private Toolbar toolbar;
+    private int id;
+
+    public void setId(int id){
+        this.id = id;
+    }
 
     /**
      * String que defineix l'acció de demanar a GestorActivitats que afegeixi una nova Tasca a la
      * llista de fills de l'Activitat pare actual.
      */
     public static final String AFEGIR_TASCA = "Afegir_tasca";
+    public static final String EDITAR_TASCA = "Editar_tasca";
 
     private final String tag = this.getClass().getSimpleName();
 
     @Override
     public final void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Boolean edit = getIntent().getExtras().getBoolean("edit");
+        int id = getIntent().getExtras().getInt("id");
+        this.setId(id);
         Log.i(tag, "onCreate nova tasca");
         setContentView(R.layout.activity_nova_tasca);
-
         // Inicialitzem la Toolbar
         toolbar = (Toolbar) findViewById(R.id.my_toolbar_new_activity);
         setSupportActionBar(toolbar);
@@ -57,6 +65,14 @@ public class NovaTasca extends AppCompatActivity {
             }
         });
 
+        if(edit){
+            String nomIntent = getIntent().getExtras().getString("nom");
+            String descripcioIntent = getIntent().getExtras().getString("descripcio");
+            TextInputEditText nom = findViewById(R.id.nomTasca);
+            TextInputEditText descripcio = findViewById(R.id.descripcioTasca);
+            nom.setText(nomIntent);
+            descripcio.setText(descripcioIntent);
+        }
         etProgramada = findViewById(R.id.programada_et);
         etProgramada.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -93,23 +109,35 @@ public class NovaTasca extends AppCompatActivity {
     private Receptor receptor;
 
     public static EditText etProgramada;
+    Intent inte;
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         final TextInputEditText nom = findViewById(R.id.nomTasca);
         final TextInputEditText descripcio = findViewById(R.id.descripcioTasca);
 
-        Intent inte;
+        Boolean edit = getIntent().getExtras().getBoolean("edit");
+
         switch (item.getItemId()) {
             case R.id.boto_desar:
                 if (nom.getText().length() == 0) {
                     nom.setError("La Tasca necessita un nom!");
                 } else {
-                    inte = new Intent(GestorArbreActivitats.AFEGIR_TASCA);
-                    inte.putExtra("nomTasca", nom.getText().toString());
-                    inte.putExtra("descripcioTasca", descripcio.getText().toString());
-                    sendBroadcast(inte);
-                    finish();
+                    if(edit){
+                        Log.d(tag,"Editant tasca");
+                        inte = new Intent(GestorArbreActivitats.EDITAR_TASCA);
+                        inte.putExtra("id", this.id);
+                        inte.putExtra("nomTasca", nom.getText().toString());
+                        inte.putExtra("descripcioTasca", descripcio.getText().toString());
+                        sendBroadcast(inte);
+                        finish();
+                    }else{
+                        inte = new Intent(GestorArbreActivitats.AFEGIR_TASCA);
+                        inte.putExtra("nomTasca", nom.getText().toString());
+                        inte.putExtra("descripcioTasca", descripcio.getText().toString());
+                        sendBroadcast(inte);
+                        finish();
+                    }
                 }
                 break;
             default:

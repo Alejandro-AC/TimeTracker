@@ -29,6 +29,7 @@ Veure comentari de la classe Actualitzador
 */
 import nucli.Rellotge_Actualitzable;
 import nucli.Tasca;
+import nucli.Informacio;
 
 
 /**
@@ -95,6 +96,10 @@ public class GestorArbreActivitats extends Service implements Actualitzable {
      * Afegeix una nova Tasca a la llista d'Activitats del nivell actual.
      */
     public static final String AFEGIR_TASCA = "Afegir_tasca";
+
+    public static final String EDITAR_TASCA = "Editar_tasca";
+
+    public static final String EDITAR_PROJECTE = "Editar_projecte";
 
     /**
      * El servei consisteix en processar, com en el cas d'engegar i parar
@@ -326,6 +331,8 @@ public class GestorArbreActivitats extends Service implements Actualitzable {
         filter.addAction(LlistaActivitatsActivity.DONAM_NOM);
         filter.addAction(NouProjecte.AFEGIR_PROJECTE);
         filter.addAction(NovaTasca.AFEGIR_TASCA);
+        filter.addAction(NovaTasca.EDITAR_TASCA);
+        filter.addAction(NouProjecte.EDITAR_PROJECTE);
         receptor = new Receptor();
         registerReceiver(receptor, filter);
 
@@ -517,7 +524,48 @@ public class GestorArbreActivitats extends Service implements Actualitzable {
                 proj1.setDataFinal(d);
                 proj1.setDataInicial(d);
                 proj1.setDurada(0);
-            } else if (accio.equals(LlistaActivitatsActivity.DONAM_FILLS)
+            } else if (accio.equals(NovaTasca.EDITAR_TASCA)){
+                String nom = intent.getStringExtra("nomTasca");
+                String descripcio = intent.getStringExtra("descripcioTasca");
+                int id = intent.getIntExtra("id",0);
+                Log.d(tag,"DENTRO DEL GESTOR DE ARBOLES");
+                Log.d(tag,"NOM" + nom);
+                Log.d(tag,"DESCRIPCIO" + descripcio);
+                if (activitatPareActual.getClass().getName().endsWith("Projecte")) {
+                    for (Activitat act : ((Projecte) activitatPareActual).getActivitats()) {
+                        System.out.println(act.getNom());
+                        if(act.getClass().getName().endsWith("Tasca")) {
+                            if (act.getInfo().getId() == id) {
+                                Log.d(tag, "DENTRO HE ENCONTRADO ALGO");
+                                Informacio info = new Informacio(nom, descripcio);
+                                act.setInfo(info);
+                            }
+                        }
+                    }
+                }
+            }else if (accio.equals(NouProjecte.EDITAR_PROJECTE)){
+                //TODO: EDITAR PROJECTE
+                String nom = intent.getStringExtra("nomProjecte");
+                String descripcio = intent.getStringExtra("descripcioProjecte");
+                int id = intent.getIntExtra("id",0);
+                Log.d(tag,"DENTRO DEL GESTOR DE ARBOLES");
+                Log.d(tag,"NOM" + nom);
+                Log.d(tag,"DESCRIPCIO" + descripcio);
+                if (activitatPareActual.getClass().getName().endsWith("Projecte")) {
+                    for (Activitat act : ((Projecte) activitatPareActual).getActivitats()) {
+                        System.out.println(act.getNom());
+                        if(act.getClass().getName().endsWith("Projecte")) {
+                            if (act.getInfo().getId() == id) {
+                                Log.d(tag, "DENTRO HE ENCONTRADO ALGO");
+                                Informacio info = new Informacio(nom, descripcio);
+                                act.setInfo(info);
+                            }
+                        }
+                    }
+                }
+
+
+            }else if (accio.equals(LlistaActivitatsActivity.DONAM_FILLS)
                     || (accio.equals(LlistaIntervalsActivity.DONAM_FILLS))) {
                 enviaFills();
             } else if (accio.equals(LlistaActivitatsActivity.PUJA_NIVELL)
