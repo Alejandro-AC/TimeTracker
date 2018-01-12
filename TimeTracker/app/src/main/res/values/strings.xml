@@ -24,4 +24,9 @@
     <!-- Nou Informe -->
     <string name="desde">Desde</string>
     <string name="fins">Fins</string>
+
+    <!-- Missatge confirmació sortida -->
+    <string name="missatgeConfirmacioBack">Hi ha tasques que s\'estan cronometrant.\nSi surts, es deixaran de contar.\nSegur que vols sortir?</string>
+    <string name="aceptar">OK</string>
+    <string name="cancelar">Cancelar</string>
 </resources>

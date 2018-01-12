@@ -1,7 +1,11 @@
 package com.example.joans.timetracker;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.app.DialogFragment;
 import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.res.Configuration;
@@ -18,6 +22,7 @@ import android.support.design.internal.NavigationMenu;
 import android.widget.ImageView;
 import android.support.design.widget.FloatingActionButton;
 import android.graphics.Color;
+import android.annotation.SuppressLint;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -108,6 +113,11 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
      */
     public static int posicioItemLongClickat = -1;
 
+    /**
+     * Indica si hi ha tasques que s'estan cronometrant en algun lloc de l'arbre.
+     */
+    public static boolean tasquesCronometrant = false;
+
 
 
     /**
@@ -197,6 +207,9 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
                 // Això farà redibuixar el ListView
                 aaAct.notifyDataSetChanged();
                 Log.d(tag, "mostro els fills actualitzats");
+
+                // Mirem si hi ha alguna tasca que s'està cronometrant
+                tasquesCronometrant = isTasquesCronometrant(llistaDadesAct);
 
                 if (activitatPareActualEsArrel) {
                     // Si ens trobem en els fills de l'arrel de l'arbre d'Activitats, no cal
@@ -655,6 +668,56 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
     }
 
     /**
+     * Missatge que apareix al intentar sortir de l'aplicació si encara hi ha tasques cronometrant-se.
+     */
+    @SuppressLint("validFragment")
+    public class PopUpMessage extends DialogFragment {
+
+        private int message;
+        private int possitiveButton;
+        private int negativeButton;
+
+        public void setMessages(int message, int possitiveButton, int negativeButton) {
+            this.message = message;
+            this.possitiveButton = possitiveButton;
+            this.negativeButton = negativeButton;
+        }
+
+        @Override
+        public Dialog onCreateDialog(Bundle savedInstanceState) {
+            // Use the Builder class for convenient dialog construction
+            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+            builder.setMessage(message)
+                    .setPositiveButton(possitiveButton, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            opcioEscollida = id;
+                            onBackPressed();
+                        }
+                    })
+                    .setNegativeButton(negativeButton, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                        }
+                    });
+            // Create the AlertDialog object and return it
+            return builder.create();
+        }
+    }
+
+    private boolean isTasquesCronometrant(ArrayList<DadesActivitat> dadesActivitat) {
+        for(DadesActivitat activitat : dadesActivitat) {
+            if (activitat.isCronometreEngegat()) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * Opció escollida en el PopUpMessage
+     */
+    private int opcioEscollida = 0;
+
+    /**
      * Gestor de l'event de prémer la tecla 'enrera' del D-pad. El que fem es
      * anar "cap amunt" en l'arbre de tasques i projectes. Si el projecte pare
      * de les activitats que es mostren ara no és nul (n'hi ha), 'pugem' per
@@ -665,10 +728,25 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
     @Override
     public final void onBackPressed() {
         Log.i(tag, "onBackPressed");
-        if (activitatPareActualEsArrel) {
+
+        // Quan s'ha acceptat que es surti de l'APP encara que hi hagi Tasques running
+        if (opcioEscollida == -1) {
             Log.d(tag, "parem servei");
             sendBroadcast(new Intent(LlistaActivitatsActivity.PARA_SERVEI));
             super.onBackPressed();
+        }
+
+        if (activitatPareActualEsArrel) {
+            if (tasquesCronometrant) {
+                PopUpMessage missatgeConfirmacio = new PopUpMessage();
+                missatgeConfirmacio.setMessages(R.string.missatgeConfirmacioBack,
+                        R.string.aceptar, R.string.cancelar);
+                missatgeConfirmacio.show(getFragmentManager(), "missatge_back");
+            } else {
+                Log.d(tag, "parem servei");
+                sendBroadcast(new Intent(LlistaActivitatsActivity.PARA_SERVEI));
+                super.onBackPressed();
+            }
         } else {
             sendBroadcast(new Intent(LlistaActivitatsActivity.PUJA_NIVELL));
             Log.d(tag, "enviat intent PUJA_NIVELL");

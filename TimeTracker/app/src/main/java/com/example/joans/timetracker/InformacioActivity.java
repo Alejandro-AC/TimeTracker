@@ -109,8 +109,11 @@ public class InformacioActivity extends AppCompatActivity {
                 txtTempsTotal.setText(activitat.toStringTemps());
 
                 if (activitat.isCronometreEngegat()) {
-                    txtTempsTotal.setTextColor(getResources().getColor(R.color.colorRunning));
+                    txtNom.setTextColor(getResources().getColor(R.color.colorRunning));
+                    txtDescripcio.setTextColor(getResources().getColor(R.color.colorRunning));
+                    txtDataInici.setTextColor(getResources().getColor(R.color.colorRunning));
                     txtDataFinal.setTextColor(getResources().getColor(R.color.colorRunning));
+                    txtTempsTotal.setTextColor(getResources().getColor(R.color.colorRunning));
                 }
 
                 ImageView imgView = (ImageView)findViewById(R.id.activity_icon);

@@ -42,6 +42,8 @@ public class ActivityListAdapter extends ArrayAdapter<DadesActivitat> {
 
         // Canvia el color del temps si l'Activity està sent cronometrada
         if (dadesActivitats.get(posicio).isCronometreEngegat()) {
+            imageView.setColorFilter(ContextCompat.getColor(context, R.color.colorRunning));
+            txtNom.setTextColor(ContextCompat.getColor(context, R.color.colorRunning));
             txtTemps.setTextColor(ContextCompat.getColor(context, R.color.colorRunning));
         }
 
