@@ -1,31 +1,35 @@
 package com.example.joans.timetracker;
 
 import android.app.DatePickerDialog;
+import android.app.Dialog;
+import android.app.DialogFragment;
 import android.app.TimePickerDialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.res.Configuration;
 import android.os.Bundle;
-import android.support.design.widget.TextInputEditText;
+import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
-import android.content.IntentFilter;
-import android.view.MenuItem;
+import android.util.Log;
 import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.app.Dialog;
-import android.app.DialogFragment;
-import java.util.Calendar;
 import android.widget.TimePicker;
+import android.widget.Spinner;
+import java.util.Calendar;
+import android.widget.ArrayAdapter;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemSelectedListener;
 
 /**
- * Classe que gestiona l'Activity per crear una Tasca nova.
+ * Classe que s'encarrega de la creació d'un Informe sobre un Projecte
  */
-public class NovaTasca extends AppCompatActivity {
+public class NouInforme extends AppCompatActivity {
 
     /**
      * Toolbar de l'Activity.
@@ -33,10 +37,30 @@ public class NovaTasca extends AppCompatActivity {
     private Toolbar toolbar;
 
     /**
-     * String que defineix l'acció de demanar a GestorActivitats que afegeixi una nova Tasca a la
-     * llista de fills de l'Activitat pare actual.
+     * Nom del projecte del qual crearem l'Informe.
      */
-    public static final String AFEGIR_TASCA = "Afegir_tasca";
+    private String nomProjecte;
+
+    /**
+     * Contenen les dates per la creació de l'Informe.
+     */
+    public static EditText etDesde, etFins, aux;
+
+    /**
+     * Contenen els EditText de les dates.
+     */
+    public static TextInputLayout tilDesde, tilFins;
+
+    /**
+     * Spinners.
+     */
+    public static Spinner spinnerTipus, spinnerFormat;
+
+    /**
+     * Opcions dels Spinners.
+     */
+    private String[] tipus_array = new String[]{"Breu", "Detallat"};
+    private String[] format_array = new String[]{"Text", "Web"};
 
     private final String tag = this.getClass().getSimpleName();
 
@@ -44,12 +68,14 @@ public class NovaTasca extends AppCompatActivity {
     public final void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Log.i(tag, "onCreate nova tasca");
-        setContentView(R.layout.activity_nova_tasca);
+        setContentView(R.layout.activity_nou_informe);
+
+        // Obtenim el nom del Projecte del qual crearem l'Informe
+        sendBroadcast(new Intent(LlistaActivitatsActivity.DONAM_NOM));
 
         // Inicialitzem la Toolbar
         toolbar = (Toolbar) findViewById(R.id.my_toolbar_new_activity);
         setSupportActionBar(toolbar);
-        toolbar.setTitle("Nova Tasca");
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -57,18 +83,67 @@ public class NovaTasca extends AppCompatActivity {
             }
         });
 
-        etProgramada = findViewById(R.id.programada_et);
-        etProgramada.setOnClickListener(new View.OnClickListener() {
+        tilDesde = findViewById(R.id.desde_til);
+
+        etDesde = findViewById(R.id.desde_et);
+        etDesde.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 switch (view.getId()) {
-                    case R.id.programada_et:
+                    case R.id.desde_et:
+                        aux = etDesde;
                         showTimePickerDialog();
                         showDatePickerDialog();
                         break;
-                    case R.id.temps_limit_et:
+                }
+            }
+        });
+
+        tilFins = findViewById(R.id.fins_til);
+
+        etFins = findViewById(R.id.fins_et);
+        etFins.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                switch (view.getId()) {
+                    case R.id.fins_et:
+                        aux = etFins;
+                        showTimePickerDialog();
+                        showDatePickerDialog();
                         break;
                 }
+            }
+        });
+
+        spinnerTipus = (Spinner) findViewById(R.id.spinner_tipus);
+        ArrayAdapter<String> tipusAdapter = new ArrayAdapter<>(
+                this, android.R.layout.simple_spinner_dropdown_item, tipus_array);
+        spinnerTipus.setAdapter(tipusAdapter);
+        spinnerTipus.setSelection(0);
+        spinnerTipus.setOnItemSelectedListener(new OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                spinnerTipus.setSelection(position);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> arg0) {
+            }
+        });
+
+        spinnerFormat = (Spinner) findViewById(R.id.spinner_format);
+        ArrayAdapter<String> formatAdapter = new ArrayAdapter<>(
+                this, android.R.layout.simple_spinner_dropdown_item, format_array);
+        spinnerFormat.setAdapter(formatAdapter);
+        spinnerFormat.setSelection(0);
+        spinnerFormat.setOnItemSelectedListener(new OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                spinnerFormat.setSelection(position);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> arg0) {
             }
         });
     }
@@ -79,36 +154,42 @@ public class NovaTasca extends AppCompatActivity {
         return super.onCreateOptionsMenu(menu);
     }
 
-
     public class Receptor extends BroadcastReceiver {
         private final String tag = this.getClass().getCanonicalName();
 
         @Override
         public final void onReceive(final Context context,
                                     final Intent intent) {
-            Log.d(tag, "onRecieve Receptor NovaTasca");
+            Log.d(tag, "onRecieve Receptor NouInforme");
+            if (intent.getAction().equals(GestorArbreActivitats.TE_NOM)) {
+                nomProjecte = (String) intent.getSerializableExtra("nom_activitat_pare_actual");
+                if (nomProjecte.equals("ARREL")) {
+                    toolbar.setTitle("Informe: Tots els Projectes");
+                } else {
+                    toolbar.setTitle("Informe: " + nomProjecte);
+                }
+            }
         }
     }
 
-    private Receptor receptor;
-
-    public static EditText etProgramada;
+    private NouInforme.Receptor receptor;
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        final TextInputEditText nom = findViewById(R.id.nomTasca);
-        final TextInputEditText descripcio = findViewById(R.id.descripcioTasca);
-
-        Intent inte;
         switch (item.getItemId()) {
             case R.id.boto_desar:
-                if (nom.getText().length() == 0) {
-                    nom.setError("La Tasca necessita un nom!");
+                if (etDesde.getText().length() == 0 || etFins.getText().length() == 0) {
+                    if (etDesde.getText().length() == 0) {
+                        tilDesde.setError("Es necessita una data!");
+                    } else {
+                        tilDesde.setErrorEnabled(false);
+                    }
+                    if (etFins.getText().length() == 0) {
+                        tilFins.setError("Es necessita una data!");
+                    } else {
+                        tilFins.setErrorEnabled(false);
+                    }
                 } else {
-                    inte = new Intent(GestorArbreActivitats.AFEGIR_TASCA);
-                    inte.putExtra("nomTasca", nom.getText().toString());
-                    inte.putExtra("descripcioTasca", descripcio.getText().toString());
-                    sendBroadcast(inte);
                     finish();
                 }
                 break;
@@ -126,12 +207,12 @@ public class NovaTasca extends AppCompatActivity {
 
     @Override
     public final void onResume() {
-        Log.i(tag, "onREsume NovaTasca");
+        Log.i(tag, "onResume NouInforme");
 
         IntentFilter filter;
         filter = new IntentFilter();
-        filter.addAction(GestorArbreActivitats.AFEGIR_PROJECTE);
-        receptor = new NovaTasca.Receptor();
+        filter.addAction(GestorArbreActivitats.TE_NOM);
+        receptor = new NouInforme.Receptor();
         registerReceiver(receptor, filter);
 
         super.onResume();
@@ -139,32 +220,32 @@ public class NovaTasca extends AppCompatActivity {
 
     @Override
     public final void onPause() {
-        Log.i(tag, "onPause NovaTasca");
+        Log.i(tag, "onPause NouInforme");
         unregisterReceiver(receptor);
         super.onPause();
     }
 
     @Override
     public final void onDestroy() {
-        Log.i(tag, "onDestroy NovaTasca");
+        Log.i(tag, "onDestroy NouInforme");
         super.onDestroy();
     }
 
     @Override
     public final void onStart() {
-        Log.i(tag, "onStart NovaTasca");
+        Log.i(tag, "onStart NouInforme");
         super.onStart();
     }
 
     @Override
     public final void onStop() {
-        Log.i(tag, "onStop NovaTasca");
+        Log.i(tag, "onStop NouInforme");
         super.onStop();
     }
 
     @Override
     public final void onRestart() {
-        Log.i(tag, "onRestart NovaTasca");
+        Log.i(tag, "onRestart NouInforme");
         super.onRestart();
     }
 
@@ -194,8 +275,8 @@ public class NovaTasca extends AppCompatActivity {
             implements DatePickerDialog.OnDateSetListener {
         private DatePickerDialog.OnDateSetListener listener;
 
-        public static DatePickerFragment newInstance(DatePickerDialog.OnDateSetListener listener) {
-            DatePickerFragment fragment = new DatePickerFragment();
+        public static NouInforme.DatePickerFragment newInstance(DatePickerDialog.OnDateSetListener listener) {
+            NouInforme.DatePickerFragment fragment = new NouInforme.DatePickerFragment();
             fragment.setListener(listener);
             return fragment;
         }
@@ -216,7 +297,7 @@ public class NovaTasca extends AppCompatActivity {
 
         public void onDateSet(DatePicker view, int any, int mes, int dia){
             dataSeleccionada = twoDigits(dia) + "/" + twoDigits((mes + 1)) + "/" + any
-                    + " " + etProgramada.getText();
+                    + " " + aux.getText();
         }
     }
 
@@ -224,8 +305,8 @@ public class NovaTasca extends AppCompatActivity {
             implements TimePickerDialog.OnTimeSetListener {
         private TimePickerDialog.OnTimeSetListener listener;
 
-        public static TimePickerFragment newInstance(TimePickerDialog.OnTimeSetListener listener) {
-            TimePickerFragment fragment = new TimePickerFragment();
+        public static NouInforme.TimePickerFragment newInstance(TimePickerDialog.OnTimeSetListener listener) {
+            NouInforme.TimePickerFragment fragment = new NouInforme.TimePickerFragment();
             fragment.setListener(listener);
             return fragment;
         }
@@ -245,27 +326,23 @@ public class NovaTasca extends AppCompatActivity {
 
         public void onTimeSet(TimePicker timePicker, int hora, int min) {
             final String dataCompleta = dataSeleccionada + " " + (hora) + ":" + twoDigits(min);
-            etProgramada.setText(dataCompleta);
+            aux.setText(dataCompleta);
         }
     }
 
     private void showDatePickerDialog() {
-        DatePickerFragment newFragment = DatePickerFragment.newInstance(new DatePickerDialog.OnDateSetListener() {
+        NouInforme.DatePickerFragment newFragment = NouInforme.DatePickerFragment.newInstance(new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker datePciker, int any, int mes, int dia) {
-                final String dataSeleccionada = twoDigits(dia) + "/" + twoDigits((mes + 1)) + "/" + any;
-                etProgramada.setText(dataSeleccionada);
             }
         });
         newFragment.show(getFragmentManager(), "datePicker");
     }
 
     private void showTimePickerDialog() {
-        TimePickerFragment newFragment = TimePickerFragment.newInstance(new TimePickerDialog.OnTimeSetListener() {
+        NouInforme.TimePickerFragment newFragment = NouInforme.TimePickerFragment.newInstance(new TimePickerDialog.OnTimeSetListener() {
             @Override
             public void onTimeSet(TimePicker timePicker, int hora, int min) {
-                final String dataSeleccionada = etProgramada.getText() + " " + twoDigits(hora) + ":" + twoDigits(min);
-                etProgramada.setText(dataSeleccionada);
             }
         });
         newFragment.show(getFragmentManager(), "timePicker");
@@ -274,10 +351,4 @@ public class NovaTasca extends AppCompatActivity {
     public static String twoDigits(int n) {
         return (n<=9) ? ("0"+n) : String.valueOf(n);
     }
-
-
 }
-
-
-
-

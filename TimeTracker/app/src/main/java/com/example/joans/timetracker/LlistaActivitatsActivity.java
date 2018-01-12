@@ -108,13 +108,6 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
      */
     public static int posicioItemLongClickat = -1;
 
-    /**
-     * View que pertany a l'Activitat que s'ha seleccionat.
-     * Prendrà el valor null si no hi ha cap Activitat seleccionada.
-     */
-    private View viewLongClickada = null;
-
-
 
 
     /**
@@ -214,11 +207,20 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
                         public void onClick(View v) {
                         }
                     });
+
+                    if (menuToolbar != null) {
+                        // Si estem de tornada, cal tornar a mostrar el botó per veure els informes
+                        // de tot el programa (Informes generals)
+                        MenuItem itemInformesGenerals = menuToolbar.findItem(R.id.boto_informes_arrel);
+                        itemInformesGenerals.setVisible(true);
+                    }
+
                     ImageView imgView = (ImageView)findViewById(R.id.activity_icon);
                     imgView.setVisibility(View.GONE);
 
                     // A la Toolbar apareix el nom de l'app
                     toolbar.setTitle(R.string.app_name);
+                    nomActivitatPareActual = "";
                 } else {
                     // Si ens trobem a l'interior de l'arbre, mostrarem a la Toolbar el botó de Back
                     toolbar.setNavigationIcon(R.drawable.ic_back);
@@ -228,6 +230,9 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
                             onBackPressed();
                         }
                     });
+
+                    MenuItem itemInformesGenerals = menuToolbar.findItem(R.id.boto_informes_arrel);
+                    itemInformesGenerals.setVisible(false);
 
                     // Mostrem a la Toolbar el nom de l'Activitat pare
                     sendBroadcast(new Intent(LlistaActivitatsActivity.DONAM_NOM));
@@ -345,7 +350,6 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
         // al tornar a mostrar aquesta activitat, cal inicialitzar una altra vegada els atributs
         // que serveixen per controlar els longClicks
         posicioItemLongClickat = -1;
-        viewLongClickada = null;
         longClick = false;
 
         // Crea el servei GestorArbreActivitats, si no existia ja. A més,
@@ -377,8 +381,10 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
         fabPlay.setImageResource(R.drawable.ic_play);
         fabPlay.setVisibility(View.GONE);
 
-        MenuItem item = menuToolbar.findItem(R.id.boto_detalls);
-        item.setVisible(false);
+        MenuItem itemDetalls = menuToolbar.findItem(R.id.boto_detalls);
+        itemDetalls.setVisible(false);
+        MenuItem itemInformes = menuToolbar.findItem(R.id.boto_informes);
+        itemInformes.setVisible(false);
 
         fabSpeedDial.setVisibility(View.VISIBLE);
 
@@ -467,14 +473,15 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
                         // el longClick que hi ha sobre l'item
                         longClick = false;
                         posicioItemLongClickat = -1;
-                        viewLongClickada = null;
 
                         view.setBackgroundColor(Color.WHITE);
                         fabPlay.setVisibility(View.GONE);
                         fabSpeedDial.setVisibility(View.VISIBLE);
 
-                        MenuItem item = menuToolbar.findItem(R.id.boto_detalls);
-                        item.setVisible(false);
+                        MenuItem itemDetalls = menuToolbar.findItem(R.id.boto_detalls);
+                        itemDetalls.setVisible(false);
+                        MenuItem itemInformes = menuToolbar.findItem(R.id.boto_informes);
+                        itemInformes.setVisible(false);
                     }
                 }
             }
@@ -495,7 +502,6 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
 
                 // Guardem la View seleccionada (per si la necessitem en un futur per canviar el
                 // color del fons.
-                viewLongClickada = view;
 
                 if (llistaDadesActivitats.get(pos).isTasca()) {
                     if (!longClick) {
@@ -521,6 +527,9 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
                         view.setBackgroundColor(Color.GRAY);
 
                         fabSpeedDial.setVisibility(View.GONE);
+
+                        MenuItem itemInformes = menuToolbar.findItem(R.id.boto_informes);
+                        itemInformes.setVisible(true);
 
                         // Guardem els atributs relacionats amb el longClick realitzat
                         longClick = true;
@@ -565,6 +574,7 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
                         startActivity( new Intent(LlistaActivitatsActivity.this, NovaTasca.class));
                         break;
                     case R.id.fab_report:
+                        startActivity( new Intent(LlistaActivitatsActivity.this, NouInforme.class));
                         break;
                     default:
                         break;
@@ -596,8 +606,11 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
                 sendBroadcast(inte);
 
                 // Treiem la selecció de l'Activitat en qüestió
-                MenuItem item = menuToolbar.findItem(R.id.boto_detalls);
-                item.setVisible(false);
+                MenuItem itemDetalls = menuToolbar.findItem(R.id.boto_detalls);
+                itemDetalls.setVisible(false);
+                MenuItem itemInformes = menuToolbar.findItem(R.id.boto_informes);
+                itemInformes.setVisible(false);
+
 
                 view.setBackgroundColor(Color.WHITE);
 
@@ -608,7 +621,6 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
 
                 longClick = false;
                 posicioItemLongClickat = -1;
-                viewLongClickada = null;
             }
         });
 
@@ -618,8 +630,12 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         menuToolbar = menu;
         getMenuInflater().inflate(R.menu.menu_toolbar_activitat, menu);
-        MenuItem item = menu.findItem(R.id.boto_detalls);
-        item.setVisible(false);
+        MenuItem itemDetalls = menuToolbar.findItem(R.id.boto_detalls);
+        itemDetalls.setVisible(false);
+        MenuItem itemInformes = menuToolbar.findItem(R.id.boto_informes);
+        itemInformes.setVisible(false);
+        MenuItem itemInformesGenerals = menuToolbar.findItem(R.id.boto_informes_arrel);
+        itemInformesGenerals.setVisible(true);
 
         return super.onCreateOptionsMenu(menu);
     }
@@ -660,7 +676,6 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
             Log.d(tag, "enviat intent DONAM_FILLS");
 
             // Al cambiar de nivell de l'arbre, cal reinicialtizar els atributs del longClick
-            viewLongClickada = null;
             longClick = false;
             posicioItemLongClickat = -1;
 
@@ -670,8 +685,10 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
 
             fabSpeedDial.setVisibility(View.VISIBLE);
 
-            MenuItem item = menuToolbar.findItem(R.id.boto_detalls);
-            item.setVisible(false);
+            MenuItem itemDetalls = menuToolbar.findItem(R.id.boto_detalls);
+            itemDetalls.setVisible(false);
+            MenuItem itemInformes = menuToolbar.findItem(R.id.boto_informes);
+            itemInformes.setVisible(false);
         }
     }
 

@@ -61,6 +61,9 @@ public class InformacioActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.menu_toolbar_activitat, menu);
         MenuItem item = menu.findItem(R.id.boto_detalls);
         item.setVisible(false);
+        item = menu.findItem(R.id.boto_informes);
+        item.setVisible(false);
+
         return super.onCreateOptionsMenu(menu);
     }
 

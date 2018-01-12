@@ -43,12 +43,6 @@ import nucli.Tasca;
  */
 public class GestorArbreActivitats extends Service implements Actualitzable {
 
-    public static final String TE_NOM = "Te_nom";
-
-    public static final String AFEGIR_PROJECTE = "Afegir_projecte";
-
-    public static final String AFEGIR_TASCA = "Afegir_tasca";
-
     /**
      * Nom de la classe per fer aparèixer als missatges de logging del LogCat.
      *
@@ -86,6 +80,21 @@ public class GestorArbreActivitats extends Service implements Actualitzable {
      * valor inicial és el projecte arrel de tot l'abre, {@link #arrel}
      */
     private Activitat activitatPareActual;
+
+    /**
+     * Retorna el nom de l'Activitat pare actual.
+     */
+    public static final String TE_NOM = "Te_nom";
+
+    /**
+     * Afegeix un nou Projecte a la llista d'Activitats del nivell actual.
+     */
+    public static final String AFEGIR_PROJECTE = "Afegir_projecte";
+
+    /**
+     * Afegeix una nova Tasca a la llista d'Activitats del nivell actual.
+     */
+    public static final String AFEGIR_TASCA = "Afegir_tasca";
 
     /**
      * El servei consisteix en processar, com en el cas d'engegar i parar

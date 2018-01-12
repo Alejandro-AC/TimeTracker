@@ -4,19 +4,24 @@
     <string name="project">Projecte</string>
     <string name="tasca">Tasca</string>
     <string name="report">Informe</string>
+    <string name="informe_general">Informes generals</string>
     <string name="opcions">Opcions</string>
     <string name="informacio">Detalls</string>
 
-    <!-- Activity Info -->
+    <!-- Informació Activitat -->
     <string name="nom">Nom</string>
     <string name="descripcio">Descripció</string>
     <string name="interval">Interval</string>
     <string name="tempsTotal">Temps total</string>
 
-    <!-- New task -->
+    <!-- Nova Tasca -->
     <string name="desar">Desar</string>
     <string name="limited_time_text">Temps límit</string>
     <string name="add_schedule_text">Data programada</string>
     <string name="programada">Programar data d\'inici</string>
     <string name="temps_limit">Definir temps límit (en segons)</string>
+
+    <!-- Nou Informe -->
+    <string name="desde">Desde</string>
+    <string name="fins">Fins</string>
 </resources>

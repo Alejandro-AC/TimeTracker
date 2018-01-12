@@ -132,6 +132,8 @@ public class LlistaIntervalsActivity extends AppCompatActivity {
 
         MenuItem item = menu.findItem(R.id.boto_detalls);
         item.setVisible(false);
+        item = menu.findItem(R.id.boto_informes);
+        item.setVisible(false);
 
         return super.onCreateOptionsMenu(menu);
     }

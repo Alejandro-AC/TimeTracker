@@ -20,8 +20,14 @@ public class NouProjecte extends AppCompatActivity {
 
     private final String tag = this.getClass().getSimpleName();
 
+    /**
+     * Acció per demanar al GestorArbreActivitats que afegeixi un nou projecte.
+     */
     public static final String AFEGIR_PROJECTE = "Afegir_projecte";
 
+    /**
+     * Toolbar de l'Activity.
+     */
     private Toolbar toolbar;
 
     @Override
@@ -73,11 +79,15 @@ public class NouProjecte extends AppCompatActivity {
         final EditText descripcio = findViewById(R.id.descripcioProjecte);
         switch (item.getItemId()) {
             case R.id.boto_desar:
-                inte = new Intent(GestorArbreActivitats.AFEGIR_PROJECTE);
-                inte.putExtra("nomProjecte", nom.getText().toString());
-                inte.putExtra("descripcioProjecte", descripcio.getText().toString());
-                sendBroadcast(inte);
-                finish();
+                if (nom.getText().length() == 0) {
+                    nom.setError("El Projecte necessita un nom!");
+                } else {
+                    inte = new Intent(GestorArbreActivitats.AFEGIR_PROJECTE);
+                    inte.putExtra("nomProjecte", nom.getText().toString());
+                    inte.putExtra("descripcioProjecte", descripcio.getText().toString());
+                    sendBroadcast(inte);
+                    finish();
+                }
                 break;
             default:
                 break;

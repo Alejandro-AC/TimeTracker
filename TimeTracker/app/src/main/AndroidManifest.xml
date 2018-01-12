@@ -36,6 +36,10 @@
             android:name=".InformacioActivity" >
         </activity>
 
+        <activity
+            android:name=".NouInforme" >
+        </activity>
+
     </application>
 
 </manifest>

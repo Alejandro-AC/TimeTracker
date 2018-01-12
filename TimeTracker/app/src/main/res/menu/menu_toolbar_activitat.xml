@@ -5,11 +5,24 @@
     xmlns:app="http://schemas.android.com/apk/res-auto" >
 
     <item
+        android:id="@+id/boto_informes"
+        android:icon="@drawable/ic_report_white"
+        android:title="@string/report"
+        app:titleTextColor="@color/colorSecondary"
+        app:showAsAction="ifRoom" />
+
+    <item
         android:id="@+id/boto_detalls"
         android:icon="@drawable/ic_information"
         android:title="@string/informacio"
         app:titleTextColor="@color/colorSecondary"
         app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/boto_informes_arrel"
+        android:title="@string/informe_general"
+        app:titleTextColor="@color/colorText"
+        app:showAsAction="never" />
 
     <item
         android:id="@+id/boto_opcions"
