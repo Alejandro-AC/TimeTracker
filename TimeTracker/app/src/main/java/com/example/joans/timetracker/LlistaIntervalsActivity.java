@@ -5,12 +5,14 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.res.Configuration;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.support.v7.widget.Toolbar;
@@ -43,6 +45,23 @@ public class LlistaIntervalsActivity extends AppCompatActivity {
      * Floating Action Button que permet "borrar" Activities i Intervals.
      */
     private FloatingActionButton fabDelete;
+
+    /**
+     * View seleccionada
+     */
+    private View selectedView;
+
+    /**
+     * Flag que indica si hi ha una Activitat de la Llista que està seleccionada (s'ha fet
+     * LongClick sobre ella).
+     */
+    private boolean longClick = false;
+
+    /**
+     * Posició de l'Activitat que s'ha seleccionat.
+     * Prendrà el valor -1 si no hi ha cap Activitat seleccionada.
+     */
+    public static int posicioItemLongClickat = -1;
 
     /**
      * Nom de l'Activitat pare de les Activitats que s'estan mostrant a la llista.
@@ -130,6 +149,54 @@ public class LlistaIntervalsActivity extends AppCompatActivity {
         llistaDadesIntervals = new ArrayList<DadesInterval>();
         aaAct = new IntervalListAdapter(this, llistaDadesIntervals);
         intervalsListView.setAdapter(aaAct);
+
+
+        // Un "long click" serveix per seleccionar una Activitat amb la qual volem interactuar,
+        // tant per encendre el seu cronómetre com per parar-lo, o per veure els seus Detalls.
+        intervalsListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(final AdapterView<?> arg0,
+                                           final View view, final int pos, final long id) {
+                Log.i(tag, "onItemLongClick");
+                Log.d(tag, "pos = " + pos + ", id = " + id);
+
+
+
+                // Guardem la View seleccionada (per si la necessitem en un futur per canviar el
+                // color del fons.
+                selectedView = view;
+
+
+                    if (!longClick) {
+                        // Si no tenim cap altre element seleccionat, podem seleccionar la Tasca
+                        view.setBackgroundColor(Color.GRAY);
+
+                        fabDelete.setVisibility(View.VISIBLE);
+
+                        // Guardem els atributs relacionats amb el longClick realitzat
+                        longClick = true;
+                        posicioItemLongClickat = pos;
+                    }
+
+                return true;
+            }
+        });
+
+
+        fabDelete = (FloatingActionButton) findViewById(R.id.fab_delete);
+        fabDelete.setVisibility(View.GONE);
+        fabDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                selectedView.setBackgroundColor(Color.parseColor("#EEEEEE"));
+
+                fabDelete.setVisibility(View.GONE);
+
+                longClick = false;
+                posicioItemLongClickat = -1;
+            }
+        });
     }
 
     @Override
@@ -237,6 +304,10 @@ public class LlistaIntervalsActivity extends AppCompatActivity {
         sendBroadcast(new Intent(LlistaIntervalsActivity.PUJA_NIVELL));
         Log.d(tag, "enviat intent PUJA_NIVELL");
         super.onBackPressed();
+
+        // Al cambiar de nivell de l'arbre, cal reinicialtizar els atributs del longClick
+        longClick = false;
+        posicioItemLongClickat = -1;
     }
 
     /**
@@ -248,6 +319,11 @@ public class LlistaIntervalsActivity extends AppCompatActivity {
     @Override
     public final void onResume() {
         Log.i(tag, "onResume intervals");
+
+        // al tornar a mostrar aquest interval, cal inicialitzar una altra vegada els atributs
+        // que serveixen per controlar els longClicks
+        posicioItemLongClickat = -1;
+        longClick = false;
 
         IntentFilter filter;
         filter = new IntentFilter();

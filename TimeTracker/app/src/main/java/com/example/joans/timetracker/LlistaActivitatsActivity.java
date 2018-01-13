@@ -102,8 +102,7 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
     private FabSpeedDial fabSpeedDial;
 
     /**
-     * Floating Action Button amb l'efecte Speed Dial.
-     * Mostra les opcions de creació d'una nova Activitat (Projecte o Tasca) i d'un Informe.
+     * View seleccionada
      */
     private View selectedView;
 
