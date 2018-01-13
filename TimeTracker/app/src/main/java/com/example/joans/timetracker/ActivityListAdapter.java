@@ -50,7 +50,11 @@ public class ActivityListAdapter extends ArrayAdapter<DadesActivitat> {
         // Pinta l'item si està seleccionat
         if (posicio == LlistaActivitatsActivity.posicioItemLongClickat) {
             rowView.setBackgroundColor(Color.GRAY);
-        }
+
+            }else{
+                rowView.setBackgroundColor(Color.parseColor("#EEEEEE"));
+            }
+
 
         txtTemps.setText(dadesActivitats.get(posicio).toStringTemps());
 

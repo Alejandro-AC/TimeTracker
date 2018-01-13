@@ -102,6 +102,12 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
     private FabSpeedDial fabSpeedDial;
 
     /**
+     * Floating Action Button amb l'efecte Speed Dial.
+     * Mostra les opcions de creació d'una nova Activitat (Projecte o Tasca) i d'un Informe.
+     */
+    private View selectedView;
+
+    /**
      * Nom de l'Activitat pare de les Activitats que s'estan mostrant a la llista.
      */
     private String nomActivitatPareActual = "";
@@ -494,7 +500,9 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
                         longClick = false;
                         posicioItemLongClickat = -1;
 
-                        view.setBackgroundColor(Color.parseColor("#F1F2F3"));
+
+
+                        view.setBackgroundColor(Color.parseColor("#EEEEEE"));
                         fabPlay.setVisibility(View.GONE);
                         fabDelete.setVisibility(View.GONE);
                         fabSpeedDial.setVisibility(View.VISIBLE);
@@ -521,10 +529,11 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
                 MenuItem item = menuToolbar.findItem(R.id.boto_detalls);
                 item.setVisible(true);
 
-                fabDelete.setVisibility(View.VISIBLE);
+
 
                 // Guardem la View seleccionada (per si la necessitem en un futur per canviar el
                 // color del fons.
+                selectedView = view;
 
                 if (llistaDadesActivitats.get(pos).isTasca()) {
                     if (!longClick) {
@@ -540,6 +549,7 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
                         }
 
                         fabPlay.setVisibility(View.VISIBLE);
+                        fabDelete.setVisibility(View.VISIBLE);
 
                         // Guardem els atributs relacionats amb el longClick realitzat
                         longClick = true;
@@ -549,6 +559,8 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
                     if (!longClick) {
                         // Si no tenim cap altre element seleccionat, podem seleccionar el Projecte
                         view.setBackgroundColor(Color.GRAY);
+
+                        fabDelete.setVisibility(View.VISIBLE);
 
                         fabSpeedDial.setVisibility(View.GONE);
 
@@ -639,11 +651,10 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
                 MenuItem itemInformes = menuToolbar.findItem(R.id.boto_informes);
                 itemInformes.setVisible(false);
 
-
-                view.setBackgroundColor(Color.parseColor("#F1F2F3"));
-
+                selectedView.setBackgroundColor(Color.parseColor("#EEEEEE"));
 
                 fabPlay.setVisibility(View.GONE);
+                fabDelete.setVisibility(View.GONE);
 
                 fabSpeedDial.setVisibility(View.VISIBLE);
 
@@ -659,17 +670,15 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-
                 // Treiem la selecció de l'Activitat en qüestió
                 MenuItem itemDetalls = menuToolbar.findItem(R.id.boto_detalls);
                 itemDetalls.setVisible(false);
                 MenuItem itemInformes = menuToolbar.findItem(R.id.boto_informes);
                 itemInformes.setVisible(false);
 
+                selectedView.setBackgroundColor(Color.parseColor("#EEEEEE"));
 
-                view.setBackgroundColor(Color.parseColor("#F1F2F3"));
-
-
+                fabPlay.setVisibility(View.GONE);
                 fabDelete.setVisibility(View.GONE);
 
                 fabSpeedDial.setVisibility(View.VISIBLE);
