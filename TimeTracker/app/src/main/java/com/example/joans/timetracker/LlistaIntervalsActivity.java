@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
@@ -37,6 +38,11 @@ public class LlistaIntervalsActivity extends AppCompatActivity {
      * Toolbar de l'Activity.
      */
     private Toolbar toolbar;
+
+    /**
+     * Floating Action Button que permet "borrar" Activities i Intervals.
+     */
+    private FloatingActionButton fabDelete;
 
     /**
      * Nom de l'Activitat pare de les Activitats que s'estan mostrant a la llista.

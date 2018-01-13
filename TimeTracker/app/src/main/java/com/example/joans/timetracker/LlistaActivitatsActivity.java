@@ -91,6 +91,11 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
     private FloatingActionButton fabPlay;
 
     /**
+     * Floating Action Button que permet "borrar" Activities i Intervals.
+     */
+    private FloatingActionButton fabDelete;
+
+    /**
      * Floating Action Button amb l'efecte Speed Dial.
      * Mostra les opcions de creació d'una nova Activitat (Projecte o Tasca) i d'un Informe.
      */
@@ -394,6 +399,8 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
         fabPlay.setImageResource(R.drawable.ic_play);
         fabPlay.setVisibility(View.GONE);
 
+        fabDelete.setVisibility(View.GONE);
+
         MenuItem itemDetalls = menuToolbar.findItem(R.id.boto_detalls);
         itemDetalls.setVisible(false);
         MenuItem itemInformes = menuToolbar.findItem(R.id.boto_informes);
@@ -487,8 +494,9 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
                         longClick = false;
                         posicioItemLongClickat = -1;
 
-                        view.setBackgroundColor(Color.WHITE);
+                        view.setBackgroundColor(Color.parseColor("#F1F2F3"));
                         fabPlay.setVisibility(View.GONE);
+                        fabDelete.setVisibility(View.GONE);
                         fabSpeedDial.setVisibility(View.VISIBLE);
 
                         MenuItem itemDetalls = menuToolbar.findItem(R.id.boto_detalls);
@@ -513,6 +521,8 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
                 MenuItem item = menuToolbar.findItem(R.id.boto_detalls);
                 item.setVisible(true);
 
+                fabDelete.setVisibility(View.VISIBLE);
+
                 // Guardem la View seleccionada (per si la necessitem en un futur per canviar el
                 // color del fons.
 
@@ -528,6 +538,7 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
                         } else {
                             fabPlay.setImageResource(R.drawable.ic_play);
                         }
+
                         fabPlay.setVisibility(View.VISIBLE);
 
                         // Guardem els atributs relacionats amb el longClick realitzat
@@ -629,10 +640,37 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
                 itemInformes.setVisible(false);
 
 
-                view.setBackgroundColor(Color.WHITE);
+                view.setBackgroundColor(Color.parseColor("#F1F2F3"));
 
 
                 fabPlay.setVisibility(View.GONE);
+
+                fabSpeedDial.setVisibility(View.VISIBLE);
+
+                longClick = false;
+                posicioItemLongClickat = -1;
+            }
+        });
+
+
+        fabDelete = (FloatingActionButton) findViewById(R.id.fab_delete);
+        fabDelete.setVisibility(View.GONE);
+        fabDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+
+                // Treiem la selecció de l'Activitat en qüestió
+                MenuItem itemDetalls = menuToolbar.findItem(R.id.boto_detalls);
+                itemDetalls.setVisible(false);
+                MenuItem itemInformes = menuToolbar.findItem(R.id.boto_informes);
+                itemInformes.setVisible(false);
+
+
+                view.setBackgroundColor(Color.parseColor("#F1F2F3"));
+
+
+                fabDelete.setVisibility(View.GONE);
 
                 fabSpeedDial.setVisibility(View.VISIBLE);
 
@@ -767,6 +805,8 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
             // Tornem els elements de la Activity al seu estat inicial
             fabPlay.setImageResource(R.drawable.ic_play);
             fabPlay.setVisibility(View.GONE);
+
+            fabDelete.setVisibility(View.GONE);
 
             fabSpeedDial.setVisibility(View.VISIBLE);
 
