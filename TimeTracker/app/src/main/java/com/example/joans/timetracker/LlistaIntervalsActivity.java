@@ -151,6 +151,32 @@ public class LlistaIntervalsActivity extends AppCompatActivity {
         intervalsListView.setAdapter(aaAct);
 
 
+        intervalsListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(final AdapterView<?> arg0, final View view,
+                                    final int pos, final long id) {
+                Log.i(tag, "onItemClick");
+                Log.d(tag, "pos = " + pos + ", id = " + id);
+
+                if (longClick) {
+                    // Si a la llista d'Activitats hi ha un element seleccionat (s'ha fet un
+                    // longClick)
+                    if (pos == posicioItemLongClickat) {
+                        // Si l'item que hem clickat és el mateix que tenim seleccionat, treïem
+                        // el longClick que hi ha sobre l'item
+                        longClick = false;
+                        posicioItemLongClickat = -1;
+
+
+
+                        view.setBackgroundColor(Color.parseColor("#EEEEEE"));
+                        fabDelete.setVisibility(View.GONE);
+                    }
+                }
+            }
+        });
+
+
         // Un "long click" serveix per seleccionar una Activitat amb la qual volem interactuar,
         // tant per encendre el seu cronómetre com per parar-lo, o per veure els seus Detalls.
         intervalsListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
