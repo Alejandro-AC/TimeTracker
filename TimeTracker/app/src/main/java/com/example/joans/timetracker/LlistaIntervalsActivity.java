@@ -7,7 +7,6 @@ import android.content.IntentFilter;
 import android.content.res.Configuration;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
@@ -42,9 +41,10 @@ public class LlistaIntervalsActivity extends AppCompatActivity {
     private Toolbar toolbar;
 
     /**
-     * Floating Action Button que permet "borrar" Activities i Intervals.
+     * Menú de la Toolbar. Conté les diferents opcions de aquesta.
      */
-    private FloatingActionButton fabDelete;
+    private Menu menuToolbar;
+
 
     /**
      * View seleccionada
@@ -170,7 +170,10 @@ public class LlistaIntervalsActivity extends AppCompatActivity {
 
 
                         view.setBackgroundColor(Color.parseColor("#EEEEEE"));
-                        fabDelete.setVisibility(View.GONE);
+
+                        MenuItem itemDelete = menuToolbar.findItem(R.id.boto_delete);
+                        itemDelete.setVisible(false);
+
                     }
                 }
             }
@@ -194,10 +197,11 @@ public class LlistaIntervalsActivity extends AppCompatActivity {
 
 
                     if (!longClick) {
-                        // Si no tenim cap altre element seleccionat, podem seleccionar la Tasca
+                        // Si no tenim cap altre element seleccionat, podem seleccionar el Interval
                         view.setBackgroundColor(Color.GRAY);
 
-                        fabDelete.setVisibility(View.VISIBLE);
+                        MenuItem itemDelete = menuToolbar.findItem(R.id.boto_delete);
+                        itemDelete.setVisible(true);
 
                         // Guardem els atributs relacionats amb el longClick realitzat
                         longClick = true;
@@ -209,26 +213,15 @@ public class LlistaIntervalsActivity extends AppCompatActivity {
         });
 
 
-        fabDelete = (FloatingActionButton) findViewById(R.id.fab_delete);
-        fabDelete.setVisibility(View.GONE);
-        fabDelete.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
 
-                selectedView.setBackgroundColor(Color.parseColor("#EEEEEE"));
-
-                fabDelete.setVisibility(View.GONE);
-
-                longClick = false;
-                posicioItemLongClickat = -1;
-            }
-        });
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+        menuToolbar = menu;
         getMenuInflater().inflate(R.menu.menu_toolbar_activitat, menu);
-
+        MenuItem itemDelete = menu.findItem(R.id.boto_delete);
+        itemDelete.setVisible(false);
         MenuItem item = menu.findItem(R.id.boto_detalls);
         item.setVisible(false);
         item = menu.findItem(R.id.boto_informes);
@@ -241,6 +234,16 @@ public class LlistaIntervalsActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.boto_opcions:
+                break;
+            case R.id.boto_delete:
+                // Treiem la selecció de l'Activitat en qüestió
+                MenuItem itemDelete = menuToolbar.findItem(R.id.boto_delete);
+                itemDelete.setVisible(false);
+
+                selectedView.setBackgroundColor(Color.parseColor("#EEEEEE"));
+
+                longClick = false;
+                posicioItemLongClickat = -1;
                 break;
             default:
                 break;
@@ -371,6 +374,9 @@ public class LlistaIntervalsActivity extends AppCompatActivity {
     @Override
     public final void onPause() {
         Log.i(tag, "onPause intervals");
+
+        MenuItem itemDelete = menuToolbar.findItem(R.id.boto_delete);
+        itemDelete.setVisible(false);
 
         unregisterReceiver(receptor);
 

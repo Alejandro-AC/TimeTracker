@@ -20,6 +20,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
+import java.util.Collection;
 
 import nucli.Activitat;
 import nucli.Interval;
@@ -75,6 +76,19 @@ public class GestorArbreActivitats extends Service implements Actualitzable {
      * Arxiu on es desa tot l'arbre de projectes, tasques i intervals.
      */
     private final String nomArxiu = "timetracker.dat";
+
+    /**
+     * Sort option
+     */
+    private String sortOption = "alfabeticament";
+
+    public void setSortOption(String sortOption1){
+        this.sortOption = sortOption1;
+    }
+
+    public String getSortOption(){
+        return this.sortOption;
+    }
 
     /**
      * En navegar per l'arbre de projectes i tasques, és el projecte pare de la
@@ -464,8 +478,16 @@ public class GestorArbreActivitats extends Service implements Actualitzable {
             if ((accio.equals(LlistaActivitatsActivity.ENGEGA_CRONOMETRE))
                     || (accio.equals(LlistaActivitatsActivity.PARA_CRONOMETRE))) {
                 int posicio = intent.getIntExtra("posicio", -1);
-                Tasca tascaClicada = (Tasca) ((Projecte) activitatPareActual)
-                        .getActivitats().toArray()[posicio];
+                //Tasca tascaClicada = (Tasca) ((Projecte) activitatPareActual).getActivitats().toArray()[posicio];
+
+                List<Activitat> activityList = new ArrayList<Activitat>(((Projecte) activitatPareActual).getActivitats());
+
+                sort(getSortOption(), activityList);
+                //Collection<Activitat> childsActivitatPareActual3 = activityList;
+
+                Tasca tascaClicada = (Tasca) activityList.toArray()[posicio];
+
+
                 if (accio.equals(LlistaActivitatsActivity.ENGEGA_CRONOMETRE)) {
                     if (!tascaClicada.isCronometreEngegat()) {
                         // rellotge.engega();
@@ -583,9 +605,16 @@ public class GestorArbreActivitats extends Service implements Actualitzable {
                 // per que els intervals no son clicables (no gestionem aquest
                 // event). Ara, la activitat clicada tant pot ser un projecte
                 // com una tasca.
-                Activitat activitatClicada =
-                        (Activitat) ((Projecte) activitatPareActual)
-                                .getActivitats().toArray()[posicio];
+
+
+                //Activitat activitatClicada = (Activitat) ((Projecte) activitatPareActual).getActivitats().toArray()[posicio];
+
+                List<Activitat> activityList = new ArrayList<Activitat>(((Projecte) activitatPareActual).getActivitats());
+
+                sort(getSortOption(), activityList);
+                //Collection<Activitat> childsActivitatPareActual3 = activityList;
+                Activitat activitatClicada = (Activitat) activityList.toArray()[posicio];
+
                 activitatPareActual = activitatClicada;
             } else if (accio.equals(LlistaActivitatsActivity.PARA_SERVEI)) {
                 paraServei();
@@ -613,12 +642,23 @@ public class GestorArbreActivitats extends Service implements Actualitzable {
         if (activitatPareActual.getClass().getName().endsWith("Projecte")) {
             ArrayList<DadesActivitat> llistaDadesAct =
                     new ArrayList<DadesActivitat>();
-            for (Activitat act : ((Projecte) activitatPareActual)
-                    .getActivitats()) {
+
+
+
+            List<Activitat> activityList = new ArrayList<Activitat>(((Projecte) activitatPareActual).getActivitats());
+
+            sort(getSortOption(), activityList);
+            //Collection<Activitat> childsActivitatPareActual3 = activityList;
+
+            for (Activitat act : activityList) {
                 llistaDadesAct.add(new DadesActivitat(act));
             }
 
-
+            /*
+            for (Activitat act : ((Projecte) activitatPareActual)
+                    .getActivitats()) {
+                llistaDadesAct.add(new DadesActivitat(act));
+            }*/
 
             resposta.putExtra("llista_dades_activitats", llistaDadesAct);
         } else { // es tasca
@@ -696,6 +736,72 @@ public class GestorArbreActivitats extends Service implements Actualitzable {
         return activitatPareActual.getNom();
     }
 
+
+    /*public void sort(final String field, List<DadesActivitat> dadesActivitatL) {
+        Collections.sort(dadesActivitatL, new Comparator<DadesActivitat>() {
+            @Override
+            public int compare(DadesActivitat o1, DadesActivitat o2) {
+                if(field.equals("alfabeticament")) {
+                    return o1.getNom().compareTo(o2.getNom());
+
+                } if(field.equals("recents")) {
+                    if (o1.getDataFinal().after(o2.getDataFinal()) ) {
+                        Log.i(tag, o2.getDataFinal()+" after "+o1.getDataFinal());
+                        return -1;
+                    }else if (o1.getDataFinal().before(o2.getDataFinal()) ) {
+                        return 1;
+                    }else{
+                        return 0;
+                    }
+
+                } if(field.equals("tasques")) {
+                    boolean b1 = o1.isTasca();
+                    boolean b2 = o2.isTasca();
+                    return (b1 != b2) ? (b1) ? -1 : 1 : 0;
+
+                } else if(field.equals("projectes")) {
+                    boolean b1 = o1.isProjecte();
+                    boolean b2 = o2.isProjecte();
+                    return (b1 != b2) ? (b1) ? -1 : 1 : 0;
+                }
+
+                return -1;
+            }
+        });
+    }*/
+
+    public void sort(final String field, List<Activitat> activitats) {
+        Collections.sort(activitats, new Comparator<Activitat>() {
+            @Override
+            public int compare(Activitat o1, Activitat o2) {
+                if(field.equals("alfabeticament")) {
+                    return o1.getNom().compareTo(o2.getNom());
+
+                } if(field.equals("recents")) {
+                    if (o1.getDataFinal().after(o2.getDataFinal()) ) {
+                        Log.i(tag, o2.getDataFinal()+" after "+o1.getDataFinal());
+                        return -1;
+                    }else if (o1.getDataFinal().before(o2.getDataFinal()) ) {
+                        return 1;
+                    }else{
+                        return 0;
+                    }
+
+                } if(field.equals("tasques")) {
+                    boolean b1 = o1.getClass().getName().endsWith("Tasca");
+                    boolean b2 = o2.getClass().getName().endsWith("Tasca");
+                    return (b1 != b2) ? (b1) ? -1 : 1 : 0;
+
+                } else if(field.equals("projectes")) {
+                    boolean b1 = o1.getClass().getName().endsWith("Projecte");
+                    boolean b2 = o2.getClass().getName().endsWith("Projecte");
+                    return (b1 != b2) ? (b1) ? -1 : 1 : 0;
+                }
+
+                return -1;
+            }
+        });
+    }
 
 
 }

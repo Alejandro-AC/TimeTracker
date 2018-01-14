@@ -1,6 +1,7 @@
 package com.example.joans.timetracker;
 
 import android.app.Activity;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -42,6 +43,11 @@ public class IntervalListAdapter extends ArrayAdapter<DadesInterval> {
             txtInicial.setTextColor(ContextCompat.getColor(context, R.color.colorRunning));
             txtFinal.setTextColor(ContextCompat.getColor(context, R.color.colorRunning));
             txtTemps.setTextColor(ContextCompat.getColor(context, R.color.colorRunning));
+        }
+
+        // Manté pintat l'item si està seleccionat
+        if (posicio == LlistaIntervalsActivity.posicioItemLongClickat) {
+            rowView.setBackgroundColor(Color.GRAY);
         }
 
         return rowView;

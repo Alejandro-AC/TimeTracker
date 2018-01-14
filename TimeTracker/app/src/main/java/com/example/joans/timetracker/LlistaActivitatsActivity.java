@@ -153,6 +153,12 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
 
     /**
      * Llista de dades de les activitats (projectes i tasques) mostrades
+     * actualment sense ordenar, filles del (sub)projecte on estem posicionats actualment.
+     */
+    private List<DadesActivitat> llistaDadesActivitatsAux;
+
+    /**
+     * Llista de dades de les activitats (projectes i tasques) mostrades
      * actualment, filles del (sub)projecte on estem posicionats actualment.
      */
     private List<DadesActivitat> llistaDadesActivitats;
@@ -715,11 +721,21 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
                 break;
             case R.id.fab_alfabeticament:
                 sort("alfabeticament", llistaDadesActivitats);
-                for(DadesActivitat dadesActivitats : llistaDadesActivitats) {
-                    Log.i(tag, " Nom:"+dadesActivitats.getNom());
-                }
-
-
+                // Això farà redibuixar el ListView
+                aaAct.notifyDataSetChanged();
+                break;
+            case R.id.fab_recents:
+                sort("recents", llistaDadesActivitats);
+                // Això farà redibuixar el ListView
+                aaAct.notifyDataSetChanged();
+                break;
+            case R.id.fab_tasques:
+                sort("tasques", llistaDadesActivitats);
+                // Això farà redibuixar el ListView
+                aaAct.notifyDataSetChanged();
+                break;
+            case R.id.fab_projectes:
+                sort("projectes", llistaDadesActivitats);
                 // Això farà redibuixar el ListView
                 aaAct.notifyDataSetChanged();
                 break;
@@ -927,6 +943,7 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
 
 
     public void sort(final String field, List<DadesActivitat> dadesActivitatL) {
+        llistaDadesActivitatsAux=llistaDadesActivitats;
         Collections.sort(dadesActivitatL, new Comparator<DadesActivitat>() {
             @Override
             public int compare(DadesActivitat o1, DadesActivitat o2) {

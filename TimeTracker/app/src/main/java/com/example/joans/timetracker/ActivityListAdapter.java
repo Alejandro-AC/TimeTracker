@@ -9,8 +9,6 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 import android.support.v4.content.ContextCompat;
 import android.graphics.Color;
