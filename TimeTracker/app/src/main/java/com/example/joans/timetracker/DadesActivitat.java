@@ -1,15 +1,12 @@
 package com.example.joans.timetracker;
 
+
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.Date;
-import java.util.List;
 
 import nucli.Activitat;
 import nucli.Tasca;
-import nucli.Projecte;
 
 
 /**
@@ -79,6 +76,7 @@ public class DadesActivitat implements Serializable {
      */
     private long segons;
 
+
     /**
      * Per tal d'identificar el tipus d'activitat en la interfase d'usuari.
      */
@@ -140,6 +138,8 @@ public class DadesActivitat implements Serializable {
         }
 
         isCronometreEngegat = act.isCronometreEngegat();
+
+
     }
 
     /**
@@ -283,13 +283,13 @@ public class DadesActivitat implements Serializable {
     }
 
     public final String toStringInicial() {
-        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy hh:mm");
-        return "Desde " + sdf.format(dataInicial);
+        SimpleDateFormat sdf = new SimpleDateFormat(MyApp.getContext().getResources().getString(R.string.dateFormat));
+        return MyApp.getContext().getResources().getString(R.string.desde)+ " " + sdf.format(dataInicial);
     }
 
     public final String toStringFinal() {
-        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy hh:mm");
-        return "Fins " + sdf.format(dataFinal);
+        SimpleDateFormat sdf = new SimpleDateFormat(MyApp.getContext().getResources().getString(R.string.dateFormat));
+        return MyApp.getContext().getResources().getString(R.string.fins) + " " + sdf.format(dataFinal);
     }
 
 

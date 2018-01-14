@@ -74,7 +74,7 @@ public class GestorArbreActivitats extends Service implements Actualitzable {
     /**
      * Arxiu on es desa tot l'arbre de projectes, tasques i intervals.
      */
-    private final String nomArxiu = "timetracker.dat";
+    private final String nomArxiu = "timetracker2.dat";
 
     /**
      * Sort option
@@ -116,10 +116,6 @@ public class GestorArbreActivitats extends Service implements Actualitzable {
      */
     public static final String TE_NOM = "Te_nom";
 
-    /**
-     * Retorna si hi ha tasques corrent
-     */
-    public static final String HI_HA_TASQUES = "Hi_ha_tasques";
 
     /**
      * Afegeix un nou Projecte a la llista d'Activitats del nivell actual.
@@ -724,13 +720,9 @@ public class GestorArbreActivitats extends Service implements Actualitzable {
 
             for (Interval inter : intervalsList) {
                 llistaDadesInter.add(new DadesInterval(inter));
+
             }
 
-
-            /*for (Interval inter : ((Tasca) activitatPareActual)
-                    .getIntervals()) {
-                llistaDadesInter.add(new DadesInterval(inter));
-            }*/
 
             resposta.putExtra("llista_dades_intervals", llistaDadesInter);
         }
@@ -825,38 +817,6 @@ public class GestorArbreActivitats extends Service implements Actualitzable {
     }
 
 
-    /*public void sort(final String field, List<DadesActivitat> dadesActivitatL) {
-        Collections.sort(dadesActivitatL, new Comparator<DadesActivitat>() {
-            @Override
-            public int compare(DadesActivitat o1, DadesActivitat o2) {
-                if(field.equals("alfabeticament")) {
-                    return o1.getNom().compareTo(o2.getNom());
-
-                } if(field.equals("recents")) {
-                    if (o1.getDataFinal().after(o2.getDataFinal()) ) {
-                        Log.i(tag, o2.getDataFinal()+" after "+o1.getDataFinal());
-                        return -1;
-                    }else if (o1.getDataFinal().before(o2.getDataFinal()) ) {
-                        return 1;
-                    }else{
-                        return 0;
-                    }
-
-                } if(field.equals("tasques")) {
-                    boolean b1 = o1.isTasca();
-                    boolean b2 = o2.isTasca();
-                    return (b1 != b2) ? (b1) ? -1 : 1 : 0;
-
-                } else if(field.equals("projectes")) {
-                    boolean b1 = o1.isProjecte();
-                    boolean b2 = o2.isProjecte();
-                    return (b1 != b2) ? (b1) ? -1 : 1 : 0;
-                }
-
-                return -1;
-            }
-        });
-    }*/
 
     public void sort(final String field, List<Activitat> activitats) {
         Collections.sort(activitats, new Comparator<Activitat>() {

@@ -1,0 +1,51 @@
+<resources>
+    <!-- Menu -->
+    <string name="app_name">TimeTracker</string>
+    <string name="project">Project</string>
+    <string name="tasca">Task</string>
+    <string name="report">Report</string>
+    <string name="informe_general">General Reports</string>
+    <string name="opcions">Options</string>
+    <string name="informacio">Details</string>
+    <string name="delete">Delete</string>
+
+    <!-- Informació Activitat -->
+    <string name="nom">Name</string>
+    <string name="descripcio">Description</string>
+    <string name="interval">Interval</string>
+    <string name="tempsTotal">Total Time</string>
+
+    <!-- Nova Tasca -->
+    <string name="desar">Save</string>
+    <string name="limited_time_text">Time limit</string>
+    <string name="add_schedule_text">Scheduled Task</string>
+    <string name="programada">Schedule start Date</string>
+    <string name="temps_limit">Define limit Time (in seconds)</string>
+
+    <!-- Nou Informe -->
+    <string name="desde">Since</string>
+    <string name="fins">Until</string>
+
+    <!-- Missatge confirmació sortida -->
+    <string name="missatgeConfirmacioBack">There are running Tasks.\nIf you exit, they will be stopped.\nAre you sure of exiting?</string>
+    <string name="aceptar">OK</string>
+    <string name="cancelar">Cancel</string>
+
+    <!-- Editar -->
+    <string name="editar">Edit</string>
+
+    <!-- Menu Toolbar SortOptions -->
+    <string name="sortMenuAlfabeticament">SortAlphabetically</string>
+    <string name="sortMenuRecents">SortRecents</string>
+    <string name="sortMenuTasques">SortTasks</string>
+    <string name="sortMenuProjectes">SortProjects</string>
+
+    <!-- Menu Toolbar AllRunning Buttons-->
+    <string name="stop_all">Stop All Tasks</string>
+    <string name="pause_all">Pause All Tasks</string>
+    <string name="unpause_all">Unpause All Tasks</string>
+
+    <!-- Time Format -->
+    <string name="dateFormat">MM-dd-yyyy hh:mm</string>
+
+</resources>

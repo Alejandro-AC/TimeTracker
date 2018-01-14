@@ -1,0 +1,51 @@
+<resources>
+    <!-- Menu -->
+    <string name="app_name">TimeTracker</string>
+    <string name="project">Proyecto</string>
+    <string name="tasca">Tarea</string>
+    <string name="report">Informe</string>
+    <string name="informe_general">Informes Generales</string>
+    <string name="opcions">Opciones</string>
+    <string name="informacio">Detalles</string>
+    <string name="delete">Eliminar</string>
+
+    <!-- Informació Activitat -->
+    <string name="nom">Nombre</string>
+    <string name="descripcio">Descripcion</string>
+    <string name="interval">Intervalo</string>
+    <string name="tempsTotal">Tiempo Total</string>
+
+    <!-- Nova Tasca -->
+    <string name="desar">Guardar</string>
+    <string name="limited_time_text">Tiempo limite</string>
+    <string name="add_schedule_text">Tarea programada</string>
+    <string name="programada">Programar tiempo de inicio</string>
+    <string name="temps_limit">Define tiempo limite (en segundos)</string>
+
+    <!-- Nou Informe -->
+    <string name="desde">Desde</string>
+    <string name="fins">Hasta</string>
+
+    <!-- Missatge confirmació sortida -->
+    <string name="missatgeConfirmacioBack">Hay Tareas contando.\nSi sales, dejaran de contar.\nEstas seguro de salir?</string>
+    <string name="aceptar">Si</string>
+    <string name="cancelar">No</string>
+
+    <!-- Editar -->
+    <string name="editar">Editar</string>
+
+    <!-- Menu Toolbar SortOptions -->
+    <string name="sortMenuAlfabeticament">Ordenar Alfabeticamente</string>
+    <string name="sortMenuRecents">Order por Recientes</string>
+    <string name="sortMenuTasques">Ordenar por Tareas</string>
+    <string name="sortMenuProjectes">Ordenar por Proyectos</string>
+
+    <!-- Menu Toolbar AllRunning Buttons-->
+    <string name="stop_all">Parar Tareas</string>
+    <string name="pause_all">Pausar Tareas</string>
+    <string name="unpause_all">Reanudar Tareas</string>
+
+    <!-- Time Format -->
+    <string name="dateFormat">dd-MM-yyyy hh:mm</string>
+
+</resources>

@@ -1,5 +1,6 @@
 package com.example.joans.timetracker;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
@@ -26,10 +27,11 @@ import android.annotation.SuppressLint;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import io.github.yavski.fabspeeddial.FabSpeedDial;
 import io.github.yavski.fabspeeddial.SimpleMenuListenerAdapter;
-
+import java.util.Random;
 
 /**
  * Mostra la llista de projectes i tasques filles del projecte pare actual.
@@ -74,6 +76,8 @@ import io.github.yavski.fabspeeddial.SimpleMenuListenerAdapter;
  */
 
 public class LlistaActivitatsActivity extends AppCompatActivity {
+
+
 
     /**
      * Toolbar de l'Activity.
@@ -123,6 +127,16 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
      */
     public static boolean tasquesCronometrant = false;
 
+
+    /**
+     * Indica si hi ha tasques que estan pausades.
+     */
+    public static boolean tasquesPausades = false;
+
+    /**
+     * Rotating localization
+     */
+    private int rotLocal=0;
 
 
     /**
@@ -224,6 +238,40 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
 
                 // Mirem si hi ha alguna tasca que s'està cronometrant
                 tasquesCronometrant = isTasquesCronometrant(llistaDadesAct);
+                tasquesPausades = isTasquesPaused(llistaDadesAct);
+
+
+                if(menuToolbar != null) {
+                    if (tasquesCronometrant && tasquesPausades) {
+                        MenuItem itemPause = menuToolbar.findItem(R.id.boto_pause_all);
+                        itemPause.setVisible(true);
+                        MenuItem itemStop = menuToolbar.findItem(R.id.boto_stop_all);
+                        itemStop.setVisible(true);
+                        MenuItem itemUnpause = menuToolbar.findItem(R.id.boto_unpause_all);
+                        itemUnpause.setVisible(true);
+                    } else if (!tasquesCronometrant && tasquesPausades) {
+                        MenuItem itemUnpause = menuToolbar.findItem(R.id.boto_unpause_all);
+                        itemUnpause.setVisible(true);
+                        MenuItem itemStop = menuToolbar.findItem(R.id.boto_stop_all);
+                        itemStop.setVisible(true);
+                        MenuItem itemPause = menuToolbar.findItem(R.id.boto_pause_all);
+                        itemPause.setVisible(false);
+                    } else if (!tasquesPausades && tasquesCronometrant){
+                        MenuItem itemPause = menuToolbar.findItem(R.id.boto_pause_all);
+                        itemPause.setVisible(true);
+                        MenuItem itemStop = menuToolbar.findItem(R.id.boto_stop_all);
+                        itemStop.setVisible(true);
+                        MenuItem itemUnpause = menuToolbar.findItem(R.id.boto_unpause_all);
+                        itemUnpause.setVisible(false);
+                    }else{
+                        MenuItem itemPause = menuToolbar.findItem(R.id.boto_pause_all);
+                        itemPause.setVisible(false);
+                        MenuItem itemStop = menuToolbar.findItem(R.id.boto_stop_all);
+                        itemStop.setVisible(false);
+                        MenuItem itemUnpause = menuToolbar.findItem(R.id.boto_unpause_all);
+                        itemUnpause.setVisible(false);
+                    }
+                }
 
                 if (activitatPareActualEsArrel) {
                     // Si ens trobem en els fills de l'arrel de l'arbre d'Activitats, no cal
@@ -401,7 +449,6 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
         filter = new IntentFilter();
         filter.addAction(GestorArbreActivitats.TE_FILLS);
         filter.addAction(GestorArbreActivitats.TE_NOM);
-        filter.addAction(GestorArbreActivitats.HI_HA_TASQUES);
         receptor = new Receptor();
         registerReceiver(receptor, filter);
 
@@ -479,7 +526,6 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
         ImageView imgView = (ImageView)findViewById(R.id.activity_icon);
         imgView.setVisibility(View.GONE);
 
-
         arrelListView = (ListView) this.findViewById(R.id.listViewActivitats);
 
         llistaDadesActivitats = new ArrayList<DadesActivitat>();
@@ -538,6 +584,9 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
                         longClick = false;
                         posicioItemLongClickat = -1;
 
+                        MenuItem itemLocalization = menuToolbar.findItem(R.id.boto_localization);
+                        itemLocalization.setVisible(true);
+
 
 
                         view.setBackgroundColor(Color.parseColor("#EEEEEE"));
@@ -581,6 +630,9 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
                         view.setBackgroundColor(Color.GRAY);
                         fabSpeedDial.setVisibility(View.GONE);
 
+                        MenuItem itemLocalization = menuToolbar.findItem(R.id.boto_localization);
+                        itemLocalization.setVisible(false);
+
                         // Mostrem el fabPlay amb la imatge que toca
                         if (llistaDadesActivitats.get(pos).isCronometreEngegat()) {
                             fabPlay.setImageResource(R.drawable.ic_stop);
@@ -599,6 +651,8 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
                         // Si no tenim cap altre element seleccionat, podem seleccionar el Projecte
                         view.setBackgroundColor(Color.GRAY);
 
+                        MenuItem itemLocalization = menuToolbar.findItem(R.id.boto_localization);
+                        itemLocalization.setVisible(false);
 
                         fabSpeedDial.setVisibility(View.GONE);
 
@@ -695,6 +749,9 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
                 MenuItem itemInformes = menuToolbar.findItem(R.id.boto_informes);
                 itemInformes.setVisible(false);
 
+                MenuItem itemLocalization = menuToolbar.findItem(R.id.boto_localization);
+                itemLocalization.setVisible(true);
+
                 selectedView.setBackgroundColor(Color.parseColor("#EEEEEE"));
 
                 fabPlay.setVisibility(View.GONE);
@@ -721,6 +778,9 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
         itemInformes.setVisible(false);
         MenuItem itemInformesGenerals = menuToolbar.findItem(R.id.boto_informes_arrel);
         itemInformesGenerals.setVisible(true);
+
+        MenuItem itemLocalization = menuToolbar.findItem(R.id.boto_localization);
+        itemLocalization.setVisible(true);
 
         MenuItem itemStop = menuToolbar.findItem(R.id.boto_stop_all);
         itemStop.setVisible(false);
@@ -808,6 +868,38 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
                 MenuItem itemPause3 = menuToolbar.findItem(R.id.boto_pause_all);
                 itemPause3.setVisible(true);
                 break;
+
+            case R.id.boto_localization:
+
+                Random rand = new Random();
+                int  rotLocal = rand.nextInt(2);
+
+                String languageToLoad  = "en";
+                switch(rotLocal){
+                    case 0:
+                        languageToLoad  = "ca";
+                        break;
+                    case 1:
+                        languageToLoad  = "en";
+                        break;
+
+                    case 2:
+                        languageToLoad  = "es";
+                        break;
+
+                    default:
+                        break;
+                }
+
+                Locale locale = new Locale(languageToLoad);
+                Locale.setDefault(locale);
+                Configuration config = new Configuration();
+                config.locale = locale;
+                MyApp.getContext().getResources().updateConfiguration(config,MyApp.getContext().getResources().getDisplayMetrics());
+
+                this.recreate();
+
+                break;
             default:
                 break;
         }
@@ -854,6 +946,17 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
         for(DadesActivitat activitat : dadesActivitat) {
             if (activitat.isCronometreEngegat()) {
                 return true;
+            }
+        }
+        return false;
+    }
+
+    private boolean isTasquesPaused(ArrayList<DadesActivitat> dadesActivitat) {
+        for(DadesActivitat activitat : dadesActivitat) {
+            if (activitat.isTasca()) {
+                if(activitat.isCronometrePausat()) {
+                    return true;
+                }
             }
         }
         return false;

@@ -1,5 +1,6 @@
 package com.example.joans.timetracker;
 
+
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -23,6 +24,8 @@ import nucli.Tasca;
  * @version 6 febrer 2012
  */
 public class DadesInterval implements Serializable {
+
+
 
     /**
      * Necessari segons checkstyle.
@@ -52,6 +55,7 @@ public class DadesInterval implements Serializable {
      */
     private Tasca pare;
 
+
     /**
      * Extreu les dades de l'interval passat per paràmetre i les copia als
      * atributs propis.
@@ -77,7 +81,8 @@ public class DadesInterval implements Serializable {
      */
     @Override
     public final String toString() {
-        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy hh:mm");
+        SimpleDateFormat sdf = new SimpleDateFormat(MyApp.getContext().getResources().getString(R.string.dateFormat));
+
         String strdi = sdf.format(dataInicial);
         String strdf = sdf.format(dataFinal);
 
@@ -106,20 +111,20 @@ public class DadesInterval implements Serializable {
     }
 
     public final String toStringInicial() {
-        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy hh:mm");
-        return "Desde " + sdf.format(dataInicial);
+        SimpleDateFormat sdf = new SimpleDateFormat(MyApp.getContext().getResources().getString(R.string.dateFormat));
+        return MyApp.getContext().getResources().getString(R.string.desde)+ " " + sdf.format(dataInicial);
     }
 
     public final String toStringFinal() {
-        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy hh:mm");
-        return "Fins " + sdf.format(dataFinal);
+        SimpleDateFormat sdf = new SimpleDateFormat(MyApp.getContext().getResources().getString(R.string.dateFormat));
+        return MyApp.getContext().getResources().getString(R.string.fins) + " " + sdf.format(dataFinal);
     }
 
     public final String toStringDates() {
-        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy hh:mm");
+        SimpleDateFormat sdf = new SimpleDateFormat(MyApp.getContext().getResources().getString(R.string.dateFormat));
         String strdi = sdf.format(dataInicial);
         String strdf = sdf.format(dataFinal);
-        return strdi + " fins " + strdf;
+        return strdi + " "+ MyApp.getContext().getResources().getString(R.string.fins) + " " + strdf;
     }
 
     public final String toStringTemps() {

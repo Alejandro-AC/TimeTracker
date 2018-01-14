@@ -19,6 +19,12 @@
         android:title="@string/sortMenuProjectes" />
 
     <item
+        android:id="@+id/boto_localization"
+        android:icon="@drawable/ic_language_white_24dp"
+        app:titleTextColor="@color/colorSecondary"
+        app:showAsAction="ifRoom" />
+
+    <item
         android:id="@+id/boto_informes"
         android:icon="@drawable/ic_report_white"
         android:title="@string/report"
@@ -68,6 +74,8 @@
         android:title="@string/unpause_all"
         app:titleTextColor="@color/colorText"
         app:showAsAction="never" />
+
+
 
 
 </menu>
