@@ -4,6 +4,8 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#ce1237</color>
     <color name="colorRunning">#FF0000</color>
+    <color name="colorPaused">#ff7700</color>
+    <color name="colorPausedBackground">#5da39f</color>
     <color name="colorSecondary">#F1F2F3</color>
     <color name="colorText">#1B191C</color>
     <color name="colorGrisFosc">#666a70</color>

@@ -662,7 +662,7 @@ public class GestorArbreActivitats extends Service implements Actualitzable {
 
             }else if (accio.equals(LlistaActivitatsActivity.PAUSE_ALL)) {
                 Log.d(tag, "rebut intent PAUSE_ALL");
-                paraCronometreDeTasques();
+                pausaCronometreDeTasques();
                 actualitza();
 
             }else if (accio.equals(LlistaActivitatsActivity.UNPAUSE_ALL)) {
@@ -783,6 +783,19 @@ public class GestorArbreActivitats extends Service implements Actualitzable {
     private void paraCronometreDeTasques() {
         for (Tasca t : tasquesCronometrantse) {
             t.paraCronometre(rellotge);
+            t.setCronometreNoPausat();
+        }
+    }
+
+
+    /**
+     * Pausa el cronòmetre de totes les tasques que ho estiguin sent,
+     * al nivell que sigui de l'arbre.
+     */
+    private void pausaCronometreDeTasques() {
+        for (Tasca t : tasquesCronometrantse) {
+            t.paraCronometre(rellotge);
+            t.setCronometrePausat();
         }
     }
 

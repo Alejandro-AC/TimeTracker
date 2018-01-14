@@ -96,6 +96,8 @@ public class DadesActivitat implements Serializable {
      */
     private boolean isCronometreEngegat = false; // nomes te sentit per tasques
 
+    private boolean isCronometrePausat = false; // nomes te sentit per tasques
+
     private int id;
 
     /**
@@ -133,6 +135,8 @@ public class DadesActivitat implements Serializable {
         } else {
             isProjecte = false;
             isTasca = true;
+            Tasca tsk = (Tasca) act;
+            isCronometrePausat =  tsk.isCronometrePausat();
         }
 
         isCronometreEngegat = act.isCronometreEngegat();
@@ -260,6 +264,22 @@ public class DadesActivitat implements Serializable {
      */
     public final boolean isCronometreEngegat() {
         return isCronometreEngegat;
+    }
+
+    /**
+     * Getter de <code>isCronometrePausat</code>.
+     * @return {@link #isCronometrePausat}.
+     */
+    public final boolean isCronometrePausat() {
+        return isCronometrePausat;
+    }
+
+    /**
+     * Setter de <code>isCronometrePausat</code>.
+     * @return {@link #isCronometrePausat}.
+     */
+    public void setCronometrePausat() {
+        this.isCronometrePausat=true;
     }
 
     public final String toStringInicial() {

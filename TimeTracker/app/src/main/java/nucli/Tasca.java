@@ -66,6 +66,7 @@ public class Tasca extends Activitat {
 			Interval nouInterval = new Interval(this,horaActual);
 			this.addIntervals(nouInterval);
 			Rellotge_Actualitzable.Instance().addObserver(nouInterval);
+			this.isCronometrePausat=false;
 		}
 	}
 
@@ -89,5 +90,21 @@ public class Tasca extends Activitat {
 	public boolean isCronometreEngegat() {
 		return cronometreEngegat;
 	}
+
+	private boolean isCronometrePausat;
+
+	public boolean isCronometrePausat() {
+		return isCronometrePausat;
+	}
+
+	public void setCronometrePausat() {
+		this.isCronometrePausat=true;
+	}
+
+	public void setCronometreNoPausat() {
+		this.isCronometrePausat=false;
+	}
+
+
 
 }

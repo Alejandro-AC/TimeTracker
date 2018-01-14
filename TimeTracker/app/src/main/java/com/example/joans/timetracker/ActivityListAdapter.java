@@ -48,6 +48,14 @@ public class ActivityListAdapter extends ArrayAdapter<DadesActivitat> {
             imageView.setColorFilter(ContextCompat.getColor(context, R.color.colorRunning));
             txtNom.setTextColor(ContextCompat.getColor(context, R.color.colorRunning));
             txtTemps.setTextColor(ContextCompat.getColor(context, R.color.colorRunning));
+        }else if
+        //Canvia el color del temps si l'Activity està pausada
+                (dadesActivitats.get(posicio).isCronometrePausat()){
+
+            imageView.setColorFilter(ContextCompat.getColor(context, R.color.colorPaused));
+            txtNom.setTextColor(ContextCompat.getColor(context, R.color.colorPaused));
+            txtTemps.setTextColor(ContextCompat.getColor(context, R.color.colorPaused));
+            rowView.setBackgroundColor(Color.parseColor("#5da39f"));
         }
 
         // Manté pintat l'item si està seleccionat
