@@ -20,7 +20,6 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
-import java.util.Collection;
 
 import nucli.Activitat;
 import nucli.Interval;
@@ -76,6 +75,19 @@ public class GestorArbreActivitats extends Service implements Actualitzable {
      * Arxiu on es desa tot l'arbre de projectes, tasques i intervals.
      */
     private final String nomArxiu = "timetracker.dat";
+
+    /**
+     * Sort option
+     */
+    private String sortOptionIntervals = "recents";
+
+    public void setSortOptionIntervals(String sortOption1){
+        this.sortOptionIntervals = sortOption1;
+    }
+
+    public String getSortOptionIntervals(){
+        return this.sortOptionIntervals;
+    }
 
     /**
      * Sort option
@@ -340,6 +352,8 @@ public class GestorArbreActivitats extends Service implements Actualitzable {
         filter.addAction(LlistaActivitatsActivity.DONAM_FILLS);
         filter.addAction(LlistaActivitatsActivity.PUJA_NIVELL);
         filter.addAction(LlistaActivitatsActivity.BAIXA_NIVELL);
+        filter.addAction(LlistaActivitatsActivity.CAMBIA_ORDRE);
+        filter.addAction(LlistaIntervalsActivity.CAMBIA_ORDRE_INTERVALS);
         filter.addAction(LlistaActivitatsActivity.ENGEGA_CRONOMETRE);
         filter.addAction(LlistaActivitatsActivity.PARA_CRONOMETRE);
         filter.addAction(LlistaActivitatsActivity.DESA_ARBRE);
@@ -616,6 +630,21 @@ public class GestorArbreActivitats extends Service implements Actualitzable {
                 Activitat activitatClicada = (Activitat) activityList.toArray()[posicio];
 
                 activitatPareActual = activitatClicada;
+
+            } else if (accio.equals(LlistaActivitatsActivity.CAMBIA_ORDRE)) {
+                Log.d(tag, "rebut intent CAMBIA_ORDRE");
+                String sortOption = intent.getStringExtra("sortOption");
+                setSortOption(sortOption);
+                Log.d(tag, "procedim a actualitzar, sortOption rebut:"+sortOption);
+                actualitza();
+
+            }else if (accio.equals(LlistaIntervalsActivity.CAMBIA_ORDRE_INTERVALS)) {
+                Log.d(tag, "rebut intent CAMBIA_ORDRE_INTERVALS");
+                String sortOption = intent.getStringExtra("sortOption");
+                setSortOptionIntervals(sortOption);
+                Log.d(tag, "procedim a actualitzar, sortOptionIntervals rebut:"+sortOption);
+                actualitza();
+
             } else if (accio.equals(LlistaActivitatsActivity.PARA_SERVEI)) {
                 paraServei();
             } else if (accio.equals(LlistaActivitatsActivity.DONAM_NOM)) {
@@ -654,20 +683,29 @@ public class GestorArbreActivitats extends Service implements Actualitzable {
                 llistaDadesAct.add(new DadesActivitat(act));
             }
 
-            /*
-            for (Activitat act : ((Projecte) activitatPareActual)
-                    .getActivitats()) {
-                llistaDadesAct.add(new DadesActivitat(act));
-            }*/
 
             resposta.putExtra("llista_dades_activitats", llistaDadesAct);
         } else { // es tasca
             ArrayList<DadesInterval> llistaDadesInter =
                     new ArrayList<DadesInterval>();
-            for (Interval inter : ((Tasca) activitatPareActual)
-                    .getIntervals()) {
+
+
+
+            List<Interval> intervalsList = new ArrayList<Interval> (((Tasca) activitatPareActual)
+                    .getIntervals());
+
+            sortIntervals(getSortOptionIntervals(), intervalsList);
+            //Collection<Activitat> childsActivitatPareActual3 = activityList;
+
+            for (Interval inter : intervalsList) {
                 llistaDadesInter.add(new DadesInterval(inter));
             }
+
+
+            /*for (Interval inter : ((Tasca) activitatPareActual)
+                    .getIntervals()) {
+                llistaDadesInter.add(new DadesInterval(inter));
+            }*/
 
             resposta.putExtra("llista_dades_intervals", llistaDadesInter);
         }
@@ -710,6 +748,7 @@ public class GestorArbreActivitats extends Service implements Actualitzable {
         if (tasquesCronometrantse.size() > 0) {
             enviaFills();
         }
+        enviaFills();
     }
 
     /**
@@ -779,7 +818,7 @@ public class GestorArbreActivitats extends Service implements Actualitzable {
 
                 } if(field.equals("recents")) {
                     if (o1.getDataFinal().after(o2.getDataFinal()) ) {
-                        Log.i(tag, o2.getDataFinal()+" after "+o1.getDataFinal());
+                        Log.i(tag, o1.getDataFinal()+" after "+o2.getDataFinal());
                         return -1;
                     }else if (o1.getDataFinal().before(o2.getDataFinal()) ) {
                         return 1;
@@ -796,6 +835,27 @@ public class GestorArbreActivitats extends Service implements Actualitzable {
                     boolean b1 = o1.getClass().getName().endsWith("Projecte");
                     boolean b2 = o2.getClass().getName().endsWith("Projecte");
                     return (b1 != b2) ? (b1) ? -1 : 1 : 0;
+                }
+
+                return -1;
+            }
+        });
+    }
+
+    public void sortIntervals(final String field, List<Interval> intervals) {
+        Collections.sort(intervals, new Comparator<Interval>() {
+            @Override
+            public int compare(Interval o1, Interval o2) {
+
+                 if(field.equals("recents")) {
+                    if (o1.getDataFinal().after(o2.getDataFinal()) ) {
+                        return 1;
+                    }else if (o1.getDataFinal().before(o2.getDataFinal()) ) {
+                        return -1;
+                    }else{
+                        return 0;
+                    }
+
                 }
 
                 return -1;

@@ -6,7 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
 import java.util.List;
 import android.support.v4.content.ContextCompat;
@@ -39,6 +38,7 @@ public class IntervalListAdapter extends ArrayAdapter<DadesInterval> {
         txtFinal.setText(dadesIntervals.get(posicio).toStringFinal());
         txtTemps.setText(dadesIntervals.get(posicio).toStringTemps());
 
+        //Pinta Interval corrent
         if (dadesIntervals.get(posicio).getPare().isCronometreEngegat() && posicio == 0) {
             txtInicial.setTextColor(ContextCompat.getColor(context, R.color.colorRunning));
             txtFinal.setTextColor(ContextCompat.getColor(context, R.color.colorRunning));

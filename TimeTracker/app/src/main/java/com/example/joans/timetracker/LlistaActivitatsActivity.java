@@ -25,8 +25,6 @@ import android.graphics.Color;
 import android.annotation.SuppressLint;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 
 import io.github.yavski.fabspeeddial.FabSpeedDial;
@@ -215,8 +213,10 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
                                 .getSerializableExtra("llista_dades_activitats");
                 aaAct.clear();
 
-                for (DadesActivitat dadesAct : llistaDadesAct) {
-                    aaAct.add(dadesAct);
+                if(!llistaDadesAct.isEmpty()) {
+                    for (DadesActivitat dadesAct : llistaDadesAct) {
+                        aaAct.add(dadesAct);
+                    }
                 }
                 // Això farà redibuixar el ListView
                 aaAct.notifyDataSetChanged();
@@ -335,6 +335,12 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
      * l'usuari ha clicat.
      */
     public static final String BAIXA_NIVELL = "Baixa_nivell";
+
+    /**
+     * String que defineix l'acció de demanar a <code>GestorActivitats</code>
+     * que sha de cambiar el ordre que mostra les activitats.
+     */
+    public static final String CAMBIA_ORDRE = "Cambia_ordre";
 
     /**
      * String que defineix l'acció de demanar a <code>GestorActivitats</code>
@@ -720,24 +726,24 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
                 posicioItemLongClickat = -1;
                 break;
             case R.id.fab_alfabeticament:
-                sort("alfabeticament", llistaDadesActivitats);
-                // Això farà redibuixar el ListView
-                aaAct.notifyDataSetChanged();
+                Intent inte = new Intent(LlistaActivitatsActivity.CAMBIA_ORDRE);
+                inte.putExtra("sortOption", "alfabeticament");
+                sendBroadcast(inte);
                 break;
             case R.id.fab_recents:
-                sort("recents", llistaDadesActivitats);
-                // Això farà redibuixar el ListView
-                aaAct.notifyDataSetChanged();
+                Intent inte2 = new Intent(LlistaActivitatsActivity.CAMBIA_ORDRE);
+                inte2.putExtra("sortOption", "recents");
+                sendBroadcast(inte2);
                 break;
             case R.id.fab_tasques:
-                sort("tasques", llistaDadesActivitats);
-                // Això farà redibuixar el ListView
-                aaAct.notifyDataSetChanged();
+                Intent inte3 = new Intent(LlistaActivitatsActivity.CAMBIA_ORDRE);
+                inte3.putExtra("sortOption", "tasques");
+                sendBroadcast(inte3);
                 break;
             case R.id.fab_projectes:
-                sort("projectes", llistaDadesActivitats);
-                // Això farà redibuixar el ListView
-                aaAct.notifyDataSetChanged();
+                Intent inte4 = new Intent(LlistaActivitatsActivity.CAMBIA_ORDRE);
+                inte4.putExtra("sortOption", "projectes");
+                sendBroadcast(inte4);
                 break;
             default:
                 break;
@@ -940,42 +946,6 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
             Log.v(tag, newConfig.toString());
         }
     }
-
-
-    public void sort(final String field, List<DadesActivitat> dadesActivitatL) {
-        llistaDadesActivitatsAux=llistaDadesActivitats;
-        Collections.sort(dadesActivitatL, new Comparator<DadesActivitat>() {
-            @Override
-            public int compare(DadesActivitat o1, DadesActivitat o2) {
-                if(field.equals("alfabeticament")) {
-                    return o1.getNom().compareTo(o2.getNom());
-
-                } if(field.equals("recents")) {
-                    if (o1.getDataFinal().after(o2.getDataFinal()) ) {
-                        Log.i(tag, o2.getDataFinal()+" after "+o1.getDataFinal());
-                        return -1;
-                    }else if (o1.getDataFinal().before(o2.getDataFinal()) ) {
-                        return 1;
-                    }else{
-                        return 0;
-                    }
-
-                } if(field.equals("tasques")) {
-                    boolean b1 = o1.isTasca();
-                    boolean b2 = o2.isTasca();
-                    return (b1 != b2) ? (b1) ? -1 : 1 : 0;
-
-                } else if(field.equals("projectes")) {
-                    boolean b1 = o1.isProjecte();
-                    boolean b2 = o2.isProjecte();
-                    return (b1 != b2) ? (b1) ? -1 : 1 : 0;
-                }
-
-                return -1;
-            }
-        });
-    }
-
 
 
 }

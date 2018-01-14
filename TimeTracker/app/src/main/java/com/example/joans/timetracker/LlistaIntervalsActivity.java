@@ -227,6 +227,13 @@ public class LlistaIntervalsActivity extends AppCompatActivity {
         item = menu.findItem(R.id.boto_informes);
         item.setVisible(false);
 
+        MenuItem itemAlfa = menu.findItem(R.id.fab_alfabeticament);
+        itemAlfa.setVisible(false);
+        MenuItem itemProje = menu.findItem(R.id.fab_projectes);
+        itemProje.setVisible(false);
+        MenuItem itemTasque = menu.findItem(R.id.fab_tasques);
+        itemTasque.setVisible(false);
+
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -244,6 +251,11 @@ public class LlistaIntervalsActivity extends AppCompatActivity {
 
                 longClick = false;
                 posicioItemLongClickat = -1;
+                break;
+            case R.id.fab_recents:
+                Intent inte = new Intent(LlistaIntervalsActivity.CAMBIA_ORDRE_INTERVALS);
+                inte.putExtra("sortOption", "recents");
+                sendBroadcast(inte);
                 break;
             default:
                 break;
@@ -264,6 +276,12 @@ public class LlistaIntervalsActivity extends AppCompatActivity {
      * pare actual.
      */
     public static final String DONAM_FILLS = "Donam_fills";
+
+    /**
+     * String que defineix l'acció de demanar a <code>GestorActivitats</code>
+     * que sha de cambiar el ordre que mostra les activitats.
+     */
+    public static final String CAMBIA_ORDRE_INTERVALS = "Cambia_ordre";
 
     /**
      * Demana que l'activitat pare actual passi a ser el projecte pare de la
