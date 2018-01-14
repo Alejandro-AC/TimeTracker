@@ -16,7 +16,10 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.StreamCorruptedException;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
+import java.util.List;
 
 import nucli.Activitat;
 import nucli.Interval;
@@ -544,7 +547,7 @@ public class GestorArbreActivitats extends Service implements Actualitzable {
                     }
                 }
             }else if (accio.equals(NouProjecte.EDITAR_PROJECTE)){
-                //TODO: EDITAR PROJECTE
+
                 String nom = intent.getStringExtra("nomProjecte");
                 String descripcio = intent.getStringExtra("descripcioProjecte");
                 int id = intent.getIntExtra("id",0);
@@ -614,6 +617,9 @@ public class GestorArbreActivitats extends Service implements Actualitzable {
                     .getActivitats()) {
                 llistaDadesAct.add(new DadesActivitat(act));
             }
+
+
+
             resposta.putExtra("llista_dades_activitats", llistaDadesAct);
         } else { // es tasca
             ArrayList<DadesInterval> llistaDadesInter =
@@ -622,6 +628,7 @@ public class GestorArbreActivitats extends Service implements Actualitzable {
                     .getIntervals()) {
                 llistaDadesInter.add(new DadesInterval(inter));
             }
+
             resposta.putExtra("llista_dades_intervals", llistaDadesInter);
         }
         sendBroadcast(resposta);
@@ -688,5 +695,7 @@ public class GestorArbreActivitats extends Service implements Actualitzable {
     private String getNomActivitatPareActual() {
         return activitatPareActual.getNom();
     }
+
+
 
 }

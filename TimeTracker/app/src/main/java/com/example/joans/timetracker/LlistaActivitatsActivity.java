@@ -25,6 +25,8 @@ import android.graphics.Color;
 import android.annotation.SuppressLint;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import io.github.yavski.fabspeeddial.FabSpeedDial;
@@ -89,11 +91,6 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
      * Floating Action Button que permet començar a cronometrar i parar una Tasca.
      */
     private FloatingActionButton fabPlay;
-
-    /**
-     * Floating Action Button que permet "borrar" Activities i Intervals.
-     */
-    private FloatingActionButton fabDelete;
 
     /**
      * Floating Action Button amb l'efecte Speed Dial.
@@ -211,6 +208,7 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
                         (ArrayList<DadesActivitat>) intent
                                 .getSerializableExtra("llista_dades_activitats");
                 aaAct.clear();
+
                 for (DadesActivitat dadesAct : llistaDadesAct) {
                     aaAct.add(dadesAct);
                 }
@@ -404,10 +402,11 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
         fabPlay.setImageResource(R.drawable.ic_play);
         fabPlay.setVisibility(View.GONE);
 
-        fabDelete.setVisibility(View.GONE);
 
         MenuItem itemDetalls = menuToolbar.findItem(R.id.boto_detalls);
         itemDetalls.setVisible(false);
+        MenuItem itemDelete = menuToolbar.findItem(R.id.boto_delete);
+        itemDelete.setVisible(false);
         MenuItem itemInformes = menuToolbar.findItem(R.id.boto_informes);
         itemInformes.setVisible(false);
 
@@ -448,6 +447,7 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
 
         llistaDadesActivitats = new ArrayList<DadesActivitat>();
 
+
         // Ara utilitza el nou Adaptador per poder mostrar imatges en la Llista.
         aaAct = new ActivityListAdapter(this, llistaDadesActivitats);
 
@@ -465,6 +465,7 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
                 Log.d(tag, "pos = " + pos + ", id = " + id);
 
                 if (!longClick) {
+
                     // Si no hi ha un element de la llista que està seleccionat, baixem un nivell
                     // de l'arbre d'Activitats
                     Intent inte = new Intent(LlistaActivitatsActivity.BAIXA_NIVELL);
@@ -474,6 +475,7 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
                         sendBroadcast(new Intent(
                                 LlistaActivitatsActivity.DONAM_FILLS));
                         Log.d(tag, "enviat intent DONAM_FILLS");
+                        Log.d(tag, "name"+llistaDadesActivitats.get(pos).getNom());
 
                         // Cal mostrar l'icona dels Projectes juntament amb el nom del Projecte pare
                         ImageView imgView = (ImageView)findViewById(R.id.activity_icon);
@@ -503,11 +505,12 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
 
                         view.setBackgroundColor(Color.parseColor("#EEEEEE"));
                         fabPlay.setVisibility(View.GONE);
-                        fabDelete.setVisibility(View.GONE);
                         fabSpeedDial.setVisibility(View.VISIBLE);
 
                         MenuItem itemDetalls = menuToolbar.findItem(R.id.boto_detalls);
                         itemDetalls.setVisible(false);
+                        MenuItem itemDelete = menuToolbar.findItem(R.id.boto_delete);
+                        itemDelete.setVisible(false);
                         MenuItem itemInformes = menuToolbar.findItem(R.id.boto_informes);
                         itemInformes.setVisible(false);
                     }
@@ -527,7 +530,8 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
                 // Mostrem el botó dels Detalls
                 MenuItem item = menuToolbar.findItem(R.id.boto_detalls);
                 item.setVisible(true);
-
+                MenuItem itemDelete = menuToolbar.findItem(R.id.boto_delete);
+                itemDelete.setVisible(true);
 
 
                 // Guardem la View seleccionada (per si la necessitem en un futur per canviar el
@@ -548,7 +552,6 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
                         }
 
                         fabPlay.setVisibility(View.VISIBLE);
-                        fabDelete.setVisibility(View.VISIBLE);
 
                         // Guardem els atributs relacionats amb el longClick realitzat
                         longClick = true;
@@ -559,7 +562,6 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
                         // Si no tenim cap altre element seleccionat, podem seleccionar el Projecte
                         view.setBackgroundColor(Color.GRAY);
 
-                        fabDelete.setVisibility(View.VISIBLE);
 
                         fabSpeedDial.setVisibility(View.GONE);
 
@@ -647,13 +649,14 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
                 // Treiem la selecció de l'Activitat en qüestió
                 MenuItem itemDetalls = menuToolbar.findItem(R.id.boto_detalls);
                 itemDetalls.setVisible(false);
+                MenuItem itemDelete = menuToolbar.findItem(R.id.boto_delete);
+                itemDelete.setVisible(false);
                 MenuItem itemInformes = menuToolbar.findItem(R.id.boto_informes);
                 itemInformes.setVisible(false);
 
                 selectedView.setBackgroundColor(Color.parseColor("#EEEEEE"));
 
                 fabPlay.setVisibility(View.GONE);
-                fabDelete.setVisibility(View.GONE);
 
                 fabSpeedDial.setVisibility(View.VISIBLE);
 
@@ -662,30 +665,6 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
             }
         });
 
-
-        fabDelete = (FloatingActionButton) findViewById(R.id.fab_delete);
-        fabDelete.setVisibility(View.GONE);
-        fabDelete.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                // Treiem la selecció de l'Activitat en qüestió
-                MenuItem itemDetalls = menuToolbar.findItem(R.id.boto_detalls);
-                itemDetalls.setVisible(false);
-                MenuItem itemInformes = menuToolbar.findItem(R.id.boto_informes);
-                itemInformes.setVisible(false);
-
-                selectedView.setBackgroundColor(Color.parseColor("#EEEEEE"));
-
-                fabPlay.setVisibility(View.GONE);
-                fabDelete.setVisibility(View.GONE);
-
-                fabSpeedDial.setVisibility(View.VISIBLE);
-
-                longClick = false;
-                posicioItemLongClickat = -1;
-            }
-        });
 
     }
 
@@ -695,6 +674,8 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.menu_toolbar_activitat, menu);
         MenuItem itemDetalls = menuToolbar.findItem(R.id.boto_detalls);
         itemDetalls.setVisible(false);
+        MenuItem itemDelete = menuToolbar.findItem(R.id.boto_delete);
+        itemDelete.setVisible(false);
         MenuItem itemInformes = menuToolbar.findItem(R.id.boto_informes);
         itemInformes.setVisible(false);
         MenuItem itemInformesGenerals = menuToolbar.findItem(R.id.boto_informes_arrel);
@@ -713,6 +694,34 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
                 startActivity(showInfo);
                 break;
             case R.id.boto_opcions:
+                break;
+            case R.id.boto_delete:
+                // Treiem la selecció de l'Activitat en qüestió
+                MenuItem itemDetalls = menuToolbar.findItem(R.id.boto_detalls);
+                itemDetalls.setVisible(false);
+                MenuItem itemDelete = menuToolbar.findItem(R.id.boto_delete);
+                itemDelete.setVisible(false);
+                MenuItem itemInformes = menuToolbar.findItem(R.id.boto_informes);
+                itemInformes.setVisible(false);
+
+                selectedView.setBackgroundColor(Color.parseColor("#EEEEEE"));
+
+                fabPlay.setVisibility(View.GONE);
+
+                fabSpeedDial.setVisibility(View.VISIBLE);
+
+                longClick = false;
+                posicioItemLongClickat = -1;
+                break;
+            case R.id.fab_alfabeticament:
+                sort("alfabeticament", llistaDadesActivitats);
+                for(DadesActivitat dadesActivitats : llistaDadesActivitats) {
+                    Log.i(tag, " Nom:"+dadesActivitats.getNom());
+                }
+
+
+                // Això farà redibuixar el ListView
+                aaAct.notifyDataSetChanged();
                 break;
             default:
                 break;
@@ -813,8 +822,6 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
             // Tornem els elements de la Activity al seu estat inicial
             fabPlay.setImageResource(R.drawable.ic_play);
             fabPlay.setVisibility(View.GONE);
-
-            fabDelete.setVisibility(View.GONE);
 
             fabSpeedDial.setVisibility(View.VISIBLE);
 
@@ -917,5 +924,41 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
             Log.v(tag, newConfig.toString());
         }
     }
+
+
+    public void sort(final String field, List<DadesActivitat> dadesActivitatL) {
+        Collections.sort(dadesActivitatL, new Comparator<DadesActivitat>() {
+            @Override
+            public int compare(DadesActivitat o1, DadesActivitat o2) {
+                if(field.equals("alfabeticament")) {
+                    return o1.getNom().compareTo(o2.getNom());
+
+                } if(field.equals("recents")) {
+                    if (o1.getDataFinal().after(o2.getDataFinal()) ) {
+                        Log.i(tag, o2.getDataFinal()+" after "+o1.getDataFinal());
+                        return -1;
+                    }else if (o1.getDataFinal().before(o2.getDataFinal()) ) {
+                        return 1;
+                    }else{
+                        return 0;
+                    }
+
+                } if(field.equals("tasques")) {
+                    boolean b1 = o1.isTasca();
+                    boolean b2 = o2.isTasca();
+                    return (b1 != b2) ? (b1) ? -1 : 1 : 0;
+
+                } else if(field.equals("projectes")) {
+                    boolean b1 = o1.isProjecte();
+                    boolean b2 = o2.isProjecte();
+                    return (b1 != b2) ? (b1) ? -1 : 1 : 0;
+                }
+
+                return -1;
+            }
+        });
+    }
+
+
 
 }

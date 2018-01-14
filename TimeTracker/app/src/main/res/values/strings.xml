@@ -7,6 +7,7 @@
     <string name="informe_general">Informes generals</string>
     <string name="opcions">Opcions</string>
     <string name="informacio">Detalls</string>
+    <string name="delete">Delete</string>
 
     <!-- Informació Activitat -->
     <string name="nom">Nom</string>
@@ -32,4 +33,12 @@
 
     <!-- Editar -->
     <string name="editar">Editar</string>
+
+    <!-- Menu Toolbar SortOptions -->
+    <string name="sortMenuAlfabeticament">SortAlfabeticament</string>
+    <string name="sortMenuRecents">SortRecents</string>
+    <string name="sortMenuTasques">SortTasques</string>
+    <string name="sortMenuProjectes">SortProjectes</string>
+
+
 </resources>

@@ -1,8 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <!-- Menú de la Toolbar per LlistaActivitatsActivity -->
 <menu
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto" >
+
+    <item
+        android:id="@+id/fab_alfabeticament"
+        android:title="@string/sortMenuAlfabeticament" />
+    <item
+        android:id="@+id/fab_recents"
+        android:title="@string/sortMenuRecents"/>
+    <item
+        android:id="@+id/fab_tasques"
+        android:title="@string/sortMenuTasques" />
+    <item
+        android:id="@+id/fab_projectes"
+        android:title="@string/sortMenuProjectes" />
 
     <item
         android:id="@+id/boto_informes"
@@ -15,6 +29,13 @@
         android:id="@+id/boto_detalls"
         android:icon="@drawable/ic_information"
         android:title="@string/informacio"
+        app:titleTextColor="@color/colorSecondary"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/boto_delete"
+        android:icon="@drawable/ic_delete_forever_white_24dp"
+        android:title="@string/delete"
         app:titleTextColor="@color/colorSecondary"
         app:showAsAction="ifRoom" />
 

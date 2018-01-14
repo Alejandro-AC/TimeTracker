@@ -1,12 +1,16 @@
 package com.example.joans.timetracker;
 
 import android.app.Activity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import android.support.v4.content.ContextCompat;
 import android.graphics.Color;
@@ -25,6 +29,7 @@ public class ActivityListAdapter extends ArrayAdapter<DadesActivitat> {
     public ActivityListAdapter(Activity context, List<DadesActivitat> llistaDadesActivitats) {
         super(context, R.layout.fila_llista_activitats, R.id.text_fila, llistaDadesActivitats);
         this.context=context;
+
         this.dadesActivitats=llistaDadesActivitats;
     }
 
@@ -47,13 +52,11 @@ public class ActivityListAdapter extends ArrayAdapter<DadesActivitat> {
             txtTemps.setTextColor(ContextCompat.getColor(context, R.color.colorRunning));
         }
 
-        // Pinta l'item si està seleccionat
+        // Manté pintat l'item si està seleccionat
         if (posicio == LlistaActivitatsActivity.posicioItemLongClickat) {
             rowView.setBackgroundColor(Color.GRAY);
 
-            }else{
-                rowView.setBackgroundColor(Color.parseColor("#EEEEEE"));
-            }
+        }
 
 
         txtTemps.setText(dadesActivitats.get(posicio).toStringTemps());

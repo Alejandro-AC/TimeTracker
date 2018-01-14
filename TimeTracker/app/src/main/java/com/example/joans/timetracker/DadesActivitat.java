@@ -2,7 +2,10 @@ package com.example.joans.timetracker;
 
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
+import java.util.List;
 
 import nucli.Activitat;
 import nucli.Tasca;
@@ -268,4 +271,7 @@ public class DadesActivitat implements Serializable {
         SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy hh:mm");
         return "Fins " + sdf.format(dataFinal);
     }
+
+
+
 }
