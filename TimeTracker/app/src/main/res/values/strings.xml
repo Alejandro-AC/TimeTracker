@@ -40,5 +40,9 @@
     <string name="sortMenuTasques">SortTasques</string>
     <string name="sortMenuProjectes">SortProjectes</string>
 
+    <!-- Menu Toolbar AllRunning Buttons-->
+    <string name="stop_all">Stop All Tasks</string>
+    <string name="pause_all">Pause All Tasks</string>
+    <string name="unpause_all">Unpause All Tasks</string>
 
 </resources>

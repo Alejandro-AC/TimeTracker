@@ -319,6 +319,12 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
 
     /**
      * String que defineix l'acció de demanar a <code>GestorActivitats</code>
+     * que ens digui si hi ha tasques running
+     */
+    public static final String TASQUES_RUNNING = "Tasques_running";
+
+    /**
+     * String que defineix l'acció de demanar a <code>GestorActivitats</code>
      * que pari el cronòmetre de la tasca clicada.
      */
     public static final String PARA_CRONOMETRE = "Para_cronometre";
@@ -341,6 +347,24 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
      * que sha de cambiar el ordre que mostra les activitats.
      */
     public static final String CAMBIA_ORDRE = "Cambia_ordre";
+
+    /**
+     * String que defineix l'acció de demanar a <code>GestorActivitats</code>
+     * que pari totes les tasques
+     */
+    public static final String STOP_ALL = "Stop_all";
+
+    /**
+     * String que defineix l'acció de demanar a <code>GestorActivitats</code>
+     * que pausi totes les tasques
+     */
+    public static final String PAUSE_ALL = "Pause_all";
+
+    /**
+     * String que defineix l'acció de demanar a <code>GestorActivitats</code>
+     * que unpausi totes les tasques
+     */
+    public static final String UNPAUSE_ALL = "Unpause_all";
 
     /**
      * String que defineix l'acció de demanar a <code>GestorActivitats</code>
@@ -377,6 +401,7 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
         filter = new IntentFilter();
         filter.addAction(GestorArbreActivitats.TE_FILLS);
         filter.addAction(GestorArbreActivitats.TE_NOM);
+        filter.addAction(GestorArbreActivitats.HI_HA_TASQUES);
         receptor = new Receptor();
         registerReceiver(receptor, filter);
 
@@ -646,6 +671,10 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
                     // Si no s'està cronometrant la Tasca, la comencem a cronometrar
                     inte = new Intent(
                             LlistaActivitatsActivity.ENGEGA_CRONOMETRE);
+                    MenuItem itemStop = menuToolbar.findItem(R.id.boto_stop_all);
+                    itemStop.setVisible(true);
+                    MenuItem itemPause = menuToolbar.findItem(R.id.boto_pause_all);
+                    itemPause.setVisible(true);
                     Log.d(tag, "enviat intent ENGEGA_CRONOMETRE de "
                             + llistaDadesActivitats.get(posicioItemLongClickat).getNom());
                 } else {
@@ -692,6 +721,13 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
         itemInformes.setVisible(false);
         MenuItem itemInformesGenerals = menuToolbar.findItem(R.id.boto_informes_arrel);
         itemInformesGenerals.setVisible(true);
+
+        MenuItem itemStop = menuToolbar.findItem(R.id.boto_stop_all);
+        itemStop.setVisible(false);
+        MenuItem itemPause = menuToolbar.findItem(R.id.boto_pause_all);
+        itemPause.setVisible(false);
+        MenuItem itemUnpause = menuToolbar.findItem(R.id.boto_unpause_all);
+        itemUnpause.setVisible(false);
 
         return super.onCreateOptionsMenu(menu);
     }
@@ -744,6 +780,33 @@ public class LlistaActivitatsActivity extends AppCompatActivity {
                 Intent inte4 = new Intent(LlistaActivitatsActivity.CAMBIA_ORDRE);
                 inte4.putExtra("sortOption", "projectes");
                 sendBroadcast(inte4);
+                break;
+
+            case R.id.boto_stop_all:
+                Intent inte5 = new Intent(LlistaActivitatsActivity.STOP_ALL);
+                sendBroadcast(inte5);
+                MenuItem itemStop = menuToolbar.findItem(R.id.boto_stop_all);
+                itemStop.setVisible(false);
+                MenuItem itemPause = menuToolbar.findItem(R.id.boto_pause_all);
+                itemPause.setVisible(false);
+                MenuItem itemUnpause = menuToolbar.findItem(R.id.boto_unpause_all);
+                itemUnpause.setVisible(false);
+                break;
+            case R.id.boto_pause_all:
+                Intent inte6 = new Intent(LlistaActivitatsActivity.PAUSE_ALL);
+                sendBroadcast(inte6);
+                MenuItem itemPause2 = menuToolbar.findItem(R.id.boto_pause_all);
+                itemPause2.setVisible(false);
+                MenuItem itemUnpause2 = menuToolbar.findItem(R.id.boto_unpause_all);
+                itemUnpause2.setVisible(true);
+                break;
+            case R.id.boto_unpause_all:
+                Intent inte7 = new Intent(LlistaActivitatsActivity.UNPAUSE_ALL);
+                sendBroadcast(inte7);
+                MenuItem itemUnpause3 = menuToolbar.findItem(R.id.boto_unpause_all);
+                itemUnpause3.setVisible(false);
+                MenuItem itemPause3 = menuToolbar.findItem(R.id.boto_pause_all);
+                itemPause3.setVisible(true);
                 break;
             default:
                 break;

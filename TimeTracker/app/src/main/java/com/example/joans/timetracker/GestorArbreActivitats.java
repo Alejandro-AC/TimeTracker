@@ -117,6 +117,11 @@ public class GestorArbreActivitats extends Service implements Actualitzable {
     public static final String TE_NOM = "Te_nom";
 
     /**
+     * Retorna si hi ha tasques corrent
+     */
+    public static final String HI_HA_TASQUES = "Hi_ha_tasques";
+
+    /**
      * Afegeix un nou Projecte a la llista d'Activitats del nivell actual.
      */
     public static final String AFEGIR_PROJECTE = "Afegir_projecte";
@@ -352,6 +357,9 @@ public class GestorArbreActivitats extends Service implements Actualitzable {
         filter.addAction(LlistaActivitatsActivity.DONAM_FILLS);
         filter.addAction(LlistaActivitatsActivity.PUJA_NIVELL);
         filter.addAction(LlistaActivitatsActivity.BAIXA_NIVELL);
+        filter.addAction(LlistaActivitatsActivity.STOP_ALL);
+        filter.addAction(LlistaActivitatsActivity.PAUSE_ALL);
+        filter.addAction(LlistaActivitatsActivity.UNPAUSE_ALL);
         filter.addAction(LlistaActivitatsActivity.CAMBIA_ORDRE);
         filter.addAction(LlistaIntervalsActivity.CAMBIA_ORDRE_INTERVALS);
         filter.addAction(LlistaActivitatsActivity.ENGEGA_CRONOMETRE);
@@ -360,6 +368,7 @@ public class GestorArbreActivitats extends Service implements Actualitzable {
         filter.addAction(LlistaActivitatsActivity.PARA_SERVEI);
         filter.addAction(LlistaIntervalsActivity.PUJA_NIVELL);
         filter.addAction(LlistaActivitatsActivity.DONAM_NOM);
+        filter.addAction(LlistaActivitatsActivity.TASQUES_RUNNING);
         filter.addAction(NouProjecte.AFEGIR_PROJECTE);
         filter.addAction(NovaTasca.AFEGIR_TASCA);
         filter.addAction(NovaTasca.EDITAR_TASCA);
@@ -645,6 +654,22 @@ public class GestorArbreActivitats extends Service implements Actualitzable {
                 Log.d(tag, "procedim a actualitzar, sortOptionIntervals rebut:"+sortOption);
                 actualitza();
 
+            }else if (accio.equals(LlistaActivitatsActivity.STOP_ALL)) {
+                Log.d(tag, "rebut intent STOP_ALL");
+                paraCronometreDeTasques();
+                tasquesCronometrantse.clear() ;
+                actualitza();
+
+            }else if (accio.equals(LlistaActivitatsActivity.PAUSE_ALL)) {
+                Log.d(tag, "rebut intent PAUSE_ALL");
+                paraCronometreDeTasques();
+                actualitza();
+
+            }else if (accio.equals(LlistaActivitatsActivity.UNPAUSE_ALL)) {
+                Log.d(tag, "rebut intent UNPAUSE_ALL");
+                unpauseCronometreDeTasques();
+                actualitza();
+
             } else if (accio.equals(LlistaActivitatsActivity.PARA_SERVEI)) {
                 paraServei();
             } else if (accio.equals(LlistaActivitatsActivity.DONAM_NOM)) {
@@ -758,6 +783,17 @@ public class GestorArbreActivitats extends Service implements Actualitzable {
     private void paraCronometreDeTasques() {
         for (Tasca t : tasquesCronometrantse) {
             t.paraCronometre(rellotge);
+        }
+    }
+
+
+    /**
+     * Unpause el cronòmetre de totes les tasques que son pausades,
+     * al nivell que sigui de l'arbre.
+     */
+    private void unpauseCronometreDeTasques() {
+        for (Tasca t : tasquesCronometrantse) {
+            t.engegaCronometre(rellotge);
         }
     }
 

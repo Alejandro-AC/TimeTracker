@@ -51,4 +51,23 @@
         app:titleTextColor="@color/colorText"
         app:showAsAction="never" />
 
+    <item
+        android:id="@+id/boto_stop_all"
+        android:title="@string/stop_all"
+        app:titleTextColor="@color/colorText"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/boto_pause_all"
+        android:title="@string/pause_all"
+        app:titleTextColor="@color/colorText"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/boto_unpause_all"
+        android:title="@string/unpause_all"
+        app:titleTextColor="@color/colorText"
+        app:showAsAction="never" />
+
+
 </menu>
